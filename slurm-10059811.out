@@ -1,0 +1,68 @@
+The `load_in_4bit` and `load_in_8bit` arguments are deprecated and will be removed in the future versions. Please, pass a `BitsAndBytesConfig` object in `quantization_config` argument instead.
+Starting evaluation with model: codellama
+Running evaluation on both databases...
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.59s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.37s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.55s/it]
+Failed to initialize pipeline, trying manual loading: The model has been loaded with `accelerate` and therefore cannot be moved to a specific device. Please discard the `device` argument when creating your pipeline object.
+`torch_dtype` is deprecated! Use `dtype` instead!
+The `load_in_4bit` and `load_in_8bit` arguments are deprecated and will be removed in the future versions. Please, pass a `BitsAndBytesConfig` object in `quantization_config` argument instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.56s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.05it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.05s/it]
+Could not create manual pipeline for CodeLlama: The model has been loaded with `accelerate` and therefore cannot be moved to a specific device. Please discard the `device` argument when creating your pipeline object.
+The `load_in_4bit` and `load_in_8bit` arguments are deprecated and will be removed in the future versions. Please, pass a `BitsAndBytesConfig` object in `quantization_config` argument instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.56s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.05it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.04s/it]
+Failed to initialize pipeline, trying manual loading: The model has been loaded with `accelerate` and therefore cannot be moved to a specific device. Please discard the `device` argument when creating your pipeline object.
+The `load_in_4bit` and `load_in_8bit` arguments are deprecated and will be removed in the future versions. Please, pass a `BitsAndBytesConfig` object in `quantization_config` argument instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.56s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.05it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.04s/it]
+Could not create manual pipeline for CodeLlama: The model has been loaded with `accelerate` and therefore cannot be moved to a specific device. Please discard the `device` argument when creating your pipeline object.
+2025-10-09 23:13:39,370 - job_codellama_database_1760066013 - INFO - Starting task: is_vulnerable_vuln
+2025-10-09 23:13:39,390 - job_codellama_database_1760066013 - INFO - No incomplete commits for task is_vulnerable_vuln
+2025-10-09 23:13:39,392 - job_codellama_database_1760066013 - INFO - Starting task: is_vulnerable_patch
+2025-10-09 23:13:39,415 - job_codellama_database_1760066013 - INFO - No incomplete commits for task is_vulnerable_patch
+2025-10-09 23:13:39,417 - job_codellama_database_1760066013 - INFO - Starting task: is_vulnerable_vuln_cve_cwe
+2025-10-09 23:13:39,437 - job_codellama_database_1760066013 - INFO - No incomplete commits for task is_vulnerable_vuln_cve_cwe
+2025-10-09 23:13:39,439 - job_codellama_database_1760066013 - INFO - Starting task: is_vulnerable_patch_cve_cwe
+2025-10-09 23:13:39,460 - job_codellama_database_1760066013 - INFO - No incomplete commits for task is_vulnerable_patch_cve_cwe
+2025-10-09 23:13:39,461 - job_codellama_database_1760066013 - INFO - Starting task: suggest_fix
+2025-10-09 23:13:39,543 - job_codellama_database_1760066013 - INFO - No incomplete commits for task suggest_fix
+2025-10-09 23:13:39,544 - job_codellama_database_1760066013 - INFO - Starting task: suggest_fix_fewshot
+No pipeline available for CodeLlama: codellama
+No pipeline available for CodeLlama: codellama
+No pipeline available for CodeLlama: codellama
+2025-10-09 23:13:39,674 - job_codellama_database_1760066013 - INFO - Completed task: suggest_fix_fewshot
+2025-10-09 23:13:39,676 - job_codellama_database_1760066013 - INFO - Starting task: rank_cwe
+2025-10-09 23:13:39,724 - job_codellama_database_1760066013 - INFO - No incomplete commits for task rank_cwe
+2025-10-09 23:13:39,726 - job_codellama_database_1760066013 - INFO - Job completed successfully
+The `load_in_4bit` and `load_in_8bit` arguments are deprecated and will be removed in the future versions. Please, pass a `BitsAndBytesConfig` object in `quantization_config` argument instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.55s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.05it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.04s/it]
+Failed to initialize pipeline, trying manual loading: The model has been loaded with `accelerate` and therefore cannot be moved to a specific device. Please discard the `device` argument when creating your pipeline object.
+The `load_in_4bit` and `load_in_8bit` arguments are deprecated and will be removed in the future versions. Please, pass a `BitsAndBytesConfig` object in `quantization_config` argument instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.56s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.05it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.04s/it]
+Could not create manual pipeline for CodeLlama: The model has been loaded with `accelerate` and therefore cannot be moved to a specific device. Please discard the `device` argument when creating your pipeline object.
+The `load_in_4bit` and `load_in_8bit` arguments are deprecated and will be removed in the future versions. Please, pass a `BitsAndBytesConfig` object in `quantization_config` argument instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.56s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.05it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.04s/it]
+Failed to initialize pipeline, trying manual loading: The model has been loaded with `accelerate` and therefore cannot be moved to a specific device. Please discard the `device` argument when creating your pipeline object.
+The `load_in_4bit` and `load_in_8bit` arguments are deprecated and will be removed in the future versions. Please, pass a `BitsAndBytesConfig` object in `quantization_config` argument instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.56s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.05it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.04s/it]
+Could not create manual pipeline for CodeLlama: The model has been loaded with `accelerate` and therefore cannot be moved to a specific device. Please discard the `device` argument when creating your pipeline object.
+2025-10-09 23:13:50,508 - job_codellama_database_leakagefree_1760066024 - INFO - Starting task: is_vulnerable_vuln
+2025-10-09 23:13:50,523 - job_codellama_database_leakagefree_1760066024 - INFO - No incomplete commits for task is_vulnerable_vuln
+2025-10-09 23:13:50,525 - job_codellama_database_leakagefree_1760066024 - INFO - Starting task: is_vulnerable_patch
+2025-10-09 23:13:50,539 - job_codellama_database_leakagefree_1760066024 - INFO - No incomplete commits for task is_vulnerable_patch
+2025-10-09 23:13:50,541 - job_codellama_database_leakagefree_1760066024 - INFO - Starting task: is_vulnerable_vuln_cve_cwe
+2025-10-09 23:13:50,553 - job_codellama_database_leakagefree_1760066024 - INFO - No incomplete commits for task is_vulnerable_vuln_cve_cwe
+2025-10-09 23:13:50,554 - job_codellama_database_leakagefree_1760066024 - INFO - Starting task: is_vulnerable_patch_cve_cwe
+2025-10-09 23:13:50,565 - job_codellama_database_leakagefree_1760066024 - INFO - No incomplete commits for task is_vulnerable_patch_cve_cwe
+2025-10-09 23:13:50,567 - job_codellama_database_leakagefree_1760066024 - INFO - Starting task: suggest_fix
+2025-10-09 23:13:50,594 - job_codellama_database_leakagefree_1760066024 - INFO - No incomplete commits for task suggest_fix
+2025-10-09 23:13:50,595 - job_codellama_database_leakagefree_1760066024 - INFO - Starting task: suggest_fix_fewshot
+No pipeline available for CodeLlama: codellama
+No pipeline available for CodeLlama: codellama
+No pipeline available for CodeLlama: codellama
+No pipeline available for CodeLlama: codellama
+2025-10-09 23:13:50,638 - job_codellama_database_leakagefree_1760066024 - INFO - Completed task: suggest_fix_fewshot
+2025-10-09 23:13:50,639 - job_codellama_database_leakagefree_1760066024 - INFO - Starting task: rank_cwe
+No pipeline available for CodeLlama: codellama
+2025-10-09 23:13:50,661 - job_codellama_database_leakagefree_1760066024 - INFO - Completed task: rank_cwe
+2025-10-09 23:13:50,663 - job_codellama_database_leakagefree_1760066024 - INFO - Job completed successfully
+Evaluation completed on both databases:
+  database.sqlite: Job codellama_database_1760066013 - Status: completed
+  database_leakagefree.sqlite: Job codellama_database_leakagefree_1760066024 - Status: completed

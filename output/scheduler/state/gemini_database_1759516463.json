@@ -1,0 +1,18 @@
+{
+  "job_id": "gemini_database_1759516463",
+  "model_name": "gemini",
+  "database_name": "database",
+  "current_task": null,
+  "current_commit_hash": null,
+  "completed_tasks": [],
+  "completed_commits": {
+    "rank_cwe": []
+  },
+  "start_time": "2025-10-03T14:34:23.121489",
+  "last_update": "2025-10-03T14:35:13.962858",
+  "status": "failed",
+  "error_message": "Failed to acquire database lock after 10 attempts",
+  "progress": {
+    "rank_cwe": 0
+  }
+}

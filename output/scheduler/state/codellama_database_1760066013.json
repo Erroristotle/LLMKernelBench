@@ -1,0 +1,42 @@
+{
+  "job_id": "codellama_database_1760066013",
+  "model_name": "codellama",
+  "database_name": "database",
+  "current_task": null,
+  "current_commit_hash": null,
+  "completed_tasks": [
+    "is_vulnerable_vuln",
+    "is_vulnerable_patch",
+    "is_vulnerable_vuln_cve_cwe",
+    "is_vulnerable_patch_cve_cwe",
+    "suggest_fix",
+    "suggest_fix_fewshot",
+    "rank_cwe"
+  ],
+  "completed_commits": {
+    "is_vulnerable_vuln": [],
+    "is_vulnerable_patch": [],
+    "is_vulnerable_vuln_cve_cwe": [],
+    "is_vulnerable_patch_cve_cwe": [],
+    "suggest_fix": [],
+    "suggest_fix_fewshot": [
+      "72bb8f8cc088730c4d84117a6906f458c2fc64bb",
+      "9c6d778800b921bde3bff3cff5003d1650f942d1",
+      "8b8addf891de8a00e4d39fc32f93f7c5eb8feceb"
+    ],
+    "rank_cwe": []
+  },
+  "start_time": "2025-10-09T23:13:33.836832",
+  "last_update": "2025-10-09T23:13:39.726044",
+  "status": "completed",
+  "error_message": null,
+  "progress": {
+    "is_vulnerable_vuln": 100,
+    "is_vulnerable_patch": 100,
+    "is_vulnerable_vuln_cve_cwe": 100,
+    "is_vulnerable_patch_cve_cwe": 100,
+    "suggest_fix": 100,
+    "suggest_fix_fewshot": 100,
+    "rank_cwe": 100
+  }
+}

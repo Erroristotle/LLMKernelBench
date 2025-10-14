@@ -1,0 +1,22 @@
+{
+  "job_id": "starcoder_database_leakagefree_1759511129",
+  "model_name": "starcoder",
+  "database_name": "database_leakagefree",
+  "current_task": null,
+  "current_commit_hash": null,
+  "completed_tasks": [
+    "rank_cwe"
+  ],
+  "completed_commits": {
+    "rank_cwe": [
+      "efdde3d73ab25cef4ff2d06783b0aad8b093c0e4"
+    ]
+  },
+  "start_time": "2025-10-03T13:05:29.516782",
+  "last_update": "2025-10-03T13:05:36.689840",
+  "status": "completed",
+  "error_message": null,
+  "progress": {
+    "rank_cwe": 100
+  }
+}

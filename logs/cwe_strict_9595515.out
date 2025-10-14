@@ -1,0 +1,291 @@
+🧹 STRICT CWE RANKING RERUN
+==========================================
+Job ID: 9595515
+Node: str-gpu26
+Objective: Clean JSON format for all CWE rankings
+Strategy: One database at a time to prevent conflicts
+Models: gemini, deepseek, qwen, llama, starcoder, mistral, gemma
+Python version: Python 3.9.21
+Current directory: /users/azibaeir/Research/VulnLLMEval-SANER
+==========================================
+
+🔧 Testing Python environment...
+Python path: /users/azibaeir/miniconda/envs/llmserver/bin/python
+✅ sqlite3 imported
+✅ json imported
+✅ pathlib imported
+
+📋 STEP 1: Cleaning malformed CWE data
+----------------------------------------
+🧹 CLEANING MALFORMED CWE DATA
+============================================================
+📝 gemini/database: Adding LLM_Ranked_CWE column
+❌ gemini/database: Error - no such table: vulnerabilities
+📝 gemini/database_leakagefree: Adding LLM_Ranked_CWE column
+❌ gemini/database_leakagefree: Error - no such table: vulnerabilities
+⚠️  deepseek/database: Database not found
+⚠️  deepseek/database_leakagefree: Database not found
+⚠️  qwen/database: Database not found
+⚠️  qwen/database_leakagefree: Database not found
+⚠️  llama/database: Database not found
+⚠️  llama/database_leakagefree: Database not found
+⚠️  starcoder/database: Database not found
+⚠️  starcoder/database_leakagefree: Database not found
+⚠️  mistral/database: Database not found
+⚠️  mistral/database_leakagefree: Database not found
+⚠️  gemma/database: Database not found
+⚠️  gemma/database_leakagefree: Database not found
+
+📊 SUMMARY:
+   Databases processed: 2
+   Total CWE entries cleared: 0
+   Ready for clean rerun with strict formatting
+✅ Data cleaning completed
+
+📋 STEP 2: Checking database status
+----------------------------------------
+🔍 CWE RANKING COMPLETION STATUS
+======================================================================
+Model        Regular DB      Leakage-Free DB
+---------------------------------------------
+gemini       ❌ Error: no such table: vulnerabilities ❌ Error: no such table: vulnerabilities
+deepseek     ❌ DB Missing    ❌ DB Missing   
+qwen         ❌ DB Missing    ❌ DB Missing   
+llama        ❌ DB Missing    ❌ DB Missing   
+starcoder    ❌ DB Missing    ❌ DB Missing   
+mistral      ❌ DB Missing    ❌ DB Missing   
+gemma        ❌ DB Missing    ❌ DB Missing   
+
+======================================================================
+📊 SUMMARY
+======================================================================
+Total model/database combinations: 14
+Found databases: 2
+Will run CWE ranking on: 14 combinations
+Missing databases: 12
+
+🔄 COMBINATIONS TO PROCESS:
+   • gemini/database: 0/0 (0.0%)
+   • gemini/database_leakagefree: 0/0 (0.0%)
+   • deepseek/database: 0/0 (0.0%)
+   • deepseek/database_leakagefree: 0/0 (0.0%)
+   • qwen/database: 0/0 (0.0%)
+   • qwen/database_leakagefree: 0/0 (0.0%)
+   • llama/database: 0/0 (0.0%)
+   • llama/database_leakagefree: 0/0 (0.0%)
+   • starcoder/database: 0/0 (0.0%)
+   • starcoder/database_leakagefree: 0/0 (0.0%)
+   • mistral/database: 0/0 (0.0%)
+   • mistral/database_leakagefree: 0/0 (0.0%)
+   • gemma/database: 0/0 (0.0%)
+   • gemma/database_leakagefree: 0/0 (0.0%)
+
+📋 COMMANDS TO RUN CWE RANKING:
+# Run all CWE rankings (including re-runs):
+sbatch --partition=GPU --nodelist=str-gpu31 --gres=gpu:2 --time=48:00:00 --mem=100G run_cwe_ranking.sh
+
+# Or run individual commands:
+python main.py evaluate gemini --database database --tasks rank_cwe
+python main.py evaluate gemini --database database_leakagefree --tasks rank_cwe
+python main.py evaluate deepseek --database database --tasks rank_cwe
+python main.py evaluate deepseek --database database_leakagefree --tasks rank_cwe
+python main.py evaluate qwen --database database --tasks rank_cwe
+python main.py evaluate qwen --database database_leakagefree --tasks rank_cwe
+python main.py evaluate llama --database database --tasks rank_cwe
+python main.py evaluate llama --database database_leakagefree --tasks rank_cwe
+python main.py evaluate starcoder --database database --tasks rank_cwe
+python main.py evaluate starcoder --database database_leakagefree --tasks rank_cwe
+python main.py evaluate mistral --database database --tasks rank_cwe
+python main.py evaluate mistral --database database_leakagefree --tasks rank_cwe
+python main.py evaluate gemma --database database --tasks rank_cwe
+python main.py evaluate gemma --database database_leakagefree --tasks rank_cwe
+✅ Status check completed
+
+📋 STEP 3: Running strict CWE ranking (one database at a time)
+-------------------------------------------------------------
+
+🚀 Processing [1/14]: gemini on database
+Fri Oct  3 02:37:45 PM EDT 2025: Starting strict CWE ranking...
+🔧 Ensuring no database conflicts...
+📝 Command: python main.py evaluate gemini --database database --tasks rank_cwe
+/users/azibaeir/Research/VulnLLMEval-SANER/evaluation/advanced_evaluator.py:13: LangChainDeprecationWarning: As of langchain-core 0.3.0, LangChain uses pydantic v2 internally. The langchain_core.pydantic_v1 module was a compatibility shim for pydantic v1, and should no longer be used. Please update the code to import from Pydantic directly.
+
+For example, replace imports like: `from langchain_core.pydantic_v1 import BaseModel`
+with: `from pydantic import BaseModel`
+or the v1 compatibility namespace if you are working in a code base that has not been fully upgraded to pydantic 2 yet. 	from pydantic.v1 import BaseModel
+
+  from models.llm_manager import LLMManager
+Could not set database optimizations: database is locked
+Could not set database optimizations: database is locked
+Starting evaluation with model: gemini
+Running evaluation on database.sqlite...
+2025-10-03 14:38:50,058 - job_gemini_database_1759516679 - ERROR - Job failed with error: Failed to acquire database lock after 10 attempts
+2025-10-03 14:38:50,060 - job_gemini_database_1759516679 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 34, in _acquire_lock
+    fcntl.flock(self.lock_fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+BlockingIOError: [Errno 11] Resource temporarily unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 60, in connect
+    self._acquire_lock()
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 40, in _acquire_lock
+    raise Exception(f"Could not acquire database lock: {e}")
+Exception: Could not acquire database lock: [Errno 11] Resource temporarily unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 297, in run_job
+    evaluator = evaluator_class(**evaluator_kwargs)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 371, in __init__
+    self.create_columns()
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 407, in create_columns
+    if not self.db.table_exists("vulnerabilities"):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 220, in table_exists
+    result = self.fetch_one(query)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 170, in fetch_one
+    self.execute(query, params)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 111, in execute
+    self.connect()
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 68, in connect
+    raise Exception(f"Failed to acquire database lock after {max_lock_attempts} attempts")
+Exception: Failed to acquire database lock after 10 attempts
+
+Job created: gemini_database_1759516679
+Status: failed
+✅ gemini/database: CWE ranking completed successfully in 60s
+🔍 Validating output format...
+⚠️  Validation check failed: no such table: vulnerabilities
+🧹 Cleaning up after database processing...
+
+🚀 Processing [2/14]: gemini on database_leakagefree
+Fri Oct  3 02:38:58 PM EDT 2025: Starting strict CWE ranking...
+🔧 Ensuring no database conflicts...
+📝 Command: python main.py evaluate gemini --database database_leakagefree --tasks rank_cwe
+/users/azibaeir/Research/VulnLLMEval-SANER/evaluation/advanced_evaluator.py:13: LangChainDeprecationWarning: As of langchain-core 0.3.0, LangChain uses pydantic v2 internally. The langchain_core.pydantic_v1 module was a compatibility shim for pydantic v1, and should no longer be used. Please update the code to import from Pydantic directly.
+
+For example, replace imports like: `from langchain_core.pydantic_v1 import BaseModel`
+with: `from pydantic import BaseModel`
+or the v1 compatibility namespace if you are working in a code base that has not been fully upgraded to pydantic 2 yet. 	from pydantic.v1 import BaseModel
+
+  from models.llm_manager import LLMManager
+Starting evaluation with model: gemini
+Running evaluation on database_leakagefree.sqlite...
+2025-10-03 14:40:02,250 - job_gemini_database_leakagefree_1759516751 - ERROR - Job failed with error: Failed to acquire database lock after 10 attempts
+2025-10-03 14:40:02,252 - job_gemini_database_leakagefree_1759516751 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 34, in _acquire_lock
+    fcntl.flock(self.lock_fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+BlockingIOError: [Errno 11] Resource temporarily unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 60, in connect
+    try:
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 40, in _acquire_lock
+    raise Exception(f"Could not acquire database lock: {e}")
+Exception: Could not acquire database lock: [Errno 11] Resource temporarily unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 297, in run_job
+    evaluator = evaluator_class(**evaluator_kwargs)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 371, in __init__
+    self.create_columns()
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 407, in create_columns
+    if not self.db.table_exists("vulnerabilities"):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 220, in table_exists
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 170, in fetch_one
+    Args:
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 111, in execute
+    try:
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 68, in connect
+Exception: Failed to acquire database lock after 10 attempts
+
+Job created: gemini_database_leakagefree_1759516751
+Status: failed
+✅ gemini/database_leakagefree: CWE ranking completed successfully in 59s
+🔍 Validating output format...
+⚠️  Validation check failed: no such table: vulnerabilities
+🧹 Cleaning up after database processing...
+
+🚀 Processing [3/14]: deepseek on database
+Fri Oct  3 02:40:10 PM EDT 2025: Starting strict CWE ranking...
+⚠️  Database not found: data/deepseek_database.sqlite, skipping
+
+🚀 Processing [4/14]: deepseek on database_leakagefree
+Fri Oct  3 02:40:10 PM EDT 2025: Starting strict CWE ranking...
+⚠️  Database not found: data/deepseek_database_leakagefree.sqlite, skipping
+
+🚀 Processing [5/14]: qwen on database
+Fri Oct  3 02:40:10 PM EDT 2025: Starting strict CWE ranking...
+⚠️  Database not found: data/qwen_database.sqlite, skipping
+
+🚀 Processing [6/14]: qwen on database_leakagefree
+Fri Oct  3 02:40:10 PM EDT 2025: Starting strict CWE ranking...
+⚠️  Database not found: data/qwen_database_leakagefree.sqlite, skipping
+
+🚀 Processing [7/14]: llama on database
+Fri Oct  3 02:40:10 PM EDT 2025: Starting strict CWE ranking...
+⚠️  Database not found: data/llama_database.sqlite, skipping
+
+🚀 Processing [8/14]: llama on database_leakagefree
+Fri Oct  3 02:40:10 PM EDT 2025: Starting strict CWE ranking...
+⚠️  Database not found: data/llama_database_leakagefree.sqlite, skipping
+
+🚀 Processing [9/14]: starcoder on database
+Fri Oct  3 02:40:10 PM EDT 2025: Starting strict CWE ranking...
+⚠️  Database not found: data/starcoder_database.sqlite, skipping
+
+🚀 Processing [10/14]: starcoder on database_leakagefree
+Fri Oct  3 02:40:10 PM EDT 2025: Starting strict CWE ranking...
+⚠️  Database not found: data/starcoder_database_leakagefree.sqlite, skipping
+
+🚀 Processing [11/14]: mistral on database
+Fri Oct  3 02:40:10 PM EDT 2025: Starting strict CWE ranking...
+⚠️  Database not found: data/mistral_database.sqlite, skipping
+
+🚀 Processing [12/14]: mistral on database_leakagefree
+Fri Oct  3 02:40:10 PM EDT 2025: Starting strict CWE ranking...
+⚠️  Database not found: data/mistral_database_leakagefree.sqlite, skipping
+
+🚀 Processing [13/14]: gemma on database
+Fri Oct  3 02:40:10 PM EDT 2025: Starting strict CWE ranking...
+⚠️  Database not found: data/gemma_database.sqlite, skipping
+
+🚀 Processing [14/14]: gemma on database_leakagefree
+Fri Oct  3 02:40:10 PM EDT 2025: Starting strict CWE ranking...
+⚠️  Database not found: data/gemma_database_leakagefree.sqlite, skipping
+
+📋 STEP 4: Final validation
+----------------------------------------
+
+🔍 VALIDATING CWE FORMAT
+============================================================
+❌ gemini/database: Validation error - no such table: vulnerabilities
+❌ gemini/database_leakagefree: Validation error - no such table: vulnerabilities
+
+📊 VALIDATION SUMMARY:
+   Valid CWE entries: 0
+   Invalid CWE entries: 0
+   Format compliance: 0.0%
+
+🎯 FINAL SUMMARY
+==========================================
+Total model/database combinations: 14
+Successful: 2
+Failed: 0
+
+🎉 ALL CWE RANKINGS COMPLETED WITH STRICT FORMAT!
+✅ All entries should now be in format: ["CWE-XXX", "CWE-YYY", ...]
+
+📊 Check final results with:
+   python clean_cwe_data.py --validate
+   python check_cwe_status.py
+
+==========================================
+Strict CWE rerun completed: Fri Oct  3 02:40:10 PM EDT 2025
+==========================================

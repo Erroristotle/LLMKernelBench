@@ -1,0 +1,65 @@
+=== CLEANUP: Killing existing Python processes ===
+===============================================
+Starting VulnLLMEval Comprehensive Evaluation
+===============================================
+Job ID: 9459853
+Node: str-gpu26
+Models: all
+Additional args: 
+Python path: /users/azibaeir/miniconda/envs/llmserver/bin/python
+Project directory: /users/azibaeir/Research/VulnLLMEval-SANER
+===============================================
+GPU Information:
+Wed Oct  1 18:37:54 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.158.01             Driver Version: 570.158.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H100 80GB HBM3          On  |   00000000:4E:00.0 Off |                    0 |
+| N/A   47C    P0             79W /  700W |       0MiB /  81559MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA H100 80GB HBM3          On  |   00000000:5F:00.0 Off |                    0 |
+| N/A   46C    P0             72W /  700W |       0MiB /  81559MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+===============================================
+Models to evaluate: gemini deepseek qwen gpt starcoder codebert vulberta unixcoder codebert-multi graphcodebert
+===============================================
+
+===============================================
+Wed Oct  1 06:37:54 PM EDT 2025: Starting evaluation for gemini
+===============================================
+
+### Starting evaluation for model: gemini ###
+Wed Oct  1 06:37:54 PM EDT 2025: Processing gemini on both databases...
+Running: python main.py evaluate gemini --both-databases
+Starting evaluation with model: gemini
+Running evaluation on both databases...
+2025-10-01 18:38:03,792 - job_gemini_database_1759358283 - INFO - Starting task: is_vulnerable_vuln
+2025-10-01 18:56:05,206 - job_gemini_database_1759358283 - INFO - Task is_vulnerable_vuln: 10/314 commits processed
+2025-10-01 19:16:05,197 - job_gemini_database_1759358283 - INFO - Task is_vulnerable_vuln: 20/314 commits processed
+2025-10-01 19:34:05,196 - job_gemini_database_1759358283 - INFO - Task is_vulnerable_vuln: 30/314 commits processed
+2025-10-01 19:54:05,199 - job_gemini_database_1759358283 - INFO - Task is_vulnerable_vuln: 40/314 commits processed
+2025-10-01 20:14:05,177 - job_gemini_database_1759358283 - INFO - Task is_vulnerable_vuln: 50/314 commits processed
+2025-10-01 20:34:05,180 - job_gemini_database_1759358283 - INFO - Task is_vulnerable_vuln: 60/314 commits processed
+2025-10-01 20:54:05,208 - job_gemini_database_1759358283 - INFO - Task is_vulnerable_vuln: 70/314 commits processed
+2025-10-01 21:14:05,213 - job_gemini_database_1759358283 - INFO - Task is_vulnerable_vuln: 80/314 commits processed
+2025-10-01 21:34:05,201 - job_gemini_database_1759358283 - INFO - Task is_vulnerable_vuln: 90/314 commits processed
+2025-10-01 21:54:05,194 - job_gemini_database_1759358283 - INFO - Task is_vulnerable_vuln: 100/314 commits processed
+2025-10-01 22:14:05,208 - job_gemini_database_1759358283 - INFO - Task is_vulnerable_vuln: 110/314 commits processed
+2025-10-01 22:34:05,185 - job_gemini_database_1759358283 - INFO - Task is_vulnerable_vuln: 120/314 commits processed
+2025-10-01 22:54:05,199 - job_gemini_database_1759358283 - INFO - Task is_vulnerable_vuln: 130/314 commits processed
+2025-10-01 23:14:36,326 - job_gemini_database_1759358283 - INFO - Task is_vulnerable_vuln: 140/314 commits processed
+2025-10-01 23:34:05,383 - job_gemini_database_1759358283 - INFO - Task is_vulnerable_vuln: 150/314 commits processed

@@ -1,0 +1,244 @@
+🚀 MAXIMUM CAPACITY CWE RANKING
+===============================
+Job ID: 9596648
+Node: str-gpu26
+Strategy: One database at a time with maximum resources
+Memory: 120G, CPUs: 8, GPU optimization enabled
+===============================
+
+🧹 Step 1: Cleaning output databases
+------------------------------------
+🧹 CLEANING OUTPUT DATABASES
+==================================================
+
+📁 Processing: database_deepseek_database.sqlite
+   ✅ Cleared 0 CWE rankings (314 total records)
+
+📁 Processing: database_deepseek_database_leakagefree.sqlite
+   ✅ Cleared 0 CWE rankings (103 total records)
+
+📁 Processing: database_starcoder_database.sqlite
+   ✅ Cleared 0 CWE rankings (314 total records)
+
+📁 Processing: database_starcoder_database_leakagefree.sqlite
+   ✅ Cleared 0 CWE rankings (103 total records)
+
+📁 Processing: database_llama_database.sqlite
+   ✅ Cleared 0 CWE rankings (314 total records)
+
+📁 Processing: database_qwen2.5_database.sqlite
+   ✅ Cleared 0 CWE rankings (314 total records)
+
+📁 Processing: database_qwen2.5_database_leakagefree.sqlite
+   ✅ Cleared 0 CWE rankings (103 total records)
+
+📁 Processing: database_mistral_database.sqlite
+   ✅ Cleared 0 CWE rankings (314 total records)
+
+📁 Processing: database_qwen_database.sqlite
+   ✅ Cleared 0 CWE rankings (314 total records)
+
+📁 Processing: database_qwen_database_leakagefree.sqlite
+   ✅ Cleared 0 CWE rankings (103 total records)
+
+📁 Processing: database_gemma_database.sqlite
+   ✅ Cleared 0 CWE rankings (314 total records)
+
+📁 Processing: database_gemma_database_leakagefree.sqlite
+   ✅ Cleared 0 CWE rankings (103 total records)
+
+📁 Processing: database_mistral_database_leakagefree.sqlite
+   ✅ Cleared 0 CWE rankings (103 total records)
+
+📁 Processing: database_llama_database_leakagefree.sqlite
+   ✅ Cleared 0 CWE rankings (103 total records)
+
+📁 Processing: database_gemini_database.sqlite
+   ⚠️  No vulnerabilities table found, skipping
+
+📁 Processing: database_gemini_database_leakagefree.sqlite
+   ❌ Error: database is locked
+
+📊 CLEANUP SUMMARY:
+   Databases processed: 14
+   Total CWE entries cleared: 0
+   Ready for clean rerun
+✅ Output databases cleaned successfully
+
+🧹 Step 2: Cleaning main data directory
+---------------------------------------
+🧹 CLEANING MALFORMED CWE DATA
+============================================================
+📝 gemini/database: Adding LLM_Ranked_CWE column
+❌ gemini/database: Error - no such table: vulnerabilities
+📝 gemini/database_leakagefree: Adding LLM_Ranked_CWE column
+❌ gemini/database_leakagefree: Error - no such table: vulnerabilities
+⚠️  deepseek/database: Database not found
+⚠️  deepseek/database_leakagefree: Database not found
+⚠️  qwen/database: Database not found
+⚠️  qwen/database_leakagefree: Database not found
+⚠️  llama/database: Database not found
+⚠️  llama/database_leakagefree: Database not found
+⚠️  starcoder/database: Database not found
+⚠️  starcoder/database_leakagefree: Database not found
+⚠️  mistral/database: Database not found
+⚠️  mistral/database_leakagefree: Database not found
+⚠️  gemma/database: Database not found
+⚠️  gemma/database_leakagefree: Database not found
+
+📊 SUMMARY:
+   Databases processed: 2
+   Total CWE entries cleared: 0
+   Ready for clean rerun with strict formatting
+✅ Main databases cleaned successfully
+
+🔍 Step 3: Discovering databases
+--------------------------------
+Found 20 database files:
+  📁 data/database_leakagefree.sqlite (744K)
+  📁 data/database.sqlite (5.1M)
+  📁 data/gemini_database_leakagefree.sqlite (0)
+  📁 data/gemini_database.sqlite (0)
+  📁 output/database_deepseek_database_leakagefree.sqlite (1.4M)
+  📁 output/database_deepseek_database.sqlite (5.1M)
+  📁 output/database_gemini_database_leakagefree.sqlite (744K)
+  📁 output/database_gemini_database.sqlite (0)
+  📁 output/database_gemma_database_leakagefree.sqlite (744K)
+  📁 output/database_gemma_database.sqlite (5.1M)
+  📁 output/database_llama_database_leakagefree.sqlite (1.3M)
+  📁 output/database_llama_database.sqlite (5.1M)
+  📁 output/database_mistral_database_leakagefree.sqlite (1.1M)
+  📁 output/database_mistral_database.sqlite (5.1M)
+  📁 output/database_qwen2.5_database_leakagefree.sqlite (744K)
+  📁 output/database_qwen2.5_database.sqlite (5.1M)
+  📁 output/database_qwen_database_leakagefree.sqlite (744K)
+  📁 output/database_qwen_database.sqlite (5.1M)
+  📁 output/database_starcoder_database_leakagefree.sqlite (1.2M)
+  📁 output/database_starcoder_database.sqlite (5.1M)
+
+🎯 Processing [1/20]: database_leakagefree.sqlite
+==============================================
+Fri Oct  3 02:50:38 PM EDT 2025: Starting maximum capacity CWE ranking
+Database: data/database_leakagefree.sqlite
+⚠️  Cannot parse model/database from filename: database_leakagefree
+Detected - Model: unknown, Database: database
+🔧 Clearing all GPU memory...
+GPU devices: 1
+Cleared GPU 0
+✅ Memory cleanup completed
+📝 Running: python main.py evaluate unknown --database database --tasks rank_cwe
+Max resources: 120G RAM, 8 CPUs, optimized GPU settings
+/users/azibaeir/Research/VulnLLMEval-SANER/evaluation/advanced_evaluator.py:13: LangChainDeprecationWarning: As of langchain-core 0.3.0, LangChain uses pydantic v2 internally. The langchain_core.pydantic_v1 module was a compatibility shim for pydantic v1, and should no longer be used. Please update the code to import from Pydantic directly.
+
+For example, replace imports like: `from langchain_core.pydantic_v1 import BaseModel`
+with: `from pydantic import BaseModel`
+or the v1 compatibility namespace if you are working in a code base that has not been fully upgraded to pydantic 2 yet. 	from pydantic.v1 import BaseModel
+
+  from models.llm_manager import LLMManager
+Error: Model 'unknown' not found.
+Available models: gemini, deepseek, qwen, llama, starcoder, mistral, gemma
+❌ unknown/database: Failed after 7200s timeout
+🧹 Aggressive cleanup for next database...
+✅ Aggressive cleanup completed
+
+🎯 Processing [2/20]: database.sqlite
+==============================================
+Fri Oct  3 02:51:00 PM EDT 2025: Starting maximum capacity CWE ranking
+Database: data/database.sqlite
+⚠️  Cannot parse model/database from filename: database
+Detected - Model: unknown, Database: database
+🔧 Clearing all GPU memory...
+GPU devices: 1
+Cleared GPU 0
+✅ Memory cleanup completed
+📝 Running: python main.py evaluate unknown --database database --tasks rank_cwe
+Max resources: 120G RAM, 8 CPUs, optimized GPU settings
+/users/azibaeir/Research/VulnLLMEval-SANER/evaluation/advanced_evaluator.py:13: LangChainDeprecationWarning: As of langchain-core 0.3.0, LangChain uses pydantic v2 internally. The langchain_core.pydantic_v1 module was a compatibility shim for pydantic v1, and should no longer be used. Please update the code to import from Pydantic directly.
+
+For example, replace imports like: `from langchain_core.pydantic_v1 import BaseModel`
+with: `from pydantic import BaseModel`
+or the v1 compatibility namespace if you are working in a code base that has not been fully upgraded to pydantic 2 yet. 	from pydantic.v1 import BaseModel
+
+  from models.llm_manager import LLMManager
+Error: Model 'unknown' not found.
+Available models: gemini, deepseek, qwen, llama, starcoder, mistral, gemma
+❌ unknown/database: Failed after 7200s timeout
+🧹 Aggressive cleanup for next database...
+✅ Aggressive cleanup completed
+
+🎯 Processing [3/20]: gemini_database_leakagefree.sqlite
+==============================================
+Fri Oct  3 02:51:21 PM EDT 2025: Starting maximum capacity CWE ranking
+Database: data/gemini_database_leakagefree.sqlite
+Detected - Model: gemini, Database: database_leakagefree
+🔧 Clearing all GPU memory...
+GPU devices: 1
+Cleared GPU 0
+✅ Memory cleanup completed
+📝 Running: python main.py evaluate gemini --database database_leakagefree --tasks rank_cwe
+Max resources: 120G RAM, 8 CPUs, optimized GPU settings
+/users/azibaeir/Research/VulnLLMEval-SANER/evaluation/advanced_evaluator.py:13: LangChainDeprecationWarning: As of langchain-core 0.3.0, LangChain uses pydantic v2 internally. The langchain_core.pydantic_v1 module was a compatibility shim for pydantic v1, and should no longer be used. Please update the code to import from Pydantic directly.
+
+For example, replace imports like: `from langchain_core.pydantic_v1 import BaseModel`
+with: `from pydantic import BaseModel`
+or the v1 compatibility namespace if you are working in a code base that has not been fully upgraded to pydantic 2 yet. 	from pydantic.v1 import BaseModel
+
+  from models.llm_manager import LLMManager
+Starting evaluation with model: gemini
+Running evaluation on database_leakagefree.sqlite...
+2025-10-03 14:51:34,342 - job_gemini_database_leakagefree_1759517494 - INFO - Starting task: rank_cwe
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1759517494.370265 3907956 alts_credentials.cc:93] ALTS creds ignored. Not running on GCP and untrusted ALTS is not enabled.
+Database locked (attempt 1/5), retrying in 0.1s...
+2025-10-03 14:55:44,386 - job_gemini_database_leakagefree_1759517494 - INFO - Task rank_cwe: 10/103 commits processed
+Database locked (attempt 1/5), retrying in 0.1s...
+Database locked (attempt 1/5), retrying in 0.1s...
+Quota exceeded, suggested retry delay: 57.936498929s
+Error querying model (attempt 1/3): 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15
+Please retry in 57.936498929s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 57
+}
+]
+2025-10-03 15:02:12,238 - job_gemini_database_leakagefree_1759517494 - INFO - Task rank_cwe: 20/103 commits processed
+Quota exceeded, suggested retry delay: 58.965246491s
+Error querying model (attempt 1/3): 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15
+Please retry in 58.965246491s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 58
+}
+]

@@ -1,0 +1,18 @@
+{
+  "job_id": "gemini_database_1759515432",
+  "model_name": "gemini",
+  "database_name": "database",
+  "current_task": "rank_cwe",
+  "current_commit_hash": "18921b205012568b45760753ad3146ddb9e2d4e2",
+  "completed_tasks": [],
+  "completed_commits": {
+    "rank_cwe": []
+  },
+  "start_time": "2025-10-03T14:17:12.012377",
+  "last_update": "2025-10-03T14:25:35.719930",
+  "status": "running",
+  "error_message": null,
+  "progress": {
+    "rank_cwe": 0
+  }
+}

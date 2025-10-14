@@ -1,0 +1,1291 @@
+🧹 STRICT CWE RANKING RERUN
+==========================================
+Job ID: 9594459
+Node: str-gpu26
+Objective: Clean JSON format for all CWE rankings
+Models: gemini, deepseek, qwen, llama, starcoder, mistral, gemma
+Python version: Python 3.9.21
+Current directory: /users/azibaeir/Research/VulnLLMEval-SANER
+==========================================
+
+🔧 Testing Python environment...
+Python path: /users/azibaeir/miniconda/envs/llmserver/bin/python
+✅ sqlite3 imported
+✅ json imported
+✅ pathlib imported
+
+📋 STEP 1: Cleaning malformed CWE data
+----------------------------------------
+🧹 CLEANING MALFORMED CWE DATA
+============================================================
+⚠️  gemini/database: Database not found
+⚠️  gemini/database_leakagefree: Database not found
+⚠️  deepseek/database: Database not found
+⚠️  deepseek/database_leakagefree: Database not found
+⚠️  qwen/database: Database not found
+⚠️  qwen/database_leakagefree: Database not found
+⚠️  llama/database: Database not found
+⚠️  llama/database_leakagefree: Database not found
+⚠️  starcoder/database: Database not found
+⚠️  starcoder/database_leakagefree: Database not found
+⚠️  mistral/database: Database not found
+⚠️  mistral/database_leakagefree: Database not found
+⚠️  gemma/database: Database not found
+⚠️  gemma/database_leakagefree: Database not found
+
+📊 SUMMARY:
+   Databases processed: 0
+   Total CWE entries cleared: 0
+   Ready for clean rerun with strict formatting
+✅ Data cleaning completed
+
+📋 STEP 2: Checking database status
+----------------------------------------
+🔍 CWE RANKING COMPLETION STATUS
+======================================================================
+Model        Regular DB      Leakage-Free DB
+---------------------------------------------
+gemini       ❌ DB Missing    ❌ DB Missing   
+deepseek     ❌ DB Missing    ❌ DB Missing   
+qwen         ❌ DB Missing    ❌ DB Missing   
+llama        ❌ DB Missing    ❌ DB Missing   
+starcoder    ❌ DB Missing    ❌ DB Missing   
+mistral      ❌ DB Missing    ❌ DB Missing   
+gemma        ❌ DB Missing    ❌ DB Missing   
+
+======================================================================
+📊 SUMMARY
+======================================================================
+Total model/database combinations: 14
+Found databases: 0
+Will run CWE ranking on: 14 combinations
+Missing databases: 14
+
+🔄 COMBINATIONS TO PROCESS:
+   • gemini/database: 0/0 (0.0%)
+   • gemini/database_leakagefree: 0/0 (0.0%)
+   • deepseek/database: 0/0 (0.0%)
+   • deepseek/database_leakagefree: 0/0 (0.0%)
+   • qwen/database: 0/0 (0.0%)
+   • qwen/database_leakagefree: 0/0 (0.0%)
+   • llama/database: 0/0 (0.0%)
+   • llama/database_leakagefree: 0/0 (0.0%)
+   • starcoder/database: 0/0 (0.0%)
+   • starcoder/database_leakagefree: 0/0 (0.0%)
+   • mistral/database: 0/0 (0.0%)
+   • mistral/database_leakagefree: 0/0 (0.0%)
+   • gemma/database: 0/0 (0.0%)
+   • gemma/database_leakagefree: 0/0 (0.0%)
+
+📋 COMMANDS TO RUN CWE RANKING:
+# Run all CWE rankings (including re-runs):
+sbatch --partition=GPU --nodelist=str-gpu31 --gres=gpu:2 --time=48:00:00 --mem=100G run_cwe_ranking.sh
+
+# Or run individual commands:
+python main.py evaluate gemini --database database --tasks rank_cwe
+python main.py evaluate gemini --database database_leakagefree --tasks rank_cwe
+python main.py evaluate deepseek --database database --tasks rank_cwe
+python main.py evaluate deepseek --database database_leakagefree --tasks rank_cwe
+python main.py evaluate qwen --database database --tasks rank_cwe
+python main.py evaluate qwen --database database_leakagefree --tasks rank_cwe
+python main.py evaluate llama --database database --tasks rank_cwe
+python main.py evaluate llama --database database_leakagefree --tasks rank_cwe
+python main.py evaluate starcoder --database database --tasks rank_cwe
+python main.py evaluate starcoder --database database_leakagefree --tasks rank_cwe
+python main.py evaluate mistral --database database --tasks rank_cwe
+python main.py evaluate mistral --database database_leakagefree --tasks rank_cwe
+python main.py evaluate gemma --database database --tasks rank_cwe
+python main.py evaluate gemma --database database_leakagefree --tasks rank_cwe
+❌ Status check failed, but continuing...
+
+📋 STEP 3: Running strict CWE ranking
+----------------------------------------
+
+🚀 Processing: gemini on database [1/14]
+Fri Oct  3 02:16:39 PM EDT 2025: Starting strict CWE ranking...
+📝 Command: python main.py evaluate gemini --database database --tasks rank_cwe
+/users/azibaeir/Research/VulnLLMEval-SANER/evaluation/advanced_evaluator.py:13: LangChainDeprecationWarning: As of langchain-core 0.3.0, LangChain uses pydantic v2 internally. The langchain_core.pydantic_v1 module was a compatibility shim for pydantic v1, and should no longer be used. Please update the code to import from Pydantic directly.
+
+For example, replace imports like: `from langchain_core.pydantic_v1 import BaseModel`
+with: `from pydantic import BaseModel`
+or the v1 compatibility namespace if you are working in a code base that has not been fully upgraded to pydantic 2 yet. 	from pydantic.v1 import BaseModel
+
+  from models.llm_manager import LLMManager
+Starting evaluation with model: gemini
+Running evaluation on database.sqlite...
+2025-10-03 14:17:12,103 - job_gemini_database_1759515432 - INFO - Starting task: rank_cwe
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1759515432.262756 3826106 alts_credentials.cc:93] ALTS creds ignored. Not running on GCP and untrusted ALTS is not enabled.
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit d7a6be58edc01b1c66ecd8fcc91236bfbce0a420: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit d7a6be58edc01b1c66ecd8fcc91236bfbce0a420: database is locked
+2025-10-03 14:17:23,302 - job_gemini_database_1759515432 - ERROR - Error processing commit d7a6be58edc01b1c66ecd8fcc91236bfbce0a420 for task rank_cwe: database is locked
+2025-10-03 14:17:23,304 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 22c7fa171a02d310e3a3f6ed46a698ca8a0060ed: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 22c7fa171a02d310e3a3f6ed46a698ca8a0060ed: database is locked
+2025-10-03 14:17:34,110 - job_gemini_database_1759515432 - ERROR - Error processing commit 22c7fa171a02d310e3a3f6ed46a698ca8a0060ed for task rank_cwe: database is locked
+2025-10-03 14:17:34,111 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 281d464a34f540de166cee74b723e97ac2515ec3: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 281d464a34f540de166cee74b723e97ac2515ec3: database is locked
+2025-10-03 14:17:45,018 - job_gemini_database_1759515432 - ERROR - Error processing commit 281d464a34f540de166cee74b723e97ac2515ec3 for task rank_cwe: database is locked
+2025-10-03 14:17:45,019 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 6787d916c2cf9850c97a0a3f73e08c43e7d973b1: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 6787d916c2cf9850c97a0a3f73e08c43e7d973b1: database is locked
+2025-10-03 14:17:56,177 - job_gemini_database_1759515432 - ERROR - Error processing commit 6787d916c2cf9850c97a0a3f73e08c43e7d973b1 for task rank_cwe: database is locked
+2025-10-03 14:17:56,178 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 7a4b21250bf79eef26543d35bd390448646c536b: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 7a4b21250bf79eef26543d35bd390448646c536b: database is locked
+2025-10-03 14:18:07,057 - job_gemini_database_1759515432 - ERROR - Error processing commit 7a4b21250bf79eef26543d35bd390448646c536b for task rank_cwe: database is locked
+2025-10-03 14:18:07,057 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit a297d07b9a1e4fb8cda25a4a2363a507d294b7c9: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit a297d07b9a1e4fb8cda25a4a2363a507d294b7c9: database is locked
+2025-10-03 14:18:17,917 - job_gemini_database_1759515432 - ERROR - Error processing commit a297d07b9a1e4fb8cda25a4a2363a507d294b7c9 for task rank_cwe: database is locked
+2025-10-03 14:18:17,917 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 7c55b78818cfb732680c4a72ab270cc2d2ee3d0f: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 7c55b78818cfb732680c4a72ab270cc2d2ee3d0f: database is locked
+2025-10-03 14:18:28,933 - job_gemini_database_1759515432 - ERROR - Error processing commit 7c55b78818cfb732680c4a72ab270cc2d2ee3d0f for task rank_cwe: database is locked
+2025-10-03 14:18:28,933 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit a282a2f10539dce2aa619e71e1817570d557fc97: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit a282a2f10539dce2aa619e71e1817570d557fc97: database is locked
+2025-10-03 14:18:39,716 - job_gemini_database_1759515432 - ERROR - Error processing commit a282a2f10539dce2aa619e71e1817570d557fc97 for task rank_cwe: database is locked
+2025-10-03 14:18:39,716 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit d3b16034a24a112bb83aeb669ac5b9b01f744bb7: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit d3b16034a24a112bb83aeb669ac5b9b01f744bb7: database is locked
+2025-10-03 14:18:50,647 - job_gemini_database_1759515432 - ERROR - Error processing commit d3b16034a24a112bb83aeb669ac5b9b01f744bb7 for task rank_cwe: database is locked
+2025-10-03 14:18:50,648 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 4fbcc1a4cb20fe26ad0225679c536c80f1648221: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 4fbcc1a4cb20fe26ad0225679c536c80f1648221: database is locked
+2025-10-03 14:19:01,517 - job_gemini_database_1759515432 - ERROR - Error processing commit 4fbcc1a4cb20fe26ad0225679c536c80f1648221 for task rank_cwe: database is locked
+2025-10-03 14:19:01,517 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 6788ba8aed4e28e90f72d68a9d794e34eac17295: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 6788ba8aed4e28e90f72d68a9d794e34eac17295: database is locked
+2025-10-03 14:19:12,475 - job_gemini_database_1759515432 - ERROR - Error processing commit 6788ba8aed4e28e90f72d68a9d794e34eac17295 for task rank_cwe: database is locked
+2025-10-03 14:19:12,475 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 690b2549b19563ec5ad53e5c82f6a944d910086e: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 690b2549b19563ec5ad53e5c82f6a944d910086e: database is locked
+2025-10-03 14:19:23,414 - job_gemini_database_1759515432 - ERROR - Error processing commit 690b2549b19563ec5ad53e5c82f6a944d910086e for task rank_cwe: database is locked
+2025-10-03 14:19:23,415 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 2bfcfd584ff5ccc8bb7acde19b42570414bf880b: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 2bfcfd584ff5ccc8bb7acde19b42570414bf880b: database is locked
+2025-10-03 14:19:34,328 - job_gemini_database_1759515432 - ERROR - Error processing commit 2bfcfd584ff5ccc8bb7acde19b42570414bf880b for task rank_cwe: database is locked
+2025-10-03 14:19:34,328 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 497d370a644d95a9f04271aa92cb96d32e84c770: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 497d370a644d95a9f04271aa92cb96d32e84c770: database is locked
+2025-10-03 14:19:45,425 - job_gemini_database_1759515432 - ERROR - Error processing commit 497d370a644d95a9f04271aa92cb96d32e84c770 for task rank_cwe: database is locked
+2025-10-03 14:19:45,425 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 0ad4b4a2f6357c45fbe444ead1a929a0b4017d03: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 0ad4b4a2f6357c45fbe444ead1a929a0b4017d03: database is locked
+2025-10-03 14:19:56,409 - job_gemini_database_1759515432 - ERROR - Error processing commit 0ad4b4a2f6357c45fbe444ead1a929a0b4017d03 for task rank_cwe: database is locked
+2025-10-03 14:19:56,410 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 6dc445c1905096b2ed4db1a84570375b4e00cc0f: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 6dc445c1905096b2ed4db1a84570375b4e00cc0f: database is locked
+2025-10-03 14:20:07,425 - job_gemini_database_1759515432 - ERROR - Error processing commit 6dc445c1905096b2ed4db1a84570375b4e00cc0f for task rank_cwe: database is locked
+2025-10-03 14:20:07,425 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 7ae37db29a8bc4d3d116a409308dd98fc3a0b1b3: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 7ae37db29a8bc4d3d116a409308dd98fc3a0b1b3: database is locked
+2025-10-03 14:20:18,337 - job_gemini_database_1759515432 - ERROR - Error processing commit 7ae37db29a8bc4d3d116a409308dd98fc3a0b1b3 for task rank_cwe: database is locked
+2025-10-03 14:20:18,338 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 838c7b8f1f278404d9d684c34a8cb26dc41aaaa1: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 838c7b8f1f278404d9d684c34a8cb26dc41aaaa1: database is locked
+2025-10-03 14:20:29,312 - job_gemini_database_1759515432 - ERROR - Error processing commit 838c7b8f1f278404d9d684c34a8cb26dc41aaaa1 for task rank_cwe: database is locked
+2025-10-03 14:20:29,313 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 9368cdf90f52a68120d039887ccff74ff33b4444: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 9368cdf90f52a68120d039887ccff74ff33b4444: database is locked
+2025-10-03 14:20:40,189 - job_gemini_database_1759515432 - ERROR - Error processing commit 9368cdf90f52a68120d039887ccff74ff33b4444 for task rank_cwe: database is locked
+2025-10-03 14:20:40,189 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 8bdd9ef7e9b1b2a73e394712b72b22055e0e26c3: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 8bdd9ef7e9b1b2a73e394712b72b22055e0e26c3: database is locked
+2025-10-03 14:20:51,067 - job_gemini_database_1759515432 - ERROR - Error processing commit 8bdd9ef7e9b1b2a73e394712b72b22055e0e26c3 for task rank_cwe: database is locked
+2025-10-03 14:20:51,067 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit bb5ed01cd2428cd25b1c88a3a9cba87055eb289f: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit bb5ed01cd2428cd25b1c88a3a9cba87055eb289f: database is locked
+2025-10-03 14:21:02,116 - job_gemini_database_1759515432 - ERROR - Error processing commit bb5ed01cd2428cd25b1c88a3a9cba87055eb289f for task rank_cwe: database is locked
+2025-10-03 14:21:02,116 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit c2f8fd7949603efb03908e05abbf7726748c8de3: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit c2f8fd7949603efb03908e05abbf7726748c8de3: database is locked
+2025-10-03 14:21:13,089 - job_gemini_database_1759515432 - ERROR - Error processing commit c2f8fd7949603efb03908e05abbf7726748c8de3 for task rank_cwe: database is locked
+2025-10-03 14:21:13,089 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 2d47b79d2bd39cc6369eccf94a06568d84c906ae: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 2d47b79d2bd39cc6369eccf94a06568d84c906ae: database is locked
+2025-10-03 14:21:24,049 - job_gemini_database_1759515432 - ERROR - Error processing commit 2d47b79d2bd39cc6369eccf94a06568d84c906ae for task rank_cwe: database is locked
+2025-10-03 14:21:24,049 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 39244cc754829bf707dccd12e2ce37510f5b1f8d: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 39244cc754829bf707dccd12e2ce37510f5b1f8d: database is locked
+2025-10-03 14:21:34,891 - job_gemini_database_1759515432 - ERROR - Error processing commit 39244cc754829bf707dccd12e2ce37510f5b1f8d for task rank_cwe: database is locked
+2025-10-03 14:21:34,891 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 022587d8aec3da1d1698ddae9fb8cfe35f3ad49c: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 022587d8aec3da1d1698ddae9fb8cfe35f3ad49c: database is locked
+2025-10-03 14:21:45,895 - job_gemini_database_1759515432 - ERROR - Error processing commit 022587d8aec3da1d1698ddae9fb8cfe35f3ad49c for task rank_cwe: database is locked
+2025-10-03 14:21:45,896 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 03f12122b20b6e6028e9ed69030a49f9cffcbb75: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 03f12122b20b6e6028e9ed69030a49f9cffcbb75: database is locked
+2025-10-03 14:21:56,822 - job_gemini_database_1759515432 - ERROR - Error processing commit 03f12122b20b6e6028e9ed69030a49f9cffcbb75 for task rank_cwe: database is locked
+2025-10-03 14:21:56,822 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 08e50cf071847323414df0835109b6f3560d44f5: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 08e50cf071847323414df0835109b6f3560d44f5: database is locked
+2025-10-03 14:22:07,621 - job_gemini_database_1759515432 - ERROR - Error processing commit 08e50cf071847323414df0835109b6f3560d44f5 for task rank_cwe: database is locked
+2025-10-03 14:22:07,622 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 0d151a103775dd9645c78c97f77d6e2a5298d913: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 0d151a103775dd9645c78c97f77d6e2a5298d913: database is locked
+2025-10-03 14:22:18,506 - job_gemini_database_1759515432 - ERROR - Error processing commit 0d151a103775dd9645c78c97f77d6e2a5298d913 for task rank_cwe: database is locked
+2025-10-03 14:22:18,506 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 0f06228d4a2dcc1fca5b3ddb0eefa09c05b102c4: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 0f06228d4a2dcc1fca5b3ddb0eefa09c05b102c4: database is locked
+2025-10-03 14:22:29,459 - job_gemini_database_1759515432 - ERROR - Error processing commit 0f06228d4a2dcc1fca5b3ddb0eefa09c05b102c4 for task rank_cwe: database is locked
+2025-10-03 14:22:29,459 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 151f66bb618d1fd0eeb84acb61b4a9fa5d8bb0fa: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 151f66bb618d1fd0eeb84acb61b4a9fa5d8bb0fa: database is locked
+2025-10-03 14:22:40,301 - job_gemini_database_1759515432 - ERROR - Error processing commit 151f66bb618d1fd0eeb84acb61b4a9fa5d8bb0fa for task rank_cwe: database is locked
+2025-10-03 14:22:40,302 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 6ad959b6703e2c4c5d7af03b4cfd5ff608036339: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 6ad959b6703e2c4c5d7af03b4cfd5ff608036339: database is locked
+2025-10-03 14:22:51,373 - job_gemini_database_1759515432 - ERROR - Error processing commit 6ad959b6703e2c4c5d7af03b4cfd5ff608036339 for task rank_cwe: database is locked
+2025-10-03 14:22:51,373 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 6eabce6608d6f3440f4c03aa3d3ef50a47a3d193: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 6eabce6608d6f3440f4c03aa3d3ef50a47a3d193: database is locked
+2025-10-03 14:23:02,454 - job_gemini_database_1759515432 - ERROR - Error processing commit 6eabce6608d6f3440f4c03aa3d3ef50a47a3d193 for task rank_cwe: database is locked
+2025-10-03 14:23:02,454 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    self.db.execute(
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit a5b862c6a221459d54e494e88965b48dcfa6cc44: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit a5b862c6a221459d54e494e88965b48dcfa6cc44: database is locked
+2025-10-03 14:23:13,574 - job_gemini_database_1759515432 - ERROR - Error processing commit a5b862c6a221459d54e494e88965b48dcfa6cc44 for task rank_cwe: database is locked
+2025-10-03 14:23:13,575 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    retry_delay = 1
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    logger.warning(f"Database locked (attempt {attempt + 1}/{max_retries}), retrying in {retry_delay}s...")
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit febccb39255f9df35527b88c953b2e0deae50e53: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit febccb39255f9df35527b88c953b2e0deae50e53: database is locked
+2025-10-03 14:23:24,513 - job_gemini_database_1759515432 - ERROR - Error processing commit febccb39255f9df35527b88c953b2e0deae50e53 for task rank_cwe: database is locked
+2025-10-03 14:23:24,513 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    retry_delay = 1
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    logger.warning(f"Database locked (attempt {attempt + 1}/{max_retries}), retrying in {retry_delay}s...")
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+    result = self.cursor.execute(query, params)
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit f3554aeb991214cbfafd17d55e2bfddb50282e32: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit f3554aeb991214cbfafd17d55e2bfddb50282e32: database is locked
+2025-10-03 14:23:35,388 - job_gemini_database_1759515432 - ERROR - Error processing commit f3554aeb991214cbfafd17d55e2bfddb50282e32 for task rank_cwe: database is locked
+2025-10-03 14:23:35,390 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    retry_delay = 1
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    logger.warning(f"Database locked (attempt {attempt + 1}/{max_retries}), retrying in {retry_delay}s...")
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit b4fc36e60f25cf22bf8b7b015a701015740c3743: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit b4fc36e60f25cf22bf8b7b015a701015740c3743: database is locked
+2025-10-03 14:23:46,250 - job_gemini_database_1759515432 - ERROR - Error processing commit b4fc36e60f25cf22bf8b7b015a701015740c3743 for task rank_cwe: database is locked
+2025-10-03 14:23:46,251 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    retry_delay = 1
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    logger.warning(f"Database locked (attempt {attempt + 1}/{max_retries}), retrying in {retry_delay}s...")
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit f16d80b75a096c52354c6e0a574993f3b0dfbdfe: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit f16d80b75a096c52354c6e0a574993f3b0dfbdfe: database is locked
+2025-10-03 14:23:57,145 - job_gemini_database_1759515432 - ERROR - Error processing commit f16d80b75a096c52354c6e0a574993f3b0dfbdfe for task rank_cwe: database is locked
+2025-10-03 14:23:57,146 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    retry_delay = 1
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    logger.warning(f"Database locked (attempt {attempt + 1}/{max_retries}), retrying in {retry_delay}s...")
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 415e3d3e90ce9e18727e8843ae343eda5a58fad6: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 415e3d3e90ce9e18727e8843ae343eda5a58fad6: database is locked
+2025-10-03 14:24:08,101 - job_gemini_database_1759515432 - ERROR - Error processing commit 415e3d3e90ce9e18727e8843ae343eda5a58fad6 for task rank_cwe: database is locked
+2025-10-03 14:24:08,101 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    retry_delay = 1
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    logger.warning(f"Database locked (attempt {attempt + 1}/{max_retries}), retrying in {retry_delay}s...")
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 759c01142a5d0f364a462346168a56de28a80f52: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 759c01142a5d0f364a462346168a56de28a80f52: database is locked
+2025-10-03 14:24:19,038 - job_gemini_database_1759515432 - ERROR - Error processing commit 759c01142a5d0f364a462346168a56de28a80f52 for task rank_cwe: database is locked
+2025-10-03 14:24:19,038 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    retry_delay = 1
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    logger.warning(f"Database locked (attempt {attempt + 1}/{max_retries}), retrying in {retry_delay}s...")
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 93362fa47fe98b62e4a34ab408c4a418432e7939: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 93362fa47fe98b62e4a34ab408c4a418432e7939: database is locked
+2025-10-03 14:24:30,186 - job_gemini_database_1759515432 - ERROR - Error processing commit 93362fa47fe98b62e4a34ab408c4a418432e7939 for task rank_cwe: database is locked
+2025-10-03 14:24:30,186 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    retry_delay = 1
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    logger.warning(f"Database locked (attempt {attempt + 1}/{max_retries}), retrying in {retry_delay}s...")
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 87797fad6cce28ec9be3c13f031776ff4f104cfc: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 87797fad6cce28ec9be3c13f031776ff4f104cfc: database is locked
+2025-10-03 14:24:41,060 - job_gemini_database_1759515432 - ERROR - Error processing commit 87797fad6cce28ec9be3c13f031776ff4f104cfc for task rank_cwe: database is locked
+2025-10-03 14:24:41,060 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    retry_delay = 1
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    logger.warning(f"Database locked (attempt {attempt + 1}/{max_retries}), retrying in {retry_delay}s...")
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit bb7a0156365dffe2fcd63e2051145fbe4f8908b4: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit bb7a0156365dffe2fcd63e2051145fbe4f8908b4: database is locked
+2025-10-03 14:24:52,229 - job_gemini_database_1759515432 - ERROR - Error processing commit bb7a0156365dffe2fcd63e2051145fbe4f8908b4 for task rank_cwe: database is locked
+2025-10-03 14:24:52,230 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    retry_delay = 1
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    logger.warning(f"Database locked (attempt {attempt + 1}/{max_retries}), retrying in {retry_delay}s...")
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 1fb254aa983bf190cfd685d40c64a480a9bafaee: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 1fb254aa983bf190cfd685d40c64a480a9bafaee: database is locked
+2025-10-03 14:25:03,180 - job_gemini_database_1759515432 - ERROR - Error processing commit 1fb254aa983bf190cfd685d40c64a480a9bafaee for task rank_cwe: database is locked
+2025-10-03 14:25:03,180 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    retry_delay = 1
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    logger.warning(f"Database locked (attempt {attempt + 1}/{max_retries}), retrying in {retry_delay}s...")
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 8a2b22203f8596729c54eba221b4044351bfe167: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 8a2b22203f8596729c54eba221b4044351bfe167: database is locked
+2025-10-03 14:25:14,092 - job_gemini_database_1759515432 - ERROR - Error processing commit 8a2b22203f8596729c54eba221b4044351bfe167 for task rank_cwe: database is locked
+2025-10-03 14:25:14,093 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    retry_delay = 1
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    logger.warning(f"Database locked (attempt {attempt + 1}/{max_retries}), retrying in {retry_delay}s...")
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 967c05aee439e6e5d7d805e195b3a20ef5c433d6: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 967c05aee439e6e5d7d805e195b3a20ef5c433d6: database is locked
+2025-10-03 14:25:24,897 - job_gemini_database_1759515432 - ERROR - Error processing commit 967c05aee439e6e5d7d805e195b3a20ef5c433d6 for task rank_cwe: database is locked
+2025-10-03 14:25:24,899 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    retry_delay = 1
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    logger.warning(f"Database locked (attempt {attempt + 1}/{max_retries}), retrying in {retry_delay}s...")
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment
+Database error: database is locked
+Error ranking CWEs for commit 0e50fcc20bd87584840266e8004f9064a8985b4f: database is locked
+Database error: database is locked
+Error executing task rank_cwe for commit 0e50fcc20bd87584840266e8004f9064a8985b4f: database is locked
+2025-10-03 14:25:35,719 - job_gemini_database_1759515432 - ERROR - Error processing commit 0e50fcc20bd87584840266e8004f9064a8985b4f for task rank_cwe: database is locked
+2025-10-03 14:25:35,719 - job_gemini_database_1759515432 - ERROR - Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1447, in rank_cwe
+    retry_delay = 1
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+sqlite3.OperationalError: database is locked
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 338, in run_job
+    self._execute_task(evaluator, task, commit_hash, db_file)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/scheduler/job_scheduler.py", line 444, in _execute_task
+    evaluator.rank_cwe(commit_hash, vuln_code)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 1460, in rank_cwe
+    logger.warning(f"Database locked (attempt {attempt + 1}/{max_retries}), retrying in {retry_delay}s...")
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/utils/database.py", line 53, in execute
+sqlite3.OperationalError: database is locked
+
+Structured parsing failed: local variable 'json' referenced before assignment

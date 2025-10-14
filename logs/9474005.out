@@ -1,0 +1,100 @@
+=== CLEANUP: Killing existing Python processes ===
+===============================================
+Starting VulnLLMEval Comprehensive Evaluation
+===============================================
+Job ID: 9474005
+Node: str-gpu26
+Models: all
+Additional args: 
+Python path: /users/azibaeir/miniconda/bin/python
+Project directory: /users/azibaeir/Research/VulnLLMEval-SANER
+===============================================
+GPU Information:
+Wed Oct  1 23:42:50 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.158.01             Driver Version: 570.158.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H100 80GB HBM3          On  |   00000000:4E:00.0 Off |                    0 |
+| N/A   33C    P0             73W /  700W |       0MiB /  81559MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA H100 80GB HBM3          On  |   00000000:5F:00.0 Off |                    0 |
+| N/A   32C    P0             70W /  700W |       0MiB /  81559MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+===============================================
+Models to evaluate: deepseek qwen llama starcoder
+===============================================
+
+===============================================
+Wed Oct  1 11:42:50 PM EDT 2025: Starting evaluation for deepseek
+===============================================
+
+### Starting evaluation for model: deepseek ###
+Wed Oct  1 11:42:50 PM EDT 2025: Processing deepseek on both databases...
+Running: python main.py evaluate deepseek --both-databases
+✗ Model deepseek failed with exit code 1
+Jobs can be resumed with: python main.py list-jobs && python main.py resume <job_id>
+✗ Wed Oct  1 11:42:50 PM EDT 2025: deepseek failed
+===============================================
+
+===============================================
+Wed Oct  1 11:42:50 PM EDT 2025: Starting evaluation for qwen
+===============================================
+
+### Starting evaluation for model: qwen ###
+Wed Oct  1 11:42:50 PM EDT 2025: Processing qwen on both databases...
+Running: python main.py evaluate qwen --both-databases
+✗ Model qwen failed with exit code 1
+Jobs can be resumed with: python main.py list-jobs && python main.py resume <job_id>
+✗ Wed Oct  1 11:42:51 PM EDT 2025: qwen failed
+===============================================
+
+===============================================
+Wed Oct  1 11:42:51 PM EDT 2025: Starting evaluation for llama
+===============================================
+
+### Starting evaluation for model: llama ###
+Wed Oct  1 11:42:51 PM EDT 2025: Processing llama on both databases...
+Running: python main.py evaluate llama --both-databases
+✗ Model llama failed with exit code 1
+Jobs can be resumed with: python main.py list-jobs && python main.py resume <job_id>
+✗ Wed Oct  1 11:42:51 PM EDT 2025: llama failed
+===============================================
+
+===============================================
+Wed Oct  1 11:42:51 PM EDT 2025: Starting evaluation for starcoder
+===============================================
+
+### Starting evaluation for model: starcoder ###
+Wed Oct  1 11:42:51 PM EDT 2025: Processing starcoder on both databases...
+Running: python main.py evaluate starcoder --both-databases
+✗ Model starcoder failed with exit code 1
+Jobs can be resumed with: python main.py list-jobs && python main.py resume <job_id>
+✗ Wed Oct  1 11:42:51 PM EDT 2025: starcoder failed
+===============================================
+
+===============================================
+FINAL EVALUATION SUMMARY
+===============================================
+Completed models (0): 
+Failed models (4): deepseek qwen llama starcoder
+
+⚠️  Some models failed. Check logs and resume failed jobs:
+   python main.py list-jobs
+   python main.py resume <job_id>
+===============================================
+Job finished at: Wed Oct  1 11:42:51 PM EDT 2025
+===============================================

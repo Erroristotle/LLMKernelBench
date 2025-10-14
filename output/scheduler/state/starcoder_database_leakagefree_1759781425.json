@@ -1,0 +1,42 @@
+{
+  "job_id": "starcoder_database_leakagefree_1759781425",
+  "model_name": "starcoder",
+  "database_name": "database_leakagefree",
+  "current_task": null,
+  "current_commit_hash": null,
+  "completed_tasks": [
+    "is_vulnerable_vuln",
+    "is_vulnerable_patch",
+    "is_vulnerable_vuln_cve_cwe",
+    "is_vulnerable_patch_cve_cwe",
+    "suggest_fix",
+    "suggest_fix_fewshot",
+    "rank_cwe"
+  ],
+  "completed_commits": {
+    "is_vulnerable_vuln": [],
+    "is_vulnerable_patch": [],
+    "is_vulnerable_vuln_cve_cwe": [],
+    "is_vulnerable_patch_cve_cwe": [],
+    "suggest_fix": [],
+    "suggest_fix_fewshot": [],
+    "rank_cwe": [
+      "7e2586991e36663c9bc48c828b83eab180ad30a9",
+      "a121798ae669351ec0697c94f71c3a692b2a755b",
+      "efdde3d73ab25cef4ff2d06783b0aad8b093c0e4"
+    ]
+  },
+  "start_time": "2025-10-06T16:10:25.870547",
+  "last_update": "2025-10-06T16:10:44.686218",
+  "status": "completed",
+  "error_message": null,
+  "progress": {
+    "is_vulnerable_vuln": 100,
+    "is_vulnerable_patch": 100,
+    "is_vulnerable_vuln_cve_cwe": 100,
+    "is_vulnerable_patch_cve_cwe": 100,
+    "suggest_fix": 100,
+    "suggest_fix_fewshot": 100,
+    "rank_cwe": 100
+  }
+}

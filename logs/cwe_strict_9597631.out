@@ -1,0 +1,261 @@
+🧹 STRICT CWE RANKING RERUN
+==========================================
+Job ID: 9597631
+Node: str-gpu26
+Objective: Clean JSON format for all CWE rankings
+Strategy: One database at a time to prevent conflicts
+Models: deepseek, qwen, llama, starcoder, mistral, gemma (skipping gemini)
+Python version: Python 3.9.21
+Current directory: /users/azibaeir/Research/VulnLLMEval-SANER
+==========================================
+
+🔧 Testing Python environment...
+Python path: /users/azibaeir/miniconda/envs/llmserver/bin/python
+✅ sqlite3 imported
+✅ json imported
+✅ pathlib imported
+
+📋 STEP 1: Cleaning malformed CWE data
+----------------------------------------
+🧹 CLEANING OUTPUT DATABASES
+==================================================
+
+📁 Processing: database_deepseek_database.sqlite
+   ✅ Cleared 0 CWE rankings (314 total records)
+
+📁 Processing: database_deepseek_database_leakagefree.sqlite
+   ✅ Cleared 0 CWE rankings (103 total records)
+
+📁 Processing: database_starcoder_database.sqlite
+   ✅ Cleared 0 CWE rankings (314 total records)
+
+📁 Processing: database_starcoder_database_leakagefree.sqlite
+   ✅ Cleared 0 CWE rankings (103 total records)
+
+📁 Processing: database_llama_database.sqlite
+   ✅ Cleared 0 CWE rankings (314 total records)
+
+📁 Processing: database_qwen2.5_database.sqlite
+   ✅ Cleared 0 CWE rankings (314 total records)
+
+📁 Processing: database_qwen2.5_database_leakagefree.sqlite
+   ✅ Cleared 0 CWE rankings (103 total records)
+
+📁 Processing: database_mistral_database.sqlite
+   ✅ Cleared 0 CWE rankings (314 total records)
+
+📁 Processing: database_qwen_database.sqlite
+   ✅ Cleared 0 CWE rankings (314 total records)
+
+📁 Processing: database_qwen_database_leakagefree.sqlite
+   ✅ Cleared 0 CWE rankings (103 total records)
+
+📁 Processing: database_gemma_database.sqlite
+   ✅ Cleared 0 CWE rankings (314 total records)
+
+📁 Processing: database_gemma_database_leakagefree.sqlite
+   ✅ Cleared 0 CWE rankings (103 total records)
+
+📁 Processing: database_mistral_database_leakagefree.sqlite
+   ✅ Cleared 0 CWE rankings (103 total records)
+
+📁 Processing: database_llama_database_leakagefree.sqlite
+   ✅ Cleared 0 CWE rankings (103 total records)
+
+📁 Processing: database_gemini_database.sqlite
+   ⚠️  No vulnerabilities table found, skipping
+
+📁 Processing: database_gemini_database_leakagefree.sqlite
+   ✅ Cleared 22 CWE rankings (103 total records)
+
+📊 CLEANUP SUMMARY:
+   Databases processed: 15
+   Total CWE entries cleared: 22
+   Ready for clean rerun
+✅ Output databases cleaned successfully
+🧹 CLEANING MALFORMED CWE DATA
+============================================================
+📝 gemini/database: Adding LLM_Ranked_CWE column
+❌ gemini/database: Error - no such table: vulnerabilities
+📝 gemini/database_leakagefree: Adding LLM_Ranked_CWE column
+❌ gemini/database_leakagefree: Error - no such table: vulnerabilities
+⚠️  deepseek/database: Database not found
+⚠️  deepseek/database_leakagefree: Database not found
+⚠️  qwen/database: Database not found
+⚠️  qwen/database_leakagefree: Database not found
+⚠️  llama/database: Database not found
+⚠️  llama/database_leakagefree: Database not found
+⚠️  starcoder/database: Database not found
+⚠️  starcoder/database_leakagefree: Database not found
+⚠️  mistral/database: Database not found
+⚠️  mistral/database_leakagefree: Database not found
+⚠️  gemma/database: Database not found
+⚠️  gemma/database_leakagefree: Database not found
+
+📊 SUMMARY:
+   Databases processed: 2
+   Total CWE entries cleared: 0
+   Ready for clean rerun with strict formatting
+✅ Data directory cleaned successfully
+
+📋 STEP 2: Checking database status
+----------------------------------------
+🔍 CWE RANKING COMPLETION STATUS
+======================================================================
+Model        Regular DB      Leakage-Free DB
+---------------------------------------------
+gemini       ❌ Error: no such table: vulnerabilities ❌ Error: no such table: vulnerabilities
+deepseek     ❌ DB Missing    ❌ DB Missing   
+qwen         ❌ DB Missing    ❌ DB Missing   
+llama        ❌ DB Missing    ❌ DB Missing   
+starcoder    ❌ DB Missing    ❌ DB Missing   
+mistral      ❌ DB Missing    ❌ DB Missing   
+gemma        ❌ DB Missing    ❌ DB Missing   
+
+======================================================================
+📊 SUMMARY
+======================================================================
+Total model/database combinations: 14
+Found databases: 2
+Will run CWE ranking on: 14 combinations
+Missing databases: 12
+
+🔄 COMBINATIONS TO PROCESS:
+   • gemini/database: 0/0 (0.0%)
+   • gemini/database_leakagefree: 0/0 (0.0%)
+   • deepseek/database: 0/0 (0.0%)
+   • deepseek/database_leakagefree: 0/0 (0.0%)
+   • qwen/database: 0/0 (0.0%)
+   • qwen/database_leakagefree: 0/0 (0.0%)
+   • llama/database: 0/0 (0.0%)
+   • llama/database_leakagefree: 0/0 (0.0%)
+   • starcoder/database: 0/0 (0.0%)
+   • starcoder/database_leakagefree: 0/0 (0.0%)
+   • mistral/database: 0/0 (0.0%)
+   • mistral/database_leakagefree: 0/0 (0.0%)
+   • gemma/database: 0/0 (0.0%)
+   • gemma/database_leakagefree: 0/0 (0.0%)
+
+📋 COMMANDS TO RUN CWE RANKING:
+# Run all CWE rankings (including re-runs):
+sbatch --partition=GPU --nodelist=str-gpu31 --gres=gpu:2 --time=48:00:00 --mem=100G run_cwe_ranking.sh
+
+# Or run individual commands:
+python main.py evaluate gemini --database database --tasks rank_cwe
+python main.py evaluate gemini --database database_leakagefree --tasks rank_cwe
+python main.py evaluate deepseek --database database --tasks rank_cwe
+python main.py evaluate deepseek --database database_leakagefree --tasks rank_cwe
+python main.py evaluate qwen --database database --tasks rank_cwe
+python main.py evaluate qwen --database database_leakagefree --tasks rank_cwe
+python main.py evaluate llama --database database --tasks rank_cwe
+python main.py evaluate llama --database database_leakagefree --tasks rank_cwe
+python main.py evaluate starcoder --database database --tasks rank_cwe
+python main.py evaluate starcoder --database database_leakagefree --tasks rank_cwe
+python main.py evaluate mistral --database database --tasks rank_cwe
+python main.py evaluate mistral --database database_leakagefree --tasks rank_cwe
+python main.py evaluate gemma --database database --tasks rank_cwe
+python main.py evaluate gemma --database database_leakagefree --tasks rank_cwe
+✅ Status check completed
+
+📋 STEP 3: Discovering and processing databases
+------------------------------------------------
+🔍 Discovering databases...
+Found 16 database files to process:
+  📁 data/database_leakagefree.sqlite (744K)
+  📁 data/database.sqlite (5.1M)
+  📁 output/database_deepseek_database_leakagefree.sqlite (1.4M)
+  📁 output/database_deepseek_database.sqlite (5.1M)
+  📁 output/database_gemma_database_leakagefree.sqlite (744K)
+  📁 output/database_gemma_database.sqlite (5.1M)
+  📁 output/database_llama_database_leakagefree.sqlite (1.3M)
+  📁 output/database_llama_database.sqlite (5.1M)
+  📁 output/database_mistral_database_leakagefree.sqlite (1.1M)
+  📁 output/database_mistral_database.sqlite (5.1M)
+  📁 output/database_qwen2.5_database_leakagefree.sqlite (744K)
+  📁 output/database_qwen2.5_database.sqlite (5.1M)
+  📁 output/database_qwen_database_leakagefree.sqlite (744K)
+  📁 output/database_qwen_database.sqlite (5.1M)
+  📁 output/database_starcoder_database_leakagefree.sqlite (1.2M)
+  📁 output/database_starcoder_database.sqlite (5.1M)
+
+🚀 Processing [1/16]: database_leakagefree.sqlite
+Fri Oct  3 03:05:10 PM EDT 2025: Starting CWE ranking...
+Detected - Model: unknown, Database: database_leakagefree
+Full path: data/database_leakagefree.sqlite
+🔧 Ensuring no database conflicts for database_leakagefree.sqlite...
+🔧 Clearing GPU memory...
+✅ GPU memory cleared
+📝 Running: python main.py evaluate unknown --database database_leakagefree --tasks rank_cwe
+Working on: /tmp/database_leakagefree.sqlite_3918587
+/users/azibaeir/Research/VulnLLMEval-SANER/evaluation/advanced_evaluator.py:13: LangChainDeprecationWarning: As of langchain-core 0.3.0, LangChain uses pydantic v2 internally. The langchain_core.pydantic_v1 module was a compatibility shim for pydantic v1, and should no longer be used. Please update the code to import from Pydantic directly.
+
+For example, replace imports like: `from langchain_core.pydantic_v1 import BaseModel`
+with: `from pydantic import BaseModel`
+or the v1 compatibility namespace if you are working in a code base that has not been fully upgraded to pydantic 2 yet. 	from pydantic.v1 import BaseModel
+
+  from models.llm_manager import LLMManager
+Error: Model 'unknown' not found.
+Available models: gemini, deepseek, qwen, llama, starcoder, mistral, gemma
+❌ database_leakagefree.sqlite: CWE ranking failed
+
+🚀 Processing [2/16]: database.sqlite
+Fri Oct  3 03:05:31 PM EDT 2025: Starting CWE ranking...
+Detected - Model: unknown, Database: database
+Full path: data/database.sqlite
+🔧 Ensuring no database conflicts for database.sqlite...
+🔧 Clearing GPU memory...
+✅ GPU memory cleared
+📝 Running: python main.py evaluate unknown --database database --tasks rank_cwe
+Working on: /tmp/database.sqlite_3918587
+/users/azibaeir/Research/VulnLLMEval-SANER/evaluation/advanced_evaluator.py:13: LangChainDeprecationWarning: As of langchain-core 0.3.0, LangChain uses pydantic v2 internally. The langchain_core.pydantic_v1 module was a compatibility shim for pydantic v1, and should no longer be used. Please update the code to import from Pydantic directly.
+
+For example, replace imports like: `from langchain_core.pydantic_v1 import BaseModel`
+with: `from pydantic import BaseModel`
+or the v1 compatibility namespace if you are working in a code base that has not been fully upgraded to pydantic 2 yet. 	from pydantic.v1 import BaseModel
+
+  from models.llm_manager import LLMManager
+Error: Model 'unknown' not found.
+Available models: gemini, deepseek, qwen, llama, starcoder, mistral, gemma
+❌ database.sqlite: CWE ranking failed
+
+🚀 Processing [3/16]: database_deepseek_database_leakagefree.sqlite
+Fri Oct  3 03:05:51 PM EDT 2025: Starting CWE ranking...
+Detected - Model: deepseek, Database: database_leakagefree
+Full path: output/database_deepseek_database_leakagefree.sqlite
+🔧 Ensuring no database conflicts for database_deepseek_database_leakagefree.sqlite...
+🔧 Clearing GPU memory...
+✅ GPU memory cleared
+📝 Running: python main.py evaluate deepseek --database database_leakagefree --tasks rank_cwe
+Working on: /tmp/database_deepseek_database_leakagefree.sqlite_3918587
+/users/azibaeir/Research/VulnLLMEval-SANER/evaluation/advanced_evaluator.py:13: LangChainDeprecationWarning: As of langchain-core 0.3.0, LangChain uses pydantic v2 internally. The langchain_core.pydantic_v1 module was a compatibility shim for pydantic v1, and should no longer be used. Please update the code to import from Pydantic directly.
+
+For example, replace imports like: `from langchain_core.pydantic_v1 import BaseModel`
+with: `from pydantic import BaseModel`
+or the v1 compatibility namespace if you are working in a code base that has not been fully upgraded to pydantic 2 yet. 	from pydantic.v1 import BaseModel
+
+  from models.llm_manager import LLMManager
+Starting evaluation with model: deepseek
+Running evaluation on database_leakagefree.sqlite...
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 66.74it/s]
+Device set to use cuda:0
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 66.32it/s]
+Device set to use cuda:0
+2025-10-03 15:06:35,256 - job_deepseek_database_leakagefree_1759518391 - INFO - Starting task: rank_cwe
+Structured parsing failed: 'list' object has no attribute 'get'
+Structured parsing failed: 'list' object has no attribute 'get'
+Structured parsing failed: 'list' object has no attribute 'get'
+2025-10-03 15:08:31,987 - job_deepseek_database_leakagefree_1759518391 - INFO - Task rank_cwe: 10/103 commits processed
+Structured parsing failed: 'list' object has no attribute 'get'
+Structured parsing failed: 'list' object has no attribute 'get'
+2025-10-03 15:10:23,575 - job_deepseek_database_leakagefree_1759518391 - INFO - Task rank_cwe: 20/103 commits processed
+Structured parsing failed: 'list' object has no attribute 'get'
+Structured parsing failed: 'list' object has no attribute 'get'
+Structured parsing failed: 'list' object has no attribute 'get'
+Structured parsing failed: 'list' object has no attribute 'get'
+Structured parsing failed: 'list' object has no attribute 'get'
+Structured parsing failed: 'list' object has no attribute 'get'
+2025-10-03 15:12:16,218 - job_deepseek_database_leakagefree_1759518391 - INFO - Task rank_cwe: 30/103 commits processed
+Structured parsing failed: 'list' object has no attribute 'get'
+Structured parsing failed: 'list' object has no attribute 'get'
+Structured parsing failed: 'list' object has no attribute 'get'
+2025-10-03 15:14:08,523 - job_deepseek_database_leakagefree_1759518391 - INFO - Task rank_cwe: 40/103 commits processed

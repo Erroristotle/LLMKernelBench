@@ -1,0 +1,42 @@
+{
+  "job_id": "deepseek_database_1759771578",
+  "model_name": "deepseek",
+  "database_name": "database",
+  "current_task": null,
+  "current_commit_hash": null,
+  "completed_tasks": [
+    "is_vulnerable_vuln",
+    "is_vulnerable_patch",
+    "is_vulnerable_vuln_cve_cwe",
+    "is_vulnerable_patch_cve_cwe",
+    "suggest_fix",
+    "suggest_fix_fewshot",
+    "rank_cwe"
+  ],
+  "completed_commits": {
+    "is_vulnerable_vuln": [],
+    "is_vulnerable_patch": [],
+    "is_vulnerable_vuln_cve_cwe": [],
+    "is_vulnerable_patch_cve_cwe": [],
+    "suggest_fix": [],
+    "suggest_fix_fewshot": [],
+    "rank_cwe": [
+      "fa96c6baef1b5385e2f0c0677b32b3839e716076",
+      "146cc8a17a3b4996f6805ee5c080e7101277c410",
+      "d0d62baa7f505bd4c59cd169692ff07ec49dde37"
+    ]
+  },
+  "start_time": "2025-10-06T13:26:18.676370",
+  "last_update": "2025-10-06T13:27:06.297757",
+  "status": "completed",
+  "error_message": null,
+  "progress": {
+    "is_vulnerable_vuln": 100,
+    "is_vulnerable_patch": 100,
+    "is_vulnerable_vuln_cve_cwe": 100,
+    "is_vulnerable_patch_cve_cwe": 100,
+    "suggest_fix": 100,
+    "suggest_fix_fewshot": 100,
+    "rank_cwe": 100
+  }
+}

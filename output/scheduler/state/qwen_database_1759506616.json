@@ -1,0 +1,30 @@
+{
+  "job_id": "qwen_database_1759506616",
+  "model_name": "qwen",
+  "database_name": "database",
+  "current_task": null,
+  "current_commit_hash": null,
+  "completed_tasks": [],
+  "completed_commits": {
+    "is_vulnerable_vuln": [],
+    "is_vulnerable_patch": [],
+    "is_vulnerable_vuln_cve_cwe": [],
+    "is_vulnerable_patch_cve_cwe": [],
+    "suggest_fix": [],
+    "suggest_fix_fewshot": [],
+    "rank_cwe": []
+  },
+  "start_time": "2025-10-03T11:50:16.142644",
+  "last_update": "2025-10-03T11:53:54.976108",
+  "status": "failed",
+  "error_message": "CUDA out of memory. Tried to allocate 16.00 MiB. GPU 0 has a total capacity of 79.19 GiB of which 9.50 MiB is free. Including non-PyTorch memory, this process has 79.17 GiB memory in use. Of the allocated memory 71.40 GiB is allocated by PyTorch, and 7.27 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+  "progress": {
+    "is_vulnerable_vuln": 0,
+    "is_vulnerable_patch": 0,
+    "is_vulnerable_vuln_cve_cwe": 0,
+    "is_vulnerable_patch_cve_cwe": 0,
+    "suggest_fix": 0,
+    "suggest_fix_fewshot": 0,
+    "rank_cwe": 0
+  }
+}

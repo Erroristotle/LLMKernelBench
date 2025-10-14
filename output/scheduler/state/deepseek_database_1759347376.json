@@ -1,0 +1,28 @@
+{
+  "job_id": "deepseek_database_1759347376",
+  "model_name": "deepseek",
+  "database_name": "database",
+  "current_task": "is_vulnerable_vuln",
+  "current_commit_hash": "d7a6be58edc01b1c66ecd8fcc91236bfbce0a420",
+  "completed_tasks": [],
+  "completed_commits": {
+    "is_vulnerable_vuln": [],
+    "is_vulnerable_patch": [],
+    "is_vulnerable_vuln_cve_cwe": [],
+    "is_vulnerable_patch_cve_cwe": [],
+    "suggest_fix": [],
+    "suggest_fix_fewshot": []
+  },
+  "start_time": "2025-10-01T15:36:16.451638",
+  "last_update": "2025-10-01T15:39:50.344934",
+  "status": "paused",
+  "error_message": null,
+  "progress": {
+    "is_vulnerable_vuln": 0,
+    "is_vulnerable_patch": 0,
+    "is_vulnerable_vuln_cve_cwe": 0,
+    "is_vulnerable_patch_cve_cwe": 0,
+    "suggest_fix": 0,
+    "suggest_fix_fewshot": 0
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "job_id": "deepseek_database_leakagefree_1759466861",
+  "model_name": "deepseek",
+  "database_name": "database_leakagefree",
+  "current_task": null,
+  "current_commit_hash": null,
+  "completed_tasks": [
+    "is_vulnerable_vuln",
+    "is_vulnerable_patch",
+    "is_vulnerable_vuln_cve_cwe",
+    "is_vulnerable_patch_cve_cwe",
+    "suggest_fix",
+    "suggest_fix_fewshot",
+    "rank_cwe"
+  ],
+  "completed_commits": {
+    "is_vulnerable_vuln": [],
+    "is_vulnerable_patch": [],
+    "is_vulnerable_vuln_cve_cwe": [],
+    "is_vulnerable_patch_cve_cwe": [],
+    "suggest_fix": [],
+    "suggest_fix_fewshot": [
+      "3424c8f53bc63c87712a7fc22dc13d0cc85fb0d6",
+      "2542a3f70e563a9e70e7ded314286535a3321bdb",
+      "426db24d4db2e4f0d6720aeb7795eafcb9e82640",
+      "e3f88665a78045fe35c7669d2926b8d97b892c11",
+      "8241ecec1cdc6699ae197d52d58e76bddd995fa5",
+      "7e2586991e36663c9bc48c828b83eab180ad30a9",
+      "a121798ae669351ec0697c94f71c3a692b2a755b",
+      "efdde3d73ab25cef4ff2d06783b0aad8b093c0e4"
+    ],
+    "rank_cwe": []
+  },
+  "start_time": "2025-10-03T00:47:41.306317",
+  "last_update": "2025-10-03T00:49:12.132243",
+  "status": "completed",
+  "error_message": null,
+  "progress": {
+    "is_vulnerable_vuln": 100,
+    "is_vulnerable_patch": 100,
+    "is_vulnerable_vuln_cve_cwe": 100,
+    "is_vulnerable_patch_cve_cwe": 100,
+    "suggest_fix": 100,
+    "suggest_fix_fewshot": 100,
+    "rank_cwe": 100
+  }
+}
