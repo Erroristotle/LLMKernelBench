@@ -1,0 +1,142 @@
+# FALSE_NEGATIVE - CWE-["CWE-416"]
+# Dataset: LFD
+# CVE: CVE-2025-21762
+# Commit: a42b69f692165ec39db42d595f4f65a4c8f42e44
+
+## Model Predictions
+SVD3: -1 (expected: 1)
+SVD4: -1 (expected: 0)
+SVD5: -1 (expected: 1)
+SVD6: -1 (expected: 0)
+
+## Vulnerable Code
+```c
+// File path: net/ipv4/arp.c
+void arp_xmit(struct sk_buff *skb)
+{
+
+	NF_HOOK(NFPROTO_ARP, NF_ARP_OUT,
+		dev_net(skb->dev), NULL, skb, NULL, skb->dev,
+		arp_xmit_finish);
+}
+```
+
+## Patched Code
+```c
+// File path: net/ipv4/arp.c
+void arp_xmit(struct sk_buff *skb)
+{
+	rcu_read_lock();
+
+	NF_HOOK(NFPROTO_ARP, NF_ARP_OUT,
+		dev_net_rcu(skb->dev), NULL, skb, NULL, skb->dev,
+		arp_xmit_finish);
+	rcu_read_unlock();
+}
+```
+
+## LLM Patch (Zero-shot)
+```c
+// end arp_xmit
+
+// File path: net/ipv4/arp.c
+void arp_xmit_finish(struct sk_buff *skb)
+{
+	NF_HOOK(NFPROTO_ARP, NF_ARP_OUT,
+		dev_net(skb->dev), NULL, skb, NULL, skb->dev,
+		arp_xmit_finish);
+} // end arp_xmit_finish
+
+// File path: net/ipv4/arp.c
+void arp_xmit(struct sk_buff *skb)
+{
+
+	NF_HOOK(NFPROTO_ARP, NF_ARP_OUT,
+		dev_net(skb->dev), NULL, skb, NULL, skb->dev,
+		arp_xmit_finish);
+} // end arp_xmit
+
+// File path: net/ipv4/arp.c
+void arp_xmit_finish(struct sk_buff *skb)
+{
+	NF_HOOK(NFPROTO_ARP, NF_ARP_OUT,
+		dev_net(skb->dev), NULL, skb, NULL, skb->dev,
+		arp_xmit_finish);
+} // end arp_xmit_finish
+
+// File path: net/ipv4/arp.c
+void arp_xmit(struct sk_buff *skb)
+{
+
+	NF_HOOK(NFPROTO_ARP, NF_ARP_OUT,
+		dev_net(skb->dev), NULL, skb, NULL, skb->dev,
+		arp_xmit_finish);
+} // end arp_xmit
+
+// File path: net/ipv4/arp.c
+void arp_xmit_finish(struct sk_buff *skb)
+{
+	NF_HOOK(NFPROTO_ARP, NF_ARP_OUT,
+		dev_net(skb->dev), NULL, skb, NULL, skb->dev,
+		arp_xmit_finish);
+} // end arp_xmit_finish
+
+// File path: net/ipv4/arp.c
+void arp_xmit(struct sk_buff *skb)
+{
+
+	NF_HOOK(NFPROTO_ARP, NF_ARP_OUT,
+		dev_net(skb->dev), NULL, skb, NULL, skb->dev,
+		arp_xmit_finish);
+} // end arp_xmit
+
+// File path: net/ipv4/arp.c
+void arp_xmit_finish(struct sk_buff *skb)
+{
+	NF_HOOK(NFPROTO_ARP, NF_ARP_OUT,
+		dev_net(skb->dev), NULL, skb, NULL, skb->dev,
+		arp_xmit_finish);
+} // end arp_xmit_finish
+
+// File path: net/ipv4/arp.c
+void arp_xmit(struct sk_buff *skb)
+```
+
+## LLM Patch (Few-shot)
+```c
+// File path: net/ipv4/arp.c
+void arp_xmit_finish(struct sk_buff *skb)
+{
+	struct net *net = dev_net(skb->dev);
+	struct in_device *in_dev = in_dev_get(skb->dev);
+	struct in_ifaddr *ifa = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa2 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa3 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa4 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa5 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa6 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa7 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa8 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa9 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa10 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa11 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa12 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa13 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa14 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa15 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa16 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa17 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa18 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa19 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa20 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa21 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa22 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa23 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa24 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa25 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa26 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa27 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa28 = in_ifaddr_get(skb->dev);
+	struct in_ifaddr *ifa29 = in_ifaddr_get(skb->dev
+```
+
