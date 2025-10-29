@@ -76,3 +76,6 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+
+# Configuration files with sensitive data
+/utils/.config
