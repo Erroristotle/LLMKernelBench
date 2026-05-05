@@ -1,106 +1,57 @@
-LLMKernelBench License
+LLMKernelBench – Non-Commercial Research License
 
-Copyright (c) 2024 Arastoo Zibaeirad
+Copyright © 2026
+All rights reserved.
 
-ACADEMIC LICENSE AGREEMENT
+1. Grant of License
 
-This software and associated documentation files (the "Software") are provided 
-under the following terms and conditions for academic and research purposes only.
+Permission is hereby granted, free of charge, to any individual or organization (the "Licensee") to use, copy, and modify this software, dataset, and associated documentation (the "Software") solely for non-commercial scientific research, academic evaluation, or educational purposes, subject to the terms and conditions of this License.
 
-1. GRANT OF LICENSE
+2. Permitted Uses
 
-Subject to the terms and conditions of this Agreement, the copyright holder 
-hereby grants you a non-exclusive, non-transferable license to use, copy, 
-modify, and distribute the Software solely for academic, educational, and 
-research purposes, provided that:
+The Licensee may:
 
-   a) You are affiliated with an accredited educational institution or 
-      research organization;
-   b) Your use is for non-commercial purposes only;
-   c) You properly acknowledge the authors and this work in any publications, 
-      presentations, or derivative works that use this Software;
-   d) You include this license notice in all copies or substantial portions 
-      of the Software.
+Use the Software and Dataset for non-commercial research, benchmarking, and evaluation of Large Language Models (LLMs);
 
-2. ACKNOWLEDGMENT REQUIREMENT
+Modify the Software for internal research purposes;
 
-If you use this Software in your research, you MUST acknowledge the authors 
-and this work in any publications, presentations, or derivative works. 
-Proper attribution should include:
+Publish results, analyses, and figures generated using the Software and Dataset, provided that proper attribution to LLMKernelBench is given.
 
-   - The software name: LLMKernelBench
-   - The authors: Arastoo Zibaeirad
-   - The institution: University of North Carolina at Charlotte
+3. Prohibited Uses
 
-3. RESTRICTIONS
+The Licensee may not, without prior written permission from the copyright holder:
 
-You may NOT:
-   a) Use the Software for any commercial purposes, including but not limited 
-      to commercial software development, consulting, or any revenue-generating 
-      activities;
-   b) Redistribute the Software to third parties for commercial use;
-   c) Remove or modify any copyright notices, license terms, or attribution 
-      requirements;
-   d) Use the Software in any way that violates applicable laws or regulations;
-   e) Reverse engineer, decompile, or disassemble the Software for purposes 
-      other than academic research.
+Use the Software or Dataset for commercial purposes, including but not limited to:
 
-4. COMMERCIAL USE
+Commercial products or services;
 
-For commercial use of this Software, you must obtain a separate commercial 
-license from the copyright holder. Commercial use includes, but is not limited to:
-   - Integration into commercial products or services
-   - Use in commercial software development
-   - Consulting or professional services using the Software
-   - Any use that generates revenue or provides competitive advantage
+Paid benchmarking, consulting, or evaluation services;
 
-5. DISCLAIMER OF WARRANTY
+Internal use within for-profit organizations beyond exploratory research;
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
-SOFTWARE.
+Distribute, sublicense, sell, lease, or otherwise transfer the Software, Dataset, or modified versions of it to third parties;
 
-6. LIMITATION OF LIABILITY
+Use the Software or Dataset for military, surveillance, or law-enforcement purposes;
 
-IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE LIABLE FOR ANY 
-DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES 
-(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
-LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON 
-ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT 
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
-SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+Use the Software or Dataset to generate or support malicious, deceptive, or harmful activities, including vulnerability exploitation beyond defensive research.
 
-7. TERMINATION
+4. Attribution
 
-This license shall automatically terminate if you violate any of the terms 
-herein. Upon termination, you must cease all use of the Software and destroy 
-all copies in your possession.
+Any academic publication, technical report, or public disclosure that makes use of this Software or Dataset must include an acknowledgment of the LLMKernelBench project.
 
-8. GOVERNING LAW
+5. No Warranty
 
-This Agreement shall be governed by and construed in accordance with the laws 
-of North Carolina, United States, without regard to its conflict of law provisions.
+THE SOFTWARE AND DATASET ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. THE AUTHORS SHALL NOT BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM THE USE OF THE SOFTWARE OR DATASET.
 
-9. CONTACT INFORMATION
+6. Limitation of Liability
 
-For questions about this license or to request a commercial license, please 
-contact:
+IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING OUT OF OR IN CONNECTION WITH THE SOFTWARE, DATASET, OR THEIR USE.
 
-   Arastoo Zibaeirad
-   University of North Carolina at Charlotte
-   Email: azibaeir@charlotte.edu or aras2zibaeirad@gmail.com
+7. Termination
 
-10. ACKNOWLEDGMENTS
+This License is automatically terminated if the Licensee fails to comply with any of its terms. Upon termination, all use of the Software and Dataset must cease, and all copies must be destroyed.
 
-This Software was developed as part of academic research. We acknowledge the 
-contributions of the open-source community and the various datasets and models 
-used in this evaluation framework.
+8. Commercial Licensing
 
----
-
-By using this Software, you acknowledge that you have read and understood this 
-Agreement and agree to be bound by its terms and conditions.
+Commercial use of the Software or Dataset requires a separate commercial license.
+Please contact the project maintainers for licensing inquiries.
