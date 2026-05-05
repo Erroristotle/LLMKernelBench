@@ -2,42 +2,29 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
-\citation{chen2021evaluating}
-\citation{touvron2023llama,dubey2024llama}
-\citation{feng2020codebert}
-\citation{li2022competition}
-\citation{nijkamp2022codegen}
-\citation{wang2021codet5}
-\citation{ahmad2021unified}
-\citation{nam2024using}
-\citation{alshahwan2024automated,wang2024software,schafer2023empirical}
-\citation{khan2022automatic}
-\citation{hoffmann2022trainingcomputeoptimallargelanguage,gholami2024improvedgeneralizationboundscommunication,digest,thomas2022dynamic}
-\citation{fan2023large}
 \citation{cvedetails2024}
 \citation{huang2023survey,zhang2023survey}
 \citation{manes2019art,klees2018evaluating}
 \citation{pereira2021machine}
-\citation{gao2023far}
-\citation{chakraborty2021deep,wu2023effective}
+\citation{chen2021evaluating,touvron2023llama,dubey2024llama,feng2020codebert,li2022competition}
+\citation{alshahwan2024automated,wang2024software}
+\citation{fan2023large}
+\citation{siddiq2022securityeval,liu2024vuldetectbench,sun2024llm4vuln}
+\citation{khare2025understanding,ullah2024llms}
+\citation{ullah2024llms}
+\citation{gao2023far,iannone2022secret,croft2023data}
+\providecommand\@newglossary[4]{}
+\@newglossary{main}{glg}{gls}{glo}
 \@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}{section.1}\protected@file@percent }
 \citation{mitre_cwe}
-\citation{chakraborty2021deep}
-\citation{wang2021patchdb}
-\citation{zheng2021d2a}
-\citation{ni2024megavul}
-\citation{iannone2022secret,croft2023data}
+\citation{chakraborty2021deep,wang2021patchdb,zheng2021d2a,ni2024megavul}
 \citation{gao2023far}
-\citation{zhou2019devign}
-\citation{bhandari2021cvefixes}
+\citation{iannone2022secret,croft2023data}
+\citation{zhou2019devign,bhandari2021cvefixes}
 \citation{lu2021codexglue,zhou2019devign}
-\citation{siddiq2022securityeval}
-\citation{liu2024vuldetectbench}
-\citation{sun2024llm4vuln}
-\citation{khare2025understanding}
+\citation{siddiq2022securityeval,liu2024vuldetectbench,sun2024llm4vuln}
+\citation{khare2025understanding,ullah2024llms}
 \citation{ullah2024llms}
-\citation{ullah2024llms}
-\citation{khare2023understanding}
 \@writefile{toc}{\contentsline {section}{\numberline {II}Background and Related Work}{2}{section.2}\protected@file@percent }
 \newlabel{section:related_work}{{II}{2}{Background and Related Work}{section.2}{}}
 \citation{lu2021codexglue}
@@ -48,146 +35,139 @@
 \citation{ullah2024llms}
 \citation{nvd2025}
 \citation{pereira2022software}
-\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces VD benchmarks at a glance (concise comparison).}}{3}{table.caption.1}\protected@file@percent }
-\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{tab:bench-compare}{{I}{3}{VD benchmarks at a glance (concise comparison)}{table.caption.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces LLMKernelBench Framework. Metadata (commit messages, diffs, function/file names) and vulnerable-patched code pairs are extracted from Linux CVE commits. Prompts are designed for \gls {SVD} and CWE-label classification tasks in zero-shot settings. \glspl {LLM} performs detection and classification. Outputs are filtered via regex. Detection is evaluated using binary and ranking metrics.}}{3}{figure.1}\protected@file@percent }
+\newlabel{figure:framework}{{1}{3}{LLMKernelBench Framework. Metadata (commit messages, diffs, function/file names) and vulnerable-patched code pairs are extracted from Linux CVE commits. Prompts are designed for \gls {SVD} and CWE-label classification tasks in zero-shot settings. \glspl {LLM} performs detection and classification. Outputs are filtered via regex. Detection is evaluated using binary and ranking metrics}{figure.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces VD benchmarks at a glance}}{3}{table.1}\protected@file@percent }
+\newlabel{tab:bench-compare}{{I}{3}{VD benchmarks at a glance}{table.1}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {III}Benchmarking Approach}{3}{section.3}\protected@file@percent }
 \newlabel{section:approach}{{III}{3}{Benchmarking Approach}{section.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-A}}LLMKernelBench}{3}{subsection.3.1}\protected@file@percent }
-\newlabel{section:framework}{{\mbox  {III-A}}{3}{LLMKernelBench}{subsection.3.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}Dataset}{3}{subsection.3.2}\protected@file@percent }
-\newlabel{section:dataset}{{\mbox  {III-B}}{3}{Dataset}{subsection.3.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces LLMKernelBench Framework. \textcircled {1} Metadata (commit messages, diffs, function/file names) and vulnerable-patched code pairs are extracted from Linux CVE commits. \textcircled {2} Prompts are designed for SVD and PV tasks in zero-shot settings. \textcircled {3} LLMs perform detection and PV. \textcircled {4} Outputs are filtered via regex. \textcircled {5} Detection is evaluated using binary and ranking metrics.}}{3}{figure.caption.2}\protected@file@percent }
-\newlabel{figure:framework}{{1}{3}{LLMKernelBench Framework. \textcircled {1} Metadata (commit messages, diffs, function/file names) and vulnerable-patched code pairs are extracted from Linux CVE commits. \textcircled {2} Prompts are designed for SVD and PV tasks in zero-shot settings. \textcircled {3} LLMs perform detection and PV. \textcircled {4} Outputs are filtered via regex. \textcircled {5} Detection is evaluated using binary and ranking metrics}{figure.caption.2}{}}
+\citation{cwe1000}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-A}}Dataset}{4}{subsection.3.1}\protected@file@percent }
+\newlabel{section:dataset}{{\mbox  {III-A}}{4}{Dataset}{subsection.3.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces LLMKernelBench dataset statistics}}{4}{table.2}\protected@file@percent }
+\newlabel{table:dataset-stats}{{II}{4}{LLMKernelBench dataset statistics}{table.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces \gls {CWE} pillar distribution across PBD and LFD.}}{4}{table.3}\protected@file@percent }
+\newlabel{table:cwe-pillars-combined}{{III}{4}{\gls {CWE} pillar distribution across PBD and LFD}{table.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}Tasks}{4}{subsection.3.2}\protected@file@percent }
+\newlabel{section:tasks}{{\mbox  {III-B}}{4}{Tasks}{subsection.3.2}{}}
+\citation{cwe1000}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces CWE hierarchy.}}{5}{figure.2}\protected@file@percent }
+\newlabel{fig:cwe_hierarchy}{{2}{5}{CWE hierarchy}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}Metrics}{5}{subsection.3.3}\protected@file@percent }
+\newlabel{section:metrics}{{\mbox  {III-C}}{5}{Metrics}{subsection.3.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {III-C}1}SVD}{5}{subsubsection.3.3.1}\protected@file@percent }
 \citation{russakovsky2015imagenet}
-\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces CWE Pillar Distribution in PBD}}{4}{table.caption.3}\protected@file@percent }
-\newlabel{table:cwe-pillars}{{II}{4}{CWE Pillar Distribution in PBD}{table.caption.3}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces LLMKernelBench Dataset Statistics}}{4}{table.caption.4}\protected@file@percent }
-\newlabel{table:dataset-stats}{{III}{4}{LLMKernelBench Dataset Statistics}{table.caption.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}Metrics}{4}{subsection.3.3}\protected@file@percent }
-\newlabel{section:metrics}{{\mbox  {III-C}}{4}{Metrics}{subsection.3.3}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {III-C}1}Label Space and Task Formulation}{4}{subsubsection.3.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {III-C}2}SVD Metrics}{4}{subsubsection.3.3.2}\protected@file@percent }
 \citation{craswell2009mean}
+\citation{shapiro1965analysis}
+\citation{fisher1970statistical}
+\newlabel{section:cwe_metrics}{{\mbox  {III-C}2}{6}{CWE-label classification}{subsubsection.3.3.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {III-C}2}CWE-label classification}{6}{subsubsection.3.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {III-C}3}Statistical Significance Testing}{6}{subsubsection.3.3.3}\protected@file@percent }
+\citation{mann1947test}
+\citation{kerby2014simple}
+\citation{cohen1988statistical}
 \citation{roziere2023code}
 \citation{lozhkov2024starcoder}
 \citation{yang2025qwen3}
 \citation{dubey2024llama}
 \citation{jiang2023mistral7b}
 \citation{guo2025deepseek}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-D}}Prompt Templates}{5}{subsection.3.4}\protected@file@percent }
-\newlabel{section:prompts}{{\mbox  {III-D}}{5}{Prompt Templates}{subsection.3.4}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces Prompt Templates for SVD and PV Tasks}}{5}{table.caption.5}\protected@file@percent }
-\newlabel{table:prompt_templates}{{IV}{5}{Prompt Templates for SVD and PV Tasks}{table.caption.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {IV}Benchmarking Results}{5}{section.4}\protected@file@percent }
-\newlabel{section:results}{{IV}{5}{Benchmarking Results}{section.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces CWE Ranking Prompt (SVD2)}}{5}{figure.caption.6}\protected@file@percent }
-\newlabel{figure:prompt_svd2}{{2}{5}{CWE Ranking Prompt (SVD2)}{figure.caption.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Is the code vulnerable (SVD3)}}{5}{figure.caption.7}\protected@file@percent }
-\newlabel{figure:prompt_svd3}{{3}{5}{Is the code vulnerable (SVD3)}{figure.caption.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}RQ1: Binary Vulnerability vs. Patch Classification}{5}{subsection.4.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces LLM Specifications with Context Window Sizes (tokens)}}{6}{table.caption.8}\protected@file@percent }
-\newlabel{table:llm-specs}{{V}{6}{LLM Specifications with Context Window Sizes (tokens)}{table.caption.8}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {VI}{\ignorespaces LLM accuracy (\%) on VD (SVD3–SVD6) across PBD and LFD. Arrows indicate performance change from PBD to LFD: \textcolor {ForestGreen}{$\uparrow $} improvement, \textcolor {red}{$\downarrow $} degradation. \textbf  {Bold}: best per task; \underline  {Underlined}: second-best. Values in parentheses show deviation from task mean. Bias Gap represents vulnerable vs. patched detection asymmetry.}}{6}{table.caption.9}\protected@file@percent }
-\newlabel{tab:is-vulnerable}{{VI}{6}{LLM accuracy (\%) on VD (SVD3–SVD6) across PBD and LFD. Arrows indicate performance change from PBD to LFD: \textcolor {ForestGreen}{$\uparrow $} improvement, \textcolor {red}{$\downarrow $} degradation. \textbf {Bold}: best per task; \underline {Underlined}: second-best. Values in parentheses show deviation from task mean. Bias Gap represents vulnerable vs. patched detection asymmetry}{table.caption.9}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces CVE-2025-21762: Use-After-Free (UAF) Vulnerability in Linux Kernel's ARP Implementation. The vulnerable code (top) lacks RCU protection, while the patched code (bottom) adds necessary RCU read locks to prevent UAF conditions.}}{7}{figure.caption.10}\protected@file@percent }
-\newlabel{figure:code_2}{{4}{7}{CVE-2025-21762: Use-After-Free (UAF) Vulnerability in Linux Kernel's ARP Implementation. The vulnerable code (top) lacks RCU protection, while the patched code (bottom) adds necessary RCU read locks to prevent UAF conditions}{figure.caption.10}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}RQ2: Per-CWE Performance and Pillars}{7}{subsection.4.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Model Performance Across CWE Root Pillars in PBD: Distribution shows vulnerability counts by pillar with model accuracy rates.}}{7}{figure.caption.11}\protected@file@percent }
-\newlabel{figure:cwe-distribution-PBD}{{5}{7}{Model Performance Across CWE Root Pillars in PBD: Distribution shows vulnerability counts by pillar with model accuracy rates}{figure.caption.11}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {VII}{\ignorespaces CWE Root Pillar Distribution and Model Specialization Patterns}}{7}{table.caption.13}\protected@file@percent }
-\newlabel{tab:cwe_pillar_performance}{{VII}{7}{CWE Root Pillar Distribution and Model Specialization Patterns}{table.caption.13}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Model Performance Across CWE Root Pillars in LFD.}}{8}{figure.caption.12}\protected@file@percent }
-\newlabel{figure:cwe-distribution_LFD}{{6}{8}{Model Performance Across CWE Root Pillars in LFD}{figure.caption.12}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {VIII}{\ignorespaces Short-Tail vs. Long-Tail CWE Performance Analysis}}{8}{table.caption.14}\protected@file@percent }
-\newlabel{tab:tail}{{VIII}{8}{Short-Tail vs. Long-Tail CWE Performance Analysis}{table.caption.14}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-C}}RQ3: CWE Ranking Performance}{8}{subsection.4.3}\protected@file@percent }
-\newlabel{section:rq1}{{\mbox  {IV-C}}{8}{RQ3: CWE Ranking Performance}{subsection.4.3}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {IX}{\ignorespaces CWE ranking (SVD2) across PBD and LFD. Columns report Top-$k$ accuracy, MRR, and HPS. Parentheses show deviation ($\delta $) from the column average; \textbf  {bold} marks best.}}{8}{table.caption.15}\protected@file@percent }
-\newlabel{tab:rank_model_performance}{{IX}{8}{CWE ranking (SVD2) across PBD and LFD. Columns report Top-$k$ accuracy, MRR, and HPS. Parentheses show deviation ($\delta $) from the column average; \textbf {bold} marks best}{table.caption.15}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {X}{\ignorespaces Micro/Macro accuracy analysis revealing model performance disparities across CWE types.}}{9}{table.caption.16}\protected@file@percent }
-\newlabel{tab:micro_macro_analysis}{{X}{9}{Micro/Macro accuracy analysis revealing model performance disparities across CWE types}{table.caption.16}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {XI}{\ignorespaces CWE-specific detection performance showing memory safety dominance and universal blind spots.}}{9}{table.caption.17}\protected@file@percent }
-\newlabel{tab:cwe_performance}{{XI}{9}{CWE-specific detection performance showing memory safety dominance and universal blind spots}{table.caption.17}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {XII}{\ignorespaces Model consistency analysis showing variance in CWE detection across different architectures.}}{9}{table.caption.18}\protected@file@percent }
-\newlabel{tab:model_consistency}{{XII}{9}{Model consistency analysis showing variance in CWE detection across different architectures}{table.caption.18}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {XIII}{\ignorespaces Top misclassification patterns revealing systematic confusion toward CWE-119.}}{9}{table.caption.19}\protected@file@percent }
-\newlabel{tab:misclassification}{{XIII}{9}{Top misclassification patterns revealing systematic confusion toward CWE-119}{table.caption.19}{}}
+\citation{openai2025gpt4_1mini}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Vulnerability detection and patch verification prompt.}}{7}{figure.3}\protected@file@percent }
+\newlabel{figure:prompt_svd3}{{3}{7}{Vulnerability detection and patch verification prompt}{figure.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces \gls {CWE} ranking prompt.}}{7}{figure.4}\protected@file@percent }
+\newlabel{figure:prompt_svd2}{{4}{7}{\gls {CWE} ranking prompt}{figure.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-D}}Prompt Templates}{7}{subsection.3.4}\protected@file@percent }
+\newlabel{section:prompts}{{\mbox  {III-D}}{7}{Prompt Templates}{subsection.3.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Benchmarking Results}{7}{section.4}\protected@file@percent }
+\newlabel{section:results}{{IV}{7}{Benchmarking Results}{section.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces LLM specs with context window sizes (tokens).}}{8}{table.4}\protected@file@percent }
+\newlabel{table:llm-specs}{{IV}{8}{LLM specs with context window sizes (tokens)}{table.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces Abstention rates (\%) for non-targeted and targeted \gls {SVD}.}}{8}{table.5}\protected@file@percent }
+\newlabel{tab:res-dist-abstention}{{V}{8}{Abstention rates (\%) for non-targeted and targeted \gls {SVD}}{table.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}RQ1: Overall \gls {SVD} performance}{8}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {IV-A}1}Non-targeted Classification}{8}{table.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces CVE-2024-26599: out-of-bounds access; patch shown.}}{8}{figure.5}\protected@file@percent }
+\newlabel{figure:cve_2024_26599}{{5}{8}{CVE-2024-26599: out-of-bounds access; patch shown}{figure.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {VI}{\ignorespaces Performance metrics for \gls {SVD} in non-targeted and targeted settings.}}{9}{table.6}\protected@file@percent }
+\newlabel{tab:metrics-svd}{{VI}{9}{Performance metrics for \gls {SVD} in non-targeted and targeted settings}{table.6}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {IV-A}2}Targeted Classification}{9}{subsubsection.4.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}RQ3: Effect of Code Abstraction Level}{9}{subsection.4.2}\protected@file@percent }
+\newlabel{section:rq3}{{\mbox  {IV-B}}{9}{RQ3: Effect of Code Abstraction Level}{subsection.4.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {VII}{\ignorespaces Per-CWE breakdown of the performance metrics for \gls {SVD}.}}{10}{table.7}\protected@file@percent }
+\newlabel{tab:cwe-metrics-svd}{{VII}{10}{Per-CWE breakdown of the performance metrics for \gls {SVD}}{table.7}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {VIII}{\ignorespaces Overall performance by abstraction level: mean accuracy and standard deviation across models.}}{10}{table.8}\protected@file@percent }
+\newlabel{tab:abstraction_overall}{{VIII}{10}{Overall performance by abstraction level: mean accuracy and standard deviation across models}{table.8}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {IX}{\ignorespaces Model robustness by abstraction sensitivity. Degradation = L1 $-$ L3 accuracy; negative indicates improvement. Ranked by average degradation (worst $\rightarrow $ best).}}{10}{table.9}\protected@file@percent }
+\newlabel{tab:robustness}{{IX}{10}{Model robustness by abstraction sensitivity. Degradation = L1 $-$ L3 accuracy; negative indicates improvement. Ranked by average degradation (worst $\rightarrow $ best)}{table.9}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {X}{\ignorespaces Task-specific accuracy across abstraction levels and L1 $\rightarrow $ L3 change. Excluded abstention cases.}}{11}{table.10}\protected@file@percent }
+\newlabel{tab:task_performance}{{X}{11}{Task-specific accuracy across abstraction levels and L1 $\rightarrow $ L3 change. Excluded abstention cases}{table.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-C}}RQ4: \gls {CWE} Ranking Performance}{11}{subsection.4.3}\protected@file@percent }
+\newlabel{section:rq4}{{\mbox  {IV-C}}{11}{RQ4: \gls {CWE} Ranking Performance}{subsection.4.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {XI}{\ignorespaces \gls {CWE} ranking across PBD and LFD. Columns report Top-$k$ accuracy, MRR, and \gls {HPS}.}}{12}{table.11}\protected@file@percent }
+\newlabel{tab:rank_model_performance}{{XI}{12}{\gls {CWE} ranking across PBD and LFD. Columns report Top-$k$ accuracy, MRR, and \gls {HPS}}{table.11}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {XII}{\ignorespaces Micro/Macro accuracy analysis revealing model performance disparities across \gls {CWE} types.}}{12}{table.12}\protected@file@percent }
+\newlabel{tab:micro_macro_analysis}{{XII}{12}{Micro/Macro accuracy analysis revealing model performance disparities across \gls {CWE} types}{table.12}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {XIII}{\ignorespaces Top-5 and Bottom-5 \gls {CWE} Detection Performance (Averaged across all models).}}{12}{table.13}\protected@file@percent }
+\newlabel{tab:cwe_performance}{{XIII}{12}{Top-5 and Bottom-5 \gls {CWE} Detection Performance (Averaged across all models)}{table.13}{}}
 \citation{xiang2025towards,zibaeirad2025reasoning}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-D}}RQ4: Effect of Code Abstraction Level}{10}{subsection.4.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {XIV}{\ignorespaces Model Robustness Ranking by Abstraction Level Sensitivity}}{10}{table.caption.20}\protected@file@percent }
-\newlabel{tab:robustness}{{XIV}{10}{Model Robustness Ranking by Abstraction Level Sensitivity}{table.caption.20}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {XV}{\ignorespaces Task-Specific Performance Patterns Across Abstraction Levels}}{10}{table.caption.21}\protected@file@percent }
-\newlabel{tab:task_performance}{{XV}{10}{Task-Specific Performance Patterns Across Abstraction Levels}{table.caption.21}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {V}Discussion}{10}{section.5}\protected@file@percent }
-\newlabel{section:discussion}{{V}{10}{Discussion}{section.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Discussion}{13}{section.5}\protected@file@percent }
+\newlabel{section:discussion}{{V}{13}{Discussion}{section.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {XIV}{\ignorespaces Top-8 misclassification patterns showing CWE-119 as a semantic magnet in PBD and CWE-416 confusion dominance in LFD.}}{13}{table.14}\protected@file@percent }
+\newlabel{tab:misclassification}{{XIV}{13}{Top-8 misclassification patterns showing CWE-119 as a semantic magnet in PBD and CWE-416 confusion dominance in LFD}{table.14}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Threats to Validity}{13}{section.6}\protected@file@percent }
+\newlabel{section:threatstovalidity}{{VI}{13}{Threats to Validity}{section.6}{}}
 \bibstyle{IEEEtran}
 \bibdata{ref}
-\bibcite{chen2021evaluating}{1}
-\bibcite{touvron2023llama}{2}
-\bibcite{dubey2024llama}{3}
-\bibcite{feng2020codebert}{4}
-\bibcite{li2022competition}{5}
-\bibcite{nijkamp2022codegen}{6}
-\bibcite{wang2021codet5}{7}
-\bibcite{ahmad2021unified}{8}
-\bibcite{nam2024using}{9}
-\bibcite{alshahwan2024automated}{10}
-\bibcite{wang2024software}{11}
-\bibcite{schafer2023empirical}{12}
-\bibcite{khan2022automatic}{13}
-\bibcite{hoffmann2022trainingcomputeoptimallargelanguage}{14}
-\bibcite{gholami2024improvedgeneralizationboundscommunication}{15}
-\bibcite{digest}{16}
-\@writefile{lot}{\contentsline {table}{\numberline {XVI}{\ignorespaces Architectural Sensitivity Analysis: Context Window vs Model Type}}{11}{table.caption.22}\protected@file@percent }
-\newlabel{tab:architecture}{{XVI}{11}{Architectural Sensitivity Analysis: Context Window vs Model Type}{table.caption.22}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {VI}Threats to Validity}{11}{section.6}\protected@file@percent }
-\newlabel{section:threatstovalidity}{{VI}{11}{Threats to Validity}{section.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {VII}Conclusion}{11}{section.7}\protected@file@percent }
-\newlabel{section:conclusion}{{VII}{11}{Conclusion}{section.7}{}}
-\@writefile{toc}{\contentsline {section}{References}{11}{section*.23}\protected@file@percent }
-\bibcite{thomas2022dynamic}{17}
-\bibcite{fan2023large}{18}
-\bibcite{cvedetails2024}{19}
-\bibcite{huang2023survey}{20}
-\bibcite{zhang2023survey}{21}
-\bibcite{manes2019art}{22}
-\bibcite{klees2018evaluating}{23}
-\bibcite{pereira2021machine}{24}
-\bibcite{gao2023far}{25}
-\bibcite{chakraborty2021deep}{26}
-\bibcite{wu2023effective}{27}
-\bibcite{mitre_cwe}{28}
-\bibcite{wang2021patchdb}{29}
-\bibcite{zheng2021d2a}{30}
-\bibcite{ni2024megavul}{31}
-\bibcite{iannone2022secret}{32}
-\bibcite{croft2023data}{33}
-\bibcite{zhou2019devign}{34}
-\bibcite{bhandari2021cvefixes}{35}
-\bibcite{lu2021codexglue}{36}
-\bibcite{siddiq2022securityeval}{37}
-\bibcite{liu2024vuldetectbench}{38}
-\bibcite{sun2024llm4vuln}{39}
-\bibcite{khare2025understanding}{40}
-\bibcite{ullah2024llms}{41}
-\bibcite{khare2023understanding}{42}
-\bibcite{nvd2025}{43}
-\bibcite{pereira2022software}{44}
-\bibcite{russakovsky2015imagenet}{45}
-\bibcite{craswell2009mean}{46}
-\bibcite{roziere2023code}{47}
-\bibcite{lozhkov2024starcoder}{48}
-\bibcite{yang2025qwen3}{49}
-\bibcite{jiang2023mistral7b}{50}
-\bibcite{guo2025deepseek}{51}
-\bibcite{xiang2025towards}{52}
-\bibcite{zibaeirad2025reasoning}{53}
-\@writefile{toc}{\contentsline {section}{Appendix}{12}{section*.24}\protected@file@percent }
-\newlabel{appendix:cwe-hierarchy}{{A}{12}{\appendixname }{section*.24}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A}Hierarchical Structure}{13}{subsection.Appendix.A.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B}Example: Buffer Overflow Vulnerability}{13}{subsection.Appendix.A.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces CVE-2022-26490 (CWE-120): Buffer overflow in NFC driver. The vulnerable code (top) uses user-controlled length without validation; the patch (bottom) adds bounds checking.}}{13}{figure.caption.25}\protected@file@percent }
-\newlabel{figure:cwe_example_appendix}{{7}{13}{CVE-2022-26490 (CWE-120): Buffer overflow in NFC driver. The vulnerable code (top) uses user-controlled length without validation; the patch (bottom) adds bounds checking}{figure.caption.25}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {C}Interpretation}{13}{subsection.Appendix.A.3}\protected@file@percent }
-\gdef \@abspage@last{13}
+\bibcite{cvedetails2024}{1}
+\bibcite{huang2023survey}{2}
+\bibcite{zhang2023survey}{3}
+\bibcite{manes2019art}{4}
+\bibcite{klees2018evaluating}{5}
+\bibcite{pereira2021machine}{6}
+\bibcite{chen2021evaluating}{7}
+\bibcite{touvron2023llama}{8}
+\bibcite{dubey2024llama}{9}
+\bibcite{feng2020codebert}{10}
+\bibcite{li2022competition}{11}
+\@writefile{toc}{\contentsline {section}{\numberline {VII}Conclusion}{14}{section.7}\protected@file@percent }
+\newlabel{section:conclusion}{{VII}{14}{Conclusion}{section.7}{}}
+\@writefile{toc}{\contentsline {section}{References}{14}{section*.4}\protected@file@percent }
+\bibcite{alshahwan2024automated}{12}
+\bibcite{wang2024software}{13}
+\bibcite{fan2023large}{14}
+\bibcite{siddiq2022securityeval}{15}
+\bibcite{liu2024vuldetectbench}{16}
+\bibcite{sun2024llm4vuln}{17}
+\bibcite{khare2025understanding}{18}
+\bibcite{ullah2024llms}{19}
+\bibcite{gao2023far}{20}
+\bibcite{iannone2022secret}{21}
+\bibcite{croft2023data}{22}
+\bibcite{mitre_cwe}{23}
+\bibcite{chakraborty2021deep}{24}
+\bibcite{wang2021patchdb}{25}
+\bibcite{zheng2021d2a}{26}
+\bibcite{ni2024megavul}{27}
+\bibcite{zhou2019devign}{28}
+\bibcite{bhandari2021cvefixes}{29}
+\bibcite{lu2021codexglue}{30}
+\bibcite{nvd2025}{31}
+\bibcite{pereira2022software}{32}
+\bibcite{cwe1000}{33}
+\bibcite{russakovsky2015imagenet}{34}
+\bibcite{craswell2009mean}{35}
+\bibcite{shapiro1965analysis}{36}
+\bibcite{fisher1970statistical}{37}
+\bibcite{mann1947test}{38}
+\bibcite{kerby2014simple}{39}
+\bibcite{cohen1988statistical}{40}
+\bibcite{roziere2023code}{41}
+\bibcite{lozhkov2024starcoder}{42}
+\bibcite{yang2025qwen3}{43}
+\bibcite{jiang2023mistral7b}{44}
+\bibcite{guo2025deepseek}{45}
+\bibcite{openai2025gpt4_1mini}{46}
+\bibcite{xiang2025towards}{47}
+\bibcite{zibaeirad2025reasoning}{48}
+\gdef \@abspage@last{15}

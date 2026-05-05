@@ -1,1 +1,0 @@
-{"api_key": "confident_us_RGirFJSwpeSdSE7KkyShIZda20+eT0lb4joxEWPcanY=", "LOCAL_MODEL_NAME": "ollama/gpt-oss", "LOCAL_MODEL_BASE_URL": "http://localhost:8000/v1/", "LOCAL_MODEL_API_KEY": "local", "LOCAL_MODEL_FORMAT": "json", "USE_LOCAL_MODEL": "YES", "USE_AZURE_OPENAI": "NO"}

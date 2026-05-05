@@ -1,0 +1,43 @@
+Starting evaluation with model: deepseek
+Running evaluation on both databases...
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.87s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.41s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.48s/it]
+Device set to use cuda:0
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 58.82it/s]
+Device set to use cuda:0
+2025-11-27 00:19:24,183 - job_deepseek_database_1764220761 - INFO - Starting task: is_vulnerable_vuln
+2025-11-27 00:19:24,546 - job_deepseek_database_1764220761 - INFO - No incomplete commits for task is_vulnerable_vuln
+2025-11-27 00:19:24,548 - job_deepseek_database_1764220761 - INFO - Starting task: is_vulnerable_patch
+2025-11-27 00:19:24,560 - job_deepseek_database_1764220761 - INFO - No incomplete commits for task is_vulnerable_patch
+2025-11-27 00:19:24,562 - job_deepseek_database_1764220761 - INFO - Starting task: is_vulnerable_vuln_cve_cwe
+2025-11-27 00:19:24,566 - job_deepseek_database_1764220761 - INFO - No incomplete commits for task is_vulnerable_vuln_cve_cwe
+2025-11-27 00:19:24,568 - job_deepseek_database_1764220761 - INFO - Starting task: is_vulnerable_patch_cve_cwe
+2025-11-27 00:19:24,572 - job_deepseek_database_1764220761 - INFO - No incomplete commits for task is_vulnerable_patch_cve_cwe
+2025-11-27 00:19:24,573 - job_deepseek_database_1764220761 - INFO - Starting task: suggest_fix
+2025-11-27 00:19:24,585 - job_deepseek_database_1764220761 - INFO - No incomplete commits for task suggest_fix
+2025-11-27 00:19:24,587 - job_deepseek_database_1764220761 - INFO - Starting task: suggest_fix_fewshot
+2025-11-27 00:19:24,591 - job_deepseek_database_1764220761 - INFO - No incomplete commits for task suggest_fix_fewshot
+2025-11-27 00:19:24,592 - job_deepseek_database_1764220761 - INFO - Starting task: rank_cwe
+2025-11-27 00:20:15,284 - job_deepseek_database_1764220761 - INFO - Completed task: rank_cwe
+2025-11-27 00:20:15,286 - job_deepseek_database_1764220761 - INFO - Job completed successfully
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 61.84it/s]
+Device set to use cuda:0
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 60.84it/s]
+Device set to use cuda:0
+2025-11-27 00:20:21,394 - job_deepseek_database_leakagefree_1764220818 - INFO - Starting task: is_vulnerable_vuln
+2025-11-27 00:20:21,408 - job_deepseek_database_leakagefree_1764220818 - INFO - No incomplete commits for task is_vulnerable_vuln
+2025-11-27 00:20:21,409 - job_deepseek_database_leakagefree_1764220818 - INFO - Starting task: is_vulnerable_patch
+2025-11-27 00:20:21,426 - job_deepseek_database_leakagefree_1764220818 - INFO - No incomplete commits for task is_vulnerable_patch
+2025-11-27 00:20:21,428 - job_deepseek_database_leakagefree_1764220818 - INFO - Starting task: is_vulnerable_vuln_cve_cwe
+2025-11-27 00:20:21,440 - job_deepseek_database_leakagefree_1764220818 - INFO - No incomplete commits for task is_vulnerable_vuln_cve_cwe
+2025-11-27 00:20:21,442 - job_deepseek_database_leakagefree_1764220818 - INFO - Starting task: is_vulnerable_patch_cve_cwe
+2025-11-27 00:20:21,455 - job_deepseek_database_leakagefree_1764220818 - INFO - No incomplete commits for task is_vulnerable_patch_cve_cwe
+2025-11-27 00:20:21,456 - job_deepseek_database_leakagefree_1764220818 - INFO - Starting task: suggest_fix
+2025-11-27 00:20:21,482 - job_deepseek_database_leakagefree_1764220818 - INFO - No incomplete commits for task suggest_fix
+2025-11-27 00:20:21,484 - job_deepseek_database_leakagefree_1764220818 - INFO - Starting task: suggest_fix_fewshot
+2025-11-27 00:20:21,513 - job_deepseek_database_leakagefree_1764220818 - INFO - No incomplete commits for task suggest_fix_fewshot
+2025-11-27 00:20:21,514 - job_deepseek_database_leakagefree_1764220818 - INFO - Starting task: rank_cwe
+2025-11-27 00:21:04,718 - job_deepseek_database_leakagefree_1764220818 - INFO - Completed task: rank_cwe
+2025-11-27 00:21:04,720 - job_deepseek_database_leakagefree_1764220818 - INFO - Job completed successfully
+Evaluation completed on both databases:
+  database.sqlite: Job deepseek_database_1764220761 - Status: completed
+  database_leakagefree.sqlite: Job deepseek_database_leakagefree_1764220818 - Status: completed

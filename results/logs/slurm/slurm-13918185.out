@@ -1,0 +1,410 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Starting evaluation with model: primevul_ft
+Running evaluation on both databases...
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.95it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  3.72it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.55it/s]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.87it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  3.62it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.39it/s]
+2025-11-27 00:36:01,028 - job_primevul_ft_database_1764221759 - INFO - Starting task: is_vulnerable_vuln
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+2025-11-27 00:37:06,630 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 10/314 commits processed
+2025-11-27 00:38:11,839 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 20/314 commits processed
+2025-11-27 00:39:17,271 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 30/314 commits processed
+2025-11-27 00:40:19,315 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 40/314 commits processed
+2025-11-27 00:41:22,269 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 50/314 commits processed
+2025-11-27 00:42:27,521 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 60/314 commits processed
+2025-11-27 00:43:26,053 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 70/314 commits processed
+2025-11-27 00:44:31,003 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 80/314 commits processed
+2025-11-27 00:45:36,055 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 90/314 commits processed
+2025-11-27 00:46:41,426 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 100/314 commits processed
+2025-11-27 00:47:46,830 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 110/314 commits processed
+2025-11-27 00:48:52,086 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 120/314 commits processed
+2025-11-27 00:49:55,622 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 130/314 commits processed
+2025-11-27 00:51:00,841 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 140/314 commits processed
+2025-11-27 00:52:05,873 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 150/314 commits processed
+2025-11-27 00:53:11,081 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 160/314 commits processed
+2025-11-27 00:54:16,353 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 170/314 commits processed
+2025-11-27 00:55:15,268 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 180/314 commits processed
+2025-11-27 00:56:13,898 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 190/314 commits processed
+2025-11-27 00:57:13,178 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 200/314 commits processed
+2025-11-27 00:58:18,135 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 210/314 commits processed
+2025-11-27 00:59:23,773 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 220/314 commits processed
+2025-11-27 01:00:28,898 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 230/314 commits processed
+2025-11-27 01:01:21,156 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 240/314 commits processed
+2025-11-27 01:02:26,548 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 250/314 commits processed
+2025-11-27 01:03:31,889 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 260/314 commits processed
+2025-11-27 01:04:37,318 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 270/314 commits processed
+2025-11-27 01:05:42,348 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 280/314 commits processed
+2025-11-27 01:06:47,669 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 290/314 commits processed
+2025-11-27 01:07:51,439 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 300/314 commits processed
+2025-11-27 01:08:56,760 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln: 310/314 commits processed
+2025-11-27 01:09:19,429 - job_primevul_ft_database_1764221759 - INFO - Completed task: is_vulnerable_vuln
+2025-11-27 01:09:19,431 - job_primevul_ft_database_1764221759 - INFO - Starting task: is_vulnerable_patch
+2025-11-27 01:10:24,407 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 10/314 commits processed
+2025-11-27 01:11:29,917 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 20/314 commits processed
+2025-11-27 01:12:35,871 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 30/314 commits processed
+2025-11-27 01:13:41,417 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 40/314 commits processed
+2025-11-27 01:14:46,668 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 50/314 commits processed
+2025-11-27 01:15:52,260 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 60/314 commits processed
+2025-11-27 01:16:47,200 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 70/314 commits processed
+2025-11-27 01:17:52,421 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 80/314 commits processed
+2025-11-27 01:18:57,539 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 90/314 commits processed
+2025-11-27 01:20:03,065 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 100/314 commits processed
+2025-11-27 01:21:08,471 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 110/314 commits processed
+2025-11-27 01:22:13,751 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 120/314 commits processed
+2025-11-27 01:23:18,666 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 130/314 commits processed
+2025-11-27 01:24:21,115 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 140/314 commits processed
+2025-11-27 01:25:27,764 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 150/314 commits processed
+2025-11-27 01:26:34,431 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 160/314 commits processed
+2025-11-27 01:27:39,681 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 170/314 commits processed
+2025-11-27 01:28:38,633 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 180/314 commits processed
+2025-11-27 01:29:37,251 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 190/314 commits processed
+2025-11-27 01:30:36,183 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 200/314 commits processed
+2025-11-27 01:31:41,968 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 210/314 commits processed
+2025-11-27 01:32:48,710 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 220/314 commits processed
+2025-11-27 01:33:55,303 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 230/314 commits processed
+2025-11-27 01:34:48,796 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 240/314 commits processed
+2025-11-27 01:35:55,367 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 250/314 commits processed
+2025-11-27 01:37:02,084 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 260/314 commits processed
+2025-11-27 01:38:08,663 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 270/314 commits processed
+2025-11-27 01:39:12,403 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 280/314 commits processed
+2025-11-27 01:40:18,999 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 290/314 commits processed
+2025-11-27 01:41:25,451 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 300/314 commits processed
+2025-11-27 01:42:32,271 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch: 310/314 commits processed
+2025-11-27 01:42:58,663 - job_primevul_ft_database_1764221759 - INFO - Completed task: is_vulnerable_patch
+2025-11-27 01:42:58,666 - job_primevul_ft_database_1764221759 - INFO - Starting task: is_vulnerable_vuln_cve_cwe
+2025-11-27 01:44:05,127 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 10/314 commits processed
+2025-11-27 01:45:11,856 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 20/314 commits processed
+2025-11-27 01:46:18,471 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 30/314 commits processed
+2025-11-27 01:47:25,064 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 40/314 commits processed
+2025-11-27 01:48:31,274 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 50/314 commits processed
+2025-11-27 01:49:37,959 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 60/314 commits processed
+2025-11-27 01:50:44,385 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 70/314 commits processed
+2025-11-27 01:51:50,560 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 80/314 commits processed
+2025-11-27 01:52:56,912 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 90/314 commits processed
+2025-11-27 01:54:03,494 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 100/314 commits processed
+2025-11-27 01:55:10,157 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 110/314 commits processed
+2025-11-27 01:56:16,703 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 120/314 commits processed
+2025-11-27 01:57:23,169 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 130/314 commits processed
+2025-11-27 01:58:29,544 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 140/314 commits processed
+2025-11-27 01:59:35,722 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 150/314 commits processed
+2025-11-27 02:00:42,487 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 160/314 commits processed
+2025-11-27 02:01:49,187 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 170/314 commits processed
+2025-11-27 02:02:56,071 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 180/314 commits processed
+2025-11-27 02:04:02,630 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 190/314 commits processed
+2025-11-27 02:05:09,652 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 200/314 commits processed
+2025-11-27 02:06:15,982 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 210/314 commits processed
+2025-11-27 02:07:23,041 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 220/314 commits processed
+2025-11-27 02:08:29,383 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 230/314 commits processed
+2025-11-27 02:09:36,227 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 240/314 commits processed
+2025-11-27 02:10:42,462 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 250/314 commits processed
+2025-11-27 02:11:49,256 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 260/314 commits processed
+2025-11-27 02:12:55,571 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 270/314 commits processed
+2025-11-27 02:14:00,640 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 280/314 commits processed
+2025-11-27 02:15:06,754 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 290/314 commits processed
+2025-11-27 02:16:13,341 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 300/314 commits processed
+2025-11-27 02:17:19,544 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_vuln_cve_cwe: 310/314 commits processed
+2025-11-27 02:17:45,955 - job_primevul_ft_database_1764221759 - INFO - Completed task: is_vulnerable_vuln_cve_cwe
+2025-11-27 02:17:45,958 - job_primevul_ft_database_1764221759 - INFO - Starting task: is_vulnerable_patch_cve_cwe
+2025-11-27 02:18:52,276 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 10/314 commits processed
+2025-11-27 02:19:58,644 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 20/314 commits processed
+2025-11-27 02:21:05,274 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 30/314 commits processed
+2025-11-27 02:22:09,947 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 40/314 commits processed
+2025-11-27 02:23:16,405 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 50/314 commits processed
+2025-11-27 02:24:22,899 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 60/314 commits processed
+2025-11-27 02:25:29,597 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 70/314 commits processed
+2025-11-27 02:26:35,679 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 80/314 commits processed
+2025-11-27 02:27:42,280 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 90/314 commits processed
+2025-11-27 02:28:48,738 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 100/314 commits processed
+2025-11-27 02:29:55,981 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 110/314 commits processed
+2025-11-27 02:31:02,411 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 120/314 commits processed
+2025-11-27 02:32:09,193 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 130/314 commits processed
+2025-11-27 02:33:15,614 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 140/314 commits processed
+2025-11-27 02:34:22,085 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 150/314 commits processed
+2025-11-27 02:35:28,598 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 160/314 commits processed
+2025-11-27 02:36:35,239 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 170/314 commits processed
+2025-11-27 02:37:41,661 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 180/314 commits processed
+2025-11-27 02:38:48,281 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 190/314 commits processed
+2025-11-27 02:39:55,159 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 200/314 commits processed
+2025-11-27 02:41:01,644 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 210/314 commits processed
+2025-11-27 02:42:08,323 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 220/314 commits processed
+2025-11-27 02:43:14,652 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 230/314 commits processed
+2025-11-27 02:44:21,037 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 240/314 commits processed
+2025-11-27 02:45:27,232 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 250/314 commits processed
+2025-11-27 02:46:33,707 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 260/314 commits processed
+2025-11-27 02:47:40,008 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 270/314 commits processed
+2025-11-27 02:48:46,285 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 280/314 commits processed
+2025-11-27 02:49:52,494 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 290/314 commits processed
+2025-11-27 02:50:58,814 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 300/314 commits processed
+2025-11-27 02:52:05,207 - job_primevul_ft_database_1764221759 - INFO - Task is_vulnerable_patch_cve_cwe: 310/314 commits processed
+2025-11-27 02:52:31,739 - job_primevul_ft_database_1764221759 - INFO - Completed task: is_vulnerable_patch_cve_cwe
+2025-11-27 02:52:31,743 - job_primevul_ft_database_1764221759 - INFO - Starting task: suggest_fix
+2025-11-27 02:53:37,876 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 10/314 commits processed
+2025-11-27 02:54:44,390 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 20/314 commits processed
+2025-11-27 02:55:50,886 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 30/314 commits processed
+2025-11-27 02:56:57,301 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 40/314 commits processed
+2025-11-27 02:58:03,469 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 50/314 commits processed
+2025-11-27 02:59:09,907 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 60/314 commits processed
+2025-11-27 03:00:16,084 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 70/314 commits processed
+2025-11-27 03:01:21,906 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 80/314 commits processed
+2025-11-27 03:02:27,977 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 90/314 commits processed
+2025-11-27 03:03:34,188 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 100/314 commits processed
+2025-11-27 03:04:40,557 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 110/314 commits processed
+2025-11-27 03:05:46,757 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 120/314 commits processed
+2025-11-27 03:06:53,209 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 130/314 commits processed
+2025-11-27 03:07:59,381 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 140/314 commits processed
+2025-11-27 03:09:05,696 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 150/314 commits processed
+2025-11-27 03:10:11,764 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 160/314 commits processed
+2025-11-27 03:11:18,222 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 170/314 commits processed
+2025-11-27 03:12:24,320 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 180/314 commits processed
+2025-11-27 03:13:30,806 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 190/314 commits processed
+2025-11-27 03:14:37,334 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 200/314 commits processed
+2025-11-27 03:15:43,741 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 210/314 commits processed
+2025-11-27 03:16:50,166 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 220/314 commits processed
+2025-11-27 03:17:56,690 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 230/314 commits processed
+2025-11-27 03:19:02,721 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 240/314 commits processed
+2025-11-27 03:20:09,203 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 250/314 commits processed
+2025-11-27 03:21:15,662 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 260/314 commits processed
+2025-11-27 03:22:22,553 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 270/314 commits processed
+2025-11-27 03:23:28,763 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 280/314 commits processed
+2025-11-27 03:24:35,585 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 290/314 commits processed
+2025-11-27 03:25:41,946 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 300/314 commits processed
+2025-11-27 03:26:48,842 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix: 310/314 commits processed
+2025-11-27 03:27:15,154 - job_primevul_ft_database_1764221759 - INFO - Completed task: suggest_fix
+2025-11-27 03:27:15,158 - job_primevul_ft_database_1764221759 - INFO - Starting task: suggest_fix_fewshot
+2025-11-27 03:28:21,509 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 10/314 commits processed
+2025-11-27 03:29:28,552 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 20/314 commits processed
+2025-11-27 03:30:35,177 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 30/314 commits processed
+2025-11-27 03:31:42,210 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 40/314 commits processed
+2025-11-27 03:32:48,741 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 50/314 commits processed
+2025-11-27 03:33:55,748 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 60/314 commits processed
+2025-11-27 03:35:02,433 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 70/314 commits processed
+2025-11-27 03:36:09,299 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 80/314 commits processed
+2025-11-27 03:37:15,861 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 90/314 commits processed
+2025-11-27 03:38:22,911 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 100/314 commits processed
+2025-11-27 03:39:29,714 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 110/314 commits processed
+2025-11-27 03:40:36,681 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 120/314 commits processed
+2025-11-27 03:41:43,087 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 130/314 commits processed
+2025-11-27 03:42:50,099 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 140/314 commits processed
+2025-11-27 03:43:56,588 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 150/314 commits processed
+2025-11-27 03:45:03,367 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 160/314 commits processed
+2025-11-27 03:46:10,197 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 170/314 commits processed
+2025-11-27 03:47:17,078 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 180/314 commits processed
+2025-11-27 03:48:23,727 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 190/314 commits processed
+2025-11-27 03:49:30,670 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 200/314 commits processed
+2025-11-27 03:50:37,179 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 210/314 commits processed
+2025-11-27 03:51:44,108 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 220/314 commits processed
+2025-11-27 03:52:50,869 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 230/314 commits processed
+2025-11-27 03:53:57,709 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 240/314 commits processed
+2025-11-27 03:55:04,450 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 250/314 commits processed
+2025-11-27 03:56:11,201 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 260/314 commits processed
+2025-11-27 03:57:18,091 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 270/314 commits processed
+2025-11-27 03:58:24,683 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 280/314 commits processed
+2025-11-27 03:59:31,581 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 290/314 commits processed
+2025-11-27 04:00:37,954 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 300/314 commits processed
+2025-11-27 04:01:44,696 - job_primevul_ft_database_1764221759 - INFO - Task suggest_fix_fewshot: 310/314 commits processed
+2025-11-27 04:02:11,198 - job_primevul_ft_database_1764221759 - INFO - Completed task: suggest_fix_fewshot
+2025-11-27 04:02:11,202 - job_primevul_ft_database_1764221759 - INFO - Starting task: rank_cwe
+2025-11-27 04:03:17,394 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 10/314 commits processed
+2025-11-27 04:04:24,030 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 20/314 commits processed
+2025-11-27 04:05:30,582 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 30/314 commits processed
+2025-11-27 04:06:37,061 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 40/314 commits processed
+2025-11-27 04:07:43,344 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 50/314 commits processed
+Could not extract any CWE identifiers from: pid);
+		return_error = BR_FAILED_REPLY;
+		return_error_param = -ENOMEM;
+		return_error_line = __LINE
+No CWEs extracted, storing empty list for commit 4df153652cc46545722879415937582028c18af5: pid);
+		return_error = BR_FAILED_REPLY;
+		return_error_param = -ENOMEM;
+		return_error_line = __LINE
+2025-11-27 04:08:49,885 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 60/314 commits processed
+2025-11-27 04:09:56,407 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 70/314 commits processed
+2025-11-27 04:11:02,495 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 80/314 commits processed
+2025-11-27 04:12:08,757 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 90/314 commits processed
+2025-11-27 04:13:15,376 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 100/314 commits processed
+Could not extract any CWE identifiers from: _uuids(sb);
+	c->nr_sets		= sb->nr_sets;
+	c->nr_devices		= sb->nr_devices;
+	c->nr_devices_max	= sb->n
+No CWEs extracted, storing empty list for commit 3a861560ccb35f2a4f0a4b8207fa7c2a35fc7f31: _uuids(sb);
+	c->nr_sets		= sb->nr_sets;
+	c->nr_devices		= sb->nr_devices;
+	c->nr_devices_max	= sb->n
+2025-11-27 04:14:21,657 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 110/314 commits processed
+2025-11-27 04:15:28,104 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 120/314 commits processed
+2025-11-27 04:16:34,417 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 130/314 commits processed
+2025-11-27 04:17:40,846 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 140/314 commits processed
+2025-11-27 04:18:46,942 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 150/314 commits processed
+Could not extract any CWE identifiers from: _LD | BPF_W | BPF_ABS:
+		case BPF_LD | BPF_W | BPF_IND:
+		case BPF_LD | BPF_W | BPF_MEM:
+		case BPF_
+No CWEs extracted, storing empty list for commit f5e81d1117501546b7be050c5fbafa6efd2c722c: _LD | BPF_W | BPF_ABS:
+		case BPF_LD | BPF_W | BPF_IND:
+		case BPF_LD | BPF_W | BPF_MEM:
+		case BPF_
+2025-11-27 04:19:53,379 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 160/314 commits processed
+Could not extract any CWE identifiers from: entry_ops;
+
+	oe = ovl_entry_create(sb->s_root, ufs);
+	if (!oe)
+		goto out_put_lower_mnt;
+
+	sb->s_roo
+No CWEs extracted, storing empty list for commit e9f57ebcba563e0cd532926cab83c92bb4d79360: entry_ops;
+
+	oe = ovl_entry_create(sb->s_root, ufs);
+	if (!oe)
+		goto out_put_lower_mnt;
+
+	sb->s_roo
+2025-11-27 04:20:59,824 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 170/314 commits processed
+2025-11-27 04:22:06,215 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 180/314 commits processed
+2025-11-27 04:23:12,514 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 190/314 commits processed
+Could not extract any CWE identifiers from: , endptr - ptr);
+                        break;
+
+                case L2CAP_CONF_QOS:
+              
+No CWEs extracted, storing empty list for commit af3d5d1c87664a4f150fcf3534c6567cb19909b0: , endptr - ptr);
+                        break;
+
+                case L2CAP_CONF_QOS:
+              
+2025-11-27 04:24:19,315 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 200/314 commits processed
+2025-11-27 04:25:25,255 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 210/314 commits processed
+2025-11-27 04:26:31,953 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 220/314 commits processed
+2025-11-27 04:27:38,222 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 230/314 commits processed
+2025-11-27 04:28:44,804 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 240/314 commits processed
+Could not extract any CWE identifiers from:  ip->i_no_formal_ino != no_formal_ino) {
+		error = -ESTALE;
+		goto fail;
+	}
+
+	if (error)
+		goto fail
+No CWEs extracted, storing empty list for commit 34816d20f173a90389c8a7e641166d8ea9dce70a:  ip->i_no_formal_ino != no_formal_ino) {
+		error = -ESTALE;
+		goto fail;
+	}
+
+	if (error)
+		goto fail
+2025-11-27 04:29:50,859 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 250/314 commits processed
+Could not extract any CWE identifiers from: utting_down)
+			mod_timer(&dev->check_pres_timer, jiffies +
+				  msecs_to_jiffies(NFC_CHECK_PRES_FR
+No CWEs extracted, storing empty list for commit da5c0f119203ad9728920456a0f52a6d850c01cd: utting_down)
+			mod_timer(&dev->check_pres_timer, jiffies +
+				  msecs_to_jiffies(NFC_CHECK_PRES_FR
+2025-11-27 04:30:57,386 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 260/314 commits processed
+2025-11-27 04:32:03,734 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 270/314 commits processed
+2025-11-27 04:33:10,298 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 280/314 commits processed
+2025-11-27 04:34:16,542 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 290/314 commits processed
+2025-11-27 04:35:23,125 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 300/314 commits processed
+2025-11-27 04:36:29,250 - job_primevul_ft_database_1764221759 - INFO - Task rank_cwe: 310/314 commits processed
+2025-11-27 04:36:55,589 - job_primevul_ft_database_1764221759 - INFO - Completed task: rank_cwe
+2025-11-27 04:36:55,593 - job_primevul_ft_database_1764221759 - INFO - Job completed successfully
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.87it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  3.63it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.41it/s]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.94it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  3.71it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.53it/s]
+2025-11-27 04:37:00,178 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Starting task: is_vulnerable_vuln
+2025-11-27 04:38:06,312 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_vuln: 10/103 commits processed
+2025-11-27 04:39:12,584 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_vuln: 20/103 commits processed
+2025-11-27 04:40:18,749 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_vuln: 30/103 commits processed
+2025-11-27 04:41:25,070 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_vuln: 40/103 commits processed
+2025-11-27 04:42:31,353 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_vuln: 50/103 commits processed
+2025-11-27 04:43:37,543 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_vuln: 60/103 commits processed
+2025-11-27 04:44:43,699 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_vuln: 70/103 commits processed
+2025-11-27 04:45:49,899 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_vuln: 80/103 commits processed
+2025-11-27 04:46:55,963 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_vuln: 90/103 commits processed
+2025-11-27 04:48:01,315 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_vuln: 100/103 commits processed
+2025-11-27 04:48:21,073 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Completed task: is_vulnerable_vuln
+2025-11-27 04:48:21,075 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Starting task: is_vulnerable_patch
+2025-11-27 04:49:27,041 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_patch: 10/103 commits processed
+2025-11-27 04:50:33,262 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_patch: 20/103 commits processed
+2025-11-27 04:51:39,438 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_patch: 30/103 commits processed
+2025-11-27 04:52:45,677 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_patch: 40/103 commits processed
+2025-11-27 04:53:52,299 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_patch: 50/103 commits processed
+2025-11-27 04:54:58,471 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_patch: 60/103 commits processed
+2025-11-27 04:56:04,633 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_patch: 70/103 commits processed
+2025-11-27 04:57:10,868 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_patch: 80/103 commits processed
+2025-11-27 04:58:17,047 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_patch: 90/103 commits processed
+2025-11-27 04:59:19,856 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_patch: 100/103 commits processed
+2025-11-27 04:59:39,626 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Completed task: is_vulnerable_patch
+2025-11-27 04:59:39,628 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Starting task: is_vulnerable_vuln_cve_cwe
+2025-11-27 05:00:45,649 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_vuln_cve_cwe: 10/103 commits processed
+2025-11-27 05:01:51,951 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_vuln_cve_cwe: 20/103 commits processed
+2025-11-27 05:02:58,106 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_vuln_cve_cwe: 30/103 commits processed
+2025-11-27 05:04:04,362 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_vuln_cve_cwe: 40/103 commits processed
+2025-11-27 05:05:10,696 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_vuln_cve_cwe: 50/103 commits processed
+2025-11-27 05:06:17,017 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_vuln_cve_cwe: 60/103 commits processed
+2025-11-27 05:07:23,184 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_vuln_cve_cwe: 70/103 commits processed
+2025-11-27 05:08:29,358 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_vuln_cve_cwe: 80/103 commits processed
+2025-11-27 05:09:35,516 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_vuln_cve_cwe: 90/103 commits processed
+2025-11-27 05:10:41,869 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_vuln_cve_cwe: 100/103 commits processed
+2025-11-27 05:11:01,639 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Completed task: is_vulnerable_vuln_cve_cwe
+2025-11-27 05:11:01,641 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Starting task: is_vulnerable_patch_cve_cwe
+2025-11-27 05:12:07,709 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_patch_cve_cwe: 10/103 commits processed
+2025-11-27 05:13:13,989 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_patch_cve_cwe: 20/103 commits processed
+2025-11-27 05:14:20,206 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_patch_cve_cwe: 30/103 commits processed
+2025-11-27 05:15:26,502 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_patch_cve_cwe: 40/103 commits processed
+2025-11-27 05:16:32,921 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_patch_cve_cwe: 50/103 commits processed
+2025-11-27 05:17:39,185 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_patch_cve_cwe: 60/103 commits processed
+2025-11-27 05:18:45,332 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_patch_cve_cwe: 70/103 commits processed
+2025-11-27 05:19:51,705 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_patch_cve_cwe: 80/103 commits processed
+2025-11-27 05:20:56,686 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_patch_cve_cwe: 90/103 commits processed
+2025-11-27 05:22:03,061 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task is_vulnerable_patch_cve_cwe: 100/103 commits processed
+2025-11-27 05:22:22,798 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Completed task: is_vulnerable_patch_cve_cwe
+2025-11-27 05:22:22,801 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Starting task: suggest_fix
+2025-11-27 05:23:29,012 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task suggest_fix: 10/103 commits processed
+2025-11-27 05:24:35,266 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task suggest_fix: 20/103 commits processed
+2025-11-27 05:25:41,475 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task suggest_fix: 30/103 commits processed
+2025-11-27 05:26:47,722 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task suggest_fix: 40/103 commits processed
+2025-11-27 05:27:54,118 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task suggest_fix: 50/103 commits processed
+2025-11-27 05:29:00,485 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task suggest_fix: 60/103 commits processed
+2025-11-27 05:30:06,719 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task suggest_fix: 70/103 commits processed
+2025-11-27 05:31:13,416 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task suggest_fix: 80/103 commits processed
+2025-11-27 05:32:20,073 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task suggest_fix: 90/103 commits processed
+2025-11-27 05:33:26,946 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task suggest_fix: 100/103 commits processed
+2025-11-27 05:33:46,902 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Completed task: suggest_fix
+2025-11-27 05:33:46,905 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Starting task: suggest_fix_fewshot
+2025-11-27 05:34:53,656 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task suggest_fix_fewshot: 10/103 commits processed
+2025-11-27 05:36:01,167 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task suggest_fix_fewshot: 20/103 commits processed
+2025-11-27 05:37:10,211 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task suggest_fix_fewshot: 30/103 commits processed
+2025-11-27 05:38:19,251 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task suggest_fix_fewshot: 40/103 commits processed
+2025-11-27 05:39:28,463 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task suggest_fix_fewshot: 50/103 commits processed
+2025-11-27 05:40:37,585 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task suggest_fix_fewshot: 60/103 commits processed
+2025-11-27 05:41:46,773 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task suggest_fix_fewshot: 70/103 commits processed
+2025-11-27 05:42:55,689 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task suggest_fix_fewshot: 80/103 commits processed
+2025-11-27 05:44:04,494 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task suggest_fix_fewshot: 90/103 commits processed
+2025-11-27 05:45:13,395 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task suggest_fix_fewshot: 100/103 commits processed
+2025-11-27 05:45:33,960 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Completed task: suggest_fix_fewshot
+2025-11-27 05:45:33,965 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Starting task: rank_cwe
+2025-11-27 05:46:42,162 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task rank_cwe: 10/103 commits processed
+2025-11-27 05:47:50,477 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task rank_cwe: 20/103 commits processed
+2025-11-27 05:48:58,690 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task rank_cwe: 30/103 commits processed
+2025-11-27 05:50:06,840 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task rank_cwe: 40/103 commits processed
+Could not extract any CWE identifiers from: 	case Opt_smb2:
+		ctx->smb2 = true;
+		break;
+	case Opt_smb3:
+		ctx->smb3 = true;
+		break;
+	case Opt_
+No CWEs extracted, storing empty list for commit 7489161b1852390b4413d57f2457cd40b34da6cc: 	case Opt_smb2:
+		ctx->smb2 = true;
+		break;
+	case Opt_smb3:
+		ctx->smb3 = true;
+		break;
+	case Opt_
+2025-11-27 05:51:15,270 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task rank_cwe: 50/103 commits processed
+2025-11-27 05:52:22,616 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task rank_cwe: 60/103 commits processed
+2025-11-27 05:53:28,517 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task rank_cwe: 70/103 commits processed
+2025-11-27 05:54:34,409 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task rank_cwe: 80/103 commits processed
+2025-11-27 05:55:40,365 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task rank_cwe: 90/103 commits processed
+2025-11-27 05:56:46,446 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Task rank_cwe: 100/103 commits processed
+2025-11-27 05:57:06,110 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Completed task: rank_cwe
+2025-11-27 05:57:06,112 - job_primevul_ft_database_leakagefree_1764236218 - INFO - Job completed successfully
+Evaluation completed on both databases:
+  database.sqlite: Job primevul_ft_database_1764221759 - Status: completed
+  database_leakagefree.sqlite: Job primevul_ft_database_leakagefree_1764236218 - Status: completed

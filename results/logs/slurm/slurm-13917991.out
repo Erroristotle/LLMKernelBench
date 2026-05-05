@@ -1,0 +1,330 @@
+Starting evaluation with model: qwen3_4b
+Running evaluation on both databases...
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:04<00:08,  4.45s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:08<00:04,  4.14s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:08<00:00,  2.40s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:08<00:00,  2.90s/it]
+Device set to use cuda:0
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:01,  1.71it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:01<00:00,  1.68it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:01<00:00,  2.49it/s]
+Device set to use cuda:0
+2025-11-27 00:32:26,402 - job_qwen3_4b_database_1764221544 - INFO - Starting task: is_vulnerable_vuln
+2025-11-27 00:36:29,759 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 10/314 commits processed
+2025-11-27 00:40:31,801 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 20/314 commits processed
+2025-11-27 00:44:33,011 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 30/314 commits processed
+2025-11-27 00:48:15,204 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 40/314 commits processed
+2025-11-27 00:52:16,009 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 50/314 commits processed
+2025-11-27 00:56:19,280 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 60/314 commits processed
+2025-11-27 00:59:40,883 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 70/314 commits processed
+2025-11-27 01:03:22,717 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 80/314 commits processed
+2025-11-27 01:07:22,632 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 90/314 commits processed
+2025-11-27 01:11:24,916 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 100/314 commits processed
+2025-11-27 01:14:57,274 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 110/314 commits processed
+2025-11-27 01:18:44,184 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 120/314 commits processed
+2025-11-27 01:22:25,725 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 130/314 commits processed
+2025-11-27 01:26:07,545 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 140/314 commits processed
+2025-11-27 01:30:07,481 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 150/314 commits processed
+2025-11-27 01:33:55,677 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 160/314 commits processed
+2025-11-27 01:37:22,406 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 170/314 commits processed
+2025-11-27 01:41:00,030 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 180/314 commits processed
+2025-11-27 01:44:24,442 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 190/314 commits processed
+2025-11-27 01:48:04,411 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 200/314 commits processed
+2025-11-27 01:51:48,335 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 210/314 commits processed
+2025-11-27 01:55:50,262 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 220/314 commits processed
+2025-11-27 01:59:50,737 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 230/314 commits processed
+2025-11-27 02:02:45,526 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 240/314 commits processed
+2025-11-27 02:06:28,607 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 250/314 commits processed
+2025-11-27 02:10:08,409 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 260/314 commits processed
+2025-11-27 02:13:48,538 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 270/314 commits processed
+2025-11-27 02:17:46,903 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 280/314 commits processed
+2025-11-27 02:21:46,109 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 290/314 commits processed
+2025-11-27 02:25:25,998 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 300/314 commits processed
+2025-11-27 02:29:25,493 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln: 310/314 commits processed
+2025-11-27 02:31:00,491 - job_qwen3_4b_database_1764221544 - INFO - Completed task: is_vulnerable_vuln
+2025-11-27 02:31:00,494 - job_qwen3_4b_database_1764221544 - INFO - Starting task: is_vulnerable_patch
+2025-11-27 02:34:26,961 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 10/314 commits processed
+2025-11-27 02:38:25,937 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 20/314 commits processed
+2025-11-27 02:42:24,753 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 30/314 commits processed
+2025-11-27 02:46:23,650 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 40/314 commits processed
+2025-11-27 02:50:21,545 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 50/314 commits processed
+2025-11-27 02:53:44,909 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 60/314 commits processed
+2025-11-27 02:57:20,483 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 70/314 commits processed
+2025-11-27 03:01:18,154 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 80/314 commits processed
+2025-11-27 03:05:16,320 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 90/314 commits processed
+2025-11-27 03:09:16,478 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 100/314 commits processed
+2025-11-27 03:13:16,825 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 110/314 commits processed
+2025-11-27 03:17:16,327 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 120/314 commits processed
+2025-11-27 03:20:59,368 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 130/314 commits processed
+2025-11-27 03:24:24,806 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 140/314 commits processed
+2025-11-27 03:28:22,911 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 150/314 commits processed
+2025-11-27 03:32:08,352 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 160/314 commits processed
+2025-11-27 03:36:09,610 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 170/314 commits processed
+2025-11-27 03:39:46,020 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 180/314 commits processed
+2025-11-27 03:43:21,545 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 190/314 commits processed
+2025-11-27 03:46:40,811 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 200/314 commits processed
+2025-11-27 03:50:26,578 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 210/314 commits processed
+2025-11-27 03:54:08,114 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 220/314 commits processed
+2025-11-27 03:58:06,608 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 230/314 commits processed
+2025-11-27 04:01:20,500 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 240/314 commits processed
+2025-11-27 04:05:05,678 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 250/314 commits processed
+2025-11-27 04:08:46,031 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 260/314 commits processed
+2025-11-27 04:12:45,880 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 270/314 commits processed
+2025-11-27 04:16:33,240 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 280/314 commits processed
+2025-11-27 04:20:32,406 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 290/314 commits processed
+2025-11-27 04:24:13,496 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 300/314 commits processed
+2025-11-27 04:27:55,619 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch: 310/314 commits processed
+2025-11-27 04:29:30,593 - job_qwen3_4b_database_1764221544 - INFO - Completed task: is_vulnerable_patch
+2025-11-27 04:29:30,596 - job_qwen3_4b_database_1764221544 - INFO - Starting task: is_vulnerable_vuln_cve_cwe
+2025-11-27 04:33:28,587 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 10/314 commits processed
+2025-11-27 04:36:58,685 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 20/314 commits processed
+2025-11-27 04:40:57,198 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 30/314 commits processed
+2025-11-27 04:44:51,654 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 40/314 commits processed
+2025-11-27 04:48:31,518 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 50/314 commits processed
+2025-11-27 04:52:32,217 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 60/314 commits processed
+2025-11-27 04:56:04,698 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 70/314 commits processed
+2025-11-27 05:00:02,221 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 80/314 commits processed
+2025-11-27 05:04:00,059 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 90/314 commits processed
+2025-11-27 05:08:00,151 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 100/314 commits processed
+2025-11-27 05:12:00,186 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 110/314 commits processed
+2025-11-27 05:15:59,657 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 120/314 commits processed
+2025-11-27 05:19:58,454 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 130/314 commits processed
+2025-11-27 05:23:41,934 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 140/314 commits processed
+2025-11-27 05:27:23,682 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 150/314 commits processed
+2025-11-27 05:31:23,379 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 160/314 commits processed
+2025-11-27 05:35:00,864 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 170/314 commits processed
+2025-11-27 05:39:00,993 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 180/314 commits processed
+2025-11-27 05:42:42,919 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 190/314 commits processed
+2025-11-27 05:46:45,175 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 200/314 commits processed
+2025-11-27 05:50:32,030 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 210/314 commits processed
+2025-11-27 05:54:23,512 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 220/314 commits processed
+2025-11-27 05:58:22,192 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 230/314 commits processed
+2025-11-27 06:02:17,718 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 240/314 commits processed
+2025-11-27 06:06:01,925 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 250/314 commits processed
+2025-11-27 06:10:00,984 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 260/314 commits processed
+2025-11-27 06:14:00,512 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 270/314 commits processed
+2025-11-27 06:17:41,848 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 280/314 commits processed
+2025-11-27 06:21:26,372 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 290/314 commits processed
+2025-11-27 06:25:11,369 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 300/314 commits processed
+2025-11-27 06:28:30,075 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_vuln_cve_cwe: 310/314 commits processed
+2025-11-27 06:30:05,047 - job_qwen3_4b_database_1764221544 - INFO - Completed task: is_vulnerable_vuln_cve_cwe
+2025-11-27 06:30:05,050 - job_qwen3_4b_database_1764221544 - INFO - Starting task: is_vulnerable_patch_cve_cwe
+2025-11-27 06:33:15,942 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 10/314 commits processed
+2025-11-27 06:36:40,979 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 20/314 commits processed
+2025-11-27 06:40:24,213 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 30/314 commits processed
+2025-11-27 06:43:39,907 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 40/314 commits processed
+2025-11-27 06:47:37,698 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 50/314 commits processed
+2025-11-27 06:51:38,557 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 60/314 commits processed
+2025-11-27 06:55:25,870 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 70/314 commits processed
+2025-11-27 06:59:12,577 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 80/314 commits processed
+2025-11-27 07:02:53,822 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 90/314 commits processed
+2025-11-27 07:06:54,014 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 100/314 commits processed
+2025-11-27 07:10:54,484 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 110/314 commits processed
+2025-11-27 07:14:19,009 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 120/314 commits processed
+2025-11-27 07:18:05,309 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 130/314 commits processed
+2025-11-27 07:21:52,679 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 140/314 commits processed
+2025-11-27 07:25:21,773 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 150/314 commits processed
+2025-11-27 07:29:07,031 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 160/314 commits processed
+2025-11-27 07:32:56,024 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 170/314 commits processed
+2025-11-27 07:36:22,241 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 180/314 commits processed
+2025-11-27 07:40:21,802 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 190/314 commits processed
+2025-11-27 07:44:22,943 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 200/314 commits processed
+2025-11-27 07:48:20,787 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 210/314 commits processed
+2025-11-27 07:52:20,709 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 220/314 commits processed
+2025-11-27 07:56:02,492 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 230/314 commits processed
+2025-11-27 07:59:48,113 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 240/314 commits processed
+2025-11-27 08:03:34,523 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 250/314 commits processed
+2025-11-27 08:07:33,721 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 260/314 commits processed
+2025-11-27 08:11:11,199 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 270/314 commits processed
+2025-11-27 08:14:54,712 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 280/314 commits processed
+2025-11-27 08:18:53,985 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 290/314 commits processed
+2025-11-27 08:22:52,305 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 300/314 commits processed
+2025-11-27 08:26:42,988 - job_qwen3_4b_database_1764221544 - INFO - Task is_vulnerable_patch_cve_cwe: 310/314 commits processed
+2025-11-27 08:28:18,025 - job_qwen3_4b_database_1764221544 - INFO - Completed task: is_vulnerable_patch_cve_cwe
+2025-11-27 08:28:18,029 - job_qwen3_4b_database_1764221544 - INFO - Starting task: suggest_fix
+2025-11-27 08:32:16,451 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 10/314 commits processed
+2025-11-27 08:36:15,608 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 20/314 commits processed
+2025-11-27 08:40:14,440 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 30/314 commits processed
+2025-11-27 08:44:12,980 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 40/314 commits processed
+2025-11-27 08:48:10,892 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 50/314 commits processed
+2025-11-27 08:52:11,877 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 60/314 commits processed
+2025-11-27 08:56:11,177 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 70/314 commits processed
+2025-11-27 09:00:08,943 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 80/314 commits processed
+2025-11-27 09:04:07,033 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 90/314 commits processed
+2025-11-27 09:08:07,462 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 100/314 commits processed
+2025-11-27 09:12:08,163 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 110/314 commits processed
+2025-11-27 09:16:07,753 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 120/314 commits processed
+2025-11-27 09:20:06,072 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 130/314 commits processed
+2025-11-27 09:24:05,070 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 140/314 commits processed
+2025-11-27 09:28:03,163 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 150/314 commits processed
+2025-11-27 09:32:02,983 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 160/314 commits processed
+2025-11-27 09:36:03,834 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 170/314 commits processed
+2025-11-27 09:40:04,154 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 180/314 commits processed
+2025-11-27 09:44:03,762 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 190/314 commits processed
+2025-11-27 09:48:06,222 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 200/314 commits processed
+2025-11-27 09:52:04,211 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 210/314 commits processed
+2025-11-27 09:56:04,527 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 220/314 commits processed
+2025-11-27 10:00:03,505 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 230/314 commits processed
+2025-11-27 10:04:02,053 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 240/314 commits processed
+2025-11-27 10:08:01,999 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 250/314 commits processed
+2025-11-27 10:12:01,207 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 260/314 commits processed
+2025-11-27 10:16:01,099 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 270/314 commits processed
+2025-11-27 10:19:59,673 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 280/314 commits processed
+2025-11-27 10:23:58,930 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 290/314 commits processed
+2025-11-27 10:27:57,468 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 300/314 commits processed
+2025-11-27 10:31:57,100 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix: 310/314 commits processed
+2025-11-27 10:33:32,151 - job_qwen3_4b_database_1764221544 - INFO - Completed task: suggest_fix
+2025-11-27 10:33:32,156 - job_qwen3_4b_database_1764221544 - INFO - Starting task: suggest_fix_fewshot
+2025-11-27 10:37:31,286 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 10/314 commits processed
+2025-11-27 10:41:32,075 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 20/314 commits processed
+2025-11-27 10:45:33,046 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 30/314 commits processed
+2025-11-27 10:49:33,554 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 40/314 commits processed
+2025-11-27 10:53:32,259 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 50/314 commits processed
+2025-11-27 10:57:34,352 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 60/314 commits processed
+2025-11-27 11:01:35,731 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 70/314 commits processed
+2025-11-27 11:05:34,488 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 80/314 commits processed
+2025-11-27 11:09:34,892 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 90/314 commits processed
+2025-11-27 11:13:35,878 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 100/314 commits processed
+2025-11-27 11:17:37,956 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 110/314 commits processed
+2025-11-27 11:21:37,790 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 120/314 commits processed
+2025-11-27 11:25:36,431 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 130/314 commits processed
+2025-11-27 11:29:36,471 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 140/314 commits processed
+2025-11-27 11:33:35,781 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 150/314 commits processed
+2025-11-27 11:37:37,379 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 160/314 commits processed
+2025-11-27 11:41:38,969 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 170/314 commits processed
+2025-11-27 11:45:39,964 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 180/314 commits processed
+2025-11-27 11:49:40,983 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 190/314 commits processed
+2025-11-27 11:53:43,738 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 200/314 commits processed
+2025-11-27 11:57:42,214 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 210/314 commits processed
+2025-11-27 12:01:44,097 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 220/314 commits processed
+2025-11-27 12:05:43,671 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 230/314 commits processed
+2025-11-27 12:09:43,913 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 240/314 commits processed
+2025-11-27 12:13:45,382 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 250/314 commits processed
+2025-11-27 12:17:46,416 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 260/314 commits processed
+2025-11-27 12:21:48,262 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 270/314 commits processed
+2025-11-27 12:25:47,086 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 280/314 commits processed
+2025-11-27 12:29:46,871 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 290/314 commits processed
+2025-11-27 12:33:45,764 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 300/314 commits processed
+2025-11-27 12:37:45,863 - job_qwen3_4b_database_1764221544 - INFO - Task suggest_fix_fewshot: 310/314 commits processed
+2025-11-27 12:39:21,026 - job_qwen3_4b_database_1764221544 - INFO - Completed task: suggest_fix_fewshot
+2025-11-27 12:39:21,031 - job_qwen3_4b_database_1764221544 - INFO - Starting task: rank_cwe
+2025-11-27 12:43:20,213 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 10/314 commits processed
+2025-11-27 12:47:19,988 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 20/314 commits processed
+2025-11-27 12:51:19,762 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 30/314 commits processed
+2025-11-27 12:55:19,294 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 40/314 commits processed
+2025-11-27 12:59:18,577 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 50/314 commits processed
+2025-11-27 13:03:20,413 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 60/314 commits processed
+2025-11-27 13:07:20,949 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 70/314 commits processed
+2025-11-27 13:11:19,662 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 80/314 commits processed
+2025-11-27 13:15:18,608 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 90/314 commits processed
+2025-11-27 13:19:19,822 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 100/314 commits processed
+2025-11-27 13:23:21,123 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 110/314 commits processed
+2025-11-27 13:27:21,439 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 120/314 commits processed
+2025-11-27 13:31:20,468 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 130/314 commits processed
+2025-11-27 13:35:20,595 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 140/314 commits processed
+2025-11-27 13:39:19,656 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 150/314 commits processed
+2025-11-27 13:43:20,164 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 160/314 commits processed
+2025-11-27 13:47:21,770 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 170/314 commits processed
+2025-11-27 13:51:22,871 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 180/314 commits processed
+2025-11-27 13:55:23,281 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 190/314 commits processed
+2025-11-27 13:59:26,417 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 200/314 commits processed
+2025-11-27 14:03:25,237 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 210/314 commits processed
+2025-11-27 14:07:26,249 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 220/314 commits processed
+2025-11-27 14:11:25,888 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 230/314 commits processed
+2025-11-27 14:15:25,233 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 240/314 commits processed
+2025-11-27 14:19:26,005 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 250/314 commits processed
+2025-11-27 14:23:26,135 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 260/314 commits processed
+2025-11-27 14:27:26,866 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 270/314 commits processed
+2025-11-27 14:31:26,281 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 280/314 commits processed
+2025-11-27 14:35:26,298 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 290/314 commits processed
+2025-11-27 14:39:25,764 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 300/314 commits processed
+2025-11-27 14:43:26,320 - job_qwen3_4b_database_1764221544 - INFO - Task rank_cwe: 310/314 commits processed
+2025-11-27 14:45:01,606 - job_qwen3_4b_database_1764221544 - INFO - Completed task: rank_cwe
+2025-11-27 14:45:01,611 - job_qwen3_4b_database_1764221544 - INFO - Job completed successfully
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:01,  1.71it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:01<00:00,  1.68it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:01<00:00,  2.50it/s]
+Device set to use cuda:0
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:01,  1.72it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:01<00:00,  1.69it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:01<00:00,  2.51it/s]
+Device set to use cuda:0
+2025-11-27 14:45:06,115 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Starting task: is_vulnerable_vuln
+2025-11-27 14:48:41,527 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_vuln: 10/103 commits processed
+2025-11-27 14:52:28,941 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_vuln: 20/103 commits processed
+2025-11-27 14:56:16,237 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_vuln: 30/103 commits processed
+2025-11-27 15:00:03,672 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_vuln: 40/103 commits processed
+2025-11-27 15:03:43,604 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_vuln: 50/103 commits processed
+2025-11-27 15:07:30,928 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_vuln: 60/103 commits processed
+2025-11-27 15:11:18,310 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_vuln: 70/103 commits processed
+2025-11-27 15:14:56,401 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_vuln: 80/103 commits processed
+2025-11-27 15:18:44,004 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_vuln: 90/103 commits processed
+2025-11-27 15:22:31,327 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_vuln: 100/103 commits processed
+2025-11-27 15:23:39,576 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Completed task: is_vulnerable_vuln
+2025-11-27 15:23:39,579 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Starting task: is_vulnerable_patch
+2025-11-27 15:27:25,113 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_patch: 10/103 commits processed
+2025-11-27 15:30:51,511 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_patch: 20/103 commits processed
+2025-11-27 15:34:39,024 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_patch: 30/103 commits processed
+2025-11-27 15:38:06,950 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_patch: 40/103 commits processed
+2025-11-27 15:41:55,890 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_patch: 50/103 commits processed
+2025-11-27 15:45:43,518 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_patch: 60/103 commits processed
+2025-11-27 15:49:00,334 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_patch: 70/103 commits processed
+2025-11-27 15:52:30,583 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_patch: 80/103 commits processed
+2025-11-27 15:56:18,462 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_patch: 90/103 commits processed
+2025-11-27 15:59:47,164 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_patch: 100/103 commits processed
+2025-11-27 16:00:55,098 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Completed task: is_vulnerable_patch
+2025-11-27 16:00:55,100 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Starting task: is_vulnerable_vuln_cve_cwe
+2025-11-27 16:04:31,329 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_vuln_cve_cwe: 10/103 commits processed
+2025-11-27 16:08:04,612 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_vuln_cve_cwe: 20/103 commits processed
+2025-11-27 16:10:53,503 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_vuln_cve_cwe: 30/103 commits processed
+2025-11-27 16:14:40,778 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_vuln_cve_cwe: 40/103 commits processed
+2025-11-27 16:18:12,444 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_vuln_cve_cwe: 50/103 commits processed
+2025-11-27 16:21:08,654 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_vuln_cve_cwe: 60/103 commits processed
+2025-11-27 16:24:10,336 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_vuln_cve_cwe: 70/103 commits processed
+2025-11-27 16:27:57,968 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_vuln_cve_cwe: 80/103 commits processed
+2025-11-27 16:31:11,057 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_vuln_cve_cwe: 90/103 commits processed
+2025-11-27 16:34:26,034 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_vuln_cve_cwe: 100/103 commits processed
+2025-11-27 16:35:34,399 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Completed task: is_vulnerable_vuln_cve_cwe
+2025-11-27 16:35:34,402 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Starting task: is_vulnerable_patch_cve_cwe
+2025-11-27 16:39:21,696 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_patch_cve_cwe: 10/103 commits processed
+2025-11-27 16:43:09,084 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_patch_cve_cwe: 20/103 commits processed
+2025-11-27 16:46:56,457 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_patch_cve_cwe: 30/103 commits processed
+2025-11-27 16:50:09,156 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_patch_cve_cwe: 40/103 commits processed
+2025-11-27 16:53:58,121 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_patch_cve_cwe: 50/103 commits processed
+2025-11-27 16:57:32,018 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_patch_cve_cwe: 60/103 commits processed
+2025-11-27 17:01:02,212 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_patch_cve_cwe: 70/103 commits processed
+2025-11-27 17:04:49,606 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_patch_cve_cwe: 80/103 commits processed
+2025-11-27 17:08:20,046 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_patch_cve_cwe: 90/103 commits processed
+2025-11-27 17:11:52,232 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task is_vulnerable_patch_cve_cwe: 100/103 commits processed
+2025-11-27 17:13:00,091 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Completed task: is_vulnerable_patch_cve_cwe
+2025-11-27 17:13:00,094 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Starting task: suggest_fix
+2025-11-27 17:16:47,533 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task suggest_fix: 10/103 commits processed
+2025-11-27 17:20:35,116 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task suggest_fix: 20/103 commits processed
+2025-11-27 17:24:22,699 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task suggest_fix: 30/103 commits processed
+2025-11-27 17:28:10,111 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task suggest_fix: 40/103 commits processed
+2025-11-27 17:31:59,122 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task suggest_fix: 50/103 commits processed
+2025-11-27 17:35:46,665 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task suggest_fix: 60/103 commits processed
+2025-11-27 17:39:34,124 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task suggest_fix: 70/103 commits processed
+2025-11-27 17:43:21,712 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task suggest_fix: 80/103 commits processed
+2025-11-27 17:47:09,309 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task suggest_fix: 90/103 commits processed
+2025-11-27 17:50:56,948 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task suggest_fix: 100/103 commits processed
+2025-11-27 17:52:05,197 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Completed task: suggest_fix
+2025-11-27 17:52:05,200 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Starting task: suggest_fix_fewshot
+2025-11-27 17:55:53,184 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task suggest_fix_fewshot: 10/103 commits processed
+2025-11-27 17:59:42,314 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task suggest_fix_fewshot: 20/103 commits processed
+2025-11-27 18:03:30,578 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task suggest_fix_fewshot: 30/103 commits processed
+2025-11-27 18:07:18,916 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task suggest_fix_fewshot: 40/103 commits processed
+2025-11-27 18:11:09,931 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task suggest_fix_fewshot: 50/103 commits processed
+2025-11-27 18:14:59,437 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task suggest_fix_fewshot: 60/103 commits processed
+2025-11-27 18:18:49,365 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task suggest_fix_fewshot: 70/103 commits processed
+2025-11-27 18:22:37,569 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task suggest_fix_fewshot: 80/103 commits processed
+2025-11-27 18:26:26,887 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task suggest_fix_fewshot: 90/103 commits processed
+2025-11-27 18:30:15,290 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task suggest_fix_fewshot: 100/103 commits processed
+2025-11-27 18:31:23,667 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Completed task: suggest_fix_fewshot
+2025-11-27 18:31:23,670 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Starting task: rank_cwe
+2025-11-27 18:35:12,476 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task rank_cwe: 10/103 commits processed
+2025-11-27 18:39:01,297 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task rank_cwe: 20/103 commits processed
+2025-11-27 18:42:50,170 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task rank_cwe: 30/103 commits processed
+2025-11-27 18:46:38,867 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task rank_cwe: 40/103 commits processed
+2025-11-27 18:50:29,194 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task rank_cwe: 50/103 commits processed
+2025-11-27 18:54:18,509 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task rank_cwe: 60/103 commits processed
+2025-11-27 18:58:07,311 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task rank_cwe: 70/103 commits processed
+2025-11-27 19:01:56,151 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task rank_cwe: 80/103 commits processed
+2025-11-27 19:05:45,021 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task rank_cwe: 90/103 commits processed
+2025-11-27 19:09:33,803 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Task rank_cwe: 100/103 commits processed
+2025-11-27 19:10:42,380 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Completed task: rank_cwe
+2025-11-27 19:10:42,383 - job_qwen3_4b_database_leakagefree_1764272703 - INFO - Job completed successfully
+Evaluation completed on both databases:
+  database.sqlite: Job qwen3_4b_database_1764221544 - Status: completed
+  database_leakagefree.sqlite: Job qwen3_4b_database_leakagefree_1764272703 - Status: completed

@@ -1,34 +1,43 @@
-\documentclass[conference]{IEEEtran}
+\documentclass[lettersize,journal]{IEEEtran}
 
-\IEEEoverridecommandlockouts
-% For double-blind review
-
-% Font encoding and input encoding for better typography
+% --- PACKAGES ---
+\usepackage[hidelinks]{hyperref}
+\usepackage{algorithmic}
+\usepackage{array}
+% Correct subfig configuration for IEEE
+\usepackage[caption=false,font=footnotesize]{subfig}
+\usepackage{textcomp}
+\usepackage{stfloats}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{orcidlink}
+% Font encoding
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-% \usepackage{hyperref}
-\usepackage{cite}
+
+% Math packages (Combined into one line)
 \usepackage{amsmath,amssymb,amsfonts}
-\usepackage{algorithmic}
-\usepackage{graphicx}
-\usepackage{textcomp}
+
 \usepackage{xcolor}
 \definecolor{ForestGreen}{RGB}{34,139,34}
 \definecolor{orange}{RGB}{255,165,0}
+
 \usepackage{pifont}
 \usepackage{listings}
 \usepackage{enumitem}
 \usepackage{multirow}
-\usepackage{algorithm}
 \usepackage{booktabs}
-\usepackage{array}
 \usepackage{tabularx}
 \usepackage{float}
 \usepackage{makecell}
 \usepackage{colortbl}
 \usepackage{newunicodechar}
+\usepackage{comment}
+\usepackage{csquotes}
 
-\usepackage{newunicodechar}
+% Define special Unicode characters
 \newunicodechar{σ}{$\sigma$}
 \newunicodechar{Δ}{$\Delta$}
 % Map common Unicode symbols to LaTeX-safe equivalents
@@ -39,15 +48,36 @@
 \newunicodechar{“}{``} % U+201C left double quote
 \newunicodechar{”}{''} % U+201D right double quote
 
-\usepackage{caption}
+
+
+
+\newboolean{showcomments}
+\setboolean{showcomments}{true}
+\ifthenelse{\boolean{showcomments}}{%
+  \newcommand{\mynote}[2]{%
+    \fbox{\bfseries\sffamily\scriptsize #1}%
+    {\small
+      $\blacktriangleright$
+      \textsf{\textcolor{red}{#2}}%
+      $\blacktriangleleft$}%
+  }%
+}{%
+  \newcommand{\mynote}[2]{}% empty definition when comments are off
+}
+\newcommand{\az}[1]{\mynote{Arastoo}{#1}}
 
 
 
 
+\usepackage{glossaries}
+\input{glossary}
+
+\newif\ifshowcomments
+\showcommentstrue
+
+\newcommand{\rn}[1]{\ifshowcomments\textcolor{blue}{#1}\fi}
 
 
-% Load hyperref last for IEEE compatibility
-\usepackage[hidelinks]{hyperref}
 
 % Define listing environment using float package
 \newfloat{listing}{htbp}{lst}
@@ -115,11 +145,16 @@
 % Keeping the original title
 \title{LLMKernelBench: Benchmarking Large Language Models on Software Vulnerability Detection in Linux Kernel}
 
-\author{
-  \IEEEauthorblockN{Arastoo Zibaeirad,\; Marco Vieira}
-  \IEEEauthorblockA{University of North Carolina at Charlotte, Charlotte, NC, USA\\
-  Email: \{azibaeir, marco.vieira\}@charlotte.edu}
-}
+% \author{
+%   \IEEEauthorblockN{Arastoo Zibaeirad,\; Rodrigo Pato Nogueira,\; Marco Vieira}
+%   \IEEEauthorblockA{University of North Carolina at Charlotte, Charlotte, NC, USA\\
+%   Email: \{azibaeir, rpatodec, marco.vieira\}@charlotte.edu}
+% }
+\author{Arastoo Zibaeirad\,\orcidlink{0009-0003-4213-9940}, 
+        Rodrigo Pato Nogueira\,\orcidlink{0009-0007-8486-3805}, 
+        and Marco Vieira\,\orcidlink{0000-0001-5103-8541}
+\thanks{Arastoo Zibaeirad, Rodrigo Pato Nogueira, and Marco Vieira are with the University of North Carolina at Charlotte, Charlotte, NC, USA (e-mail: azibaeir@charlotte.edu; rpatodec@charlotte.edu; marco.vieira@charlotte.edu).}}
+
 
 % Adding a fix for the buffer overflow issue and proper PDF version
 \pdfminorversion=7
@@ -134,13 +169,28 @@
 % Custom command for metrics with deviations
 \newcommand{\metricdev}[2]{#1\\[-0.4em]$_{#2}$}
 
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep, topsep=-1.0pt}
+\setlength{\floatsep}{4.0pt plus 0.5pt minus 2.0pt}
+\setlength{\textfloatsep}{3.5pt plus 0.5pt minus 1.5pt}
+\setlength{\dbltextfloatsep}{4.0pt plus 1.0pt minus 2.0pt}
+\addtolength\abovecaptionskip{-0.0cm}
+\addtolength\belowcaptionskip{-0.0cm}  
+\addtolength\abovedisplayskip{-0.0cm}
+\addtolength\belowdisplayskip{-0.0cm}
+\addtolength\abovedisplayshortskip{-0.1cm}
+\addtolength\belowdisplayshortskip{-0.1cm}
+
 \begin{document}
 
 \maketitle
 
 \begin{abstract}
-	LLMs show promise for software vulnerability detection (SVD). However, their effectiveness in security -critical tasks remains poorly understood. This paper introduces LLMKernelBench, a comprehensive benchmark framework for evaluating LLM capabilities in SVD and patch verification (PV) using real-world Linux kernel vulnerabilities. Our framework includes two complementary datasets—a Primary Benchmark Dataset (PBD) with 314 vulnerabilities spanning 74 CWE types and a Leakage-Free Dataset (LFD) with 103 recent vulnerabilities spanning 19 CWE types to address data contamination concerns. Through systematic evaluation of six state-of-the-art LLMs (three code-specialized, three general-purpose), we reveal critical insights: (1) all models achieve surprisingly low CWE detection accuracy (best: 11.4\% Top-5), with systematic bias toward memory-safety vulnerabilities while completely failing on cryptographic and configuration flaws; (2) models exhibit unexpected reverse bias, detecting patched code better than vulnerable code (average 13.5\% gap), contradicting security-first assumptions; (3) providing explicit CVE/CWE context often degrades rather than improves performance, revealing fundamental reasoning limitations; and (4) increasing code abstraction does not universally hinder detection—some models actually improve with additional context. These findings expose fundamental gaps in LLMs' security reasoning and establish LLMKernelBench as a rigorous foundation for advancing LLM-based vulnerability detection research.
+        \glspl{LLM} demonstrate strong capabilities in code-related tasks, however their effectiveness in \gls{SVD} remains poorly understood due to inadequate evaluation frameworks. Existing benchmarks suffer from training data contamination, isolated function evaluation without cross-component context, lack of strict vulnerable-patched pairing, and binary classification without hierarchy-aware \gls{CWE} assessment, which prevents a reliable measurement of security reasoning versus pattern matching on leaked data. We introduce LLMKernelBench, a rigorous benchmark comprising 417 real-world Linux kernel vulnerabilities across 74 \gls{CWE} types, split into  a Primary Benchmark Dataset (PBD; 314 samples, $\leq$2024) and a Leakage Free Dataset (LFD; 103 samples, 2025 post-cutoff), with context-aware evaluation at three granularity levels and hierarchy-aware metrics quantifying semantic proximity in misclassifications. We evaluate seven \glspl{LLM} spanning code-specialized and general-purpose architectures. Binary vulnerability detection is near-random ($\sim 50\%$ accuracy) and strongly biased: some models label $>75\%$ of samples as vulnerable, while others mostly label them as non-vulnerable. \gls{CWE} prediction is effectively unusable, with an average Top-1 accuracy of $1.26\%$ (best: $2.92\%$) and a $10.59\%$ hierarchy proximity score, indicating almost no understanding of vulnerability families. On the leakage-free 2025 split, general-purpose models degrade minimally ($0.3$ percentage points), while code-specialized models drop sharply ($8.8$ points), suggesting that code-specialized models exhibit behavior consistent with memorization-based pattern matching rather than robust security reasoning. Code and data are available at \url{https://anonymous.4open.science/r/LLMKernelBench-785B/}.
+
 \end{abstract}
+
+\glsresetall
 
 \begin{IEEEkeywords}
 	Large Language Models, Software Security, Software Vulnerability Detection
@@ -148,124 +198,167 @@
 
 \section{Introduction}
 
-% Context, Importance, Introduction, and potential of LLMs in SVD and motivations
-LLMs, such as OpenAI's Codex \cite{chen2021evaluating}, Meta's Llama \cite{touvron2023llama, dubey2024llama}, CodeBERT \cite{feng2020codebert}, DeepMind's AlphaCode \cite{li2022competition}, Salesforce's CodeGen \cite{nijkamp2022codegen} and CodeT5 \cite{wang2021codet5}, and PLBART \cite{ahmad2021unified}, have shown remarkable capabilities in understanding programming languages \cite{nam2024using}. These models have potential for assisting developers by providing code suggestions, test generation \cite{alshahwan2024automated, wang2024software, schafer2023empirical}, code documentation \cite{khan2022automatic}, and automating various coding tasks. In fact, by employing advanced methods to train billions of parameters on data from large datasets \cite{hoffmann2022trainingcomputeoptimallargelanguage, gholami2024improvedgeneralizationboundscommunication, digest, thomas2022dynamic}, LLMs demonstrate significant capabilities in various areas \cite{fan2023large}. These models show also great potential for automating SVD, making software more secure by improving efficiency, accuracy, and coverage in identifying and fixing vulnerabilities.
+Software vulnerabilities pose a critical threat to modern computing infrastructure. The number of identified CVEs has surged to over 29,000 in 2023, up from 20,153 in 2021~\cite{cvedetails2024}, underscoring the urgent need for automated \gls{SVD}. Real-world vulnerabilities rarely manifest in isolated code fragments but instead involve intricate interactions across multiple functions, files, and modules. Detecting these requires not only identifying whether code is vulnerable but also classifying the specific \gls{CWE} category (which is essential for triage, prioritization, and linking to mitigation strategies). As production systems such as the Linux kernel ($\sim$30M LOC) power Android, servers, and embedded devices, and because diverse, high-impact flaws persist, effective automated detection is critical for software security at scale.
 
-The number of identified and patched software vulnerabilities has surged in recent years, with over 29,000 Common Vulnerabilities and Exposures (CVEs) addressed in 2023, up from 25,084 in 2022 and 20,153 in 2021 \cite{cvedetails2024}. This trend underscores the need for automated SVD to keep up with rapidly evolving digital technologies.
-There are, however, several limitations and challenges in SVD from the perspective of both LLMs and traditional VD techniques, such as automatic program repair, fuzzing, and static analysis tools.
+Traditional \gls{SVD} approaches include Automated Program Repair, fuzzing, and \glspl{SAT}, but these face fundamental limitations: patch quality issues~\cite{huang2023survey, zhang2023survey}, coverage gaps and logic error blindness~\cite{manes2019art, klees2018evaluating}, and high false positive rates~\cite{pereira2021machine}. Recent work has turned to \glspl{LLM}~\cite{chen2021evaluating, touvron2023llama, dubey2024llama, feng2020codebert, li2022competition}, which demonstrate strong capabilities in code understanding, test generation~\cite{alshahwan2024automated, wang2024software}, and various programming tasks~\cite{fan2023large}. Multiple benchmarks have emerged to evaluate \gls{LLM} security reasoning, incorporating vulnerability-specific metadata~\cite{siddiq2022securityeval, liu2024vuldetectbench, sun2024llm4vuln} and CWE-wise analysis~\cite{khare2025understanding, ullah2024llms}.
 
-From the perspective of LLMs, one major challenge lies in understanding the inherent complexity of vulnerability patterns, which involve intricate interactions between multiple functions or modules within the entire system, rather than isolated code snippets. For instance, a vulnerability might only surface when a specific sequence of function calls is made, or when data flows through various parts of the code in a particular order. Detecting these interactions requires a deep understanding the different parts of the code and of their interdependencies.
+Despite progress, existing benchmarks exhibit critical limitations. First, most rely on historical data that likely overlaps with \gls{LLM} training corpora, artificially inflating metrics through \emph{training data contamination}, with only limited efforts~\cite{ullah2024llms} addressing this via post-cutoff validation. Second, datasets often extract \emph{isolated functions} without surrounding context (macros, type definitions, cross-file dependencies), failing to capture how real vulnerabilities manifest through component interactions. Third, many lack \emph{strict vulnerable-patched pairing}, instead collecting functions across different commits or versions, introducing label noise~\cite{gao2023far, iannone2022secret, croft2023data}. Fourth, evaluations focus on binary classification without assessing \emph{CWE hierarchy understanding} (whether models grasp vulnerability families or merely memorize surface patterns). These gaps prevent a reliable assessment of whether \glspl{LLM} possess genuine security reasoning versus pattern matching on contaminated data.
 
-A key problem with state-of-the-art LLMs is that they are trained on billions of lines of code without explicitly distinguishing between vulnerable and non-vulnerable code, which can lead to ineffective identification and prevention of software vulnerabilities. For instance, while many LLMs may be trained on data including the Linux kernel project and know the entire codebase, they lack awareness of previous versions of the Linux kernel that contained numerous vulnerabilities. Furthermore, from a software engineering perspective, it is crucial that these models can detect vulnerabilities in code that they have never seen before, such as new projects or entirely new codebases. To enhance their effectiveness in SVD, a dataset that differentiates between vulnerable code versions and their patched counterparts is necessary.
+In this paper, we present LLMKernelBench, a rigorous benchmark addressing these limitations through three key design principles. First, we introduce a \emph{temporal split}: the \gls{PBD} covers vulnerabilities through 2024, while the \gls{LFD} contains only 2025 post-cutoff CVEs, enabling direct measurement of generalization versus memorization. Second, we adopt a \emph{context-aware} approach, pairing 417 real-world Linux kernel CVEs with strict vulnerable-patched pairing while preserving surrounding non-functional elements that influence vulnerability semantics. Third, we evaluate across three \emph{abstraction levels} (single function, multiple functions, multiple files) to assess context utilization, which is essential for deployment but has not been explored in prior work. We evaluate seven pre-trained \glspl{LLM} spanning code-specialized (CodeLlama, StarCoder2, Qwen2.5-Coder) and general-purpose models (Llama3.1, Mistral, DeepSeek-R1, GPT-4.1-mini) across 74 \gls{CWE} types, measuring both binary detection and hierarchy-aware CWE classification through novel metrics (\gls{HPS}) that reward semantic proximity.
 
-Traditional VD techniques also present significant challenges. APR faces issues with patch quality and generalization \cite{huang2023survey, zhang2023survey}. Fuzzing struggles with achieving comprehensive coverage and detecting logic errors \cite{manes2019art, klees2018evaluating}. Similarly, SATs often suffer from a high rate of false positives and difficulty in understanding dynamic behaviors \cite{pereira2021machine}. These limitations highlight the need for development of more sophisticated approaches, including  effectively leveraging LLMs for SVD, which in turn requires a better understanding of their performance.
+Our work intentionally targets the Linux kernel as a representative example of a \emph{high-assurance, security-critical software system}. The kernel’s extensive use of macros, low-level memory management, and long-evolving coding conventions reflects the complexity of infrastructure software, where vulnerabilities have severe consequences. Accordingly, LLMKernelBench is not designed to characterize LLM performance on general-purpose application code, but rather to stress-test vulnerability-detection capabilities under conditions representative of real-world, safety- and security-critical systems.
 
-% Need for Benchmarking
-Despite the potential of LLMs for vulnerability tasks, significant gaps exist in evaluation frameworks for SVD capabilities. Current datasets suffer from a pronounced imbalance wherein vulnerable code blocks are substantially outnumbered by non-vulnerable segments, resulting in skewed performance metrics that fail to accurately represent model effectiveness \cite{gao2023far}. Additionally, many evaluations are conducted in artificially constrained settings using synthetic code snippets, rather than real-world codebases. This restricts the realism and generalizability of the results, whereas incorporating diverse, real-world code would better reflect LLM performance in practical scenarios \cite{chakraborty2021deep, wu2023effective}. 
+Our evaluation addresses four research questions: 
 
-% Purpose and Objective of the Study
-We propose LLMKernelBench, a comprehensive benchmark framework to systematically evaluate pre-trained LLMs' capabilities in SVD and patch verification (PV). Our framework assesses six state-of-the-art pre-trained LLMs using two carefully curated datasets comprising 417 real-world Linux kernel vulnerabilities across 74 CWE types. We focus on Linux kernel C code for its rich vulnerability history and central role in production systems. As the largest open‑source project (~30M LOC) powering Android, servers, and embedded devices, the kernel exhibits diverse, high‑impact flaws. If models cannot generalize to it, they are unlikely to be ready for real‑world deployment. Unlike training-focused datasets, LLMKernelBench prioritizes evaluation rigor by pairing vulnerable code with corresponding patches and addressing data contamination through a leakage-free subset. Our evaluation spans multiple detection scenarios: CWE ranking to assess security knowledge breadth, binary vulnerability identification to test fundamental detection capabilities, and targeted detection with explicit CVE/CWE context to examine reasoning depth.
 
-% Research Questions
-\textbf{Research Questions.} We study the following questions:
 
 \begin{itemize}
-\item \textbf{RQ1: Binary VD/PV performance} — How well do LLMs classify vulnerable vs. patched code across non‑targeted and targeted settings?
-\item \textbf{RQ2: Per‑CWE performance} — Which CWE categories (and pillars) are detected or missed, and how consistent are models across CWEs?
-\item \textbf{RQ3: CWE ranking quality} — What is overall ranking accuracy (micro/macro, Top‑$k$) and ranking quality (MRR, HPS)?
-\item \textbf{RQ4: Robustness and context} — How do code abstraction levels (function/file/multi‑file) and dataset shift (PBD→LFD) affect performance and generalization?
+
+\item \textbf{RQ1: Binary \gls{SVD} performance}: How effectively can large language models detect whether a code sample is vulnerable or non-vulnerable?
+
+\item \textbf{RQ2: Consistency across \glspl{CWE} pillars}: Are model performances consistent across different \glspl{CWE} pillars?
+
+\item \textbf{RQ3: Consistency across granularity levels}: Are model performances consistent across different code granularities (file-, function-, and multi-file-level)?
+
+\item \textbf{RQ4: Vulnerability type identification}: When a vulnerability is detected, how accurately can models identify its corresponding \gls{CWE} category?
 \end{itemize}
 
-\textbf{Contributions.} This work offers:
+\textbf{Contributions.} In summary, this work offers:
 \begin{itemize}
-\item \textbf{Quality‑controlled kernel benchmark:} PBD/LFD with paired vulnerable–patched code, clean CWE labels (variant and pillar), commit metadata, and a leakage‑free subset (2025 CVEs).
-\item \textbf{Unified evaluation protocol:} CWE ranking (Top‑$k$, MRR, HPS) and binary VD/PV (with abstention), analyzed with micro/macro accuracy.
-\item \textbf{Comprehensive study of six LLMs:} Results across per‑CWE categories, misclassification patterns, vulnerable vs. patched bias, and PBD→LFD generalization.
-\item \textbf{Actionable insights:} Limitations and guidance for deploying LLMs in security triage and for designing future security‑aware benchmarks.
+    \item \textbf{Leakage-aware benchmark with temporal split.} We introduce LLMKernelBench, the first kernel-focused benchmark with systematic contamination control, including 417 real-world Linux kernel CVEs split into PBD (314 samples, $\leq$2024) and LFD (103 samples, 2025 post-cutoff), enabling direct measurement of generalization versus memorization.
+
+    \item \textbf{Context-aware evaluation at three abstraction levels.} Unlike prior work using isolated functions, we provide strict vulnerable-patched pairing with surrounding context (macros, type definitions, globals) and evaluate at L1 (single function), L2 (multiple functions), and L3 (multiple files) to assess whether models leverage cross-component dependencies.
+
+    \item \textbf{Hierarchy-aware CWE evaluation metric.} We develop the \gls{HPS} metric combining Top-$k$ accuracy, \gls{MMR}, and CWE taxonomy structure to quantify semantic proximity in misclassifications, distinguishing whether models confuse similar weakness families or make random errors.
+
+    \item \textbf{Comprehensive evaluation of seven LLMs.} We evaluate code-specialized (CodeLlama, StarCoder2, Qwen2.5-Coder) and general-purpose models (Llama3.1, Mistral, DeepSeek-R1, GPT-4.1-mini) across 74 CWE types. We focus on open-source models to ensure transparency, reproducibility, and cost-effectiveness.
+
 \end{itemize}
 
-The remainder of this paper is structured as follows: \textbf{Section~\ref{section:related_work}} reviews related work and contrasts benchmarks (Table~\ref{tab:bench-compare}). \textbf{Section~\ref{section:approach}} presents the benchmark and evaluation protocol. \textbf{Section~\ref{section:results}} reports findings for RQ1–RQ4. \textbf{Section~\ref{section:discussion}} discusses implications and limitations. \textbf{Section~\ref{section:threatstovalidity}} summarizes threats to validity. Finally, \textbf{Section~\ref{section:conclusion}} concludes the paper.
+From a reliability engineering perspective, vulnerability detection models act as \emph{diagnostic components} within a broader software assurance pipeline. Their practical value depends not only on average accuracy, but also on predictable behavior under realistic operating conditions, robustness to unseen inputs, and stable failure modes when confidence is unwarranted. Our results show that current LLM-based approaches fail to meet these reliability requirements: they exhibit near-random decision accuracy, extreme class bias, high variance across abstraction levels, and sharp performance degradation on leakage-free data. These behaviors indicate that, in their current form, LLMs cannot be relied upon as dependable vulnerability detectors in safety- or security-critical systems. By systematically characterizing these failure modes under controlled, leakage-aware conditions, this work provides empirical evidence for understanding the reliability limits of LLM-based analysis tools and serves as a benchmark for assessing future improvements in dependable AI-assisted software assurance.
 
+The remainder of this paper is structured as follows: \textbf{\S\ref{section:related_work}} reviews background and related work. \textbf{\S\ref{section:approach}} presents the benchmark and evaluation protocol. \textbf{\S\ref{section:results}} reports findings for RQ1--RQ4. \textbf{\S\ref{section:discussion}} discusses implications and limitations. \textbf{\S\ref{section:threatstovalidity}} summarizes threats to validity. \textbf{\S\ref{section:conclusion}} concludes the paper.
 
 
 \section{Background and Related Work}
 \label{section:related_work}
 
-\textbf{CWE Taxonomy Primer.}
-The CWE system, developed by MITRE \cite{mitre_cwe}, provides a hierarchical taxonomy of software security weaknesses organized into four abstraction levels: Pillars (highest-level categories like CWE-664: Resource Control), Classes (broader weakness categories), Base weaknesses (specific vulnerability types), and Variants (implementation-specific manifestations). This hierarchical structure enables graduated assessment of security knowledge, where identifying a parent category (e.g., CWE-119: Memory Buffer Bounds) demonstrates partial understanding even when the specific variant (e.g., CWE-120: Buffer Copy) is misidentified.
+\paragraph*{\gls{CWE} Taxonomy and Hierarchical Evaluation}
+The \gls{CWE} system~\cite{mitre_cwe} organizes software weaknesses into a four-level hierarchy: Pillars, Classes, Base weaknesses, and Variants. This enables graduated assessment, where identifying a parent category demonstrates partial understanding even when the specific variant is misidentified. Our work leverages this hierarchy to measure both exact classification accuracy and semantic proximity through the \gls{HPS} metric.
 
-\textbf{Data Collection.}
-Much prior work labels at the file level rather than the function level, which easily introduces errors and bias. REVEAL \cite{chakraborty2021deep}, PatchDB \cite{wang2021patchdb}, D2A \cite{zheng2021d2a}, and MegaVul \cite{ni2024megavul} include every function from a file touched by a vulnerability-related commit, so functions the patch never changed are labeled non‑vulnerable. This creates label noise \cite{iannone2022secret,croft2023data}, duplication/near‑duplication across versions, and strong class imbalance \cite{gao2023far}. Even function‑level datasets (Devign \cite{zhou2019devign}, BigVul, CVEfixes \cite{bhandari2021cvefixes}) often do not strictly pair the exact before/after function bodies and commonly pull commits dominated by refactoring, tests, or configuration updates—changes that are not security fixes (i.e., “noise”). Broad, multi‑project corpora (e.g., BigVul, PrimeVul) favor coverage over precision, which increases noise and duplicates and makes it harder for models to learn the real difference between vulnerable and patched code.
+\paragraph*{Vulnerability Datasets -- From File-Level to Context-Aware}
+Early datasets adopted \emph{file-level} labeling, marking entire files touched by security commits as vulnerable~\cite{chakraborty2021deep, wang2021patchdb, zheng2021d2a, ni2024megavul}. While enabling large-scale collection, this introduced label noise, class imbalance~\cite{gao2023far}, and difficulty distinguishing security fixes from refactoring~\cite{iannone2022secret, croft2023data}. The field shifted toward \emph{function-level} granularity~\cite{zhou2019devign, bhandari2021cvefixes}, but these often failed to strictly pair vulnerable-patched versions of the \emph{same} function or account for cross-component dependencies.
 
-\textbf{Benchmarking LLMs for VD.} Table~\ref{tab:bench-compare} overviews representative efforts. CodeXGLUE/Devign \cite{lu2021codexglue, zhou2019devign} is large but lacks patches and CWE labels. SecurityEval \cite{siddiq2022securityeval} offers only 130 Python snippet pairs without contamination control. VulDetectBench \cite{liu2024vuldetectbench} evaluates program-level C/C++ with 48 CWE inference but no leakage checks. UniVul/LLM4Vuln \cite{sun2024llm4vuln} provides multi-language function pairs with CWE summaries and only partial cutoff awareness. The 5K study \cite{khare2025understanding} aggregates across datasets (partial PV, CWE-wise analysis), while SecLLMHolmes \cite{ullah2024llms} probes robustness on 8 CWEs with contamination tests. Earlier works such as Ullah et al. \cite{ullah2024llms} rely on synthetic/curated cases with limited CWE breadth, and Khare et al. \cite{khare2023understanding} focus on isolated functions—both miss cross-component context and realistic patch effects.
+\emph{Unlike} prior work extracting isolated functions, LLMKernelBench adopts a \emph{context-aware} approach, pairing line-modified functions with surrounding non-functional elements (macros, type definitions, globals) that influence vulnerability semantics. By evaluating at three abstraction levels (single function, multiple functions, multiple files), we assess whether \glspl{LLM} can leverage broader context, essential for deployment but unexplored in existing benchmarks.
 
-In contrast, LLMKernelBench targets kernel-style vulnerabilities with quality over breadth (Table~\ref{tab:bench-compare}): 314+103 real CVE-linked samples across 74 CWEs; paired vulnerable–patched code (function plus non-functional context); CWE-aware evaluation at variant and pillar levels; and a leakage-free subset using post-cutoff 2025 CVEs. Our commit-level extraction retains only line-modified functions and associated context, avoiding label noise from untouched code. PBD/LFD are designed as stress-test benchmarks that complement rather than replace broader multi-project corpora, which are more suitable for LLM training and fine-tuning.
+\paragraph*{LLM Benchmarks -- From Scale to Quality and Leakage Control}
+Early benchmarks prioritized \emph{scale}, collecting tens of thousands of samples but lacking vulnerability-specific metadata~\cite{lu2021codexglue, zhou2019devign}. The field evolved toward richer annotations~\cite{siddiq2022securityeval, liu2024vuldetectbench, sun2024llm4vuln} and CWE-wise analysis~\cite{khare2025understanding, ullah2024llms}, yet a critical gap remains: \emph{training data contamination}. Most benchmarks rely on historical data that likely overlaps with model training corpora, artificially inflating metrics. Only limited efforts~\cite{ullah2024llms} have considered post-cutoff validation, yet none have used systematic temporal splits.
 
-\begin{table}[t]
+LLMKernelBench addresses these limitations by prioritizing \emph{quality over scale} and \emph{leakage-aware} evaluation (Table~\ref{tab:bench-compare}). We provide 314+103 curated CVE-linked samples across 74 \gls{CWE} types with strict vulnerable-patched pairing. Critically, we introduce a temporal split: \gls{PBD} (covering CVEs through 2024) versus \gls{LFD} (covering 2025 post-training-cutoff CVEs), enabling direct measurement of generalization versus memorization. Our hierarchy-aware evaluation and context-aware abstraction levels position LLMKernelBench as a \emph{stress-test benchmark} for security reasoning, complementing broader training corpora while addressing systematic limitations in rigor and contamination control.
+
+\begin{table}[!t]
 \centering
-\caption{VD benchmarks at a glance (concise comparison).}
+\caption{VD benchmarks at a glance}
 \label{tab:bench-compare}
 \small
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.1}
 \resizebox{\columnwidth}{!}{%
-\begin{tabular}{lcccccc}
+\begin{tabular}{lccccc}
 \toprule
-\textbf{Benchmark (Year)} & \textbf{Scale} & \textbf{CWE} & \textbf{Pairs/PV} & \textbf{Leakage} & \textbf{Granularity} & \textbf{Lang} \\
+\textbf{Benchmark} & \textbf{Scale} & \textbf{CWE} & \textbf{Pairs (vuln vs patch)} & \textbf{Leakage} & \textbf{Granularity} \\
 \midrule
-LLMKernelBench (2024/25) & 314+103 & 74 & \ding{51} & \ding{51} & Function+context & C \\
-CodeXGLUE \cite{lu2021codexglue} (2019) & 27{,}318 & -- & \ding{55} & \ding{55} & Func & C,C++ \\
-SecurityEval \cite{siddiq2022securityeval} (2022) & 130 & 75 & \ding{51} & \ding{55} & Snippet & Python \\
-VulDetectBench \cite{liu2024vuldetectbench} (2024) & 1000 & 48 & \ding{51} & \ding{55} & Program & C,C++ \\
-UniVul/LLM4Vuln \cite{sun2024llm4vuln} (2025) & 294 & 77/86 & \ding{51} & partial & Func & Solidity, Java, C,C++ \\
-\cite{khare2025understanding} (2025) & 5{,}000 & 25 & partial & \ding{55} & Function+project & C,C++, Java \\
-SecLLMHolmes \cite{ullah2024llms} (2024) & 228 & 8 & \ding{51} & \ding{51} & Func & C, Python \\
+\cite{lu2021codexglue} (2019) & 27{,}318 & -- & \ding{55} & \ding{55} & Func \\
+\cite{siddiq2022securityeval} (2022) & 130 & 75 & \ding{51} & \ding{55} & Snippet \\
+\cite{liu2024vuldetectbench} (2024) & 1000 & 48 & \ding{51} & \ding{55} & Program \\
+\cite{sun2024llm4vuln} (2025) & 294 & 77/86 & \ding{51} & partial & Func. \\
+\cite{khare2025understanding} (2025) & 5{,}000 & 25 & partial & \ding{55} & Func.+project \\
+\cite{ullah2024llms} (2024) & 228 & 8 & \ding{51} & \ding{51} & Func. \\
+LLMKernelBench & 417 & 74 & \ding{51} & \ding{51} & Func.+context \\
 \bottomrule
 \end{tabular}%
 }
-\vspace{-6pt}
 \end{table}
 
+\begin{figure*}[htbp]
+	\centerline{\includegraphics[width=1\textwidth]{figures/LLMKernelBench.png}}
+	\caption{LLMKernelBench Framework. Metadata (commit messages, diffs, function/file names) and vulnerable-patched code pairs are extracted from Linux CVE commits. Prompts are designed for \gls{SVD} and CWE-label classification tasks in zero-shot settings. \glspl{LLM} performs detection and classification. Outputs are filtered via regex. Detection is evaluated using binary and ranking metrics.}
+	\label{figure:framework}
+\end{figure*}
 \section{Benchmarking Approach}
 \label{section:approach}
-In this section, we present our framework and methodology to evaluate the performance of LLMs in SVD and PV. We start by introducing LLMKernelBench framework in Section \ref{section:framework}. Section \ref{section:dataset} details our dataset construction process. Section \ref{section:metrics} defines metrics for measuring effectiveness in SVD and PV tasks. Finally, Section \ref{section:prompts} presents our standardized prompt templates.
 
+LLMKernelBench is designed to assess pre-trained \glspl{LLM} (see Table~\ref{table:llm-specs} for the models evaluated) on \gls{SVD} and CWE-label classification tasks, focusing on C code from the Linux kernel while being extensible to other programming languages. As illustrated in Figure \ref{figure:framework}, the framework is based on vulnerability metadata and code pairs extracted from Linux CVE commits, and includes prompts designed for \gls{SVD} and CWE-label classification tasks. LLMKernelBench evaluates the models in a zero-shot setting with temperature set to 0 to ensure deterministic and reproducible outputs, using binary classification metrics (precision, recall, accuracy, F1) for \gls{SVD} and ranking metrics for CWE-label classification. This approach ensures benchmark reliability through representativeness (diverse real-world vulnerabilities), adaptability (an extendable methodology), portability (applicability across various \glspl{LLM}), and fairness (standardized evaluation procedures). 
 
-\subsection{LLMKernelBench}
-\label{section:framework}
-LLMKernelBench is designed to assess pre-trained LLMs (see Table~\ref{table:llm-specs} for the models evaluated) on SVD and PV tasks, focusing on C code from the Linux kernel while being extensible to other programming languages. As illustrated in Figure \ref{figure:framework}, the framework is based on vulnerability metadata and code pairs extracted from Linux CVE commits, and includes prompts designed for SVD and PV tasks. For detection, LLMKernelBench evaluates models in zero-shot settings on both vulnerability identification and PV using binary classification metrics (precision, recall, accuracy, F1) and ranking metrics. This approach ensures benchmark reliability through representativeness (diverse real-world vulnerabilities), adaptability (extendable methodology), portability (applicable across various LLMs), and fairness (standardized evaluation procedures).
-
-
-\begin{figure}[htbp]
-	\centerline{\includegraphics[width=1\columnwidth]{figures/LLMKernelBench.png}}
-	\caption{LLMKernelBench Framework. \textcircled{1} Metadata (commit messages, diffs, function/file names) and vulnerable-patched code pairs are extracted from Linux CVE commits. \textcircled{2} Prompts are designed for SVD and PV tasks in zero-shot settings. \textcircled{3} LLMs perform detection and PV. \textcircled{4} Outputs are filtered via regex. \textcircled{5} Detection is evaluated using binary and ranking metrics.}
-	\label{figure:framework}
-\end{figure}
+Section \ref{section:dataset} details our dataset construction process. Section \ref{section:metrics} defines metrics for measuring effectiveness in \gls{SVD} and CWE-label classification tasks. Finally, Section \ref{section:prompts} presents our standardized prompt templates.
 
 
 \subsection{Dataset}
 \label{section:dataset}
-Our method systematically extracts pairs of vulnerable code blocks and their corresponding patched versions from real-world Linux kernel commits. We focus on the Linux kernel due to its rich vulnerability history and critical security importance. We collect commit hashes, CVE identifiers, and CWE classifications from well-known vulnerability databases including NVD \cite{nvd2025}, similar to established practices \cite{pereira2022software}. For each vulnerability-fixing commit, we retrieve the vulnerable code from its parent commit (pre-fix version) and the patched code from the commit itself (post-fix version).
+Our method systematically extracts pairs of vulnerable code blocks and their corresponding patched versions from real-world Linux kernel commits. We focus on the Linux kernel due to its rich vulnerability history and critical security importance. We collect commit hashes, CVE identifiers, and \gls{CWE} classifications from well-known vulnerability databases, including NVD~\cite{nvd2025}, in line with established practices~\cite{pereira2022software}. For each vulnerability-fixing commit, we retrieve the vulnerable code from its parent commit (pre-fix version) and the patched code from the commit itself (post-fix version).
 
-Our extraction process identifies all security-related functions and non-functional elements (global variables, macros, type definitions, structs/unions, headers) that were directly modified in each commit. We include only functions with actual line-level changes, excluding unchanged code to avoid label noise. Non-functional elements are tracked separately as they often form critical vulnerability contexts that influence execution across multiple functions. This comprehensive approach assembles cohesive vulnerable and patched code blocks at multiple abstraction levels (single function, multiple functions, multiple files), enabling LLMs to analyze complete contextual information rather than isolated fragments. Table~\ref{table:dataset-stats} summarizes the overall size and composition of PBD and LFD.
+Our extraction process identifies all security-related functions and non-functional elements (global variables, macros, type definitions, structs/unions, headers) that were directly modified in each commit. We include only functions with actual line-level changes, excluding unchanged code to avoid label noise. Non-functional elements are tracked separately as they often form critical vulnerability contexts that influence execution across multiple functions. This comprehensive approach assembles cohesive, vulnerable, and patched code blocks at multiple abstraction levels (single function, multiple functions, multiple files), enabling \glspl{LLM} to analyze complete contextual information rather than isolated fragments.
 
+After extraction, the dataset is divided into two. The \gls{PBD} covers all vulnerabilities discovered on or before 2024, while the \gls{LFD} covers the more recent 2025 vulnerabilities. This division enables us to evaluate the impact of potential data leakage on the model's performance, thereby increasing our confidence in the generalizability of our findings.
 
-\textbf{Manual Review, Denoising, and Deduplication.} Initially, we collected 400 samples for PBD and 110 samples for LFD through our automated extraction process. To ensure dataset integrity and label fidelity, both datasets underwent rigorous quality control through a structured two-author review process. Two authors independently evaluated every sample using a standardized protocol that defined inclusion criteria (security-relevant commits with confirmed CVE identifiers, function-level line modifications, and extractable vulnerable-patched pairs), exclusion criteria (cosmetic refactoring, formatting-only changes, test modifications, and commits lacking substantiated security relevance), and required evidence documentation (CVE/CWE identifiers, commit metadata, and security rationale). Each reviewer assigned decision labels (Keep, Exclude, Requires-Discussion) with documented reasoning codes to ensure traceability and reproducibility. Inter-reviewer agreement was measured using Cohen's kappa, and all disagreements were resolved through consensus sessions with explicit rationale recording. Systematic denoising removed samples and touched functions/files that were not security-related, eliminating non-functional changes while preserving essential contextual elements necessary for semantic correctness. We removed singleton CWEs (vulnerabilities appearing only once) to ensure statistical reliability and prevent overrepresentation of rare, potentially outlier cases that could skew model evaluation. Additionally, we stripped all code comments from both vulnerable and patched code blocks to eliminate potential biases that could arise from human annotations, ensuring LLMs rely solely on code structure and semantics for VD. Deduplication removed duplicate or near-duplicate code samples (e.g., identical functions, commits, or cloned files) to prevent models from seeing the same or highly similar code during testing, employing both exact hash-based matching and token-level similarity metrics with manual inspection of flagged candidates to ensure canonical representation. Each dataset contained only one multi-label CWE vulnerability, which we retained with comprehensive annotations rather than creating duplicate entries. For LFD, we manually labeled 40 samples that lacked CWE identifiers in the NVD database, strictly adhering to NVD criteria for consistent labeling. After this comprehensive cleaning process, our final datasets comprised 314 samples in PBD and 103 samples in LFD. The fundamental approach of LLMKernelBench assembles all touched functions and non-functional elements (macros, libraries, type definitions) into cohesive vulnerable and patched code blocks that LLMs can comprehensively analyze for vulnerability prediction, ensuring complete contextual understanding rather than isolated code fragment analysis.
+\textbf{Manual Review, Denoising, and Deduplication.} Our automated extraction process allowed us to collect a total of 400 samples for PBD and 110 samples for LFD. After that, to ensure dataset integrity and label fidelity, both datasets were manually validated by two different reviewers. For this validation, a standardized protocol that defined inclusion criteria, exclusion criteria, and required evidence documentation was first defined. Then, the original datasets were split in half, and each half was assigned to a different reviewer. The reviewers followed the previously defined documentation to clean the dataset. Doubtful cases were marked for discussion and resolved through consensus sessions between the reviewers. The following validations were performed:
 
-\textbf{CWE Distribution and Label Space.} Our dataset spans diverse CWE categories organized according to the CWE-1000 hierarchical view. Table~\ref{table:cwe-pillars} shows the distribution of vulnerabilities across the ten fundamental CWE pillars in PBD. CWE-664 dominates with 43.3\% coverage, reflecting the prevalence of memory-related vulnerabilities in the Linux kernel. The distribution also includes 12.1\% deprecated CWE identifiers (CWE-OTHER), representing historical vulnerability classifications that MITRE now marks as "PROHIBITED" for mapping. This diverse distribution ensures comprehensive evaluation across different security weakness categories, from common memory safety issues to rare configuration vulnerabilities.
+\begin{itemize}
+    \item \textbf{Denoising}: Removed samples and functions/files where the changes were not security-related.
+    \item \textbf{Completeness check}: Ensured all relevant and security-impacting changes from each commit were included.
+    \item \textbf{\gls{CWE} frequency filtering}: CWEs that appeared only once were removed to improve representativeness.
+    \item \textbf{Comment removal}: Stripped all code comments from both vulnerable and patched code blocks to eliminate potential biases and ensure that the \glspl{LLM} relied solely on code structure and semantics for \gls{SVD}.
+    \item \textbf{Deduplication}: Removed duplicate or near-duplicate code samples (e.g., identical functions, commits, or cloned files) to prevent models from seeing the same or highly similar code during testing.
+    \item \textbf{\gls{CWE} labeling}: In the LFD, 40 samples lacked \gls{CWE} identifiers in the NVD database; we manually labeled these samples, strictly adhering to NVD criteria for consistent labeling.
+\end{itemize}
 
-\begin{table}[ht]
+Table~\ref{table:dataset-stats} summarizes the overall size and composition of the \gls{PBD} and \gls{LFD} after this comprehensive cleaning process. The final \gls{PBD} dataset comprises a total of 314 samples and spans 74 different CWEs, while the final \gls{LFD} contains 103 samples belonging to 19 different CWEs.
+
+%The fundamental approach of LLMKernelBench assembles all touched functions and non-functional elements (macros, libraries, type definitions) into cohesive vulnerable and patched code blocks that \glspl{LLM} can comprehensively analyze for vulnerability prediction, ensuring complete contextual understanding rather than isolated code fragment analysis.
+
+%Initially, we collected 400 samples for PBD and 110 samples for LFD through our automated extraction process. To ensure dataset integrity and label fidelity, both datasets underwent rigorous quality control through a structured two-author review process. Two authors independently evaluated every sample using a standardized protocol that defined inclusion criteria (security-relevant commits with confirmed CVE identifiers, function-level line modifications, and extractable vulnerable-patched pairs), exclusion criteria (cosmetic refactoring, formatting-only changes, test modifications, and commits lacking substantiated security relevance), and required evidence documentation (CVE/\gls{CWE} identifiers, commit metadata, and security rationale). Each reviewer assigned decision labels (Keep, Exclude, Requires-Discussion) with documented reasoning codes to ensure traceability and reproducibility. Inter-reviewer agreement was measured using Cohen's kappa, and all disagreements were resolved through consensus sessions with explicit rationale recording. Systematic denoising removed samples and touched functions/files that were not security-related, eliminating non-functional changes while preserving essential contextual elements necessary for semantic correctness. We removed singleton CWEs (vulnerabilities appearing only once) to ensure statistical reliability and prevent overrepresentation of rare, potentially outlier cases that could skew model evaluation. Additionally, we stripped all code comments from both vulnerable and patched code blocks to eliminate potential biases that could arise from human annotations, ensuring LLMs rely solely on code structure and semantics for VD. Deduplication removed duplicate or near-duplicate code samples (e.g., identical functions, commits, or cloned files) to prevent models from seeing the same or highly similar code during testing, employing both exact hash-based matching and token-level similarity metrics with manual inspection of flagged candidates to ensure canonical representation. Each dataset contained only one multi-label \gls{CWE} vulnerability, which we retained with comprehensive annotations rather than creating duplicate entries. For LFD, we manually labeled 40 samples that lacked \gls{CWE} identifiers in the NVD database, strictly adhering to NVD criteria for consistent labeling. After this comprehensive cleaning process, our final datasets comprised 314 samples in PBD and 103 samples in LFD. The fundamental approach of LLMKernelBench assembles all touched functions and non-functional elements (macros, libraries, type definitions) into cohesive vulnerable and patched code blocks that LLMs can comprehensively analyze for vulnerability prediction, ensuring complete contextual understanding rather than isolated code fragment analysis.
+
+\textbf{\gls{CWE} Distribution and Label Space.} Our dataset spans diverse \gls{CWE} categories organized according to the CWE-1000 hierarchical view \cite{cwe1000}. Table~\ref{table:cwe-pillars-combined} shows the distribution of vulnerabilities across the ten fundamental \gls{CWE} pillars in PBD. CWE-664 accounts for 43.3\% of coverage, reflecting the prevalence of memory-related vulnerabilities in the Linux kernel. The distribution also includes 12.1\% deprecated \gls{CWE} identifiers (CWE-OTHER), representing historical vulnerability classifications that MITRE now marks as \enquote{PROHIBITED} for mapping. This diverse distribution ensures comprehensive evaluation across different security weakness categories, from common memory safety issues to rare configuration vulnerabilities.
+
+\begin{table}[!t]
 \centering
-\caption{CWE Pillar Distribution in PBD}
+\caption{LLMKernelBench dataset statistics}
+\label{table:dataset-stats}
+\scriptsize
+\setlength{\tabcolsep}{22pt}
+\renewcommand{\arraystretch}{1.1}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}lrr@{}}
+\toprule
+\textbf{Metric} & \textbf{PBD} & \textbf{LFD} \\
+\midrule
+Vulnerabilities & 314 & 103 \\
+Unique CWEs & 74 & 19 \\
+\cmidrule(lr){1-3}
+Files/Functions Changed (avg) & 1.5 / 2.0 & 1.1 / 1.3 \\
+Vuln/Patched Lines (avg) & 109.4 / 114.1 & 60.9 / 63.6 \\
+Lines Added/Deleted (avg) & 17.6 / 9.0 & 7.0 / 3.5 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+
+
+\begin{comment}
+    \begin{table}[!t]
+\centering
+\caption{\gls{CWE} Pillar Distribution in PBD}
 \label{table:cwe-pillars}
 \renewcommand{\arraystretch}{1.1}
 \small
 \resizebox{\columnwidth}{!}{%
-\begin{tabular}{@{}llc@{}}
+\begin{tabular}{@{}llcc@{}}
 \toprule
 \textbf{CWE-ID} & \textbf{Pillar Name} & \textbf{Coverage (\%)} \\
 \midrule
-CWE-664 & Improper Control of Resource Lifetime & 43.3 \\
+CWE-664 & Improper Control of Resource Lifetime & 136 (43.3) \\
 CWE-OTHER & Other/Unmapped CWEs & 12.1 \\
 CWE-682 & Incorrect Calculation & 10.2 \\
 CWE-284 & Improper Access Control & 8.9 \\
@@ -273,7 +366,7 @@ CWE-691 & Insufficient Control Flow Management & 8.6 \\
 CWE-707 & Improper Neutralization & 5.7 \\
 CWE-693 & Protection Mechanism Failure & 5.1 \\
 CWE-710 & Improper Adherence to Coding Standards & 3.5 \\
-CWE-703 & Improper Check/Handling of Exceptional Conditions & 2.9 \\
+CWE-703 & Improper Check/Handling of Except. Conditions & 2.9 \\
 CWE-435 & Improper Interaction Between Components & 0.0 \\
 CWE-697 & Incorrect Comparison & 0.0 \\
 \bottomrule
@@ -281,819 +374,923 @@ CWE-697 & Incorrect Comparison & 0.0 \\
 }
 \vspace{-4pt}
 \end{table}
+\end{comment}
 
-\begin{table}[ht]
+
+
+
+
+\begin{table}[!t]
 \centering
-\caption{LLMKernelBench Dataset Statistics}
-\label{table:dataset-stats}
-\begin{tabular}{lrr}
+\caption{\gls{CWE} pillar distribution across PBD and LFD.}
+\label{table:cwe-pillars-combined}
+\small
+\renewcommand{\arraystretch}{1.1}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}llcc@{}}
 \toprule
-\textbf{Metric} & \textbf{PBD} & \textbf{LFD} \\
+\textbf{CWE-ID} & \textbf{Pillar Name} & \multicolumn{2}{c}{\textbf{Coverage} (\%)} \\ 
+\cmidrule(lr){3-4}
+& & \textbf{PBD} & \textbf{LFD} \\
 \midrule
-Vulnerabilities & 314 & 103 \\
-Unique CWEs & 74 & 19 \\
-\cmidrule(lr){1-3}
-Files Changed (avg) & 1.5 & 1.1 \\
-Functions Changed (avg) & 2.0 & 1.3 \\
-Vulnerable Lines (avg) & 109.4 & 60.9 \\
-Patched Lines (avg) & 114.1 & 63.6 \\
-Lines Added (avg) & 17.6 & 7.0 \\
-Lines Deleted (avg) & 9.0 & 3.5 \\
+CWE-664 & Improper Control of Resource Lifetime & 136 (43.3) & 62 (60.2) \\
+CWE-OTHER & Other/Unmapped CWEs & 38 (12.1) & 0 (0.0) \\
+CWE-682 & Incorrect Calculation & 32 (10.2) & 7 (6.8) \\
+CWE-284 & Improper Access Control & 28 (8.9) & 0 (0.0) \\
+CWE-691 & Insufficient Control Flow Management & 27 (8.6) & 11 (10.7) \\
+CWE-707 & Improper Neutralization & 18 (5.7) & 9 (8.7) \\
+CWE-693 & Protection Mechanism Failure & 16 (5.1) & 0 (0.0) \\
+CWE-710 & Improper Adherence to Coding Standards & 11 (3.5) & 14 (13.6) \\
+CWE-703 & Improper Check/Handling of Except. Conditions & 9 (2.9) & 0 (0.0) \\
+CWE-435 & Improper Interaction Between Components & 0 (0.0) & 0 (0.0) \\
+CWE-697 & Incorrect Comparison & 0 (0.0) & 0 (0.0) \\
 \bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
+
+\subsection{Tasks}
+\label{section:tasks}
+
+Based on this dataset, the models are evaluated across two different tasks: \gls{SVD} and vulnerability type identification.
+
+\textbf{\gls{SVD}}. In this task, the models are given either a vulnerable code block (pre-fix versions from parent commits) or a non-vulnerable (patched) code block (post-fix versions from fixing commits). They are then asked to classify the code block as vulnerable (1), non-vulnerable (0), or to abstain from classifying it (-1). This third option is used because: (1) real-world \gls{SVD} often involves ambiguous cases where even security experts disagree; (2) it prevents \glspl{LLM} from making forced binary decisions when evidence is insufficient, potentially reducing false positives and negatives; and (3) it mirrors practical security analysis workflows where analysts may need to flag code for further investigation rather than making definitive vulnerability determinations. 
+
+%It is important to note that, for all binary \gls{SVD}/\gls{SPV} tasks (SVD3--SVD6), we use labels $y\in\{1,0\}$, where $y=1$ denotes \emph{vulnerable} code (the pre-fix version from the parent commit) and $y=0$ denotes \emph{patched} code (the post-fix version from the fixing commit). During inference we allow models to abstain with $-1$ (\enquote{not sure}); this is an optional prediction class and \emph{not} a ground-truth label.
+
+\textbf{CWE-label classification.} The \gls{CWE} taxonomy organizes weaknesses into a hierarchical structure with four abstraction levels as shown in Figure~\ref{fig:cwe_hierarchy}: \textit{Pillars} (highest level, 10 fundamental categories representing root security principles such as CWE-664 Improper Control of a Resource Through its Lifetime), \textit{Classes} (general weakness types like CWE-119 Buffer Errors), \textit{Bases} (specific weakness variants such as CWE-120 Buffer Copy without Checking Size of Input), and \textit{Variants} (detailed platform-specific manifestations). This hierarchy is formalized in the CWE-1000 Research Concepts view~\cite{cwe1000}.
+% \begin{figure*}
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{figures/cwe_hierarchy.pdf}
+%     \caption{CWE hierarchy}
+%     \label{fig:cwe_hierarchy}
+% \end{figure*}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\columnwidth]{figures/cwe_hierarchy.png}
+    \caption{CWE hierarchy.}
+    \label{fig:cwe_hierarchy}
+\end{figure}
+
+For our \gls{CWE} classification tasks, we employ a \textit{hierarchical evaluation approach} that assesses model predictions across all abstraction levels rather than focusing solely on exact matches.
+This design enables us to measure the \textit{depth of security knowledge} exhibited by \glspl{LLM}, distinguishing between models that demonstrate only shallow, category-level understanding (e.g., correctly identifying a vulnerability as \enquote{resource management} but unable to specify the exact type) versus those with deep, fine-grained comprehension (e.g., pinpointing CWE-772 Missing Release of Resource after Effective Lifetime).
+
+We introduce the \gls{HPS} metric (\S\ref{section:metrics}), which quantifies how hierarchically close a predicted \gls{CWE} is to the true label by computing path distance in the CWE-1000 taxonomy tree.
+A prediction of CWE-119 (Buffer Errors, Class level) when the true answer is CWE-121 (Stack-based Buffer Overflow, Base level) receives partial credit, as it demonstrates understanding of the vulnerability family despite missing the specific subtype.
+This approach addresses practical challenges in \gls{CWE} classification: fine-grained labels (bases and variants) exhibit severe class imbalance, with many specific types having fewer than 10 examples in real-world datasets, rendering exact-match accuracy unreliable.
+Meanwhile, coarse-grained evaluation at only the pillar level (10 categories) would be too lenient, failing to distinguish between models that truly understand security concepts versus those that merely memorize broad categories.
+
+Our hierarchical scoring thus captures a spectrum of understanding: models achieving high Top-1 accuracy (i.e., the model's first prediction is the correct label; defined in \S\ref{section:cwe_metrics}) demonstrate precise knowledge of specific vulnerability types, while those with high \gls{HPS} but low Top-1 accuracy reveal taxonomy-aware reasoning, correctly identifying the vulnerability family but struggling with fine-grained distinctions.
+This multi-level evaluation provides actionable insights for both model developers (to identify where models need improvement) and security practitioners (to understand whether a model's predictions are reliable enough for specific use cases).
+
+By considering both these tasks, our benchmark systematically evaluates \glspl{LLM} in terms of their ability to (1) detect the presence of vulnerabilities through binary \gls{SVD} classification, and (2) identify and prioritize the most likely underlying vulnerability types through \gls{CWE}-label ranking.
 
 \subsection{Metrics}
 \label{section:metrics}
 
-We evaluate LLM performance on VD and PV tasks using established metrics selected for their relevance to security code analysis.
+Due to the different nature of the two tasks, different metrics must be employed. These metrics, along with statistical significance testing, are discussed next. 
 
-\subsubsection{Label Space and Task Formulation}
+\subsubsection{SVD}
 
-\textbf{Binary labels.} For all binary VD/PV tasks (SVD3--SVD6) we use labels $y\in\{1,0\}$, where $y=1$ denotes \emph{vulnerable} code (the pre-fix version from the parent commit) and $y=0$ denotes \emph{patched} code (the post-fix version from the fixing commit). During inference we allow models to abstain with $-1$ ("not sure"); this is an optional prediction class and \emph{not} a ground-truth label.
+To evaluate the models' performance at \gls{SVD}, we consider the following terms: \gls{TP} refers to the number of vulnerable code samples that the model correctly identifies as vulnerable; \gls{FP} is the number of non-vulnerable samples incorrectly predicted as vulnerable; \gls{TN} represents the number of non-vulnerable samples correctly classified as non-vulnerable; while \gls{FN} represents the number of vulnerable samples that the model fails to identify, incorrectly classifying them as non-vulnerable. These four quantities form the basis for calculating the performance metrics described below.
 
+It is important to note that these metrics are computed only for cases in which the models actually provided a classification, i.e., when they predicted either vulnerable (1) or non-vulnerable (0). Samples for which the models abstained from answering (returning \texttt{-1}) are excluded from these metric calculations. In addition to reporting the standard metrics, we also provide a breakdown of how frequently each model responded versus abstained. This distinction is critical for a fair interpretation of the results (e.g., a high recall when a model only classified 5\% of the samples does not carry the same significance as when it classifies 90\% of the inputs). The following metrics are used:
 
-\textbf{Why Pillar-Level Classification for LLMs?} We focus on CWE pillars rather than classes, bases, or variants because LLMs perform better when classifying into fewer, more distinct categories—with over 900 specific CWE types, fine-grained classification suffers from the curse of dimensionality and class imbalance, while the 10 pillars provide optimal granularity that is specific enough to be actionable yet broad enough for reliable pattern recognition. Pillars represent fundamentally different security principles, making them more semantically distinct for neural networks (e.g., distinguishing between "access control failures" vs. "resource management issues"), and security practitioners often think in terms of root causes rather than specific manifestations, making pillar-level classification more valuable for remediation planning. Additionally, real-world vulnerability datasets exhibit severe imbalance at fine-grained levels, with many CWE variants having fewer than 10 examples, so pillar-level aggregation provides sufficient training examples for each category, enabling more robust model training and evaluation.
-
-\subsubsection{SVD Metrics}
-For SVD tasks, we employ:
 \begin{itemize}
-	\item \textbf{Standard Classification Metrics}: Precision measures the ratio of correctly identified vulnerabilities to all predicted vulnerabilities. Recall quantifies the proportion of actual vulnerabilities correctly identified. F1 score provides a balanced measure between precision and recall. Accuracy represents overall correctness across all predictions.
+    \item \textbf{Accuracy}: measures the proportion of correctly classified code samples among all samples:
 
-	\item \textbf{Top-k Accuracy} \cite{russakovsky2015imagenet}: Considers a prediction correct if the true vulnerability type appears among the model's k highest-ranked predictions. We measure Top-1 to Top-5 accuracy to evaluate how well models detect and rank both CVEs and CWEs. This progressive evaluation is particularly valuable in security contexts where identifying the correct vulnerability category among top candidates enables more efficient remediation efforts, even when exact classification is challenging.
-
-	\item \textbf{Mean Reciprocal Rank (MRR)} \cite{craswell2009mean}: Evaluates ranking quality by calculating $\frac{1}{N}\sum_{i=1}^{N}\frac{1}{\text{rank}_i}$, where $\text{rank}_i$ is the position of the correct answer in the ranked list for the $i$-th query. MRR rewards models that rank the correct vulnerability type higher, recognizing that in security contexts, prioritization of findings is crucial.
-
-    \item \textbf{Hierarchical Proximity Score (HPS)} scores a model's outputs by how close they are to the ground-truth CWE in the hierarchy. We assign weights: exact $=1.0$, parent $=0.8$, child $=0.7$, sibling $=0.6$, same-root $=0.4$, unrelated $=0.0$. Formally, let $y_i$ be the ground truth and $(\hat y_{i1},\dots,\hat y_{ik})$ the top-$k$ predictions. Define $r(\hat y,y)\in\{\text{exact},\text{parent},\text{child},\text{sibling},\text{root},\text{none}\}$ and a weight map $w(\cdot)$ as above. The per-sample score is
-    \[
-      \mathrm{HPS}_i=\max_{1\le j\le k} w\big(r(\hat y_{ij},y_i)\big),
-    \]
-    and the dataset score is $\mathrm{HPS}=\tfrac{1}{N}\sum_{i=1}^N \mathrm{HPS}_i$. HPS credits near-misses that are semantically related, which is useful for prioritization in security triage.
+    \begin{equation}
+    \text{Accuracy} = \frac{TP+TN}{TP+FP+TN+FN}
+    \end{equation}
+    
+    As the dataset is relatively balanced between vulnerable and non-vulnerable samples, the accuracy accurately reflects the model’s overall performance without being dominated by one class. High accuracy is important as it indicates that the model performs well across both classes.
+    
+    \item \textbf{Recall} – measures the proportion of actual vulnerable code samples that were correctly identified by the model:
+    
+    \begin{equation}
+        \text{Recall} = \frac{TP}{TP+FN}
+    \end{equation}
+    
+    In this context, it represents the number of true vulnerabilities the \gls{LLM} successfully detects or flags. High recall is crucial, as missing vulnerable samples could lead to the overlooking of potential security issues.
+    
+    \item \textbf{Precision} – measures the proportion of code samples predicted as vulnerable that are truly vulnerable: 
+    
+    \begin{equation}
+        \text{Precision} = \frac{TP}{TP+FP}
+    \end{equation}
+    
+    This metric indicates how many of the flagged samples are genuine vulnerabilities rather than false positives. High precision is important to reduce the number of incorrect alerts, which can waste time during manual inspection or downstream analysis.
+    
+    \item \textbf{\gls{PPR}} – measures the proportion of all samples that the model classifies as vulnerable, regardless of correctness:
+    
+    \begin{equation}
+    \text{PPR} = \frac{TP+FP}{TP+FP+TN+FN}
+    \end{equation}
+    
+    While this metric is not as critical as precision or recall, it provides valuable insight into the model’s potential bias toward one class. A higher PPR may indicate a tendency to over-predict vulnerabilities, whereas a lower PPR suggests under-prediction. Comparing the PPR across models helps identify whether a model systematically favors one class over the other, offering additional context for interpreting performance results.
 
 \end{itemize}
 
+Together, these metrics provide a comprehensive evaluation of classification performance, balancing correctness, sensitivity, and class bias.
+
+\subsubsection{CWE-label classification}
+\label{section:cwe_metrics}
+For the task of CWE-label classification, the following metrics are employed:
+
+\begin{itemize}
+
+	\item \textbf{Top-k Accuracy}~\cite{russakovsky2015imagenet}: Considers a prediction correct if the true vulnerability type appears among the model's k highest-ranked predictions. We measure Top-1 to Top-5 accuracy to evaluate how well models detect and rank both CVEs and CWEs. This progressive evaluation is particularly valuable in security contexts where identifying the correct vulnerability category among top candidates enables more efficient remediation efforts, even when exact classification is challenging.
+
+	\item \textbf{\gls{MMR}}~\cite{craswell2009mean}: Evaluates ranking quality by calculating:
+    
+    \begin{equation}
+        \frac{1}{N}\sum_{i=1}^{N}\frac{1}{\text{rank}_i}
+    \end{equation}
+    
+    Where $\text{rank}_i$ is the position of the correct answer in the ranked list for the $i$-th query. MRR rewards models that rank the correct vulnerability type higher, recognizing that, in security contexts, prioritizing findings is crucial.
+
+    \item \textbf{\gls{HPS}} scores a model's outputs by how close they are to the ground-truth \gls{CWE} in the hierarchy. We assign weights: $\text{exact}=1.0$, $\text{parent}=0.8$, $\text{child}=0.7$, $\text{sibling}=0.6$, $\text{same-root}=0.4$, $\text{unrelated}=0.0$. The HPS weighting scheme follows an ordinal decay aligned with the CWE hierarchy rather than modeling precise semantic distances. Higher weights reflect closer ancestry in the taxonomy, as confusing a vulnerability with a parent or child category indicates greater understanding than predicting an unrelated weakness. The specific values are intended to preserve hierarchical ordering and distinguish near-misses from random errors, not to encode exact semantic margins. Formally, let $y_i$ be the ground truth and $(\hat y_{i1},\dots,\hat y_{ik})$ the top-$k$ predictions. Define $r(\hat y,y)\in\{\text{exact},\text{parent},\text{child},\text{sibling},\text{root},\text{none}\}$ and a weight map $w(\cdot)$ as above. The per-sample score is
+    
+    \begin{equation}
+      \mathrm{HPS}_i=\max_{1\le j\le k} w\big(r(\hat y_{ij},y_i)\big),
+    \end{equation}
+    
+    and the dataset score is $\mathrm{HPS}=\tfrac{1}{N}\sum_{i=1}^N \mathrm{HPS}_i$. \gls{HPS}  credits near-misses that are semantically related, which is useful for prioritization in security triage.
+    
+\end{itemize}
+
+By combining these metrics, we obtain a holistic view of model performance, capturing not only classification accuracy and ranking quality but also the semantic proximity of predicted vulnerability categories.
+
+
+\subsubsection{Statistical Significance Testing}
+To determine whether observed performance differences across experimental conditions are statistically meaningful or merely due to random variation, we employ three complementary statistical approaches: statistical tests for group-level differences, degradation metrics to quantify performance changes across abstraction levels, and Pearson correlation to assess relationships between continuous variables (e.g., context window size and model degradation).
+
+
+\begin{itemize}
+    \item \textbf{Statistical Test Selection}: To compare model performance across three abstraction levels (L1, L2, L3), we follow a systematic approach to select the appropriate statistical test. First, we validate normality using the Shapiro-Wilk \cite{shapiro1965analysis} test for each group. Second, we test homogeneity of variance using Levene's test. If both assumptions hold, we use one-way ANOVA (parametric) \cite{fisher1970statistical}; if only normality holds but variances differ, we use Welch's ANOVA; if normality fails, we use the Kruskal-Wallis H-test (non-parametric alternative). For PBD, all groups pass normality (Shapiro-Wilk p$>$0.05) and equal variance tests (Levene p=0.812), justifying one-way ANOVA. For LFD, Level 3 fails normality (p=0.008), requiring the Kruskal-Wallis test. Both tests evaluate whether abstraction level significantly affects accuracy, with p$<$0.05 indicating significant differences and p$\geq$0.05 suggesting no meaningful effect beyond random variation.
+    
+    \item \textbf{Degradation}: Measures the change in model accuracy across abstraction levels, calculated as $\text{Degradation} = \text{Accuracy}_{\text{L1}} - \text{Accuracy}_{\text{L3}}$. Positive degradation values indicate performance decline as code scope increases (higher abstraction levels), while negative values indicate improvement with broader context. This metric quantifies model robustness to code abstraction: models with near-zero degradation maintain stable performance regardless of abstraction level, while high degradation reveals fragility when processing multi-file scenarios versus isolated functions.
+
+    \item \textbf{Pearson Correlation}: Measures the strength and direction of linear relationships between two variables (e.g., context window size and model degradation). The correlation coefficient (r) ranges from -1 to +1, where values close to 0 indicate no linear relationship, while values near $\pm$1 indicate strong positive or negative correlation. Statistical significance is assessed via p-value, where p$<$0.05 indicates the correlation is unlikely due to chance.
+
+        \item \textbf{Mann-Whitney U Test}~\cite{mann1947test}: A non-parametric statistical test used to compare two independent groups when data do not meet the assumptions required for parametric tests (e.g., t-test). Unlike the t-test, which assumes normally distributed data with equal variances, the Mann-Whitney U test operates on ranked data and is robust to outliers and skewed distributions. The test works by ranking all observations from both groups together, then comparing the sum of ranks between groups. The U statistic represents the number of times observations from one group precede observations from the other group in the ranking. For our abstraction level analysis, we use Mann-Whitney U to compare Simple (L1) versus Complex (L2+L3) categories in LFD, where the small sample size for L3 (n=3) violates normality assumptions and creates highly unequal group sizes (85 vs 18). Statistical significance is assessed via p-value, where p$<$0.05 indicates that the observed difference between groups is unlikely due to chance alone.
+
+        \item \textbf{Rank-Biserial Correlation}~\cite{kerby2014simple}: An effect size measure for the Mann-Whitney U test that quantifies the magnitude of difference between two groups, independent of sample size. While the p-value from Mann-Whitney U tells us whether a difference is \textit{statistically significant}, rank-biserial correlation tells us whether that difference is \textit{practically meaningful}. The rank-biserial correlation (r) is calculated as:
+        
+        \begin{equation}
+            r = 1 - \frac{2U}{n_1 \cdot n_2}
+        \end{equation}
+        
+        where $U$ is the Mann-Whitney U statistic, $n_1$ is the size of the first group, and $n_2$ is the size of the second group. The correlation ranges from -1 to +1, where $r = 1$ means all observations in group 1 rank higher than all in group 2, $r = 0$ indicates no systematic difference, and $r = -1$ means all observations in group 2 rank higher. We interpret effect sizes using conventional thresholds~\cite{cohen1988statistical}: $|r| < 0.1$ (negligible), $0.1 \leq |r| < 0.3$ (small), $0.3 \leq |r| < 0.5$ (medium), $|r| \geq 0.5$ (large). This metric is crucial for our analysis because with highly imbalanced group sizes (Simple n=85 vs Complex n=18), even small actual differences can yield statistically significant p-values purely due to sample size. Rank-biserial correlation ensures we report both statistical significance \textit{and} practical importance.
+    
+\end{itemize}
 
 \subsection{Prompt Templates}
 \label{section:prompts}
-Our prompt templates for VD and PV are designed with four key principles: clear task specification, structured output formats, minimal bias introduction, and scalability across vulnerability types. We focus on benchmarking inherent LLM capabilities rather than optimizing prompting strategies, evaluating baseline performance that can inform future research directions.
-
-Each prompt clearly states the expected task and output format, uses standardized templates for fair comparison across models, maintains essential code context while avoiding information leakage, and reflects real-world security analysis scenarios. Our evaluation systematically assesses LLMs through ranking methods (SVD2) that identify the most likely vulnerability CWEs, and binary classification methods (SVD3-SVD6) that evaluate precise VD and PV capabilities.
-
-Representative prompt formats for SVD2 and SVD3 are shown in Figure~\ref{figure:prompt_svd2} and Figure~\ref{figure:prompt_svd3}.
-
-
-
-\begin{table}[h!]
-\centering
-\captionsetup{skip=2pt,font=small}
-\caption{Prompt Templates for SVD and PV Tasks}
-\label{table:prompt_templates}
-\setlength{\tabcolsep}{1.5pt}
-\renewcommand{\arraystretch}{0.9}
-{\scriptsize
-\begin{tabularx}{\columnwidth}{@{\extracolsep{\fill}}%
-l l
->{\centering\arraybackslash}p{0.053\columnwidth}%
->{\centering\arraybackslash}p{0.053\columnwidth}%
->{\centering\arraybackslash}p{0.060\columnwidth}%
->{\centering\arraybackslash}p{0.060\columnwidth}%
-X@{}}
-\toprule
-\multicolumn{1}{c}{\textbf{ID}} &
-\multicolumn{1}{c}{\textbf{Task}} &
-\multicolumn{4}{c}{\textbf{Inputs}} &
-\multicolumn{1}{c}{\textbf{Description}} \\
-\cmidrule(lr){3-6}
-& & \multicolumn{1}{c}{\textbf{V}} &
-\multicolumn{1}{c}{\textbf{P}} &
-\multicolumn{1}{c}{\textbf{CVE}} &
-\multicolumn{1}{c}{\textbf{CWE}} & \\
-\midrule
-SVD2 & CWE Ranking  & Y  & -- & -- & -- & Rank top-5 CWEs for given code. \\
-SVD3 & Detection    & Y  & -- & -- & -- & Detect whether code is vulnerable (non-targeted). \\
-SVD4 & Verification & -- & Y  & -- & -- & Verify patched code is safe (non-targeted). \\
-SVD5 & Detection    & Y  & -- & Y  & Y  & Detect vulnerability for a specific CVE/CWE (targeted). \\
-SVD6 & Verification & -- & Y  & Y  & Y  & Verify patch for a specific CVE/CWE (targeted). \\
-\bottomrule
-\end{tabularx}
-}
-\vspace{2pt}
-\raggedright\scriptsize
-V: vulnerable code (pre-fix); P: patched code (post-fix). All tasks use zero-shot prompts.
-\end{table}
-
-
-\begin{figure}
-\centerline{\includegraphics[width=1.0\columnwidth]{figures/prompt_svd2.png}}
-	\caption{CWE Ranking Prompt (SVD2)}
-	\label{figure:prompt_svd2}
-\end{figure}
-
-\begin{figure}
-\centerline{\includegraphics[width=1\columnwidth]{figures/prompt_svd3.png}}
-	\caption{Is the code vulnerable (SVD3)}
+\begin{figure}[!t]
+\centerline{\includegraphics[width=1\columnwidth]{figures/promptSVD3.png}}
+	\caption{Vulnerability detection and patch verification prompt.}
 	\label{figure:prompt_svd3}
 \end{figure}
+\begin{figure}[!t]
+\centerline{\includegraphics[width=1.0\columnwidth]{figures/promptSVD2.png}}
+	\caption{\gls{CWE} ranking prompt.}
+	\label{figure:prompt_svd2}
+\end{figure}
+Our prompt templates for both \gls{SVD} and CWE-label classification are designed with four key principles in mind: clear task specification, structured output formats, minimal introduction of bias, and scalability across vulnerability types. We focus on benchmarking the inherent \gls{LLM} capabilities rather than optimizing prompting strategies, and on evaluating baseline performance to inform future research directions. Each prompt clearly states the expected task and output format, uses standardized templates for fair comparison across models, maintains essential code context while avoiding information leakage, and reflects real-world security analysis scenarios.
 
+Representative prompt formats are shown in Figures~\ref{figure:prompt_svd3} (\gls{SVD}) and~\ref{figure:prompt_svd2} (CWE-label classification).
 
+%\begin{table}[h!]
+%\centering
+%\captionsetup{skip=2pt,font=small}
+%\caption{Prompt Templates for SVD and \gls{SPV} Tasks}
+%\label{table:prompt_templates}
+%\setlength{\tabcolsep}{1.5pt}
+%\renewcommand{\arraystretch}{0.9}
+%{\scriptsize
+%\begin{tabularx}{\columnwidth}{@{\extracolsep{\fill}}%
+%l l
+%>{\centering\arraybackslash}p{0.053\columnwidth}%
+%>{\centering\arraybackslash}p{0.053\columnwidth}%
+%>{\centering\arraybackslash}p{0.060\columnwidth}%
+%>{\centering\arraybackslash}p{0.060\columnwidth}%
+%X@{}}
+%\toprule
+%\multicolumn{1}{c}{\textbf{ID}} &
+%\multicolumn{1}{c}{\textbf{Task}} &
+%\multicolumn{4}{c}{\textbf{Inputs}} &
+%\multicolumn{1}{c}{\textbf{Description}} \\
+%\cmidrule(lr){3-6}
+%& & \multicolumn{1}{c}{\textbf{V}} &
+%\multicolumn{1}{c}{\textbf{P}} &
+%\multicolumn{1}{c}{\textbf{CVE}} &
+%\multicolumn{1}{c}{\textbf{CWE}} & \\
+%\midrule
+%SVD2 & \gls{CWE} Ranking  & Y  & -- & -- & -- & Rank top-5 CWEs for given code. \\
+%SVD3 & Detection    & Y  & -- & -- & -- & Detect whether code is vulnerable (non-targeted). \\
+%SVD4 & Verification & -- & Y  & -- & -- & Verify patched code is safe (non-targeted). \\
+%SVD5 & Detection    & Y  & -- & Y  & Y  & Detect vulnerability for a specific CVE/\gls{CWE} (targeted). \\
+%SVD6 & Verification & -- & Y  & Y  & Y  & Verify patch for a specific CVE/\gls{CWE} (targeted). \\
+%\bottomrule
+%\end{tabularx}
+%}
+%\vspace{2pt}
+%\raggedright\scriptsize
+%V: vulnerable code (pre-fix); P: patched code (post-fix). All tasks use zero-shot prompts.
+%\end{table}
 
 
 
 \section{Benchmarking Results}
 \label{section:results}
 
-In this study, we leverage six pre-trained LLMs to assess their capabilities in SVD and PV tasks. Our selection comprises three code-specialized models (CodeLlama \cite{roziere2023code}, StarCoder2 \cite{lozhkov2024starcoder}, and Qwen3-Coder \cite{yang2025qwen3}) explicitly trained on programming repositories, and three general-purpose models (Llama3.1 \cite{dubey2024llama}, Mistral \cite{jiang2023mistral7b}, and DeepSeek-R1 \cite{guo2025deepseek}) designed for broader language understanding tasks. This balanced selection enables us to investigate whether domain-specific training provides advantages over general language comprehension for security-critical tasks. We selected these models based on four key criteria: (1) their state-of-the-art performance on code understanding and generation benchmarks, (2) architectural diversity spanning encoder-decoder and decoder-only designs to ensure comprehensive evaluation, (3) varying parameter sizes (7B-32B) and context window capacities (16K-262K tokens) to investigate how model scale and memory affect VD capabilities, and (4) balanced representation of code-specialized versus general-purpose training to assess domain expertise effects. While proprietary models like GPT-4 and Claude are not included in this study, the considered open-source LLMs provide sufficient evidence to demonstrate and validate the framework, which is our primary goal. The specifications of the models we used are detailed in Table~\ref{table:llm-specs}.
+In this study, we leverage seven pre-trained \glspl{LLM} to assess their capabilities in \gls{SVD} and CWE-label classification tasks. Our selection comprises three code-specialized models (CodeLlama~\cite{roziere2023code}, StarCoder2 \cite{lozhkov2024starcoder}, and Qwen2.5-Coder~\cite{yang2025qwen3}) explicitly trained on programming repositories, and four general-purpose models (Llama3.1~\cite{dubey2024llama}, Mistral~\cite{jiang2023mistral7b}, and DeepSeek-R1~\cite{guo2025deepseek}, GPT-4.1-mini~\cite{openai2025gpt4_1mini}) designed for broader language understanding tasks. This balanced selection enables us to investigate whether domain-specific training provides advantages over general language comprehension for security-critical tasks. We selected these models based on five key criteria: (1) their state-of-the-art performance on code understanding and generation benchmarks, (2) architectural diversity spanning both standard fully-dense models (e.g., CodeLlama) and \gls{MoE} models (e.g., DeepSeek-R1) to ensure comprehensive evaluation, (3) varying parameter sizes (7B-30B and unknown for GPT-4.1-mini) and context window capacities (16K-1M tokens) to investigate how model scale and memory affect \gls{SVD} capabilities, (4) balanced representation of code-specialized versus general-purpose training to assess domain expertise effects, and (5) inclusion of both smaller open-source and larger proprietary models, allowing for a fair comparison across accessibility and capability dimensions. The specifications of the models we used are detailed in Table~\ref{table:llm-specs}.
 
-
-\begin{table}[t]
+\begin{table}[!t]
 \centering
-\caption{LLM Specifications with Context Window Sizes (tokens)}
+\caption{LLM specs with context window sizes (tokens).}
 \label{table:llm-specs}
-\vspace{-4pt}
+\footnotesize
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{@{}l l r r@{}}
+\toprule
+\textbf{Model} & \textbf{Type} & \textbf{\# Params} & \textbf{Context Window} \\
+\midrule
+CodeLlama & Code-spec. & 7B & 16K \\
+StarCoder2 & Code-spec. & 7B & 16K \\
+Qwen2.5-Coder & Code-spec. & 30B & 262K \\
+Llama3.1 & General & 8B & 131K \\
+Mistral (v0.3) & General & 7B & 32K \\
+DeepSeek-R1 & General & 7B & 131K \\
+GPT-4.1-mini & General & --- & 1M \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{RQ1: Overall \gls{SVD} performance}
+
+For this research question, we divide our analysis into two parts. First, we analyze model performance in the non-targeted setting, where models are asked to classify code as vulnerable/non-vulnerable with no information about the specific CWE. Then, we repeat the same analysis but for the targeted setting, where models are given the \gls{CWE} label in the prompt. Within each of these parts, we start by looking at how often each model actually provided an answer (regardless of its correctness) and how often it refused to answer (-1), and then look into the values for the metrics (accuracy, recall, and precision).
+
+\subsubsection{Non-targeted Classification}
+
+
+\begin{table}[!t]
+\centering
+\caption{Abstention rates (\%) for non-targeted and targeted \gls{SVD}.}
+\label{tab:res-dist-abstention}
+\small
+\setlength{\tabcolsep}{10pt}
 \renewcommand{\arraystretch}{1.05}
-\setlength{\tabcolsep}{3pt}
 \resizebox{\columnwidth}{!}{%
-\begin{tabular}{lcccccc}
+\begin{tabular}{lcccc}
 \toprule
-& \multicolumn{3}{c}{\textbf{Code-Spec.}} & \multicolumn{3}{c}{\textbf{General}} \\
-\cmidrule(lr){2-4}\cmidrule(l){5-7}
-\textbf{Metric} & \textbf{CodeLlama} & \textbf{StarCoder2} & \textbf{Qwen3-Coder} & \textbf{Llama3.1} & \textbf{Mistral V0.3} & \textbf{DeepSeek-R1} \\
+& \multicolumn{2}{c}{\textbf{Non-Targeted}} & \multicolumn{2}{c}{\textbf{Targeted}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+\textbf{Model} & PBD (\%) & LFD (\%) & PBD (\%) & LFD (\%) \\
 \midrule
-\textbf{\# Parameters}  & 7B   & 7B   & 32B  & 8B   & 7B   & 7B   \\
-\textbf{Context Window} & 16K  & 16K  & 262K & 131K & 32K  & 131K \\
+CodeLlama    & 0.5 & 0.0 & 0.3 & 0.0 \\
+DeepSeek     & 30.4 & 24.3 & 6.1 & 7.3 \\
+GPT-4.1-mini & 2.2 & 3.9 & 1.1 & 1.5 \\
+Llama3.1     & 52.6 & 59.7 & 51.9 & 55.8 \\
+Mistral      & 0.0 & 0.0 & 0.0 & 0.0 \\
+Qwen2.5-Coder  & 34.7 & 37.9 & 46.7 & 37.9 \\
+StarCoder2   & 16.9 & 22.3 & 11.3 & 21.4 \\
 \bottomrule
 \end{tabular}
 }
-\vspace{-6pt}
 \end{table}
 
 
 
+\textbf{Models exhibit substantial differences in abstention behavior.} Table~\ref{tab:res-dist-abstention} shows abstention rates across both non-targeted and targeted settings. CodeLlama, GPT-4.1-mini, and Mistral consistently provide predictions, with abstention rates below 4\% across all conditions. Mistral never abstains, while CodeLlama abstains in only 0.5\% of non-targeted PBD cases. In contrast, Llama3.1 abstains in over half of all queries (52.6\%–59.7\%), refusing to commit to classifications even when CVE/CWE context is provided. DeepSeek and Qwen2.5-Coder show intermediate but asymmetric behavior: DeepSeek's abstention drops sharply from 30.4\% (non-targeted) to 6.1\% (targeted) in PBD, while Qwen2.5-Coder's abstention increases from 34.7\% to 46.7\%. Providing explicit vulnerability context does not consistently reduce abstention: Llama3.1 and Qwen2.5-Coder remain highly conservative across task types, revealing fundamental differences in model confidence calibration rather than task-specific uncertainty.
+
+\textbf{\glspl{LLM} performed no better than random classifiers.} In the non-targeted setting, Table~\ref{tab:metrics-svd} (Non-Targeted columns) presents the actual performance metrics, considering only the cases where the models did provide a classification. We can see that all models exhibit accuracies close to 50\%, irrespective of architecture, size, or context window size. This performance can be seen in both the \gls{PBD} and \gls{LFD}, indicating that potential training data leakage had no effect on performance and that none of the models have truly learned meaningful patterns to distinguish between vulnerable and non-vulnerable code in this setting.
 
 
-\subsection{RQ1: Binary Vulnerability vs. Patch Classification}
-We evaluate LLMs' ability to determine code vulnerability using precision, recall, accuracy, and F1 score metrics. Our binary classification framework assigns ground truth labels based on code state: vulnerable code blocks (pre-fix versions from parent commits) receive label 1, while patched code blocks (post-fix versions from fixing commits) receive label 0. To capture the inherent uncertainty in vulnerability assessment, we provide LLMs with a third option: -1 (meaning "not sure"). This uncertainty option is critical because: (1) real-world VD often involves ambiguous cases where even security experts disagree; (2) it prevents LLMs from making forced binary decisions when evidence is insufficient, potentially reducing false positives and negatives; (3) it provides insight into model confidence levels, enabling more nuanced evaluation of LLM reliability in security contexts; and (4) it mirrors practical security analysis workflows where analysts may need to flag code for further investigation rather than making definitive vulnerability determinations. Our analysis examines how models distinguish between these states across four prompts: SVD3 and SVD5 evaluate models on vulnerable code (expected output: 1), while SVD4 and SVD6 evaluate models on patched code (expected output: 0). SVD3/SVD4 assess non-targeted VD, while SVD5/SVD6 test targeted detection using specific CVE and CWE identifiers.
+Consider CVE-2024-26599 (CWE-119, PBD), a clear out-of-bounds array access in a PWM driver function (Figure~\ref{figure:cve_2024_26599}). The vulnerable code checks \texttt{args->args\_count != 1 \&\& args->args\_count != 2} to validate input, then accesses \texttt{args->args[2]} when \texttt{args\_count == 2}. This is an obvious bug: if an array has count=2, valid indices are 0 and 1 (zero-indexed), so index 2 is out of bounds. The fix simply changes \texttt{args[2]} to \texttt{args[1]}. A human reviewer can immediately identify this as vulnerable because it violates basic array indexing rules. Yet all four major models failed: Codellama and Mistral incorrectly classified both vulnerable and patched versions as vulnerable, Deepseek classified both as safe, and Llama abstained on both. This demonstrates that the dataset contains clear, detectable vulnerabilities with sufficient context, but models simply lack the fundamental security reasoning to identify even straightforward bounds violations.
 
-\begin{table}[t]
-\centering
-\caption{LLM accuracy (\%) on VD (SVD3–SVD6) across PBD and LFD. Arrows indicate performance change from PBD to LFD: \textcolor{ForestGreen}{$\uparrow$} improvement, \textcolor{red}{$\downarrow$} degradation. \textbf{Bold}: best per task; \underline{Underlined}: second-best. Values in parentheses show deviation from task mean. Bias Gap represents vulnerable vs. patched detection asymmetry.}
-\label{tab:is-vulnerable}
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{@{}l|cccc|c|c|cccc|c|c@{}}
-\toprule
-\multirow{2}{*}{\textbf{Model}} & \multicolumn{5}{c|}{\textbf{PBD}} & \multirow{2}{*}{\makecell{\textbf{Bias}\\\textbf{Gap}}} & \multicolumn{5}{c|}{\textbf{LFD}} & \multirow{2}{*}{\makecell{\textbf{Gen.}\\\textbf{Gap}}} \\
-\cmidrule(lr){2-6} \cmidrule(lr){8-12}
-& \textbf{SVD3} & \textbf{SVD4} & \textbf{SVD5} & \textbf{SVD6} & \textbf{Avg} & & \textbf{SVD3} & \textbf{SVD4} & \textbf{SVD5} & \textbf{SVD6} & \textbf{Avg} & \\
-\midrule
-CodeLlama &
-\cellcolor{green!40!black!25}\makecell{\underline{75.9}\\[-2pt]\tiny{(+43.3)}} &
-\cellcolor{green!10!black!0}\makecell{21.2\\[-2pt]\tiny{(-22.0)}} &
-\cellcolor{green!60!black!45}\makecell{\textbf{92.3}\\[-2pt]\tiny{(+61.2)}} &
-\cellcolor{green!10!black!0}\makecell{11.3\\[-2pt]\tiny{(-36.1)}} &
-\cellcolor{green!20!black!25}50.2 &
-\textcolor{red}{+67.8} &
-\cellcolor{green!40!black!25}\makecell{\underline{70.9}\\[-2pt]\tiny{(+42.3)}} &
-\cellcolor{green!10!black!0}\makecell{31.1\\[-2pt]\tiny{(-15.1)}} &
-\cellcolor{green!60!black!45}\makecell{\textbf{92.2}\\[-2pt]\tiny{(+62.7)}} &
-\cellcolor{green!10!black!0}\makecell{21.4\\[-2pt]\tiny{(-31.1)}} &
-\cellcolor{green!20!black!25}53.9 &
-\textcolor{ForestGreen}{$\uparrow$3.7} \\
-%
-DeepSeek &
-\cellcolor{green!10!black!0}\makecell{11.2\\[-2pt]\tiny{(-21.5)}} &
-\cellcolor{green!40!black!25}\makecell{\underline{60.5}\\[-2pt]\tiny{(+17.3)}} &
-\cellcolor{green!20!black!25}\makecell{41.4\\[-2pt]\tiny{(+10.3)}} &
-\cellcolor{green!20!black!15}\makecell{47.5\\[-2pt]\tiny{(+0.1)}} &
-\cellcolor{green!20!black!15}40.1 &
-\textcolor{ForestGreen}{−27.7} &
-\cellcolor{green!10!black!0}\makecell{8.7\\[-2pt]\tiny{(-19.9)}} &
-\cellcolor{green!60!black!45}\makecell{\textbf{63.1}\\[-2pt]\tiny{(+16.9)}} &
-\cellcolor{green!20!black!25}\makecell{39.8\\[-2pt]\tiny{(+10.3)}} &
-\cellcolor{green!40!black!25}\makecell{\underline{55.3}\\[-2pt]\tiny{(+2.8)}} &
-\cellcolor{green!20!black!15}41.8 &
-\textcolor{ForestGreen}{$\uparrow$1.6} \\
-%
-Llama3.1 &
-\cellcolor{green!10!black!0}\makecell{1.0\\[-2pt]\tiny{(-31.6)}} &
-\cellcolor{green!20!black!15}\makecell{42.4\\[-2pt]\tiny{(-0.8)}} &
-\cellcolor{green!10!black!0}\makecell{0.0\\[-2pt]\tiny{(-31.1)}} &
-\cellcolor{green!20!black!15}\makecell{46.5\\[-2pt]\tiny{(-0.9)}} &
-\cellcolor{green!10!black!0}22.5 &
-\textcolor{ForestGreen}{−44.0} &
-\cellcolor{green!10!black!0}\makecell{0.0\\[-2pt]\tiny{(-28.6)}} &
-\cellcolor{green!10!black!0}\makecell{36.9\\[-2pt]\tiny{(-9.3)}} &
-\cellcolor{green!10!black!0}\makecell{0.0\\[-2pt]\tiny{(-29.5)}} &
-\cellcolor{green!20!black!15}\makecell{41.8\\[-2pt]\tiny{(-10.7)}} &
-\cellcolor{green!10!black!0}19.7 &
-\textcolor{red}{$\downarrow$2.8} \\
-%
-Mistral &
-\cellcolor{green!60!black!45}\makecell{\textbf{88.2}\\[-2pt]\tiny{(+55.6)}} &
-\cellcolor{green!10!black!0}\makecell{10.5\\[-2pt]\tiny{(-32.7)}} &
-\cellcolor{green!10!black!0}\makecell{20.1\\[-2pt]\tiny{(-11.0)}} &
-\cellcolor{green!60!black!45}\makecell{\textbf{73.9}\\[-2pt]\tiny{(+26.5)}} &
-\cellcolor{green!20!black!25}48.2 &
-\textcolor{red}{+11.9} &
-\cellcolor{green!60!black!45}\makecell{\textbf{80.6}\\[-2pt]\tiny{(+52.0)}} &
-\cellcolor{green!10!black!0}\makecell{21.4\\[-2pt]\tiny{(-24.8)}} &
-\cellcolor{green!10!black!0}\makecell{14.6\\[-2pt]\tiny{(-14.9)}} &
-\cellcolor{green!60!black!45}\makecell{\textbf{82.5}\\[-2pt]\tiny{(+30.0)}} &
-\cellcolor{green!20!black!25}49.8 &
-\textcolor{ForestGreen}{$\uparrow$1.6} \\
-%
-Qwen3-Coder &
-\cellcolor{green!10!black!0}\makecell{3.3\\[-2pt]\tiny{(-29.3)}} &
-\cellcolor{green!40!black!25}\makecell{60.1\\[-2pt]\tiny{(+16.9)}} &
-\cellcolor{green!10!black!0}\makecell{0.7\\[-2pt]\tiny{(-30.4)}} &
-\cellcolor{green!40!black!25}\makecell{\underline{55.2}\\[-2pt]\tiny{(+7.8)}} &
-\cellcolor{green!10!black!0}29.8 &
-\textcolor{ForestGreen}{−55.7} &
-\cellcolor{green!10!black!0}\makecell{1.0\\[-2pt]\tiny{(-27.6)}} &
-\cellcolor{green!40!black!25}\makecell{\underline{56.9}\\[-2pt]\tiny{(+10.7)}} &
-\cellcolor{green!10!black!0}\makecell{0.0\\[-2pt]\tiny{(-29.5)}} &
-\cellcolor{green!40!black!25}\makecell{57.8\\[-2pt]\tiny{(+5.3)}} &
-\cellcolor{green!10!black!0}28.9 &
-\textcolor{red}{$\downarrow$0.9} \\
-%
-StarCoder2 &
-\cellcolor{green!10!black!0}\makecell{16.2\\[-2pt]\tiny{(-16.4)}} &
-\cellcolor{green!60!black!45}\makecell{\textbf{64.7}\\[-2pt]\tiny{(+21.5)}} &
-\cellcolor{green!10!black!0}\makecell{32.2\\[-2pt]\tiny{(+1.1)}} &
-\cellcolor{green!20!black!15}\makecell{50.0\\[-2pt]\tiny{(+2.6)}} &
-\cellcolor{green!20!black!15}40.8 &
-\textcolor{ForestGreen}{−33.1} &
-\cellcolor{green!10!black!0}\makecell{10.7\\[-2pt]\tiny{(-17.9)}} &
-\cellcolor{green!60!black!45}\makecell{68.0\\[-2pt]\tiny{(+21.8)}} &
-\cellcolor{green!10!black!0}\makecell{30.1\\[-2pt]\tiny{(+0.6)}} &
-\cellcolor{green!40!black!25}\makecell{56.3\\[-2pt]\tiny{(+3.8)}} &
-\cellcolor{green!20!black!15}41.3 &
-\textcolor{ForestGreen}{$\uparrow$0.5} \\
-\midrule
-\textbf{Avg} & 32.6 & 43.2 & 31.1 & 47.4 & 38.6 & −13.5 & 28.6 & 46.2 & 29.5 & 52.5 & 39.2 & \textcolor{ForestGreen}{$\uparrow$0.6} \\
-\bottomrule
-\end{tabular}
+\begin{figure}[!t]
+
+\begin{lstlisting}[language=Diff, basicstyle=\scriptsize\ttfamily, xleftmargin=0pt, frame=single]
+// File: drivers/pwm/core.c
+of_pwm_single_xlate(struct pwm_chip *chip,
+                    const struct of_phandle_args *args) {
+    struct pwm_device *pwm;
+
+    if (chip->of_pwm_n_cells < 1)
+        return ERR_PTR(-EINVAL);
+
+    // Validates that args_count is either 1 or 2
+    if (args->args_count != 1 && args->args_count != 2)
+        return ERR_PTR(-EINVAL);
+
+    pwm = pwm_request_from_chip(chip, 0, NULL);
+    if (IS_ERR(pwm))
+        return pwm;
+
+    pwm->args.period = args->args[0];
+    pwm->args.polarity = PWM_POLARITY_NORMAL;
+
+    // BUG: Accessing index 2 when count==2 (valid: 0,1)
+-   if (args->args_count == 2 && args->args[2] & PWM_POLARITY_INVERTED)
++   if (args->args_count == 2 && args->args[1] & PWM_POLARITY_INVERTED)
+        pwm->args.polarity = PWM_POLARITY_INVERSED;
+
+    return pwm;
 }
-\vspace{-4pt}
-\end{table}
+\end{lstlisting}
 
-
-\textbf{Overall Detection Performance and Model Rankings.} Table \ref{tab:is-vulnerable} reveals striking performance hierarchies across VD tasks. CodeLlama dominates with the highest overall accuracy on both PBD (50.2\%) and LFD (53.9\%), demonstrating exceptional performance on targeted vulnerable code detection (SVD5: 92.3\% PBD, 92.2\% LFD). Mistral follows closely (48.2\% PBD, 49.8\% LFD), excelling particularly at vulnerability identification tasks (SVD3: 88.2\% PBD, 80.6\% LFD) and PV with context (SVD6: 73.9\% PBD, 82.5\% LFD). However, the performance landscape shifts dramatically across tasks: StarCoder2 leads patch detection without context (SVD4: 64.7\% PBD, 68.0\% LFD), while Llama3.1 struggles catastrophically with near-zero vulnerable code detection (0.96\% PBD SVD3, 0.0\% LFD SVD3) yet maintains moderate patch identification capabilities (42.4\% PBD SVD4), suggesting fundamental architectural weaknesses in security reasoning.
-
-\textbf{Vulnerability vs.\ Patch Detection Asymmetry and Bias Patterns.} Models exhibit profound and systematic biases that contradict conventional security assumptions. While CodeLlama and Mistral demonstrate expected vulnerable-detection bias (CodeLlama: $+67.8$-point gap, Mistral: $+11.9$-point gap), four models show dramatic reverse bias: Qwen3-Coder ($-55.7$ points), Llama3.1 ($-44.0$ points), StarCoder2 ($-33.1$ points), and DeepSeek ($-27.7$ points). DeepSeek exemplifies this pattern, achieving only $26.3\%$ vulnerable detection versus $54.0\%$ patch detection in PBD, intensifying in LFD to $24.3\%$ versus $59.2\%$. This reverse bias challenges the assumption that models default to flagging code as vulnerable, revealing instead that many models develop sophisticated patch-recognition heuristics while failing at vulnerability identification. The cross-dataset consistency (PBD average bias: $-13.5\%$, LFD: $-20.3\%$) confirms these reflect fundamental architectural tendencies rather than training artifacts, suggesting models learn to recognize “fixed” code patterns more effectively than “broken” ones.
-
-\textbf{CVE/CWE Context Utilization: Enhancement vs. Confusion.} 
-Explicit vulnerability identifiers produce divergent effects that reveal model-specific reasoning capabilities. 
-DeepSeek benefits most dramatically from targeted context, improving from 35.8\% (non-targeted) to 44.4\% (targeted) in PBD (+8.6 points) and even more substantially in LFD (+11.7 points), suggesting sophisticated vulnerability-type reasoning. 
-CodeLlama shows consistent moderate gains (+3.2 points PBD, +5.8 points LFD), indicating reliable context integration. 
-Conversely, Mistral and Qwen3-Coder experience performance degradation when provided CVE/CWE information (Mistral: -2.4 points both datasets; Qwen3-Coder: -3.8 points PBD), revealing that explicit vulnerability identifiers overwhelm rather than guide these models' reasoning processes. 
-The overall modest positive impact (PBD: +1.3\%, LFD: +3.6\%) masks this high variance, demonstrating that effective vulnerability-type utilization remains architecture-dependent and requires specialized investigation. 
-Consider CVE-2025-21762 (CWE-416 use-after-free) from LFD: the vulnerable \texttt{arp\_xmit()} function lacks RCU protection when calling \texttt{dev\_net(skb->dev)}, creating a race condition where the device structure could be freed while still in use (Figure~\ref{figure:code_2}). 
-The patch adds \texttt{rcu\_read\_lock()} and \texttt{rcu\_read\_unlock()} around the critical section and switches to \texttt{dev\_net\_rcu()}. 
-In this case, only \textbf{CodeLlama} correctly classified the vulnerable and patched versions across all four detection tasks (SVD3–SVD6), while every other model either misclassified the code state or responded with “not sure.” 
-This results in an overall incorrectness ratio of \textbf{83.3\%} (five out of six models), confirming that most LLMs still fail the fundamental binary judgment of whether code is vulnerable or not—even when explicit contextual information and commit descriptions are provided. 
-Such systematic misclassification highlights that accurate vulnerability recognition remains an unsolved capability gap rather than a prompting or dataset limitation.
-
-
-\textbf{Cross-Dataset Generalization and Memory Analysis.} The PBD-to-LFD performance transitions provide definitive evidence against training data contamination while revealing temporal reasoning patterns. Remarkably, most models improve on unseen LFD data: CodeLlama ($+3.7\%$), DeepSeek ($+1.6\%$), Mistral ($+1.6\%$), and StarCoder2 ($+0.5\%$) all demonstrate positive generalization. Only Llama3.1 ($-2.8\%$) and Qwen3-Coder ($-0.9\%$) show degradation. Task-specific analysis reveals asymmetric temporal effects: vulnerable code detection declines modestly (SVD3: $-4.0\%$, SVD5: $-1.6\%$) while patch detection consistently improves (SVD4: $+3.0\%$, SVD6: $+5.1\%$). This asymmetry indicates LFD's temporal distribution (more recent vulnerabilities) better aligns with models' training data for patch patterns, while historical vulnerable code styles in PBD may be overrepresented in pretraining corpora. The combination of low absolute LFD accuracies (best: $53.9\%$) with improved relative performance definitively rules out memorization, confirming that detection capabilities reflect learned security reasoning patterns rather than training data leakage.
-
-
-
-\begin{figure}
-  \centerline{\includegraphics[width=1.0\columnwidth]{figures/code_2.png}}
-  \caption{CVE-2025-21762: Use-After-Free (UAF) Vulnerability in Linux Kernel's ARP Implementation. The vulnerable code (top) lacks RCU protection, while the patched code (bottom) adds necessary RCU read locks to prevent UAF conditions.}
-  \label{figure:code_2}
+\caption{CVE-2024-26599: out-of-bounds access; patch shown.}
+\label{figure:cve_2024_26599}
 \end{figure}
 
-\subsection{RQ2: Per-CWE Performance and Pillars}
+\textbf{Models tend to have an extreme bias towards one of the classes.} Examining metrics such as Recall, Precision, and \gls{PPR} reveals consistent patterns across both the \gls{PBD} and \gls{LFD}. CodeLlama and Mistral stand out in both datasets with very high recall values (around 75–88\% for PBD and 70–81\% for LFD), indicating that they correctly flag most vulnerable samples. However, their corresponding precision and \gls{PPR} values (around 50\% precision and 0.8 \gls{PPR}) indicate that these high recall scores are driven by a strong bias toward positive predictions: the models tend to classify most samples as vulnerable, regardless of the true label.
 
-\begin{figure}[ht]
-	\centerline{\includegraphics[width=1.0\columnwidth]{figures/rootpillars_db1.pdf}}
-	\caption{Model Performance Across CWE Root Pillars in PBD: Distribution shows vulnerability counts by pillar with model accuracy rates.}
-	\label{figure:cwe-distribution-PBD}
-\end{figure}
+In contrast, models such as GPT-4.1-mini, Llama3.1, Qwen2.5-Coder, and DeepSeek exhibit the opposite behaviour across both datasets. Their low recall and \gls{PPR} values indicate a strong bias toward the negative class (non-vulnerable code), with most predictions defaulting to \enquote{not vulnerable}. Yet despite this conservative tendency, their precision remains low, so even when these models predict a vulnerability, they are often incorrect.
 
-\begin{figure}[ht]
-	\centerline{\includegraphics[width=1.0\columnwidth]{figures/rootpillars_db2.pdf}}
-	\caption{Model Performance Across CWE Root Pillars in LFD.}
-	\label{figure:cwe-distribution_LFD}
-\end{figure}
+Overall, these patterns are remarkably consistent across the PBD and LFD, reinforcing the conclusion that the observed biases are intrinsic to the models rather than a result of training data leakage or dataset-specific artifacts.
 
-\begin{table}[ht]
-\centering
-\caption{CWE Root Pillar Distribution and Model Specialization Patterns}
-\label{tab:cwe_pillar_performance}
-\renewcommand{\arraystretch}{1.2}
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{@{}lrrrrr@{}}
-\toprule
-\multirow{2}{*}{\textbf{Root Pillar}} & \multicolumn{2}{c}{\textbf{Dataset Coverage}} & \multicolumn{3}{c}{\textbf{Best Performing Models}} \\
-\cmidrule(lr){2-3} \cmidrule(lr){4-6}
-& \textbf{PBD} & \textbf{LFD} & \textbf{Overall} & \textbf{Vulnerable} & \textbf{Patches} \\
-\midrule
-CWE-664: Resource Control & 136 (43.3\%) & 62 (60.2\%) & \cellcolor{green!30}CodeLlama & \cellcolor{green!30}Mistral & \cellcolor{blue!30}DeepSeek \\
-CWE-OTHER: Deprecated/Unmapped & 38 (12.1\%) & 0 (0.0\%) & \cellcolor{green!30}Mistral & \cellcolor{green!30}Mistral & \cellcolor{blue!30}DeepSeek \\
-CWE-682: Incorrect Calculation & 32 (10.2\%) & 7 (6.8\%) & \cellcolor{green!30}CodeLlama & \cellcolor{green!30}Mistral & \cellcolor{blue!30}StarCoder2 \\
-CWE-284: Improper Access Control & 28 (8.9\%) & 0 (0.0\%) & \cellcolor{green!30}Mistral & \cellcolor{green!30}Mistral & \cellcolor{blue!30}DeepSeek \\
-CWE-691: Control Flow Management & 27 (8.6\%) & 11 (10.7\%) & \cellcolor{green!30}Mistral & \cellcolor{green!30}Mistral & \cellcolor{blue!30}StarCoder2 \\
-CWE-707: Improper Neutralization & 18 (5.7\%) & 9 (8.7\%) & \cellcolor{green!30}CodeLlama & \cellcolor{green!30}CodeLlama & \cellcolor{blue!30}StarCoder2 \\
-CWE-693: Protection Mechanism & 16 (5.1\%) & 0 (0.0\%) & \cellcolor{green!30}Mistral & \cellcolor{green!30}Mistral & \cellcolor{blue!30}Qwen3-Coder \\
-CWE-710: Coding Standards & 11 (3.5\%) & 14 (13.6\%) & \cellcolor{green!30}Mistral & \cellcolor{green!30}Mistral & \cellcolor{blue!30}DeepSeek \\
-CWE-703: Exception Handling & 9 (2.9\%) & 0 (0.0\%) & \cellcolor{green!30}Mistral & \cellcolor{green!30}Mistral & \cellcolor{blue!30}DeepSeek \\
-\bottomrule
-\end{tabular}%
-}
-\vspace{-2pt}
-\begin{flushleft}
-\footnotesize
-Performance leadership based on highest combined accuracy across SVD3-SVD6 tasks. \textcolor{green}{Green}: VD specialist, \textcolor{blue}{Blue}: PV specialist.
-\end{flushleft}
+
+
+\begin{table*}[!t]
+    \centering
+    \caption{Performance metrics for \gls{SVD} in non-targeted and targeted settings.}
+    \label{tab:metrics-svd}
+    \scriptsize
+    \renewcommand{\arraystretch}{1.0}
+    \setlength{\tabcolsep}{1.8pt}
+    \begin{tabular}{l rr rr rr rr rr rr rr rr}
+    \toprule
+    \multirow{3}{*}{Model}
+      & \multicolumn{8}{c}{\textbf{Non-Targeted}}
+      & \multicolumn{8}{c}{\textbf{Targeted}} \\
+    \cmidrule(lr){2-9} \cmidrule(lr){10-17}
+      & \multicolumn{4}{c}{PBD (\%)} & \multicolumn{4}{c}{LFD (\%)}
+      & \multicolumn{4}{c}{PBD (\%)} & \multicolumn{4}{c}{LFD (\%)} \\
+    \cmidrule(lr){2-5} \cmidrule(lr){6-9} \cmidrule(lr){10-13} \cmidrule(lr){14-17}
+      & Acc. & Rec. & Prec. & PPR 
+      & Acc. & Rec. & Prec. & PPR 
+      & Acc. & Rec. & Prec. & PPR 
+      & Acc. & Rec. & Prec. & PPR \\
+    \midrule
+    CodeLlama & 49.0 & 75.7 & 49.4 & 76.8 & 51.0 & 70.9 & 50.7 & 69.9 & 52.2 & 92.0 & 51.2 & 89.9 & 56.8 & 92.2 & 54.0 & 85.4 \\
+    DeepSeek & 51.3 & 16.0 & 49.2 & 15.7 & 46.9 & 11.5 & 52.9 & 11.7 & 46.5 & 44.5 & 44.7 & 48.2 & 50.3 & 42.3 & 55.0 & 41.4 \\
+    GPT-4.1-mini & 50.7 & 5.8 & 60.0 & 4.9 & 51.8 & 4.2 & 66.7 & 3.1 & 49.5 & 7.8 & 49.0 & 8.0 & 53.3 & 7.3 & 77.8 & 4.6 \\
+    Llama3.1 & 45.0 & 3.1 & 33.3 & 5.0 & 40.9 & 0.0 & 0.0 & 0.0 & 46.7 & 0.0 & 0.0 & 0.0 & 40.9 & 0.0 & 0.0 & 0.0 \\
+    Mistral & 49.4 & 88.2 & 49.6 & 88.9 & 51.0 & 80.6 & 50.6 & 79.6 & 47.0 & 20.1 & 43.4 & 23.1 & 48.5 & 14.6 & 45.5 & 16.0 \\
+    Qwen2.5-Coder & 53.8 & 4.8 & 62.5 & 3.6 & 42.9 & 2.6 & 33.3 & 4.3 & 52.9 & 0.0 & 0.0 & 0.0 & 44.3 & 0.0 & 0.0 & 0.0 \\
+    StarCoder2 & 48.2 & 18.9 & 44.4 & 21.0 & 54.7 & 15.8 & 47.4 & 14.8 & 45.4 & 34.3 & 43.5 & 39.1 & 54.7 & 38.6 & 48.9 & 35.2 \\
+    \bottomrule
+    \end{tabular}
+\end{table*}
+
+
+\subsubsection{Targeted Classification}
+
+Moving to the targeted classification setting, Table~\ref{tab:res-dist-abstention} presents the response distributions across models.
+
+\textbf{Providing the CWE label influenced models’ abstention behavior in different ways.} For DeepSeek and StarCoder2, including the \gls{CWE} label led to fewer abstentions. Specifically, DeepSeek’s proportion of predicted responses increased from 71.1\% to 93.65\%, while StarCoder2's increased from 81.77\% to 86.21\%. In contrast, for Qwen2.5-Coder, the proportion of predicted responses declined from 62.47\% to 53.48\%. For the remaining four models, assigning the \gls{CWE} labels did not lead to substantial changes in abstention frequency. Overall, this suggests that the inclusion of \gls{CWE} labels had model-dependent effects on prediction behavior. Some models became more decisive, while others grew more cautious, highlighting variability in how each model interprets and leverages the task information.
+
+\textbf{Similar effects can be seen in the performance metrics.} In the targeted setting, Table~\ref{tab:metrics-svd} (Targeted columns) summarizes the performance metrics for \gls{SVD}. Overall, the accuracies remained around 50\%, indicating that even when the corresponding \gls{CWE} label was provided, the models did not perform better than random guessing. However, when examining the other metrics, some interesting trends emerge. For DeepSeek, recall increased from 16.0\% to 44.5\%, while the PPR rose from 15.7\% to 48.2\%. This suggests that, although overall performance did not improve, providing the label helped DeepSeek overcome its initial bias toward the negative class. A similar, albeit smaller, effect can be observed for StarCoder2, where recall increased from 18.9\% to 34.3\% and PPR from 21.0\% to 39.1\%. For Mistral, the opposite trend occurred: recall dropped from 88.2\% to 20.1\% and PPR from 88.9\% to 23.1\%. In this case, performance again did not meaningfully improve, but the bias shifted entirely from favoring the positive class to favoring the negative one. For the remaining models, no significant changes were observed across any of the metrics.
+
+These findings once again demonstrate that the inclusion of \gls{CWE} labels affects models in distinct and sometimes opposing ways, suggesting differences in how each model integrates structured contextual information during classification.
+
+
+
+
+\begin{table*}[!t]
+    \centering
+    \caption{Per-CWE breakdown of the performance metrics for \gls{SVD}.}
+    \label{tab:cwe-metrics-svd}
+    \scriptsize
+    \renewcommand{\arraystretch}{1.0}
+    \setlength{\tabcolsep}{1.8pt}
+    \begin{tabular}{l rr rr rr rr rr rr rr rr}
+    \toprule
+    \multirow{3}{*}{CWE Pillar}
+      & \multicolumn{8}{c}{\textbf{Non-Targeted}}
+      & \multicolumn{8}{c}{\textbf{Targeted}} \\
+    \cmidrule(lr){2-9} \cmidrule(lr){10-17}
+      & \multicolumn{4}{c}{PBD (\%)} & \multicolumn{4}{c}{LFD (\%)}
+      & \multicolumn{4}{c}{PBD (\%)} & \multicolumn{4}{c}{LFD (\%)} \\
+    \cmidrule(lr){2-5} \cmidrule(lr){6-9} \cmidrule(lr){10-13} \cmidrule(lr){14-17}
+      & Acc. & Rec. & Prec. & PPR 
+      & Acc. & Rec. & Prec. & PPR 
+      & Acc. & Rec. & Prec. & PPR 
+      & Acc. & Rec. & Prec. & PPR \\
+    \midrule
+    CWE-284 & 50.0 & 38.7 & 52.2 & 38.3 & -- & -- & -- & -- & 45.0 & 32.3 & 45.5 & 36.7 & -- & -- & -- & -- \\
+    CWE-664 & 47.9 & 48.0 & 50.0 & 50.0 & 48.9 & 30.2 & 45.2 & 32.1 & 51.3 & 35.1 & 50.0 & 34.2 & 55.0 & 33.3 & 55.3 & 29.0 \\
+    CWE-682 & 54.1 & 51.5 & 58.6 & 47.5 & 40.0 & 33.3 & 50.0 & 40.0 & 44.3 & 27.3 & 47.4 & 31.1 & 40.0 & 16.7 & 50.0 & 20.0 \\
+    CWE-691 & 46.2 & 28.6 & 50.0 & 30.8 & 44.4 & 0.0 & 0.0 & 0.0 & 53.8 & 35.7 & 62.5 & 30.8 & 44.4 & 20.0 & 50.0 & 22.2 \\
+    CWE-693 & 54.2 & 47.6 & 47.6 & 43.8 & -- & -- & -- & -- & 58.3 & 47.6 & 52.6 & 39.6 & -- & -- & -- & -- \\
+    CWE-703 & 49.1 & 46.4 & 48.1 & 47.4 & -- & -- & -- & -- & 47.4 & 39.3 & 45.8 & 42.1 & -- & -- & -- & -- \\
+    CWE-707 & 43.1 & 42.3 & 44.0 & 49.0 & 56.1 & 40.9 & 64.3 & 34.1 & 43.1 & 38.5 & 43.5 & 45.1 & 51.2 & 31.8 & 58.3 & 29.3 \\
+    CWE-710 & 55.2 & 38.5 & 50.0 & 34.5 & 51.7 & 40.0 & 54.5 & 37.9 & 56.9 & 42.3 & 52.4 & 36.2 & 48.3 & 33.3 & 50.0 & 34.5 \\
+    CWE-OTHER & 49.0 & 38.2 & 49.1 & 39.5 & -- & -- & -- & -- & 49.1 & 38.8 & 49.0 & 40.2 & -- & -- & -- & -- \\
+    \bottomrule
+    \end{tabular}
+\end{table*}
+\textbf{\glspl{LLM} show weak, near-chance performance across CWE pillars, reinforcing that they are not yet capable of reliable \gls{SVD} classification.}
+In the non-targeted setting, performance varies slightly by pillar but remains close to random guessing. For \gls{PBD}, accuracies range from 43.1\% (CWE-707) to 55.2\% (CWE-710), with most pillars clustered near 50\%. For \gls{LFD}, results are only available for a subset of pillars (CWE-664/682/691/707/710) and accuracies range from 40.0\% to 56.1\%. Beyond accuracy, the other metrics show the same overall weakness: in \gls{PBD}, recall spans 28.6\%--51.5\% and precision stays roughly in the mid-40s to high-50s, while in \gls{LFD} recall can be as low as 0.0\% (CWE-691), indicating highly unstable behavior in low-support categories.
+
+The targeted setting does not consistently improve performance. While some pillars show higher accuracy (e.g., CWE-693 in \gls{PBD} rises to 58.3\%, and CWE-664 in \gls{LFD} rises to 55.0\%), others degrade (e.g., CWE-682 in \gls{PBD} drops to 44.3\%, and CWE-707 in \gls{LFD} drops to 51.2\%). Overall, models remain near chance across pillars in both settings, as summarized in Table~\ref{tab:cwe-metrics-svd}.
+
+% \begin{table}[!t]
+%     \centering
+%     \caption{Per-CWE breakdown of the performance metrics for \gls{SVD}.}
+%     \label{tab:cwe-metrics-svd}
+%     \small
+%     \renewcommand{\arraystretch}{1.0}
+%     \setlength{\tabcolsep}{1.8pt}
+%     \resizebox{\columnwidth}{!}{%
+%     \begin{tabular}{lrrrrrrrrrr}
+%     \toprule
+%     \multirow{2}{*}{CWE Pillar} & \multicolumn{4}{c}{PBD (\%)} & \multicolumn{4}{c}{LFD (\%)} \\
+%     \cmidrule(lr){2-5} \cmidrule(lr){6-9}
+%     & \textbf{Acc.} & \textbf{Rec.} & \textbf{Prec.} & \textbf{PPR} & \textbf{Acc.} & \textbf{Rec.} & \textbf{Prec.} & \textbf{PPR} \\
+%     \midrule
+%     \multicolumn{9}{c}{\textit{Non-Targeted}} \\
+%     \midrule
+%     CWE-284 & 50.0 & 38.7 & 52.2 & 38.3 & - & - & - & - \\
+%     CWE-664 & 47.9 & 48.0 & 50.0 & 50.0 & 48.9 & 30.2 & 45.2 & 32.1 \\
+%     CWE-682 & 54.1 & 51.5 & 58.6 & 47.5 & 40.0 & 33.3 & 50.0 & 40.0 \\
+%     CWE-691 & 46.2 & 28.6 & 50.0 & 30.8 & 44.4 & 0.0 & 0.0 & 0.0 \\
+%     CWE-693 & 54.2 & 47.6 & 47.6 & 43.8 & - & - & - & - \\
+%     CWE-703 & 49.1 & 46.4 & 48.1 & 47.4 & - & - & - & - \\
+%     CWE-707 & 43.1 & 42.3 & 44.0 & 49.0 & 56.1 & 40.9 & 64.3 & 34.1 \\
+%     CWE-710 & 55.2 & 38.5 & 50.0 & 34.5 & 51.7 & 40.0 & 54.5 & 37.9 \\
+%     CWE-OTHER & 49.0 & 38.2 & 49.1 & 39.5 & - & - & - & - \\
+%     \midrule
+%     \multicolumn{9}{c}{\textit{Targeted}} \\
+%     \midrule
+%     CWE-284 & 45.0 & 32.3 & 45.5 & 36.7 & - & - & - & - \\
+%     CWE-664 & 51.3 & 35.1 & 50.0 & 34.2 & 55.0 & 33.3 & 55.3 & 29.0 \\
+%     CWE-682 & 44.3 & 27.3 & 47.4 & 31.1 & 40.0 & 16.7 & 50.0 & 20.0 \\
+%     CWE-691 & 53.8 & 35.7 & 62.5 & 30.8 & 44.4 & 20.0 & 50.0 & 22.2 \\
+%     CWE-693 & 58.3 & 47.6 & 52.6 & 39.6 & - & - & - & - \\
+%     CWE-703 & 47.4 & 39.3 & 45.8 & 42.1 & - & - & - & - \\
+%     CWE-707 & 43.1 & 38.5 & 43.5 & 45.1 & 51.2 & 31.8 & 58.3 & 29.3 \\
+%     CWE-710 & 56.9 & 42.3 & 52.4 & 36.2 & 48.3 & 33.3 & 50.0 & 34.5 \\
+%     CWE-OTHER & 49.1 & 38.8 & 49.0 & 40.2 & - & - & - & - \\
+%     \bottomrule
+%     \end{tabular}
+%     }
+% \end{table}
+
+
+
+
+
+
+
+% ###########################################RQ3############################################
+\subsection{RQ3: Effect of Code Abstraction Level}
+\label{section:rq3}
+
+Real-world vulnerabilities rarely exist in isolation. A single vulnerable function often depends on context from other functions, global variables, macros, or configuration settings spread across multiple files. To capture this reality, we evaluate models at three code abstraction levels: \textit{Level 1} presents only the modified function in isolation; \textit{Level 2} includes all functions modified in the security patch within a single file; and \textit{Level 3} provides the complete context across multiple files.
+
+Our comprehensive analysis across three abstraction levels reveals surprising patterns that challenge conventional assumptions about \gls{SVD} complexity. We evaluated both PBD and LFD to ensure robust findings.
+
+
+
+\textbf{Abstraction Does Not Always Hinder Performance, But Individual Models Diverge Dramatically.} Table~\ref{tab:abstraction_overall} reveals a paradox: while mean accuracy remains stable across abstraction levels (PBD: 48.9--49.6\%; LFD: 47.6--51.3\%), statistical tests confirm no significant difference between levels. For PBD, one-way ANOVA yields F=0.050 (p=0.9513), with the F-statistic well below 1.0, indicating that variance between abstraction levels is even smaller than within-level variance. For LFD, where normality assumptions fail (Shapiro-Wilk p=0.008 for L3), we use the non-parametric Kruskal-Wallis test (H=0.427, p=0.8078). Combined with high p-values (both $\gg$0.05), this confirms that observed accuracy differences are indistinguishable from random noise. However, the standard deviation tells a completely different story. In LFD, model agreement collapses as abstraction increases: Std grows from 1.96\% at Level 1 to 7.93\% at Level 3, a 4× explosion in variance. This divergence exposes that models respond in fundamentally opposite ways to increased context. Table~\ref{tab:robustness} quantifies this split: Codellama \textit{improves} by 2.6\% in PBD with added abstraction, yet \textit{catastrophically degrades} by 22.0\% in LFD. Meanwhile, Deepseek improves in \textit{both} datasets (−1.7\% PBD, −6.9\% LFD), and Starcoder consistently struggles (5.1\% PBD, 8.9\% LFD degradation). The stable aggregate statistics mask wildly different model behaviors: some architectures leverage additional context effectively while others drown in it, demonstrating that abstraction robustness is model-specific rather than a universal property of LLMs.
+
+\textbf{Model Specialization Drives Robustness.} Table~\ref{tab:robustness} reveals that model specialization significantly impacts abstraction sensitivity. In PBD, three models \textit{improve} with increased abstraction: Codellama ($-2.6$\%), Deepseek ($-1.7$\%), and Qwen3 ($-0.8$\%), while Starcoder shows the highest degradation (5.1\%). General-purpose models demonstrate superior robustness with 0.4\% average degradation versus 8.7\% for code-specialized models in PBD. This advantage becomes even more pronounced in LFD: general-purpose models maintain near-stable performance with only 0.3\% degradation, while code-specialized models degrade by 8.8\%, resulting in an 8.5\% performance gap.
+
+\textbf{Context Window Size Does Not Guarantee Robustness.} Table~\ref{tab:robustness} reveals that GPT-4.1-mini, despite having the largest context window (1M tokens), ranks only 4th with 1.0\% degradation, being outperformed by models with far smaller contexts: Deepseek ($-1.8$\%, 64K), Qwen3 ($-2.1$\%, 32K), and Mistral (0.0\%, 32K). Pearson correlation analysis confirms this disconnect: context window size shows no statistically significant relationship with abstraction robustness (PBD: r=$-0.365$, p=0.635; LFD: r=$-0.592$, p=0.408). Architectural design matters more than raw context capacity.
+
+\begin{table}[!t]
+    \centering
+    \caption{Overall performance by abstraction level: mean accuracy and standard deviation across models.}
+    \label{tab:abstraction_overall}
+    \scriptsize
+    \renewcommand{\arraystretch}{1.2}
+    \resizebox{\columnwidth}{!}{%
+    \begin{tabular}{@{}lrrrr@{}}
+    \toprule
+    \multirow{2}{*}{\textbf{Abstraction Level}} & \multicolumn{2}{c}{\textbf{PBD}} & \multicolumn{2}{c}{\textbf{LFD}} \\
+    \cmidrule(lr){2-3} \cmidrule(lr){4-5}
+    & \textbf{Mean (\%)} & \textbf{Std. (\%)} & \textbf{Mean (\%)} & \textbf{Std. (\%)} \\
+    \midrule
+    Level 1 (Single Function) & 49.6 & 0.84 & 51.3 & 1.96 \\
+    Level 2 (Multiple Functions) & 48.9 & 2.27 & 49.5 & 2.67 \\
+    Level 3 (Multiple Files) & 49.1 & 2.81 & 47.6 & 7.93 \\
+    \midrule
+    \multicolumn{5}{@{}l}{\footnotesize Statistical tests: PBD: One-way ANOVA F=0.050, p=0.9513;} \\
+    \multicolumn{5}{@{}l}{\footnotesize \hspace{2.5em} LFD: Kruskal-Wallis H=0.427, p=0.8078} \\
+    \bottomrule
+    \end{tabular}
+    }
 \end{table}
 
-\begin{table}[ht]
-\centering
-\caption{Short-Tail vs. Long-Tail CWE Performance Analysis}
-\label{tab:tail}
-\renewcommand{\arraystretch}{1.2}
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{@{}lrrrrr@{}}
-\toprule
-\multirow{2}{*}{\textbf{Model}} & \multicolumn{2}{c}{\textbf{Accuracy (\%)}} & \multirow{2}{*}{\makecell{\textbf{Robustness}\\\textbf{Gap ($\Delta$)}}} & \multicolumn{2}{c}{\textbf{Frequency Correlation}} \\
-\cmidrule(lr){2-3} \cmidrule(lr){5-6}
-& \textbf{Short-Tail} & \textbf{Long-Tail} & & \textbf{r-value} & \textbf{Generalization} \\
-\midrule
-\cellcolor{green!30}StarCoder2 & 40.7 & 40.6 & \textbf{+0.2} & 0.012 & \cellcolor{green!30}Excellent \\
-\cellcolor{orange!30}Qwen3-Coder & 29.6 & 28.9 & +0.7 & 0.001 & \cellcolor{green!30}Excellent \\
-\cellcolor{orange!30}Mistral & 48.7 & 47.5 & +1.2 & 0.122 & \cellcolor{orange!30}Good \\
-\cellcolor{red!30}Llama3.1 & 22.0 & 22.4 & -0.4 & -0.066 & \cellcolor{green!30}Excellent \\
-\cellcolor{red!30}CodeLlama & 50.4 & 51.0 & -0.6 & -0.076 & \cellcolor{green!30}Excellent \\
-\cellcolor{red!30}DeepSeek & 39.5 & 40.9 & -1.4 & -0.218 & \cellcolor{green!30}Excellent \\
-\midrule
-\textbf{Average} & 38.5 & 38.6 & -0.1 & -0.037 & --- \\
-\bottomrule
-\end{tabular}%
-}
-\vspace{-2pt}
-\begin{flushleft}
-\footnotesize
-Short-tail: top 20\% most frequent CWEs; Long-tail: bottom 20\% least frequent. Robustness Gap = Long-tail minus Short-tail accuracy. |r| < 0.2 denotes excellent generalization to rare types.
-\end{flushleft}
+
+\begin{table}[!t]
+    \centering
+    \caption{Model robustness by abstraction sensitivity. Degradation = L1 $-$ L3 accuracy; negative indicates improvement. Ranked by average degradation (worst $\rightarrow$ best).}
+    \label{tab:robustness}
+    \small
+    \renewcommand{\arraystretch}{1.2}
+    \resizebox{\columnwidth}{!}{%
+    \begin{tabular}{@{}clccccc@{}}
+    \toprule
+    Rank & \multirow{2}{*}{Model} & \multirow{2}{*}{Type} & Context & \multicolumn{3}{c}{Degradation (\%)} \\
+    \cmidrule(lr){5-7}
+    (worst $\rightarrow$ best $\downarrow$) & & & Window & PBD & LFD & Avg \\
+    \midrule
+    1 & Codellama & Code-Spec. & 16K & $22.0$ & $22.0$ & $22.0$ \\
+    2 & Starcoder & Code-Spec. & 16K & $6.1$ & $4.5$ & $5.3$ \\
+    3 & Llama & General & 128K & $4.8$ & $0.0$ & $2.4$ \\
+    4 & GPT-4.1-mini & General & 1M & $0.6$ & $1.3$ & $1.0$ \\
+    5 & Mistral & General & 32K & $0.0$ & $0.0$ & $0.0$ \\
+    6 & Qwen3 & Code-Spec. & 32K & $-2.1$ & $50.0$\textsuperscript{*} & $24.0$ \\
+    7 & Deepseek & General & 64K & $-3.5$ & $0.0$ & $-1.8$ \\
+    \midrule
+    \multicolumn{4}{@{}l}{Code-Specialized Avg.} & $8.7$ & $8.8$ & $8.8$ \\
+    \multicolumn{4}{@{}l}{General-Purpose Avg.} & $0.4$ & $0.3$ & $0.4$ \\
+    \bottomrule
+    \multicolumn{7}{@{}l}{\textsuperscript{*}L1 accuracy reported (no valid L3 predictions)} \\
+    \end{tabular}%
+    }
 \end{table}
 
-Our comprehensive analysis across CWE root pillars (Figures \ref{figure:cwe-distribution-PBD} and \ref{figure:cwe-distribution_LFD}) reveals dramatic specialization patterns and fundamental limitations in LLMs' security reasoning capabilities. The results expose critical insights about how different models approach various vulnerability categories and their ability to generalize across rare and common security flaws.
-
-\textbf{Resource Control Dominance and Model Specialization.} Table~\ref{tab:cwe_pillar_performance} demonstrates that CWE-664 dominates both datasets with 136 vulnerabilities (43.3\%) in PBD and 62 (60.2\%) in LFD, representing memory-related vulnerabilities like buffer overflows, UAF, and resource leaks. CodeLlama emerges as the dominant specialist for this category, achieving exceptional performance in targeted VD (SVD5: 91.9\% in PBD, 91.9\% in LFD), while struggling significantly with PV tasks. Conversely, Mistral excels across diverse vulnerability categories, showing remarkable consistency in vulnerability identification (SVD3: 86.8\% for CWE-664, 100\% for CWE-693) but moderate PV capabilities.
-
-\textbf{Deprecated CWE Challenge and Historical Bias.} 
-The presence of 38 CWE-OTHER vulnerabilities (12.1\%) in PBD—representing deprecated identifiers like CWE-189, CWE-264, and CWE-399—creates unique challenges. 
-Mistral dominates this category with 92.1\% VD accuracy, suggesting superior pattern recognition for historical vulnerability patterns that may no longer align with current security taxonomies. 
-The complete absence of deprecated CWEs in LFD (0.0\%) highlights the temporal evolution of vulnerability classification and potential training data bias in models exposed to historical security databases.
-
-\textbf{Tail Analysis and Frequency Independence.} 
-Table~\ref{tab:tail} reveals remarkable findings about LLMs' generalization capabilities across vulnerability frequency distributions. 
-Contrary to expectations, most models demonstrate frequency-independent performance: five of six models show excellent generalization ($\lvert r \rvert < 0.2$), with StarCoder2 achieving the most robust performance ($\Delta = +0.2\%$). 
-The minimal average performance gap between short-tail (38.5\%) and long-tail (38.6\%) vulnerabilities contradicts conventional wisdom that LLMs perform better on frequent patterns. 
-DeepSeek shows the strongest negative correlation ($r = -0.218$), actually performing better on rare vulnerabilities, while Mistral exhibits the only concerning frequency bias ($r = 0.122$).
-
-
-\textbf{Task-Specific Vulnerability Domain Preferences.} Analysis of individual SVD tasks reveals striking domain-specific capabilities that transcend simple frequency effects. CodeLlama demonstrates exceptional targeted detection capabilities across all vulnerability types (SVD5 tasks consistently >85\%), particularly excelling with CWE-707 at 100\% accuracy in both datasets. However, this specialization comes at the cost of PV performance, where it consistently underperforms across all categories. DeepSeek shows the opposite pattern: moderate VD but superior patch identification capabilities, particularly for CWE-710 with 92.9\% accuracy in LFD.
-
-\textbf{Dataset Distribution Effects and Temporal Patterns.} The shift from PBD to LFD reveals fundamental changes in vulnerability landscape that significantly impact model performance. LFD's increased concentration in CWE-710 from 3.5\% to 13.6\% and elimination of access control vulnerabilities (CWE-284: 8.9\% to 0.0\%) suggests evolving security practices in recent kernel development. Models show varying adaptation to these distribution shifts: Mistral maintains consistent leadership across both datasets, while others like Llama3.1 struggle universally, achieving near-zero performance in VD tasks across all categories.
-
-These findings fundamentally challenge assumptions about LLM security capabilities, revealing that architectural differences and training methodologies create distinct vulnerability domain specializations rather than general security reasoning abilities. The frequency-independent performance suggests that current models have developed sophisticated pattern recognition for security concepts that transcends simple statistical frequency, though this capability remains highly architecture-dependent and task-specific.
-
-
-
-
-% ###########################################RQ2############################################
-
-\subsection{RQ3: CWE Ranking Performance}
-\label{section:rq1}
-To evaluate the effectiveness of pre-trained LLMs in SVD tasks, we conducted experiments using the CWE ranking task (SVD2) on our PBD and LFD. Table~\ref{tab:rank_model_performance} summarizes the performance of each model across various metrics, including Top-k accuracy, MRR, and HPS.
+\textbf{Task-Specific Patterns Emerge.} Table~\ref{tab:task_performance} demonstrates distinct sensitivities between targeted and non-targeted tasks after correcting for -1 (no answer) handling. In PBD, both task types show similar modest degradation: Non-Targeted degrades from 50.7\% (L1) to 46.9\% (L3, 3.8\% loss) while Targeted degrades from 50.1\% to 45.9\% (4.1\% loss). LFD reveals comparable patterns: Non-Targeted degrades by 3.6\% (50.8\%→47.2\%) and Targeted by 5.2\% (52.4\%→47.2\%). Mann-Whitney U tests on the LFD Simple vs Complex comparison show that both task types exhibit performance decline with increased abstraction, with Non-Targeted showing a medium effect (U=66, p=0.0828, r=0.363) and Targeted showing a small effect (U=60, p=0.2448, r=0.257). Though neither reaches statistical significance (p$<$0.05), the consistent degradation patterns across both task types suggest that CVE/CWE context provides limited protection against abstraction complexity in this corrected analysis.
+% \begin{table}[!t]
+%     \centering
+%     \small
+%     \caption{Task-specific accuracy across abstraction levels and L1→L3 change \rn{We are no longer using SVD3, SVD4, ... It is what I told you the other day about it not making sense to split one binary task into two tasks as the results lose all meaning. This table needs to be only two rows: targeted and not-targeted. The text needs to be fixed accordingly}}
+%     \label{tab:task_performance}
+%     \renewcommand{\arraystretch}{1.2}
+%     \resizebox{\columnwidth}{!}{%
+%     \begin{tabular}{@{}lcccccccc@{}}
+%     \toprule
+%     \multirow{2}{*}{Task} & \multicolumn{4}{c}{PBD Accuracy (\%)} & \multicolumn{4}{c}{LFD Accuracy (\%)} \\
+%     \cmidrule(lr){2-5} \cmidrule(lr){6-9}
+%     & L1 & L2 & L3 & $\Delta$ (L1→L3) & L1 & L2 & L3 & $\Delta$ (L1→L3) \\
+%     \midrule
+%     SVD3 & $27.2$ & $30.3$ & $32.6$ & $-5.4$ & $25.0$ & $26.7$ & $23.8$ & \cellcolor{red!15}$1.2$ \\
+%     SVD4 & $50.6$ & $50.7$ & $49.7$ & \cellcolor{red!15}$1.0$ & $55.6$ & $42.9$ & $42.9$ & \cellcolor{red!40}$12.7$ \\
+%     SVD5 & $27.2$ & $28.9$ & $29.0$ & $-1.8$ & $25.6$ & $33.3$ & $19.1$ & \cellcolor{red!25}$6.5$ \\
+%     SVD6 & $53.8$ & $51.8$ & $54.3$ & $-0.5$ & $58.8$ & $56.2$ & $71.4$ & $-12.7$ \\
+%     \bottomrule
+%     \end{tabular}%
+%     }
+% \end{table}
 
 
 
-\begin{table}[htbp]
+\begin{table}[!t]
+    \centering
+    \caption{Task-specific accuracy across abstraction levels and L1 $\rightarrow$ L3 change. Excluded abstention cases.}
+    \label{tab:task_performance}
+    \small
+    \renewcommand{\arraystretch}{1.2}
+    \resizebox{\columnwidth}{!}{%
+    \begin{tabular}{@{}lcccccccc@{}}
+    \toprule
+    \multirow{2}{*}{Task} & \multicolumn{4}{c}{PBD Accuracy (\%)} & \multicolumn{4}{c}{LFD Accuracy (\%)} \\
+    \cmidrule(lr){2-5} \cmidrule(lr){6-9}
+    & L1 & L2 & L3 & $\Delta$ (L1→L3) & L1 & L2 & L3 & $\Delta$ (L1→L3) \\
+    \midrule
+    Non-Targeted & $50.7$ & $49.1$ & $46.9$ & \cellcolor{red!15}$3.8$ & $50.8$ & $48.6$ & $47.2$ & \cellcolor{red!15}$3.6$ \\
+    Targeted & $50.1$ & $50.0$ & $45.9$ & \cellcolor{red!15}$4.1$ & $52.4$ & $48.5$ & $47.2$ & \cellcolor{red!20}$5.2$ \\
+    \midrule
+    \multicolumn{9}{l}{\textit{Statistical tests (LFD, Simple vs Complex):}} \\
+    \multicolumn{9}{l}{~~Non-Targeted: Mann-Whitney U=66, p=0.0828, r=0.363 (medium effect)} \\
+    \multicolumn{9}{l}{~~Targeted: Mann-Whitney U=60, p=0.2448, r=0.257 (small effect)} \\
+    \bottomrule
+    \end{tabular}%
+    }
+\end{table}
+
+
+The imbalanced distribution of abstraction levels in LFD (L1: 82.5\%, L2: 14.6\%, L3: 2.9\%) reflects natural real-world patterns but limits statistical power for fine-grained analysis. Our binary comparison (Simple vs Complex) in Table~\ref{tab:task_performance} addresses this limitation by using appropriate nonparametric methods and reporting effect sizes, but future work should include the targeted collection of multi-component, multi-file vulnerabilities to enable more robust three-way comparisons. Nevertheless, our finding that the abstraction level does \textit{not} consistently affect average performance (as shown in Tables~\ref{tab:robustness} and~\ref{tab:task_performance}), combined with the dramatic model-specific divergence in robustness, provides valuable insights for deployment strategies for vulnerability detection.
+
+Mann-Whitney U tests in Table~\ref{tab:task_performance} compare Simple (L1) vs Complex (L2 and L3) abstraction levels for the LFD dataset. Non-Targeted tasks show a medium effect size (U=66, p=0.0828, r=0.363), approaching statistical significance, while Targeted tasks show a small effect (U=60, p=0.2448, r=0.257). Both task types consistently show performance decline with increased abstraction: Targeted tasks exhibit 5.2\% degradation (L1 to L3) compared to Non-Targeted tasks' 3.6\% decline. Though neither reaches statistical significance (p$<$0.05), the consistent degradation across both task types indicates that CVE/CWE context provides limited robustness benefits against abstraction complexity. Notably, Targeted detection shows greater degradation despite being inherently more difficult—it requires models to identify both whether code is vulnerable \emph{and} classify the specific vulnerability type, creating a more constrained search space. When CVE/CWE context is added, models must maintain both the specific vulnerability signature and broader code dependencies across functions and files, compounding the cognitive load. This finding suggests that semantic anchors from vulnerability-specific context alone are insufficient to compensate for the challenges of understanding vulnerabilities across multiple components, particularly in the leakage-free setting where models cannot rely on memorized CVE-code patterns.
+
+\begin{table*}[!t]
 	\centering
-	\scriptsize
-	\setlength{\tabcolsep}{1.5pt}
-\caption{CWE ranking (SVD2) across PBD and LFD. Columns report Top-$k$ accuracy, MRR, and HPS. Parentheses show deviation ($\delta$) from the column average; \textbf{bold} marks best.}
+	%\scriptsize
+	%\setlength{\tabcolsep}{1.5pt}
+\caption{\gls{CWE} ranking across PBD and LFD. Columns report Top-$k$ accuracy, MRR, and \gls{HPS}.}
 	\label{tab:rank_model_performance}
-  \resizebox{\columnwidth}{!}{%
+  %\resizebox{\columnwidth}{!}{%
 	\begin{tabular}{@{}l|ccccc|ccccc|cc|cc@{}}
 		\toprule
 		\multirow{3}{*}{\makecell[l]{Model}} &
-		\multicolumn{5}{c|}{\textbf{PBD: CWE Top-k (\%)}} &
-		\multicolumn{5}{c|}{\textbf{LFD: CWE Top-k (\%)}} &
+		\multicolumn{5}{c|}{\textbf{PBD: \gls{CWE} Top-k (\%)}} &
+		\multicolumn{5}{c|}{\textbf{LFD: \gls{CWE} Top-k (\%)}} &
 		\multicolumn{2}{c|}{\textbf{MRR (\%)}} &
 		\multicolumn{2}{c}{\textbf{HPS (\%)}} \\
 		\cmidrule(lr){2-6} \cmidrule(lr){7-11} \cmidrule(lr){12-13} \cmidrule(lr){14-15}
 		& $T_1$ & $T_2$ & $T_3$ & $T_4$ & $T_5$ & $T_1$ & $T_2$ & $T_3$ & $T_4$ & $T_5$ & \textbf{PBD} & \textbf{LFD} & \textbf{PBD} & \textbf{LFD} \\
 		\midrule
 	CodeLlama &
-	\cellcolor{green!60!black!0}\makecell{0.64\\[-2pt]\tiny{(-0.62)}} &
-	\cellcolor{green!60!black!0}\makecell{1.27\\[-2pt]\tiny{(-1.41)}} &
-	\cellcolor{green!60!black!0}\makecell{1.27\\[-2pt]\tiny{(-2.92)}} &
-	\cellcolor{green!60!black!0}\makecell{1.27\\[-2pt]\tiny{(-4.06)}} &
-	\cellcolor{green!60!black!0}\makecell{1.27\\[-2pt]\tiny{(-5.44)}} &
-	\cellcolor{green!60!black!12}\makecell{1.96\\[-2pt]\tiny{(-0.72)}} &
-	\cellcolor{green!60!black!0}\makecell{2.94\\[-2pt]\tiny{(-2.39)}} &
-	\cellcolor{green!60!black!0}\makecell{2.94\\[-2pt]\tiny{(-2.39)}} &
-	\cellcolor{green!60!black!0}\makecell{2.94\\[-2pt]\tiny{(-2.39)}} &
-	\cellcolor{green!60!black!0}\makecell{6.86\\[-2pt]\tiny{(-4.97)}} &
-	\cellcolor{green!60!black!0}\makecell{1.03\\[-2pt]\tiny{(-2.13)}} &
-	\cellcolor{green!60!black!0}\makecell{3.40\\[-2pt]\tiny{(-2.15)}} &
-	\cellcolor{green!60!black!0}\makecell{5.83\\[-2pt]\tiny{(-4.76)}} &
-	\cellcolor{green!60!black!0}\makecell{7.06\\[-2pt]\tiny{(-7.61)}} \\
+	\makecell{0.6} &
+	\makecell{1.3} &
+	\makecell{1.3} &
+	\makecell{1.3} &
+	\makecell{1.3} &
+	\makecell{2.0} &
+	\makecell{2.9} &
+	\makecell{2.9} &
+	\makecell{2.9} &
+	\makecell{6.9} &
+	\makecell{1.0} &
+	\makecell{3.4} &
+	\makecell{5.8} &
+	\makecell{7.1} \\
 
 		DeepSeek &
-		\cellcolor{green!60!black!0}\makecell{0.64\\[-2pt]\tiny{(-0.62)}} &
-		\cellcolor{green!60!black!0}\makecell{1.61\\[-2pt]\tiny{(-1.07)}} &
-		\cellcolor{green!60!black!0}\makecell{2.57\\[-2pt]\tiny{(-1.62)}} &
-		\cellcolor{green!60!black!0}\makecell{3.22\\[-2pt]\tiny{(-2.11)}} &
-		\cellcolor{green!60!black!0}\makecell{3.86\\[-2pt]\tiny{(-2.85)}} &
-		\cellcolor{green!60!black!0}\makecell{0.00\\[-2pt]\tiny{(-2.68)}} &
-		\cellcolor{green!60!black!0}\makecell{1.00\\[-2pt]\tiny{(-4.33)}} &
-		\cellcolor{green!60!black!0}\makecell{1.00\\[-2pt]\tiny{(-4.33)}} &
-		\cellcolor{green!60!black!0}\makecell{2.00\\[-2pt]\tiny{(-9.83)}} &
-		\cellcolor{green!60!black!0}\makecell{2.00\\[-2pt]\tiny{(-9.83)}} &
-		\cellcolor{green!60!black!0}\makecell{1.74\\[-2pt]\tiny{(-1.42)}} &
-		\cellcolor{green!60!black!0}\makecell{0.75\\[-2pt]\tiny{(-4.80)}} &
-		\cellcolor{green!60!black!0}\makecell{5.16\\[-2pt]\tiny{(-5.43)}} &
-		\cellcolor{green!60!black!0}\makecell{9.62\\[-2pt]\tiny{(-5.05)}} \\
+		\makecell{0.6} &
+		\makecell{1.6} &
+		\makecell{2.6} &
+		\makecell{3.2} &
+		\makecell{3.9} &
+		\makecell{0.0} &
+		\makecell{1.0} &
+		\makecell{1.0} &
+		\makecell{2.0} &
+		\makecell{2.0} &
+		\makecell{1.7} &
+		\makecell{0.8} &
+		\makecell{5.2} &
+		\makecell{9.6} \\
 
 		Llama3.1 &
-		\cellcolor{green!60!black!0}\makecell{0.65\\[-2pt]\tiny{(-0.61)}} &
-		\cellcolor{green!60!black!12}\makecell{2.00\\[-2pt]\tiny{(-0.68)}} &
-		\cellcolor{green!60!black!12}\makecell{4.19\\[-2pt]\tiny{(+0.00)}} &
-		\cellcolor{green!60!black!48}\makecell{8.00\\[-2pt]\tiny{(+2.67)}} &
-		\cellcolor{green!60!black!36}\makecell{9.03\\[-2pt]\tiny{(+2.32)}} &
-		\cellcolor{green!60!black!12}\makecell{2.00\\[-2pt]\tiny{(-0.68)}} &
-		\cellcolor{green!60!black!24}\makecell{4.00\\[-2pt]\tiny{(-1.33)}} &
-		\cellcolor{green!60!black!48}\makecell{8.00\\[-2pt]\tiny{(+2.67)}} &
-		\cellcolor{green!60!black!24}\makecell{11.00\\[-2pt]\tiny{(-0.59)}} &
-		\cellcolor{green!60!black!60}\makecell{\textbf{15.00}\\[-2pt]\tiny{(+3.17)}} &
-		\cellcolor{green!60!black!24}\makecell{3.20\\[-2pt]\tiny{(+0.04)}} &
-		\cellcolor{green!60!black!24}\makecell{5.88\\[-2pt]\tiny{(+0.33)}} &
-		\cellcolor{green!60!black!24}\makecell{10.18\\[-2pt]\tiny{(-0.41)}} &
-		\cellcolor{green!60!black!48}\makecell{14.92\\[-2pt]\tiny{(+0.25)}} \\
+		\makecell{0.7} &
+		\makecell{1.9} &
+		\makecell{4.2} &
+		\makecell{8.1} &
+		\makecell{9.0} &
+		\makecell{2.0} &
+		\makecell{4.0} &
+		\makecell{8.0} &
+		\makecell{11.0} &
+		\makecell{15.0} &
+		\makecell{3.2} &
+		\makecell{5.9} &
+		\makecell{10.2} &
+		\makecell{14.9} \\
 
 		Mistral &
-		\cellcolor{green!60!black!12}\makecell{0.97\\[-2pt]\tiny{(-0.29)}} &
-		\cellcolor{green!60!black!60}\makecell{\textbf{5.00}\\[-2pt]\tiny{(+2.32)}} &
-		\cellcolor{green!60!black!0}\makecell{2.58\\[-2pt]\tiny{(-1.61)}} &
-		\cellcolor{green!60!black!48}\makecell{8.00\\[-2pt]\tiny{(+2.67)}} &
-		\cellcolor{green!60!black!36}\makecell{7.74\\[-2pt]\tiny{(+1.03)}} &
-		\cellcolor{green!60!black!60}\makecell{\textbf{5.00}\\[-2pt]\tiny{(+2.32)}} &
-		\cellcolor{green!60!black!36}\makecell{6.00\\[-2pt]\tiny{(+0.67)}} &
-		\cellcolor{green!60!black!48}\makecell{8.00\\[-2pt]\tiny{(+2.67)}} &
-		\cellcolor{green!60!black!48}\makecell{8.00\\[-2pt]\tiny{(-3.59)}} &
-		\cellcolor{green!60!black!24}\makecell{9.00\\[-2pt]\tiny{(-2.83)}} &
-		\cellcolor{green!60!black!12}\makecell{2.80\\[-2pt]\tiny{(-0.36)}} &
-		\cellcolor{green!60!black!36}\makecell{6.37\\[-2pt]\tiny{(+0.82)}} &
-		\cellcolor{green!60!black!12}\makecell{8.28\\[-2pt]\tiny{(-2.31)}} &
-		\cellcolor{green!60!black!0}\makecell{9.00\\[-2pt]\tiny{(-5.67)}} \\
+		\makecell{1.0} &
+		\makecell{1.9} &
+		\makecell{1.9} &
+		\makecell{2.6} &
+		\makecell{4.5} &
+		\makecell{5.0} &
+		\makecell{6.0} &
+		\makecell{8.0} &
+		\makecell{8.0} &
+		\makecell{9.0} &
+		\makecell{2.8} &
+		\makecell{6.4} &
+		\makecell{8.3} &
+		\makecell{9.0} \\
 
-		Qwen3-Coder &
-		\cellcolor{green!60!black!60}\makecell{\textbf{1.63}\\[-2pt]\tiny{(+0.37)}} &
-		\cellcolor{green!60!black!60}\makecell{\textbf{4.90}\\[-2pt]\tiny{(+2.22)}} &
-		\cellcolor{green!60!black!60}\makecell{\textbf{8.17}\\[-2pt]\tiny{(+3.98)}} &
-		\cellcolor{green!60!black!60}\makecell{\textbf{8.82}\\[-2pt]\tiny{(+3.49)}} &
-		\cellcolor{green!60!black!60}\makecell{\textbf{11.44}\\[-2pt]\tiny{(+4.73)}} &
-		\cellcolor{green!60!black!60}\makecell{\textbf{7.14}\\[-2pt]\tiny{(-4.69)}} &
-		\cellcolor{green!60!black!60}\makecell{\textbf{15.31}\\[-2pt]\tiny{(+9.98)}} &
-		\cellcolor{green!60!black!60}\makecell{\textbf{18.37}\\[-2pt]\tiny{(+13.04)}} &
-		\cellcolor{green!60!black!60}\makecell{\textbf{26.53}\\[-2pt]\tiny{+15.94)}} &
-		\cellcolor{green!60!black!60}\makecell{\textbf{30.61}\\[-2pt]\tiny{(+18.78)}} &
-		\cellcolor{green!60!black!60}\makecell{\textbf{5.04}\\[-2pt]\tiny{(+1.88)}} &
-		\cellcolor{green!60!black!60}\makecell{\textbf{15.10}\\[-2pt]\tiny{(+9.55)}} &
-		\cellcolor{green!60!black!60}\makecell{\textbf{14.66}\\[-2pt]\tiny{(+4.07)}} &
-		\cellcolor{green!60!black!60}\makecell{\textbf{20.85}\\[-2pt]\tiny{(+6.18)}} \\
+		Qwen2.5-Coder &
+		\makecell{1.6} &
+		\makecell{4.9} &
+		\makecell{8.2} &
+		\makecell{8.8} &
+		\makecell{11.4} &
+		\makecell{7.1} &
+		\makecell{15.3} &
+		\makecell{18.4} &
+		\makecell{26.5} &
+		\makecell{30.6} &
+		\makecell{5.0} &
+		\makecell{15.1} &
+		\makecell{14.7} &
+		\makecell{20.9} \\
 
 		StarCoder2 &
-		\cellcolor{green!60!black!24}\makecell{1.29\\[-2pt]\tiny{(+0.03)}} &
-		\cellcolor{green!60!black!36}\makecell{3.55\\[-2pt]\tiny{(+0.87)}} &
-		\cellcolor{green!60!black!24}\makecell{4.84\\[-2pt]\tiny{(+0.65)}} &
-		\cellcolor{green!60!black!24}\makecell{6.45\\[-2pt]\tiny{(+1.12)}} &
-		\cellcolor{green!60!black!24}\makecell{6.45\\[-2pt]\tiny{(-0.26)}} &
-		\cellcolor{green!60!black!0}\makecell{0.00\\[-2pt]\tiny{(-2.68)}} &
-		\cellcolor{green!60!black!0}\makecell{0.00\\[-2pt]\tiny{(-5.33)}} &
-		\cellcolor{green!60!black!0}\makecell{0.00\\[-2pt]\tiny{(-5.33)}} &
-		\cellcolor{green!60!black!0}\makecell{2.00\\[-2pt]\tiny{(-9.59)}} &
-		\cellcolor{green!60!black!0}\makecell{4.00\\[-2pt]\tiny{(-7.83)}} &
-		\cellcolor{green!60!black!24}\makecell{3.25\\[-2pt]\tiny{(+0.09)}} &
-		\cellcolor{green!60!black!0}\makecell{0.90\\[-2pt]\tiny{(-4.65)}} &
-		\cellcolor{green!60!black!60}\makecell{\textbf{17.99}\\[-2pt]\tiny{(+7.40)}} &
-		\cellcolor{green!60!black!60}\makecell{\textbf{25.36}\\[-2pt]\tiny{(+10.69)}} \\
+		\makecell{1.3} &
+		\makecell{3.6} &
+		\makecell{4.8} &
+		\makecell{6.5} &
+		\makecell{6.5} &
+		\makecell{0.0} &
+		\makecell{0.0} &
+		\makecell{0.0} &
+		\makecell{2.0} &
+		\makecell{4.0} &
+		\makecell{3.3} &
+		\makecell{0.9} &
+		\makecell{18.0} &
+		\makecell{25.4} \\
+
+        GPT-4.1-mini &
+		\makecell{\textbf{2.9}} &
+		\makecell{\textbf{5.8}} &
+		\makecell{7.1} &
+		\makecell{9.7} &
+		\makecell{11.4} &
+		\makecell{14.7} &
+		\makecell{25.5} &
+		\makecell{40.2} &
+		\makecell{48.0} &
+		\makecell{51.0} &
+		\makecell{5.8} &
+		\makecell{27.6} &
+		\makecell{17.3} &
+		\makecell{25.9} \\
 
 		\midrule
-		\textbf{Average} & 1.26 & 2.68 & 4.19 & 5.33 & 6.71 & 2.68 & 5.33 & 5.33 & 11.59 & 11.83 & 3.16 & 5.55 & 10.59 & 14.67 \\
-
+		\textbf{Average} & 1.3 & 2.7 & 4.2 & 5.3 & 6.7 & 2.7 & 5.3 & 5.3 & 11.6 & 11.8 & 3.2 & 5.6 & 10.6 & 14.7 \\
 		\bottomrule
 	\end{tabular}
-  }
-\end{table}
+  %}
+\end{table*}
+\textbf{Code-Specialized Models Show Greater Abstraction Sensitivity.}
+Tables~\ref{tab:robustness} and~\ref{tab:task_performance} reveal significant differences between model types. In Table~\ref{tab:robustness}, code-specialized models show substantially worse robustness: they degrade by 8.7\% in PBD and 13.3\% in LFD (average 11.0\%). In contrast, general-purpose models show remarkable stability: only 0.4\% degradation in PBD and 0.0\% in LFD (average 0.2\%). This 10.8\% gap demonstrates that specialization for code tasks does not inherently improve robustness to abstraction complexity. Individual models show dramatic divergence: Deepseek (general-purpose) actually \emph{improves} by $-1.8$\% on average as abstraction increases, while Codellama (code-specialized) degrades by 22.0\% in both datasets. The consistency of Codellama's poor performance across both PBD and LFD (22.0\% in each) suggests an architectural limitation rather than mere training data memorization. These findings indicate that general-purpose models' broader training may provide better transfer learning for complex code understanding tasks.
+
+% \textcolor{blue}{
+Note that, while LFD provides a valuable signal for evaluating model behavior on post-cutoff vulnerabilities, its size is inherently limited (103 samples across 19 CWEs, with very sparse coverage at higher abstraction levels). Consequently, results obtained on LFD should be interpreted as \emph{indicative rather than definitive} of generalization capability. Observed performance differences and degradation trends highlight meaningful failure modes, but small sample sizes may amplify variance and reduce statistical power, particularly for fine-grained analyses.
 
 
-\begin{table}[t]
+% ###########################################RQ4############################################
+\subsection{RQ4: \gls{CWE} Ranking Performance}
+\label{section:rq4}
+
+Identifying the specific vulnerability type is critical for security practitioners. When a model detects vulnerable code, knowing the exact \gls{CWE} category helps developers understand the root cause and apply appropriate fixes. \gls{CWE} ranking evaluates whether models can not only detect vulnerabilities but also correctly classify them within the \gls{CWE} taxonomy. This task is challenging because the \gls{CWE} system is hierarchical, with over 900 weakness types organized into four levels: Pillars (highest-level categories like "Resource Control"), Classes, Base weaknesses, and Variants (specific implementations). We focus on root pillars, the highest level of this hierarchy, because they represent fundamental security concepts that guide remediation strategies. Even partial understanding (identifying the correct pillar when the exact variant is wrong) provides value for security triage.
+
+We evaluate models using the \gls{CWE} ranking task (SVD2), where models rank their top-5 most likely \gls{CWE} predictions for vulnerable code. We measure performance using three metrics: Top-k accuracy (whether the correct \gls{CWE} appears in the top k predictions), \gls{MMR} (how highly models rank the correct answer), and \gls{HPS} (which rewards semantically similar predictions based on \gls{CWE} hierarchy). Table~\ref{tab:rank_model_performance} summarizes performance across both PBD and LFD.
+
+\textbf{Models show Semantic Understanding of Vulnerability Families Despite Low Exact Accuracy.} Table~\ref{tab:rank_model_performance} reveals that precise \gls{CWE} identification is far harder than binary vulnerability detection. Even the best model, GPT-4.1-mini, achieves only 2.92\% Top-1 accuracy in PBD and 14.71\% in LFD. Most models perform dismally: CodeLlama and DeepSeek manage less than 1\% Top-1 accuracy in both datasets. However, Top-5 performance tells a more nuanced story: GPT-4.1-mini reaches 50.98\% in LFD, suggesting models can narrow down possibilities even when they miss the exact CWE. Interestingly, \gls{CWE} ranking exhibits mixed patterns: GPT-4.1-mini and Qwen2.5-Coder actually improve in LFD (5$\times$ and 4$\times$ better Top-1 accuracy, respectively), while code-specialized models like DeepSeek and StarCoder2 collapse to near-zero performance. The gap between \gls{HPS} and Top-1 accuracy (17.32\% vs. 2.92\% for GPT-4.1-mini in PBD, see Table~\ref{tab:rank_model_performance}) indicates that models frequently predict CWEs within the correct taxonomy branch even when the exact classification is wrong.
+While only 13.8\% of incorrect predictions are hierarchically close (distance $\leq$3, Table~\ref{tab:hps_validation_stats}), this \textit{taxonomy-aware prediction} has practical value for security triage, as it narrows the vulnerability family (e.g., correctly identifying buffer-related issues vs access control issues).
+However, the large HPS-to-Top-1 ratios (5.9× to 15.7×, Table~\ref{tab:hps_gap_analysis}) and systematic CWE-119 bias (45.1\% appearance rate, Table~\ref{tab:cwe119_bias}) suggest this may reflect taxonomy pattern-matching rather than genuine semantic understanding.
+
+
+
+\textbf{Frequent Vulnerability Types Inflate Performance Metrics.} Table~\ref{tab:micro_macro_analysis} reveals that models perform significantly better on common \gls{CWE} types than rare ones. As defined in \S\ref{section:metrics}, micro accuracy weights all samples equally (favoring frequent types), while macro accuracy averages performance across all \gls{CWE} classes equally. The gap between these metrics exposes frequency bias. On average, the gap is small in PBD (1.1 points) but jumps dramatically in LFD (6.1 points) (a 5.5$\times$ increase). This pattern shows data leakage hides the bias. Individual models show even stronger effects: GPT-4.1-mini achieves 51.0\% micro but only 24.4\% macro in LFD (26.6 gap), meaning it performs well on common vulnerabilities but fails on rare types. Qwen2.5-Coder shows similar behavior with a 9.3 gap (30.6\% vs. 21.3\%). Interestingly, two models show negative gaps in LFD (Llama3.1: -0.1, Mistral: -1.3), performing slightly better on rare types (possibly because they rely less on memorization). The dramatic increase in the gap from PBD to LFD confirms that models learn frequency-based patterns rather than generalizable security knowledge.
+\begin{table}[!t]
 \centering
-\caption{Micro/Macro accuracy analysis revealing model performance disparities across CWE types.}
+\caption{Micro/Macro accuracy analysis revealing model performance disparities across \gls{CWE} types.}
 \label{tab:micro_macro_analysis}
 \small
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{lcccccc}
-\toprule
-\multirow{2}{*}{\textbf{Model}} & \multicolumn{3}{c}{\textbf{PBD}} & \multicolumn{3}{c}{\textbf{LFD}} \\
-\cmidrule(lr){2-4} \cmidrule(lr){5-7}
-& \textbf{Micro (\%)} & \textbf{Macro (\%)} & \textbf{Gap} & \textbf{Micro (\%)} & \textbf{Macro (\%)} & \textbf{Gap} \\
-\midrule
-CodeLlama & 2.2 & 2.1 & 0.1 & 7.8 & 3.2 & 4.6 \\
-DeepSeek & 3.9 & 3.2 & 0.7 & 2.0 & 1.8 & 0.2 \\
-Llama3.1 & 9.0 & 7.5 & 1.5 & 15.0 & 15.1 & -0.1 \\
-Mistral & 7.7 & 6.1 & 1.6 & 9.0 & 10.3 & -1.3 \\
-Qwen3-Coder & 11.4 & 8.7 & 2.7 & 30.6 & 21.3 & 9.3 \\
-StarCoder2 & 6.5 & 5.1 & 1.4 & 4.0 & 0.7 & 3.3 \\
-\bottomrule
-\end{tabular}
-}
-\vspace{-4pt}
-\end{table}
-
-\begin{table}[t]
-\centering
-\caption{CWE-specific detection performance showing memory safety dominance and universal blind spots.}
-\label{tab:cwe_performance}
-\small
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{lcc|lcc}
-\toprule
-\textbf{Category} & \textbf{CWE (PBD)} & \textbf{Accuracy (\%)} & \textbf{CWE (LFD)} & \textbf{Accuracy (\%)} \\
-\midrule
-\multirow{5}{*}{\textbf{Best}} 
-& CWE-119 & 53.3 & CWE-20 & 41.7 \\
-& CWE-122 & 47.6 & CWE-129 & 33.3 \\
-& CWE-20  & 45.6 & CWE-787 & 22.2 \\
-& CWE-190 & 36.1 & CWE-190 & 20.0 \\
-& CWE-129 & 26.7 & CWE-476 & 14.4 \\
-\midrule
-\multirow{5}{*}{\textbf{Worst}} 
-& CWE-327 & 0.0 & CWE-416 & 6.8 \\
-& CWE-326 & 0.0 & CWE-908 & 0.0 \\
-& CWE-732 & 0.0 & CWE-667 & 0.0 \\
-& CWE-1284 & 0.0 & CWE-401 & 0.0 \\
-& CWE-16  & 0.0 & CWE-835 & 0.0 \\
-\bottomrule
-\end{tabular}
-}
-\vspace{-4pt}
-\end{table}
-
-
-
-\begin{table}[t]
-\centering
-\caption{Model consistency analysis showing variance in CWE detection across different architectures.}
-\label{tab:model_consistency}
-\small
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{lcc|lcc}
-\toprule
-\textbf{Variance Level} & \textbf{CWE (PBD)} & \textbf{$\sigma$/Mean (\%)} & \textbf{CWE (LFD)} & \textbf{$\sigma$/Mean (\%)} \\
-\midrule
-\multirow{3}{*}{\textbf{High}} 
-& CWE-119 & 41.1 / 53.3 & CWE-129 & 47.1 / 33.3 \\
-& CWE-129 & 39.4 / 26.7 & CWE-787 & 36.9 / 22.2 \\
-& CWE-399 & 37.3 / 16.7 & CWE-20  & 34.4 / 41.7 \\
-\midrule
-\multirow{3}{*}{\textbf{Low}} 
-& CWE-1284 & 0.0 / 0.0 & CWE-667 & 0.0 / 0.0 \\
-& CWE-665  & 0.0 / 0.0 & CWE-401 & 0.0 / 0.0 \\
-& CWE-754  & 0.0 / 0.0 & CWE-835 & 0.0 / 0.0 \\
-\bottomrule
-\end{tabular}
-}
-\vspace{-4pt}
-\end{table}
-
-
-
-\begin{table}[t]
-\centering
-\caption{Top misclassification patterns revealing systematic confusion toward CWE-119.}
-\label{tab:misclassification}
-\small
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{lcclcc}
-\toprule
-\multicolumn{3}{c}{\textbf{PBD}} & \multicolumn{3}{c}{\textbf{LFD}} \\
-\cmidrule(lr){1-3} \cmidrule(lr){4-6}
-\textbf{True CWE} & \textbf{Predicted} & \textbf{Count} & \textbf{True CWE} & \textbf{Predicted} & \textbf{Count} \\
-\midrule
-CWE-276 & CWE-119 & 13 & CWE-416 & CWE-119 & 52 \\
-CWE-665 & CWE-119 & 12 & CWE-125 & CWE-119 & 26 \\
-CWE-667 & CWE-119 & 12 & CWE-416 & CWE-123 & 20 \\
-CWE-416 & CWE-119 & 12 & CWE-416 & CWE-121 & 19 \\
-CWE-120 & CWE-119 & 12 & CWE-416 & CWE-20 & 18 \\
-CWE-399 & CWE-119 & 12 & CWE-476 & CWE-119 & 16 \\
-CWE-122 & CWE-119 & 12 & CWE-416 & CWE-400 & 17 \\
-CWE-862 & CWE-119 & 12 & CWE-416 & CWE-1234 & 17 \\
-\bottomrule
-\end{tabular}
-}
-\vspace{-4pt}
-\end{table}
-
-
-\textbf{Overall Detection Capability and Micro/Macro Performance Disparity.} Table \ref{tab:micro_macro_analysis} reveals significant performance imbalances across vulnerability types. Qwen3-Coder achieves the highest Top-5 accuracy at 11.44\% (Table \ref{tab:rank_model_performance}) but exhibits substantial micro-macro gaps: 2.7 percentage points in PBD expanding to 9.3 points in LFD (30.6\% vs 21.3\%). This pattern indicates models overperform on common vulnerability classes rather than demonstrating uniform security reasoning. CodeLlama shows minimal PBD disparity (0.1 points) but significant LFD imbalance (4.6 points), confirming that current LLMs develop specialized heuristics for prevalent patterns rather than generalizable security knowledge.
-
-\textbf{CWE-Specific Bias and Memory Safety Dominance.} Table \ref{tab:cwe_performance} demonstrates pronounced specialization in memory-safety vulnerabilities. In PBD, CWE-119 achieves 53.3\% detection, followed by CWE-122 at 47.6\%, indicating strong pattern recognition for buffer-related issues. Conversely, cryptographic (CWE-327, CWE-326) and configuration vulnerabilities (CWE-732) achieve 0\% detection, representing universal blind spots. LFD shows different patterns with CWE-20 leading at 41.7\%, suggesting distribution shifts affect detection capabilities differently across vulnerability categories. This asymmetry reveals LLMs excel at syntactic vulnerabilities with clear code patterns but fail at semantic vulnerabilities requiring domain knowledge.
-
-\textbf{Model Consistency and Variance Analysis.} Table \ref{tab:model_consistency} highlights which CWEs produce consistent versus variable responses across models. Low-variance CWEs with 0\% detection (CWE-1284, CWE-665, CWE-754) represent universal blind spots, indicating fundamental gaps rather than architecture-specific limitations. High-variance CWEs reveal model-dependent capabilities: CWE-119 shows 53.3\% mean accuracy with $\sigma=41.1$ (coefficient of variation 77\%), meaning some models achieve near-perfect detection while others completely fail. Similar patterns in LFD (CWE-129: $\sigma=47.1$, CWE-787: $\sigma=36.9$) confirm these reflect inherent model differences rather than dataset artifacts.
-
-
-\textbf{Hierarchical Proximity and Semantic Understanding.} HPS scores from Table \ref{tab:rank_model_performance} provide deeper insight into models' security concept comprehension beyond exact CWE matching by awarding partial credit for predicting parent, child, or sibling categories within the CWE taxonomy (see Appendix). StarCoder2 achieves the highest HPS at 17.99\% (PBD) and 25.36\% (LFD) despite low Top-1 accuracy (1.29\% and 0\%), indicating semantically related predictions within the hierarchy. As a simple proxy for "informed guessing," the HPS-to-Top-1 ratio for StarCoder2 is 13.9. Full per-model details are in Table~\ref{tab:rank_model_performance}.
-
-\textbf{Generalization and Data Contamination Assessment.} The PBD-to-LFD performance shift in Table \ref{tab:rank_model_performance} provides critical insights into generalization and potential memorization. Surprisingly, most models show \emph{negative} degradation (performance improvement): Mistral improves from 0.97\% to 5.00\% Top-1 accuracy (+4.03 percentage points), Qwen3-Coder from 1.63\% to 7.14\% (+5.51 points), CodeLlama from 0.64\% to 1.96\% (+1.32 points), and Llama3.1 from 0.65\% to 2.00\% (+1.35 points). This counterintuitive result indicates: (1) LFD's different CWE distribution (fewer rare types, more CWE-20/129) favors models' strengths, or (2) recent vulnerability patterns better match models' training distributions than historical ones. Only two models show positive degradation: StarCoder2 drops from 1.29\% to 0\% and DeepSeek from 0.64\% to 0\%, likely due to incidental exposure to PBD vulnerabilities during training. Critically, the low absolute Top-1 performance on LFD (best: 7.14\%) combined with improved relative performance rules out significant data contamination while confirming that CWE detection capability is distribution-dependent rather than memorization-based.
-
-\textbf{Systematic Misclassification Patterns and Semantic Confusion.} Table \ref{tab:misclassification} reveals models consistently misattribute diverse vulnerability types to CWE-119, creating a "semantic magnet" effect. In PBD, all top confusion pairs target CWE-119, including access control (CWE-276→CWE-119: 13 instances) and authorization issues (CWE-862→CWE-119: 12 instances). This intensifies in LFD with CWE-416→CWE-119 occurring 52 times. The diversity of source CWEs—spanning access control, resource management, and memory operations—all incorrectly mapped to CWE-119 indicates models lack fundamental understanding of security domains, defaulting to "buffer overflow" as an all-purpose prediction when code exhibits complexity. 
-
-\subsection{RQ4: Effect of Code Abstraction Level}
-
-Our comprehensive analysis of six state-of-the-art LLMs across three abstraction levels reveals surprising patterns that challenge conventional assumptions about VD complexity. We evaluated both Primary Benchmark Dataset (PBD) and Leakage-Free Dataset (LFD) to ensure robust findings.
-
-\textbf{Abstraction Does Not Always Hinder Performance.} Contrary to expectations, increasing code abstraction from single functions to multiple files does not universally degrade LLM performance. Statistical analysis shows no significant difference between abstraction levels in either dataset (PBD: p=0.8559, LFD: p=0.4259), with mean accuracies remaining remarkably stable: Level 1 (49.4\%), Level 2 (48.7\%), and Level 3 (48.8\%) in PBD.
-
-\textbf{Model Architecture Matters More Than Size.} Our robustness analysis in Table~\ref{tab:robustness} reveals that model specialization and architecture significantly impact abstraction sensitivity. In PBD, Codellama emerges as the most robust model with performance actually \textit{improving} by 2.6\% from Level 1 to Level 3, while Starcoder shows the highest degradation at 5.1\%. Surprisingly, general-purpose models (0.5\% avg degradation) slightly outperform code-specialized models (0.6\% avg degradation).
-
-\textbf{Context Window Size Shows Weak Correlation.} We find no significant correlation between context window size and robustness (PBD: r=0.678, p=0.322; LFD: r=-0.530, p=0.470).
-
-\textbf{Task-Specific Patterns Emerge.} Table~\ref{tab:task_performance} demonstrates that different SVD tasks exhibit distinct sensitivity patterns. VD (SVD3) actually improves with abstraction (L1→L3: -6.1\% degradation in PBD), while patch detection (SVD4) remains stable (1.0\% degradation). This suggests LLMs benefit from additional context when identifying vulnerabilities but maintain consistent performance in distinguishing patches.
-
-\textbf{Leakage-Free Results Show Greater Variance.} The LFD analysis reveals more dramatic performance differences, with degradation ranging from -6.9\% (Deepseek improvement) to 22.0\% (Codellama degradation). This higher variance (std=8.61 vs 3.01 in PBD) indicates that data leakage may have artificially stabilized performance metrics in traditional benchmarks.
-
-
-\begin{table}[ht]
-    \centering
-    \caption{Model Robustness Ranking by Abstraction Level Sensitivity}
-    \label{tab:robustness}
-    \renewcommand{\arraystretch}{1.2}
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{2pt}
     \resizebox{\columnwidth}{!}{%
-    \begin{tabular}{clccccc}
-    \hline
-    \multirow{2}{*}{\textbf{Rank}} & \multirow{2}{*}{\textbf{Model}} & \textbf{Type} & \textbf{Context} & \multicolumn{3}{c}{\textbf{Degradation (\%)}} \\
-    \cline{5-7}
-    & & & \textbf{Window} & \textbf{PBD} & \textbf{LFD} & \textbf{Avg} \\
-    \hline
-    1 & Codellama & Code-Spec. & 16K & \cellcolor{green!30}-2.6 & \cellcolor{red!40}22.0 & 9.7 \\
-    2 & Deepseek & General & 64K & \cellcolor{green!30}-1.7 & \cellcolor{green!50}-6.9 & -4.3 \\
-    3 & Qwen3 & Code-Spec. & 32K & \cellcolor{green!30}-0.8 & \cellcolor{green!30}-0.3 & -0.6 \\
-    4 & Llama & General & 128K & \cellcolor{orange!30}1.4 & \cellcolor{green!30}0.0 & 0.7 \\
-    5 & Mistral & General & 32K & \cellcolor{orange!30}1.9 & \cellcolor{green!30}0.0 & 1.0 \\
-    6 & Starcoder & Code-Spec. & 8K-16K & \cellcolor{red!30}5.1 & \cellcolor{red!30}8.9 & 7.0 \\
-    \hline
-    \multicolumn{2}{l}{\textbf{Code-Specialized Avg.}} & & & 0.6 & 10.2 & 5.4 \\
-    \multicolumn{2}{l}{\textbf{General-Purpose Avg.}} & & & 0.5 & -2.3 & -0.9 \\
-    \hline
-    \end{tabular}%
+    \begin{tabular}{lcccccc}
+    \toprule
+    \multirow{2}{*}{\textbf{Model}} & \multicolumn{3}{c}{\textbf{PBD}} & \multicolumn{3}{c}{\textbf{LFD}} \\
+    \cmidrule(lr){2-4} \cmidrule(lr){5-7}
+    & \textbf{Micro (\%)} & \textbf{Macro (\%)} & \textbf{Gap (pp)} & \textbf{Micro (\%)} & \textbf{Macro (\%)} & \textbf{Gap (pp)} \\
+    \midrule
+    CodeLlama & 2.2 & 2.1 & 0.1 & 7.8 & 3.2 & 4.6 \\
+    DeepSeek & 3.9 & 3.2 & 0.7 & 2.0 & 1.8 & 0.2 \\
+    Llama3.1 & 9.0 & 7.5 & 1.5 & 15.0 & 15.1 & $-0.1$ \\
+    Mistral & 7.7 & 6.1 & 1.6 & 9.0 & 10.3 & $-1.3$ \\
+    Qwen2.5-Coder & 11.4 & 8.7 & 2.7 & 30.6 & 21.3 & 9.3 \\
+    StarCoder2 & 6.5 & 5.1 & 1.4 & 4.0 & 0.7 & 3.3 \\
+    GPT-4.1-mini & 11.4 & 11.8 & $-0.4$ & 51.0 & 24.4 & 26.6 \\
+    \midrule
+    \textbf{Average} & 7.4 & 6.4 & 1.1 & 17.1 & 11.0 & 6.1 \\
+    \bottomrule
+    \end{tabular}
     }
-    \begin{minipage}{\columnwidth}
+\end{table}
+
+\textbf{Models Excel at Memory Safety but Fail at Configuration Vulnerabilities.} Table \ref{tab:cwe_performance} shows models perform best on memory-safety vulnerabilities but have clear blind spots. In PBD, four out of five top performers are buffer-related (CWE-119, CWE-122, CWE-120, plus CWE-20), revealing training data bias toward common memory vulnerabilities in C/C++ codebases. CWE-119 (Buffer Errors) achieves 57.1\% accuracy, CWE-122 (Heap Overflow) at 40.8\%, and CWE-120 (Buffer Copy) at 23.8\%. These vulnerabilities have clear syntactic patterns that models can learn. However, five CWEs remain completely undetected at 0\%: CWE-327 (Broken Crypto), CWE-16 (Configuration), CWE-732 (Incorrect Permissions), CWE-1284 (Improper Validation), and CWE-326 (Inadequate Encryption). These vulnerabilities often require inter-procedural or system-level analysis that a single-function context cannot provide. LFD shows similar patterns but with lower overall performance: the best CWE-20 (Input Validation) score is only 35.7\%, compared to PBD's 57.1\%. Both datasets show that models struggle with semantic vulnerabilities that require domain knowledge of cryptography, permissions, and configuration, while succeeding at syntactic patterns such as buffer operations.
+
+\begin{table}[!t]
+    \centering
+    \caption{Top-5 and Bottom-5 \gls{CWE} Detection Performance (Averaged across all models).}
+    \label{tab:cwe_performance}
     \footnotesize
-    \textbf{Note:} Degradation calculated as Level 1 accuracy minus Level 3 accuracy. Negative values indicate performance improvement. Color coding: \textcolor{green}{Green} = improvement, \textcolor{orange}{Orange} = minor degradation (<3\%), \textcolor{red}{Red} = significant degradation ($\geq$5\%).
-    \end{minipage}
+    \renewcommand{\arraystretch}{1.0}
+    \setlength{\tabcolsep}{4pt}
+    \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lrlr}
+    \toprule
+    \multicolumn{2}{c}{\textbf{PBD Benchmark}} & \multicolumn{2}{c}{\textbf{LFD Benchmark}} \\
+    \cmidrule(lr){1-2} \cmidrule(lr){3-4}
+    CWE ID & Acc. (\%) & CWE ID & Acc. (\%) \\
+    \midrule
+    \textit{Top Performers} & & \textit{Top Performers} & \\
+    CWE-119 \tiny($\uparrow_1$) & 57.1 & CWE-20 \tiny($\uparrow_1$) & 35.7 \\
+    CWE-20 \tiny($\uparrow_2$) & 44.8 & CWE-787 \tiny($\uparrow_2$) & 31.0 \\
+    CWE-122 \tiny($\uparrow_3$) & 40.8 & CWE-129 \tiny($\uparrow_3$) & 28.6 \\
+    CWE-190 \tiny($\uparrow_4$) & 31.0 & CWE-125 \tiny($\uparrow_4$) & 25.6 \\
+    CWE-120 \tiny($\uparrow_5$) & 23.8 & CWE-190 \tiny($\uparrow_5$) & 20.0 \\
+    \midrule
+    \textit{Bottom Performers} & & \textit{Bottom Performers} & \\
+    CWE-327 \tiny($\downarrow$) & 0.0 & CWE-476 \tiny($\downarrow$) & 12.3 \\
+    CWE-16 \tiny($\downarrow$) & 0.0 & CWE-835 \tiny($\downarrow$) & 4.8 \\
+    CWE-732 \tiny($\downarrow$) & 0.0 & CWE-667 \tiny($\downarrow$) & 2.4 \\
+    CWE-1284 \tiny($\downarrow$) & 0.0 & CWE-908 \tiny($\downarrow$) & 0.0 \\
+    CWE-326 \tiny($\downarrow$) & 0.0 & CWE-401 \tiny($\downarrow$) & 0.0 \\
+    \bottomrule
+    \end{tabular*}
 \end{table}
 
-\begin{table}[ht]
-    \centering
-    \caption{Task-Specific Performance Patterns Across Abstraction Levels}
-    \label{tab:task_performance}
-    \renewcommand{\arraystretch}{1.3}
-    \resizebox{\columnwidth}{!}{%
-    \begin{tabular}{lccccccc}
-    \hline
-    \multirow{2}{*}{\textbf{SVD Task}} & \multirow{2}{*}{\textbf{Description}} & \multicolumn{3}{c}{\textbf{PBD Accuracy (\%)}} & \multicolumn{3}{c}{\textbf{LFD Accuracy (\%)}} \\
-    \cline{3-8}
-    & & \textbf{L1} & \textbf{L2} & \textbf{L3} & \textbf{L1} & \textbf{L2} & \textbf{L3} \\
-    \hline
-    SVD3 & Vuln Detection & 30.7 & 35.0 & \cellcolor{green!30}36.8 & 28.2 & 31.1 & 27.8 \\
-    SVD4 & Patch Detection & 43.5 & 43.3 & 42.5 & \cellcolor{blue!30}48.7 & 34.4 & 33.3 \\
-    SVD5 & Vuln + CWE & 30.5 & 32.5 & 32.1 & 28.6 & \cellcolor{blue!30}35.6 & 22.2 \\
-    SVD6 & Patch + CWE & 47.3 & 44.9 & \cellcolor{green!30}49.1 & 52.7 & 48.9 & \cellcolor{blue!30}66.7 \\
-    \hline
-    \multirow{2}{*}{\textbf{Degradation}} & \textbf{PBD (L1→L3)} & \cellcolor{green!30}-6.1 & \cellcolor{orange!30}1.0 & \cellcolor{green!30}-1.7 & \cellcolor{green!30}-1.7 & & \\
-    & \textbf{LFD (L1→L3)} & \cellcolor{orange!30}0.5 & \cellcolor{red!30}15.4 & \cellcolor{orange!30}6.4 & \cellcolor{green!50}-14.0 & & \\
-    \hline
-    \end{tabular}%
-    }
-    \begin{minipage}{\columnwidth}
-    \footnotesize\raggedright
-    \textbf{Note:} L1=Level 1, L2=Level 2, L3=Level 3. Color coding highlights best performance per task. Degradation shows \% point change from L1 to L3.
-    \end{minipage}
-\end{table}
 
-\begin{table}[ht]
-    \centering
-    \caption{Architectural Sensitivity Analysis: Context Window vs Model Type}
-    \label{tab:architecture}
-    \renewcommand{\arraystretch}{1.2}
-    \resizebox{\columnwidth}{!}{%
-    \begin{tabular}{lccccc}
-    \hline
-    \textbf{Category} & \textbf{Models} & \textbf{Avg Degradation} & \textbf{Best Model} & \textbf{Worst Model} & \textbf{Correlation} \\
-    \hline
-    \multicolumn{6}{c}{\textbf{By Context Window (PBD)}} \\
-    \hline
-    Short ($\leq$16K) & 2 & 1.2\% & Codellama (-2.6\%) & Starcoder (5.1\%) & r=0.678 \\
-    Medium (32K-64K) & 3 & -0.2\% & Deepseek (-1.7\%) & Mistral (1.9\%) & p=0.322 \\
-    Long ($\geq$128K) & 1 & 1.4\% & Llama (1.4\%) & Llama (1.4\%) & (n.s.) \\
-    \hline
-    \multicolumn{6}{c}{\textbf{By Model Specialization}} \\
-    \hline
-    Code-Specialized & 3 & 0.6\% (PBD) & Codellama (-2.6\%) & Starcoder (5.1\%) & --- \\
-    & & 10.2\% (LFD) & Qwen3 (-0.3\%) & Codellama (22.0\%) & --- \\
-    General-Purpose & 3 & 0.5\% (PBD) & Deepseek (-1.7\%) & Mistral (1.9\%) & --- \\
-    & & -2.3\% (LFD) & Deepseek (-6.9\%) & Llama (0.0\%) & --- \\
-    \hline
-    \multicolumn{6}{c}{\textbf{By Model Size (Estimated)}} \\
-    \hline
-    Small ($\leq$7B) & 1 & -1.7\% (PBD) & Deepseek & Deepseek & --- \\
-    Medium (8B-22B) & 3 & -0.5\% (PBD) & Qwen3 (-0.8\%) & Mistral (1.9\%) & --- \\
-    Large ($\geq$30B) & 2 & 1.3\% (PBD) & Codellama (-2.6\%) & Starcoder (5.1\%) & --- \\
-    \hline
-    \end{tabular}%
-    }
-    \begin{minipage}{\columnwidth}
-    \footnotesize
-    \textbf{Note:} Correlation analysis shows no significant relationship between context window size and robustness. General-purpose models demonstrate superior robustness, particularly in leakage-free conditions.
-    \end{minipage}
-\end{table}
+\textbf{CWE-119 Acts as a Semantic Magnet for Diverse Vulnerability Types.} Table \ref{tab:misclassification} reveals models consistently misattribute diverse vulnerability types to CWE-119 (Buffer Errors). In PBD, all top-8 confusion pairs target CWE-119, spanning heap overflow (CWE-122, 19 instances), access control (CWE-276, 15 instances), buffer copy (CWE-120, 14 instances), and authorization issues (CWE-862, 13 instances). The diversity of source CWEs, including resource management issues such as CWE-772, CWE-399, and CWE-665, as well as integer overflow CWE-190, all incorrectly mapped to CWE-119, indicates that models exhibit a strong bias toward buffer overflow as a general-purpose prediction when encountering code complexity. LFD shows a different pattern: CWE-416 (Use After Free) dominates confusions with 57 instances, followed by CWE-119, but also spans multiple targets (CWE-123, CWE-121, CWE-20), suggesting models struggle specifically with memory lifecycle issues and map them to various memory-related categories.
 
-\textbf{Key Implications for VD Systems.} Our findings fundamentally challenge the assumption that increased code abstraction universally hinders LLM performance. The lack of statistical significance across abstraction levels, combined with task-specific improvements, suggests that LLMs can effectively leverage additional context when properly trained. The superior performance of general-purpose models over code-specialized ones in abstraction robustness indicates that broad language understanding may be more valuable than domain-specific training for handling complex code structures. Most importantly, the dramatic variance in leakage-free results highlights the critical need for rigorous evaluation methodologies that avoid data contamination, as traditional benchmarks may significantly overestimate model capabilities in real-world deployment scenarios.
+
+\textbf{HPS Validation.}
+The \gls{HPS} metric assumes that hierarchical distance in the CWE-1000 taxonomy reflects semantic similarity between vulnerability types.
+To assess this assumption, we analyzed 2,159 CWE predictions across all models (Table~\ref{tab:hps_validation_stats}).
+We found that only 13.8\% (294/2,132) of incorrect predictions were hierarchically close (distance $\leq$3), suggesting most wrong predictions are taxonomically distant from the true CWE (Table~\ref{tab:hierarchy_distance_dist}).
+For example, when the true CWE is CWE-119 (Buffer Errors), StarCoder2 may predict CWE-121 (Stack Overflow) with hierarchy distance 2, demonstrating partial understanding of the buffer-related vulnerability family (Table~\ref{tab:hps_examples}).
+However, we observed systematic bias toward predicting CWE-119: this general category appears in 45.1\% of all top-5 predictions, with Llama reaching 98.1\% (Table~\ref{tab:cwe119_bias}).
+This bias inflates \gls{HPS} scores without demonstrating specific vulnerability knowledge: models hedge by predicting high-abstraction parent categories that match many children.
+Additionally, the CWE hierarchy does not always reflect semantic similarity: CWE-129 (Array Index) and CWE-119 (Buffer Errors) are both bounds violations but have distance 7 (Table~\ref{tab:hps_examples}), meaning semantically reasonable confusions receive low \gls{HPS} credit.
+The large gap between \gls{HPS} and Top-1 accuracy across models (Table~\ref{tab:hps_gap_analysis}), ranging from 5.9× (GPT-4.1-mini) to 15.7× (Llama) in PBD, suggests pattern-matching on taxonomy structure rather than genuine semantic understanding.
+We interpret \gls{HPS} as measuring \textit{taxonomy-aware prediction} rather than deep semantic comprehension, and recommend future validation through human similarity ratings correlating hierarchy distance with expert judgments.
 
 %\subsection{Research Directions}
 \section{Discussion}
 \label{section:discussion}
 
-\textbf{Key Findings.} Our benchmarking exposes fundamental limitations in LLMs' security reasoning. The low CWE detection accuracy (best: 11.4\% Top-5) and systematic bias toward memory-safety vulnerabilities reveal surface-level pattern recognition rather than deep security understanding. The reverse bias—where models detect patched code 13.5\% better than vulnerable code—contradicts assumptions about security-conscious defaults. Performance degradation with explicit CVE/CWE context suggests additional information overwhelms rather than guides reasoning. These findings indicate LLMs should serve as assistive tools under expert supervision, not autonomous analyzers, requiring significant architectural improvements for reliable vulnerability identification.
+% \textcolor{blue}{
+The conclusions in this section apply specifically to off-the-shelf, pre-trained LLMs evaluated in a zero-shot setting using standardized prompts. We do not assess the effects of task-specific fine-tuning, few-shot prompting, chain-of-thought reasoning, external tools, or hybrid analysis pipelines. Accordingly, our findings should not be interpreted as fundamental limitations of large language models as a class, but rather as evidence that current baseline LLM usage is insufficient for reliable software vulnerability detection in high-assurance settings. Note that model behavior is described using observational terminology grounded in empirical outputs. References to tendencies, biases, or memorization are intended to characterize consistent prediction patterns rather than to imply internal model intent or underlying mechanisms.
 
-\textbf{Future Directions.} LLMKernelBench enables several research paths: (1) analyzing LLMs' reasoning processes to identify security comprehension weaknesses \cite{xiang2025towards, zibaeirad2025reasoning}; (2) expanding to multiple languages (Python, Java, Rust, Go) to assess cross-language transfer; (3) investigating hybrid LLM-agent architectures integrating static/dynamic analysis tools; (4) examining whether LLMs introduce vulnerabilities when generating patches. These directions aim to transform our diagnostic framework into a catalyst for developing robust, security-aware models.
+\textbf{Key Findings.} Our benchmark exposes fundamental limitations in \glspl{LLM}' security reasoning. The low \gls{CWE} detection accuracy (best: 11.4\% Top-5) and systematic bias toward memory-safety vulnerabilities reveal surface-level pattern recognition rather than deep security understanding. The reverse bias, where models detect patched code 13.5\% better than vulnerable code, contradicts assumptions about security-conscious defaults. Performance degradation with explicit CVE/\gls{CWE} context suggests additional information overwhelms rather than guides reasoning. These findings indicate that \glspl{LLM} should serve as assistive tools under expert supervision, not as autonomous analyzers, and that significant architectural improvements are required for reliable vulnerability identification.
 
+\textbf{Future Directions.} Future work should validate \gls{HPS} through human expert studies.
+Specifically, security practitioners should rate the semantic similarity of CWE pairs on a 1-5 scale, enabling the calculation of the correlation between hierarchy distance and perceived similarity (Spearman's $\rho$).
+LLMKernelBench enables several research paths: (1) analyzing \glspl{LLM}' reasoning processes to identify security comprehension weaknesses \cite{xiang2025towards, zibaeirad2025reasoning}; (2) expanding to multiple languages (Python, Java, Rust, Go) to assess cross-language transfer; (3) investigating hybrid LLM-agent architectures integrating static/dynamic analysis tools; (4) examining whether \glspl{LLM} introduce vulnerabilities when generating patches. These directions aim to transform our diagnostic framework into a catalyst for developing robust, security-aware models.
+\begin{table}[!t]
+\centering
+\caption{Top-8 misclassification patterns showing CWE-119 as a semantic magnet in PBD and CWE-416 confusion dominance in LFD.}
+\label{tab:misclassification}
+\small
+\renewcommand{\arraystretch}{1.1}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}lcc@{\hspace{1.5em}}lcc@{}}
+\toprule
+\multicolumn{3}{c}{\textbf{PBD}} & \multicolumn{3}{c}{\textbf{LFD}} \\
+\cmidrule(r){1-3} \cmidrule(l){4-6}
+\textbf{True} & \textbf{Predicted} & \textbf{Count} & \textbf{True} & \textbf{Predicted} & \textbf{Count} \\
+\midrule
+CWE-122 & CWE-119 & 19 & CWE-416 & CWE-119 & 57 \\
+CWE-276 & CWE-119 & 15 & CWE-125 & CWE-119 & 31 \\
+CWE-120 & CWE-119 & 14 & CWE-416 & CWE-123 & 20 \\
+CWE-416 & CWE-119 & 13 & CWE-416 & CWE-121 & 19 \\
+CWE-862 & CWE-119 & 13 & CWE-416 & CWE-20 & 18 \\
+CWE-190 & CWE-119 & 13 & CWE-476 & CWE-119 & 18 \\
+CWE-399 & CWE-119 & 13 & CWE-416 & CWE-1234 & 17 \\
+CWE-772 & CWE-119 & 13 & CWE-416 & CWE-400 & 17 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
 
 \section{Threats to Validity}
 \label{section:threatstovalidity}
 
+Although the methodology and experiments in this study were carefully designed and executed, some potential threats have to be discussed.
+
 \textbf{Internal Validity.}
-We set temperature to 0 for all experiments to ensure deterministic outputs and reproducible results. Our benchmark evaluates fundamental VD capabilities using standardized zero-shot prompts rather than optimized prompt engineering, establishing baseline performance for future research. To prevent data contamination, we curated LFD exclusively from vulnerabilities disclosed in 2025. Since this date is after the models' training cutoffs, their inclusion in the training corpora is highly unlikely. The two-author manual review with Cohen's kappa measurement and consensus resolution ensures label quality and reduces annotation bias.
-All tasks are static code reasoning (no compilation). Snippets may be non-compilable and can include function bodies or non-function edits (e.g., macros, configuration gates, header guards); we include only edits judged security-relevant. We do not reconstruct full build systems (includes, Make/Kconfig).\\
+One possible threat arises from the non-deterministic nature of \glspl{LLM}. To minimize this effect, we set the temperature parameter to 0 in all experiments (as described in Section~\ref{section:approach}), ensuring outputs were as deterministic as possible and allowing reproducible results.
+
+Another potential source of bias lies in the use of prompting strategies, as different formulations can yield different outcomes. In this study, we focused on assessing fundamental \gls{SVD} capabilities using standardized zero-shot prompts instead of optimized prompt engineering. This approach establishes a consistent and fair baseline for future research.
+
+A further concern is that some models may have encountered PBD data during pretraining, which could affect their performance. To mitigate this, we introduced the LFD dataset, composed of vulnerabilities disclosed after the models’ training cutoffs. By comparing model behavior across both datasets, we can estimate the extent to which exposure to the training data may have affected the results.
+
+Another threat is that manual annotation was used to build the dataset, introducing an element of subjectivity. To mitigate this, clear annotation guidelines were established, and both reviewers adhered strictly to them. In cases of uncertainty, the reviewers discussed the instance, thereby reducing individual bias and ensuring consistent labeling.
+
+Extracting only modified functions may lack the surrounding context for vulnerability detection. We mitigate this by including three abstraction levels. Our RQ3 analysis (\S\ref{section:rq3}) validates this design by demonstrating distinct performance patterns across these context levels.
+
+Finally, all evaluated tasks focus on static code reasoning. As a result, they do not account for dynamic execution behavior or runtime verification. While this design isolates reasoning capability from execution effects, it may limit the interpretation of results in contexts requiring dynamic analysis.
+
 \textbf{External Validity.}
-While focused on Linux kernel C code, our evaluation spans six diverse models (three code-specialized, three general-purpose) with varying architectures and parameter sizes, revealing consistent patterns across model types. The kernel's complexity and widespread use in security-critical systems make it representative of real-world vulnerability detection challenges. Performance trends observed—memory-safety bias, reverse detection bias, context degradation—likely generalize to similar systems programming contexts.\\
+Our analysis is restricted to Linux kernel C code, raising questions about its generalizability to other programming languages or domains. Nonetheless, the Linux kernel’s scale, complexity, and role in security-critical systems make it a meaningful and representative benchmark for real-world challenges in understanding code.
+
+Additionally, our evaluation does not include the most recent state-of-the-art models, such as GPT-5. However, the study includes a diverse set of seven models varying in architecture and size. The consistency of observed trends across these models, along with their alignment with the behavior of larger proprietary models such as GPT-4.1-mini, gives us confidence that our findings extend beyond the evaluated models.
+
+% \textcolor{red}{need to improve threats, to include construct threats and conclusion threats}
+
+\textbf{Construct Validity.}
+% \textcolor{blue}{
+HPS relies on a manually defined weighting scheme to quantify hierarchical proximity within the CWE taxonomy. The metric is intended to preserve relative semantic ordering across hierarchy levels rather than depend on specific numeric values; accordingly, our analysis focuses on comparative trends and model rankings rather than absolute HPS magnitudes. Variations in weights that preserve hierarchy order are unlikely to affect the qualitative conclusions.
+
+% \textcolor{blue}{
+CWE assignment, particularly at fine-grained base and variant levels, involves inherent subjectivity even among experts. This is especially relevant for the LFD, where some CWEs were manually assigned following NVD-aligned guidelines, and formal inter-annotator agreement was not computed. Consequently, part of the low Top-1 accuracy in fine-grained CWE classification may reflect label ambiguity rather than purely model failure. To mitigate this, we emphasize hierarchy-aware evaluation and relative performance trends, which are more robust to label noise.
+
+\textbf{Conclusion Validity.}
+% \textcolor{blue}{
+Our conclusions are based on pre-trained LLMs evaluated in a zero-shot setting with standardized prompts. While this enables fair and reproducible comparison, it does not capture the effects of prompt adaptation, few-shot examples, or task-specific fine-tuning. Thus, the observed limitations reflect the reliability of baseline LLM deployment rather than definitive bounds on LLM security reasoning.
+
+% \textcolor{blue}{
+Although appropriate statistical tests and effect sizes are reported, the LFD's limited size constrains statistical power, particularly at higher abstraction levels. As a result, some differences may be sensitive to sampling variance, and non-significant results should not be interpreted as evidence of equivalence. The LFD is intended to reveal robustness trends under leakage-free conditions rather than support fine-grained statistical generalization. Finally, descriptions of model behavior (e.g., bias or memorization) refer to observed prediction patterns and do not imply internal model intent or mechanisms.
 
 \section{Conclusion}
 \label{section:conclusion}
-This paper presents LLMKernelBench, a rigorous benchmark for evaluating LLM capabilities in vulnerability detection and patch verification using 417 real-world Linux kernel vulnerabilities. Our systematic evaluation of six state-of-the-art models reveals critical limitations: surprisingly low CWE detection accuracy (11.4\% Top-5), systematic bias toward memory-safety vulnerabilities, unexpected reverse bias favoring patch over vulnerability detection (13.5\% gap), and performance degradation with explicit security context. These findings challenge assumptions about LLMs' security reasoning and demonstrate that current models require expert supervision rather than autonomous deployment. LLMKernelBench establishes a standardized foundation for advancing LLM-based security tools through reproducible evaluation and identification of specific capability gaps requiring architectural innovation.
 
+This paper presents LLMKernelBench, a benchmark for evaluating \gls{LLM} capabilities in \gls{SVD} and CWE classification using 417 real-world Linux kernel vulnerabilities. Our evaluation of seven models reveals fundamental limitations: binary vulnerability detection achieves near-random performance ($\sim$50\% accuracy), CWE classification remains weak (best: 14.7\% Top-1, 51.0\% Top-5), and models exhibit strong bias toward memory-safety vulnerabilities. Abstraction level analysis shows model-specific responses (some improve with added context, while others degrade by up to 22\%). The leakage-free dataset (LFD) reveals significant performance gaps: code-specialized models degrade by 8.8\%, while general-purpose models demonstrate superior robustness with minimal degradation (0.3\%). These findings demonstrate that current \glspl{LLM} lack robust security reasoning and require expert supervision. LLMKernelBench provides a reproducible foundation for developing more reliable vulnerability detection tools.
 
 \bibliographystyle{IEEEtran}
 \bibliography{ref}
 
-\appendix
 
-\section{CWE Hierarchy Example}
-\label{appendix:cwe-hierarchy}
-
-This appendix illustrates how the CWE hierarchical taxonomy enables graduated assessment of LLM security knowledge, demonstrating why our Hierarchical Proximity Score (HPS) metric provides more nuanced evaluation than exact-match accuracy alone.
-
-\subsection{Hierarchical Structure}
-
-The CWE hierarchy organizes vulnerabilities across four abstraction levels:
-\begin{itemize}
-    \item \textbf{Pillar}: Highest-level category (e.g., CWE-664: Improper Control of Resource Lifetime)
-    \item \textbf{Class}: Broader weakness category (e.g., CWE-119: Improper Restriction of Operations within Memory Buffer Bounds)
-    \item \textbf{Base}: Specific vulnerability type (e.g., CWE-787: Out-of-bounds Write)
-    \item \textbf{Variant}: Implementation-specific manifestation (e.g., CWE-120: Buffer Copy without Checking Size of Input)
-\end{itemize}
-
-\subsection{Example: Buffer Overflow Vulnerability}
-
-Consider CVE-2022-26490, a buffer overflow vulnerability in the Linux kernel's NFC driver (Figure~\ref{figure:cwe_example_appendix}). The vulnerable code performs an unchecked \texttt{memcpy} operation with user-controlled length, while the patched version adds bounds checking.
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.9\columnwidth]{figures/code_1.png}
-\caption{CVE-2022-26490 (CWE-120): Buffer overflow in NFC driver. The vulnerable code (top) uses user-controlled length without validation; the patch (bottom) adds bounds checking.}
-\label{figure:cwe_example_appendix}
-\end{figure}
-
-An LLM analyzing this vulnerability might predict different hierarchy levels:
-\begin{itemize}
-    \item \textbf{Exact match} (CWE-120: Buffer Copy without Checking Size) $\rightarrow$ HPS = 1.0
-    \item \textbf{Parent} (CWE-787: Out-of-bounds Write) $\rightarrow$ HPS = 0.8
-    \item \textbf{Grandparent} (CWE-119: Memory Buffer Bounds) $\rightarrow$ HPS = 0.7
-    \item \textbf{Root pillar} (CWE-664: Resource Lifetime) $\rightarrow$ HPS = 0.4
-    \item \textbf{Unrelated} (CWE-284: Access Control) $\rightarrow$ HPS = 0.0
-\end{itemize}
-
-\subsection{Interpretation}
-
-This graduated scoring reveals security reasoning depth: an LLM predicting CWE-119 instead of CWE-120 still demonstrates valuable understanding by recognizing the broader memory safety issue, even if lacking precision about the specific buffer operation. This approach mirrors how security experts reason—starting with broad categories before drilling down to specifics—enabling more nuanced assessment of LLMs' security knowledge, from surface-level pattern recognition to fundamental understanding of vulnerability root causes.
+%\begin{IEEEbiographynophoto}{Rodrigo Pato Nogueira} is a PhD student in Computing and Information Systems at the University of North Carolina at Charlotte. He obtained his Bachelor’s and Master’s degrees in Data Science and Engineering in 2023 and 2025, respectively, both from the University of Coimbra. His research focuses on the intersection of Artificial Intelligence with dependability and software engineering. Contact him at rpatodec@charlotte.edu.
+%\end{IEEEbiographynophoto}
 
 \end{document}

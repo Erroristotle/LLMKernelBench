@@ -1,0 +1,422 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Starting evaluation with model: vdisc_ft
+Running evaluation on both databases...
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.93it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  3.69it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.50it/s]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.83it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  3.61it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.37it/s]
+2025-11-27 00:34:42,917 - job_vdisc_ft_database_1764221681 - INFO - Starting task: is_vulnerable_vuln
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+2025-11-27 00:35:48,425 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 10/314 commits processed
+2025-11-27 00:36:54,738 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 20/314 commits processed
+2025-11-27 00:38:00,962 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 30/314 commits processed
+2025-11-27 00:39:06,800 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 40/314 commits processed
+2025-11-27 00:40:12,676 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 50/314 commits processed
+2025-11-27 00:41:18,554 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 60/314 commits processed
+2025-11-27 00:42:17,793 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 70/314 commits processed
+2025-11-27 00:43:23,200 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 80/314 commits processed
+2025-11-27 00:44:28,735 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 90/314 commits processed
+2025-11-27 00:45:34,588 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 100/314 commits processed
+2025-11-27 00:46:40,437 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 110/314 commits processed
+2025-11-27 00:47:46,242 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 120/314 commits processed
+2025-11-27 00:48:52,041 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 130/314 commits processed
+2025-11-27 00:49:57,640 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 140/314 commits processed
+2025-11-27 00:51:03,221 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 150/314 commits processed
+2025-11-27 00:52:10,964 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 160/314 commits processed
+2025-11-27 00:53:16,767 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 170/314 commits processed
+2025-11-27 00:54:16,104 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 180/314 commits processed
+2025-11-27 00:55:15,210 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 190/314 commits processed
+2025-11-27 00:56:14,896 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 200/314 commits processed
+2025-11-27 00:57:20,349 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 210/314 commits processed
+2025-11-27 00:58:26,497 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 220/314 commits processed
+2025-11-27 00:59:32,218 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 230/314 commits processed
+2025-11-27 01:00:24,855 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 240/314 commits processed
+2025-11-27 01:01:30,506 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 250/314 commits processed
+2025-11-27 01:02:36,410 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 260/314 commits processed
+2025-11-27 01:03:42,363 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 270/314 commits processed
+2025-11-27 01:04:47,945 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 280/314 commits processed
+2025-11-27 01:05:53,766 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 290/314 commits processed
+2025-11-27 01:06:59,626 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 300/314 commits processed
+2025-11-27 01:08:05,386 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln: 310/314 commits processed
+2025-11-27 01:08:31,562 - job_vdisc_ft_database_1764221681 - INFO - Completed task: is_vulnerable_vuln
+2025-11-27 01:08:31,565 - job_vdisc_ft_database_1764221681 - INFO - Starting task: is_vulnerable_patch
+2025-11-27 01:09:37,391 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 10/314 commits processed
+2025-11-27 01:10:43,294 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 20/314 commits processed
+2025-11-27 01:11:45,367 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 30/314 commits processed
+2025-11-27 01:12:51,169 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 40/314 commits processed
+2025-11-27 01:13:56,858 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 50/314 commits processed
+2025-11-27 01:15:02,711 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 60/314 commits processed
+2025-11-27 01:16:02,038 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 70/314 commits processed
+2025-11-27 01:17:07,673 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 80/314 commits processed
+2025-11-27 01:18:13,296 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 90/314 commits processed
+2025-11-27 01:19:19,190 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 100/314 commits processed
+2025-11-27 01:20:25,309 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 110/314 commits processed
+2025-11-27 01:21:31,142 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 120/314 commits processed
+2025-11-27 01:22:36,996 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 130/314 commits processed
+2025-11-27 01:23:42,659 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 140/314 commits processed
+2025-11-27 01:24:48,398 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 150/314 commits processed
+2025-11-27 01:25:56,243 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 160/314 commits processed
+2025-11-27 01:27:02,845 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 170/314 commits processed
+2025-11-27 01:27:59,474 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 180/314 commits processed
+2025-11-27 01:28:58,600 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 190/314 commits processed
+2025-11-27 01:29:58,321 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 200/314 commits processed
+2025-11-27 01:31:04,008 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 210/314 commits processed
+2025-11-27 01:32:11,434 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 220/314 commits processed
+2025-11-27 01:33:18,388 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 230/314 commits processed
+2025-11-27 01:34:12,291 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 240/314 commits processed
+2025-11-27 01:35:19,391 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 250/314 commits processed
+2025-11-27 01:36:27,125 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 260/314 commits processed
+2025-11-27 01:37:34,350 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 270/314 commits processed
+2025-11-27 01:38:41,306 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 280/314 commits processed
+2025-11-27 01:39:48,439 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 290/314 commits processed
+2025-11-27 01:40:55,491 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 300/314 commits processed
+2025-11-27 01:42:02,739 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch: 310/314 commits processed
+2025-11-27 01:42:29,462 - job_vdisc_ft_database_1764221681 - INFO - Completed task: is_vulnerable_patch
+2025-11-27 01:42:29,465 - job_vdisc_ft_database_1764221681 - INFO - Starting task: is_vulnerable_vuln_cve_cwe
+2025-11-27 01:43:36,651 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 10/314 commits processed
+2025-11-27 01:44:44,422 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 20/314 commits processed
+2025-11-27 01:45:51,862 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 30/314 commits processed
+2025-11-27 01:46:58,667 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 40/314 commits processed
+2025-11-27 01:48:05,440 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 50/314 commits processed
+2025-11-27 01:49:12,611 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 60/314 commits processed
+2025-11-27 01:50:19,708 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 70/314 commits processed
+2025-11-27 01:51:26,453 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 80/314 commits processed
+2025-11-27 01:52:33,535 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 90/314 commits processed
+2025-11-27 01:53:40,663 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 100/314 commits processed
+2025-11-27 01:54:48,008 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 110/314 commits processed
+2025-11-27 01:55:55,166 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 120/314 commits processed
+2025-11-27 01:57:02,350 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 130/314 commits processed
+2025-11-27 01:58:09,294 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 140/314 commits processed
+2025-11-27 01:59:16,236 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 150/314 commits processed
+2025-11-27 02:00:23,459 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 160/314 commits processed
+2025-11-27 02:01:30,724 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 170/314 commits processed
+2025-11-27 02:02:37,932 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 180/314 commits processed
+2025-11-27 02:03:45,070 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 190/314 commits processed
+2025-11-27 02:04:52,631 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 200/314 commits processed
+2025-11-27 02:05:59,622 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 210/314 commits processed
+2025-11-27 02:07:07,207 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 220/314 commits processed
+2025-11-27 02:08:14,356 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 230/314 commits processed
+2025-11-27 02:09:21,543 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 240/314 commits processed
+2025-11-27 02:10:28,604 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 250/314 commits processed
+2025-11-27 02:11:36,256 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 260/314 commits processed
+2025-11-27 02:12:43,553 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 270/314 commits processed
+2025-11-27 02:13:50,690 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 280/314 commits processed
+2025-11-27 02:14:57,319 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 290/314 commits processed
+2025-11-27 02:16:04,326 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 300/314 commits processed
+2025-11-27 02:17:11,106 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_vuln_cve_cwe: 310/314 commits processed
+2025-11-27 02:17:37,795 - job_vdisc_ft_database_1764221681 - INFO - Completed task: is_vulnerable_vuln_cve_cwe
+2025-11-27 02:17:37,798 - job_vdisc_ft_database_1764221681 - INFO - Starting task: is_vulnerable_patch_cve_cwe
+2025-11-27 02:18:44,634 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 10/314 commits processed
+2025-11-27 02:19:51,659 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 20/314 commits processed
+2025-11-27 02:20:58,632 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 30/314 commits processed
+2025-11-27 02:22:02,269 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 40/314 commits processed
+2025-11-27 02:23:09,104 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 50/314 commits processed
+2025-11-27 02:24:16,283 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 60/314 commits processed
+2025-11-27 02:25:23,513 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 70/314 commits processed
+2025-11-27 02:26:30,245 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 80/314 commits processed
+2025-11-27 02:27:37,468 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 90/314 commits processed
+2025-11-27 02:28:44,551 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 100/314 commits processed
+2025-11-27 02:29:52,093 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 110/314 commits processed
+2025-11-27 02:30:59,203 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 120/314 commits processed
+2025-11-27 02:32:06,609 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 130/314 commits processed
+2025-11-27 02:33:13,363 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 140/314 commits processed
+2025-11-27 02:34:20,503 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 150/314 commits processed
+2025-11-27 02:35:27,562 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 160/314 commits processed
+2025-11-27 02:36:34,798 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 170/314 commits processed
+2025-11-27 02:37:41,617 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 180/314 commits processed
+2025-11-27 02:38:48,875 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 190/314 commits processed
+2025-11-27 02:39:56,146 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 200/314 commits processed
+2025-11-27 02:41:01,713 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 210/314 commits processed
+2025-11-27 02:42:07,971 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 220/314 commits processed
+2025-11-27 02:43:15,072 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 230/314 commits processed
+2025-11-27 02:44:21,831 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 240/314 commits processed
+2025-11-27 02:45:28,591 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 250/314 commits processed
+2025-11-27 02:46:35,508 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 260/314 commits processed
+2025-11-27 02:47:42,542 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 270/314 commits processed
+2025-11-27 02:48:49,158 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 280/314 commits processed
+2025-11-27 02:49:55,959 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 290/314 commits processed
+2025-11-27 02:51:02,775 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 300/314 commits processed
+2025-11-27 02:52:09,737 - job_vdisc_ft_database_1764221681 - INFO - Task is_vulnerable_patch_cve_cwe: 310/314 commits processed
+2025-11-27 02:52:36,705 - job_vdisc_ft_database_1764221681 - INFO - Completed task: is_vulnerable_patch_cve_cwe
+2025-11-27 02:52:36,708 - job_vdisc_ft_database_1764221681 - INFO - Starting task: suggest_fix
+2025-11-27 02:53:43,338 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 10/314 commits processed
+2025-11-27 02:54:50,730 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 20/314 commits processed
+2025-11-27 02:55:57,337 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 30/314 commits processed
+2025-11-27 02:57:04,592 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 40/314 commits processed
+2025-11-27 02:58:10,993 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 50/314 commits processed
+2025-11-27 02:59:17,976 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 60/314 commits processed
+2025-11-27 03:00:24,624 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 70/314 commits processed
+2025-11-27 03:01:31,234 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 80/314 commits processed
+2025-11-27 03:02:37,834 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 90/314 commits processed
+2025-11-27 03:03:44,751 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 100/314 commits processed
+2025-11-27 03:04:51,476 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 110/314 commits processed
+2025-11-27 03:05:58,239 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 120/314 commits processed
+2025-11-27 03:07:04,999 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 130/314 commits processed
+2025-11-27 03:08:11,704 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 140/314 commits processed
+2025-11-27 03:09:18,419 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 150/314 commits processed
+2025-11-27 03:10:25,184 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 160/314 commits processed
+2025-11-27 03:11:32,076 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 170/314 commits processed
+2025-11-27 03:12:38,943 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 180/314 commits processed
+2025-11-27 03:13:45,795 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 190/314 commits processed
+2025-11-27 03:14:53,058 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 200/314 commits processed
+2025-11-27 03:15:59,798 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 210/314 commits processed
+2025-11-27 03:17:06,659 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 220/314 commits processed
+2025-11-27 03:18:13,218 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 230/314 commits processed
+2025-11-27 03:19:19,662 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 240/314 commits processed
+2025-11-27 03:20:26,284 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 250/314 commits processed
+2025-11-27 03:21:33,126 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 260/314 commits processed
+2025-11-27 03:22:40,053 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 270/314 commits processed
+2025-11-27 03:23:46,527 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 280/314 commits processed
+2025-11-27 03:24:53,493 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 290/314 commits processed
+2025-11-27 03:26:00,069 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 300/314 commits processed
+2025-11-27 03:27:06,917 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix: 310/314 commits processed
+2025-11-27 03:27:33,290 - job_vdisc_ft_database_1764221681 - INFO - Completed task: suggest_fix
+2025-11-27 03:27:33,294 - job_vdisc_ft_database_1764221681 - INFO - Starting task: suggest_fix_fewshot
+2025-11-27 03:28:39,972 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 10/314 commits processed
+2025-11-27 03:29:47,073 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 20/314 commits processed
+2025-11-27 03:30:54,111 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 30/314 commits processed
+2025-11-27 03:32:01,478 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 40/314 commits processed
+2025-11-27 03:33:08,292 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 50/314 commits processed
+2025-11-27 03:34:15,548 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 60/314 commits processed
+2025-11-27 03:35:22,505 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 70/314 commits processed
+2025-11-27 03:36:29,477 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 80/314 commits processed
+2025-11-27 03:37:36,371 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 90/314 commits processed
+2025-11-27 03:38:43,513 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 100/314 commits processed
+2025-11-27 03:39:50,684 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 110/314 commits processed
+2025-11-27 03:40:57,873 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 120/314 commits processed
+2025-11-27 03:42:04,753 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 130/314 commits processed
+2025-11-27 03:43:11,944 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 140/314 commits processed
+2025-11-27 03:44:18,951 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 150/314 commits processed
+2025-11-27 03:45:26,259 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 160/314 commits processed
+2025-11-27 03:46:33,528 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 170/314 commits processed
+2025-11-27 03:47:40,794 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 180/314 commits processed
+2025-11-27 03:48:47,581 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 190/314 commits processed
+2025-11-27 03:49:55,260 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 200/314 commits processed
+2025-11-27 03:51:01,843 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 210/314 commits processed
+2025-11-27 03:52:09,288 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 220/314 commits processed
+2025-11-27 03:53:16,002 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 230/314 commits processed
+2025-11-27 03:54:23,240 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 240/314 commits processed
+2025-11-27 03:55:29,922 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 250/314 commits processed
+2025-11-27 03:56:37,257 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 260/314 commits processed
+2025-11-27 03:57:44,117 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 270/314 commits processed
+2025-11-27 03:58:51,044 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 280/314 commits processed
+2025-11-27 04:00:00,159 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 290/314 commits processed
+2025-11-27 04:01:06,808 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 300/314 commits processed
+2025-11-27 04:02:13,716 - job_vdisc_ft_database_1764221681 - INFO - Task suggest_fix_fewshot: 310/314 commits processed
+2025-11-27 04:02:40,292 - job_vdisc_ft_database_1764221681 - INFO - Completed task: suggest_fix_fewshot
+2025-11-27 04:02:40,296 - job_vdisc_ft_database_1764221681 - INFO - Starting task: rank_cwe
+2025-11-27 04:03:46,958 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 10/314 commits processed
+2025-11-27 04:04:53,598 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 20/314 commits processed
+2025-11-27 04:06:00,618 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 30/314 commits processed
+2025-11-27 04:07:07,317 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 40/314 commits processed
+2025-11-27 04:08:13,956 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 50/314 commits processed
+Could not extract any CWE identifiers from: pid);
+		return_error = BR_FAILED_TRANSACTION;
+		return_error_param = -ENOMEM;
+		return_error_line = 
+No CWEs extracted, storing empty list for commit 4df153652cc46545722879415937582028c18af5: pid);
+		return_error = BR_FAILED_TRANSACTION;
+		return_error_param = -ENOMEM;
+		return_error_line = 
+2025-11-27 04:09:20,672 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 60/314 commits processed
+2025-11-27 04:10:27,601 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 70/314 commits processed
+2025-11-27 04:11:33,732 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 80/314 commits processed
+2025-11-27 04:12:40,647 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 90/314 commits processed
+Could not extract any CWE identifiers from: _valid = le64_to_cpu(attr->nres.valid_size);
+		if (!attr->nres.alloc_size)
+			goto next_attr;
+
+		run
+No CWEs extracted, storing empty list for commit 98bea253aa28ad8be2ce565a9ca21beb4a9419e5: _valid = le64_to_cpu(attr->nres.valid_size);
+		if (!attr->nres.alloc_size)
+			goto next_attr;
+
+		run
+2025-11-27 04:13:46,953 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 100/314 commits processed
+2025-11-27 04:14:53,551 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 110/314 commits processed
+2025-11-27 04:16:00,163 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 120/314 commits processed
+2025-11-27 04:17:06,735 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 130/314 commits processed
+2025-11-27 04:18:13,227 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 140/314 commits processed
+2025-11-27 04:19:19,851 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 150/314 commits processed
+Could not extract any CWE identifiers from: _LD | BPF_W | BPF_ABS:
+		case BPF_LD | BPF_W | BPF_ABS | BPF_MSH:
+		case BPF_LD | BPF_W | BPF_ABS | 
+No CWEs extracted, storing empty list for commit f5e81d1117501546b7be050c5fbafa6efd2c722c: _LD | BPF_W | BPF_ABS:
+		case BPF_LD | BPF_W | BPF_ABS | BPF_MSH:
+		case BPF_LD | BPF_W | BPF_ABS | 
+2025-11-27 04:20:26,524 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 160/314 commits processed
+Could not extract any CWE identifiers from: entry_ops;
+
+	// Mount the root directory
+	root_dentry = ovl_root_dentry(ufs);
+	if (!root_dentry) {
+	
+No CWEs extracted, storing empty list for commit e9f57ebcba563e0cd532926cab83c92bb4d79360: entry_ops;
+
+	// Mount the root directory
+	root_dentry = ovl_root_dentry(ufs);
+	if (!root_dentry) {
+	
+Could not extract any CWE identifiers from:  "R%d pointer arithmetic with %s prohibited\n",
+			dst, reg_type_str[ptr_reg->type]);
+		return -EACC
+No CWEs extracted, storing empty list for commit 979d63d50c0c0f7bc537bf821e056cc9fe5abd38:  "R%d pointer arithmetic with %s prohibited\n",
+			dst, reg_type_str[ptr_reg->type]);
+		return -EACC
+2025-11-27 04:21:33,259 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 170/314 commits processed
+2025-11-27 04:22:40,024 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 180/314 commits processed
+2025-11-27 04:23:46,706 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 190/314 commits processed
+Could not extract any CWE identifiers from: , endptr - ptr);
+                        break;
+
+                case L2CAP_CONF_QOS:
+              
+No CWEs extracted, storing empty list for commit af3d5d1c87664a4f150fcf3534c6567cb19909b0: , endptr - ptr);
+                        break;
+
+                case L2CAP_CONF_QOS:
+              
+2025-11-27 04:24:53,651 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 200/314 commits processed
+2025-11-27 04:25:59,888 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 210/314 commits processed
+2025-11-27 04:27:06,833 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 220/314 commits processed
+2025-11-27 04:28:13,519 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 230/314 commits processed
+2025-11-27 04:29:20,274 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 240/314 commits processed
+Could not extract any CWE identifiers from: imm == BPF_FUNC_map_lookup_elem_64)) {
+			// map_lookup_elem is not allowed in JIT
+			// so we need 
+No CWEs extracted, storing empty list for commit 9b00f1b78809309163dda2d044d9e94a3c0248a3: imm == BPF_FUNC_map_lookup_elem_64)) {
+			// map_lookup_elem is not allowed in JIT
+			// so we need 
+Could not extract any CWE identifiers from:  ip->i_no_formal_ino != no_formal_ino) {
+		error = -ESTALE;
+		goto fail;
+	}
+
+	if (error)
+		goto fail
+No CWEs extracted, storing empty list for commit 34816d20f173a90389c8a7e641166d8ea9dce70a:  ip->i_no_formal_ino != no_formal_ino) {
+		error = -ESTALE;
+		goto fail;
+	}
+
+	if (error)
+		goto fail
+2025-11-27 04:30:26,694 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 250/314 commits processed
+2025-11-27 04:31:33,568 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 260/314 commits processed
+Could not extract any CWE identifiers from: (sizeof(*new_root_item), GFP_NOFS);
+	if (!new_root_item) {
+		ret = pending->error = -ENOMEM;
+		goto 
+No CWEs extracted, storing empty list for commit 9c52057c698fb96f8f07e7a4bcf4801a092bda89: (sizeof(*new_root_item), GFP_NOFS);
+	if (!new_root_item) {
+		ret = pending->error = -ENOMEM;
+		goto 
+2025-11-27 04:32:40,279 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 270/314 commits processed
+2025-11-27 04:33:47,075 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 280/314 commits processed
+2025-11-27 04:34:53,764 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 290/314 commits processed
+2025-11-27 04:36:00,613 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 300/314 commits processed
+2025-11-27 04:37:07,255 - job_vdisc_ft_database_1764221681 - INFO - Task rank_cwe: 310/314 commits processed
+2025-11-27 04:37:33,616 - job_vdisc_ft_database_1764221681 - INFO - Completed task: rank_cwe
+2025-11-27 04:37:33,620 - job_vdisc_ft_database_1764221681 - INFO - Job completed successfully
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.86it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  3.64it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.42it/s]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.90it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  3.67it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.47it/s]
+2025-11-27 04:37:38,232 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Starting task: is_vulnerable_vuln
+2025-11-27 04:38:40,579 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_vuln: 10/103 commits processed
+2025-11-27 04:39:46,688 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_vuln: 20/103 commits processed
+2025-11-27 04:40:53,108 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_vuln: 30/103 commits processed
+2025-11-27 04:41:59,197 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_vuln: 40/103 commits processed
+2025-11-27 04:43:05,899 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_vuln: 50/103 commits processed
+2025-11-27 04:44:11,900 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_vuln: 60/103 commits processed
+2025-11-27 04:45:18,212 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_vuln: 70/103 commits processed
+2025-11-27 04:46:24,480 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_vuln: 80/103 commits processed
+2025-11-27 04:47:30,728 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_vuln: 90/103 commits processed
+2025-11-27 04:48:37,048 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_vuln: 100/103 commits processed
+2025-11-27 04:48:56,826 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Completed task: is_vulnerable_vuln
+2025-11-27 04:48:56,828 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Starting task: is_vulnerable_patch
+2025-11-27 04:50:03,209 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_patch: 10/103 commits processed
+2025-11-27 04:51:09,408 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_patch: 20/103 commits processed
+2025-11-27 04:52:15,865 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_patch: 30/103 commits processed
+2025-11-27 04:53:22,253 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_patch: 40/103 commits processed
+2025-11-27 04:54:28,988 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_patch: 50/103 commits processed
+2025-11-27 04:55:35,067 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_patch: 60/103 commits processed
+2025-11-27 04:56:41,586 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_patch: 70/103 commits processed
+2025-11-27 04:57:47,646 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_patch: 80/103 commits processed
+2025-11-27 04:58:53,882 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_patch: 90/103 commits processed
+2025-11-27 05:00:00,404 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_patch: 100/103 commits processed
+2025-11-27 05:00:20,250 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Completed task: is_vulnerable_patch
+2025-11-27 05:00:20,252 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Starting task: is_vulnerable_vuln_cve_cwe
+2025-11-27 05:01:26,659 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_vuln_cve_cwe: 10/103 commits processed
+2025-11-27 05:02:32,819 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_vuln_cve_cwe: 20/103 commits processed
+2025-11-27 05:03:39,316 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_vuln_cve_cwe: 30/103 commits processed
+2025-11-27 05:04:45,491 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_vuln_cve_cwe: 40/103 commits processed
+2025-11-27 05:05:52,247 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_vuln_cve_cwe: 50/103 commits processed
+2025-11-27 05:06:58,393 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_vuln_cve_cwe: 60/103 commits processed
+2025-11-27 05:08:04,905 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_vuln_cve_cwe: 70/103 commits processed
+2025-11-27 05:09:10,890 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_vuln_cve_cwe: 80/103 commits processed
+2025-11-27 05:10:17,385 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_vuln_cve_cwe: 90/103 commits processed
+2025-11-27 05:11:23,518 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_vuln_cve_cwe: 100/103 commits processed
+2025-11-27 05:11:43,322 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Completed task: is_vulnerable_vuln_cve_cwe
+2025-11-27 05:11:43,324 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Starting task: is_vulnerable_patch_cve_cwe
+2025-11-27 05:12:49,778 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_patch_cve_cwe: 10/103 commits processed
+2025-11-27 05:13:56,008 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_patch_cve_cwe: 20/103 commits processed
+2025-11-27 05:15:02,538 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_patch_cve_cwe: 30/103 commits processed
+2025-11-27 05:16:08,758 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_patch_cve_cwe: 40/103 commits processed
+2025-11-27 05:17:15,571 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_patch_cve_cwe: 50/103 commits processed
+2025-11-27 05:18:21,671 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_patch_cve_cwe: 60/103 commits processed
+2025-11-27 05:19:28,269 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_patch_cve_cwe: 70/103 commits processed
+2025-11-27 05:20:34,260 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_patch_cve_cwe: 80/103 commits processed
+2025-11-27 05:21:40,833 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_patch_cve_cwe: 90/103 commits processed
+2025-11-27 05:22:47,005 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task is_vulnerable_patch_cve_cwe: 100/103 commits processed
+2025-11-27 05:23:06,812 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Completed task: is_vulnerable_patch_cve_cwe
+2025-11-27 05:23:06,814 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Starting task: suggest_fix
+2025-11-27 05:24:13,159 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task suggest_fix: 10/103 commits processed
+2025-11-27 05:25:19,399 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task suggest_fix: 20/103 commits processed
+2025-11-27 05:26:25,934 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task suggest_fix: 30/103 commits processed
+2025-11-27 05:27:32,092 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task suggest_fix: 40/103 commits processed
+2025-11-27 05:28:38,822 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task suggest_fix: 50/103 commits processed
+2025-11-27 05:29:44,963 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task suggest_fix: 60/103 commits processed
+2025-11-27 05:30:51,755 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task suggest_fix: 70/103 commits processed
+2025-11-27 05:31:58,244 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task suggest_fix: 80/103 commits processed
+2025-11-27 05:33:05,163 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task suggest_fix: 90/103 commits processed
+2025-11-27 05:34:11,763 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task suggest_fix: 100/103 commits processed
+2025-11-27 05:34:31,739 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Completed task: suggest_fix
+2025-11-27 05:34:31,742 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Starting task: suggest_fix_fewshot
+2025-11-27 05:35:38,858 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task suggest_fix_fewshot: 10/103 commits processed
+2025-11-27 05:36:47,376 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task suggest_fix_fewshot: 20/103 commits processed
+2025-11-27 05:37:56,582 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task suggest_fix_fewshot: 30/103 commits processed
+2025-11-27 05:39:05,453 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task suggest_fix_fewshot: 40/103 commits processed
+2025-11-27 05:40:14,966 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task suggest_fix_fewshot: 50/103 commits processed
+2025-11-27 05:41:24,033 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task suggest_fix_fewshot: 60/103 commits processed
+2025-11-27 05:42:33,333 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task suggest_fix_fewshot: 70/103 commits processed
+2025-11-27 05:43:41,920 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task suggest_fix_fewshot: 80/103 commits processed
+2025-11-27 05:44:50,918 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task suggest_fix_fewshot: 90/103 commits processed
+2025-11-27 05:45:59,478 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task suggest_fix_fewshot: 100/103 commits processed
+2025-11-27 05:46:20,068 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Completed task: suggest_fix_fewshot
+2025-11-27 05:46:20,070 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Starting task: rank_cwe
+2025-11-27 05:47:28,377 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task rank_cwe: 10/103 commits processed
+2025-11-27 05:48:36,641 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task rank_cwe: 20/103 commits processed
+2025-11-27 05:49:45,069 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task rank_cwe: 30/103 commits processed
+2025-11-27 05:50:53,142 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task rank_cwe: 40/103 commits processed
+Could not extract any CWE identifiers from: 	case Opt_smb2:
+		ctx->smb2 = true;
+		break;
+	case Opt_smb3:
+		ctx->smb3 = true;
+		break;
+	case Opt_
+No CWEs extracted, storing empty list for commit 7489161b1852390b4413d57f2457cd40b34da6cc: 	case Opt_smb2:
+		ctx->smb2 = true;
+		break;
+	case Opt_smb3:
+		ctx->smb3 = true;
+		break;
+	case Opt_
+2025-11-27 05:52:01,763 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task rank_cwe: 50/103 commits processed
+2025-11-27 05:53:07,784 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task rank_cwe: 60/103 commits processed
+2025-11-27 05:54:14,172 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task rank_cwe: 70/103 commits processed
+2025-11-27 05:55:20,209 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task rank_cwe: 80/103 commits processed
+2025-11-27 05:56:26,565 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task rank_cwe: 90/103 commits processed
+2025-11-27 05:57:32,177 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Task rank_cwe: 100/103 commits processed
+2025-11-27 05:57:51,572 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Completed task: rank_cwe
+2025-11-27 05:57:51,574 - job_vdisc_ft_database_leakagefree_1764236256 - INFO - Job completed successfully
+Evaluation completed on both databases:
+  database.sqlite: Job vdisc_ft_database_1764221681 - Status: completed
+  database_leakagefree.sqlite: Job vdisc_ft_database_leakagefree_1764236256 - Status: completed

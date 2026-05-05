@@ -1,5 +1,5 @@
-# Jupyter Notebooks
-test.ipynb
+# Jupyter Notebook checkpoints
+notebooks/.ipynb_checkpoints/
 
 # Python cache files
 __pycache__/
@@ -78,4 +78,10 @@ Thumbs.db
 *.temp
 
 # Configuration files with sensitive data
-/utils/.config
+/src/utils/.config
+
+# SLURM job output logs
+logs/slurm/
+
+# DeepEval cache
+.deepeval/

@@ -1,0 +1,81 @@
+{
+  "llms": {
+    "gemini": {
+      "type": "google",
+      "model_name": "gemini-2.5-flash-lite",
+      "api_key_file": "utils/.config",
+      "api_key_name": "gemini_api_key",
+      "rate_limit_rpm": 15,
+      "rate_limit_delay": 4
+    },
+    "deepseek": {
+      "type": "huggingface",
+      "model_name": "deepseek-ai/DeepSeek-R1-Distill-Llama-8B"
+    },
+    "qwen": {
+      "type": "huggingface", 
+      "model_name": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+    },
+    "qwen3_coder": {
+      "type": "huggingface", 
+      "model_name": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+    },
+    "qwen3_4b": {
+      "type": "huggingface",
+      "model_name": "Qwen/Qwen3-4B-Instruct-2507"
+    },
+    "codellama": {
+      "type": "huggingface",
+      "model_name": "codellama/CodeLlama-7b-hf"
+    },
+    "llama": {
+      "type": "huggingface",
+      "model_name": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    "starcoder": {
+      "type": "huggingface",
+      "model_name": "bigcode/starcoder2-7b"
+    },
+    "mistral": {
+      "type": "huggingface",
+      "model_name": "mistralai/Mistral-7B-Instruct-v0.3"
+    },
+    "gemma": {
+      "type": "huggingface",
+      "model_name": "google/gemma-3-4b-it"
+    },
+    "devign_ft": {
+      "type": "huggingface",
+      "model_name": "Qwen/Qwen3-4B-Instruct-2507",
+      "adapter_path": "Arastoorad/devign_Qwen3_LoRA",
+      "use_peft": true,
+      "description": "Devign LoRA fine-tuned for binary vulnerability detection",
+      "category": "code-llm"
+    },
+    "vdisc_ft": {
+      "type": "huggingface",
+      "model_name": "Qwen/Qwen3-4B-Instruct-2507",
+      "adapter_path": "Arastoorad/vdisc_Qwen3_LoRA",
+      "use_peft": true,
+      "description": "VDisc LoRA fine-tuned for vulnerability detection",
+      "category": "code-llm"
+    },
+    "primevul_ft": {
+      "type": "huggingface",
+      "model_name": "Qwen/Qwen3-4B-Instruct-2507",
+      "adapter_path": "Arastoorad/primevul_Qwen3_LoRA",
+      "use_peft": true,
+      "description": "PrimeVul LoRA fine-tuned for vulnerability detection",
+      "category": "code-llm"
+    },
+    "megavul_ft": {
+      "type": "huggingface",
+      "model_name": "Qwen/Qwen3-4B-Instruct-2507",
+      "adapter_path": "Arastoorad/megavul_Qwen3_LoRA",
+      "use_peft": true,
+      "description": "Megavul LoRA fine-tuned for vulnerability detection",
+      "category": "code-llm"
+    }
+  }
+}
+

@@ -1,0 +1,330 @@
+Starting evaluation with model: llama
+Running evaluation on both databases...
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  3.40it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  3.15it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  3.13it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.89it/s]
+Device set to use cuda:0
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  3.48it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  3.21it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  3.16it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.98it/s]
+Device set to use cuda:0
+2025-11-27 01:31:34,652 - job_llama_database_1764225093 - INFO - Starting task: is_vulnerable_vuln
+2025-11-27 01:32:30,435 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 10/314 commits processed
+2025-11-27 01:33:25,764 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 20/314 commits processed
+2025-11-27 01:34:20,766 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 30/314 commits processed
+2025-11-27 01:35:15,817 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 40/314 commits processed
+2025-11-27 01:36:09,950 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 50/314 commits processed
+2025-11-27 01:37:06,458 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 60/314 commits processed
+2025-11-27 01:37:56,262 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 70/314 commits processed
+2025-11-27 01:38:50,186 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 80/314 commits processed
+2025-11-27 01:39:44,423 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 90/314 commits processed
+2025-11-27 01:40:40,230 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 100/314 commits processed
+2025-11-27 01:41:36,073 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 110/314 commits processed
+2025-11-27 01:42:31,060 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 120/314 commits processed
+2025-11-27 01:43:25,754 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 130/314 commits processed
+2025-11-27 01:44:20,332 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 140/314 commits processed
+2025-11-27 01:45:15,001 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 150/314 commits processed
+2025-11-27 01:46:11,272 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 160/314 commits processed
+2025-11-27 01:47:07,612 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 170/314 commits processed
+2025-11-27 01:47:58,613 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 180/314 commits processed
+2025-11-27 01:48:49,080 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 190/314 commits processed
+2025-11-27 01:49:41,182 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 200/314 commits processed
+2025-11-27 01:50:35,365 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 210/314 commits processed
+2025-11-27 01:51:32,130 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 220/314 commits processed
+2025-11-27 01:52:27,236 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 230/314 commits processed
+2025-11-27 01:53:11,266 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 240/314 commits processed
+2025-11-27 01:54:06,416 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 250/314 commits processed
+2025-11-27 01:55:01,738 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 260/314 commits processed
+2025-11-27 01:55:57,240 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 270/314 commits processed
+2025-11-27 01:56:51,776 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 280/314 commits processed
+2025-11-27 01:57:47,157 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 290/314 commits processed
+2025-11-27 01:58:41,859 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 300/314 commits processed
+2025-11-27 01:59:37,234 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln: 310/314 commits processed
+2025-11-27 01:59:58,708 - job_llama_database_1764225093 - INFO - Completed task: is_vulnerable_vuln
+2025-11-27 01:59:58,710 - job_llama_database_1764225093 - INFO - Starting task: is_vulnerable_patch
+2025-11-27 02:00:53,345 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 10/314 commits processed
+2025-11-27 02:01:48,841 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 20/314 commits processed
+2025-11-27 02:02:43,908 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 30/314 commits processed
+2025-11-27 02:03:39,183 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 40/314 commits processed
+2025-11-27 02:04:33,358 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 50/314 commits processed
+2025-11-27 02:05:29,952 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 60/314 commits processed
+2025-11-27 02:06:19,839 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 70/314 commits processed
+2025-11-27 02:07:13,841 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 80/314 commits processed
+2025-11-27 02:08:08,127 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 90/314 commits processed
+2025-11-27 02:09:03,920 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 100/314 commits processed
+2025-11-27 02:09:59,847 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 110/314 commits processed
+2025-11-27 02:10:54,906 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 120/314 commits processed
+2025-11-27 02:11:49,707 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 130/314 commits processed
+2025-11-27 02:12:44,319 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 140/314 commits processed
+2025-11-27 02:13:38,953 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 150/314 commits processed
+2025-11-27 02:14:35,307 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 160/314 commits processed
+2025-11-27 02:15:31,814 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 170/314 commits processed
+2025-11-27 02:16:22,955 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 180/314 commits processed
+2025-11-27 02:17:13,388 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 190/314 commits processed
+2025-11-27 02:18:04,858 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 200/314 commits processed
+2025-11-27 02:18:59,174 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 210/314 commits processed
+2025-11-27 02:19:56,737 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 220/314 commits processed
+2025-11-27 02:20:51,892 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 230/314 commits processed
+2025-11-27 02:21:35,929 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 240/314 commits processed
+2025-11-27 02:22:31,037 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 250/314 commits processed
+2025-11-27 02:23:26,489 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 260/314 commits processed
+2025-11-27 02:24:22,047 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 270/314 commits processed
+2025-11-27 02:25:16,463 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 280/314 commits processed
+2025-11-27 02:26:11,919 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 290/314 commits processed
+2025-11-27 02:27:06,683 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 300/314 commits processed
+2025-11-27 02:28:01,878 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch: 310/314 commits processed
+2025-11-27 02:28:23,364 - job_llama_database_1764225093 - INFO - Completed task: is_vulnerable_patch
+2025-11-27 02:28:23,367 - job_llama_database_1764225093 - INFO - Starting task: is_vulnerable_vuln_cve_cwe
+2025-11-27 02:29:18,500 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 10/314 commits processed
+2025-11-27 02:30:08,828 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 20/314 commits processed
+2025-11-27 02:31:03,857 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 30/314 commits processed
+2025-11-27 02:31:58,924 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 40/314 commits processed
+2025-11-27 02:32:53,138 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 50/314 commits processed
+2025-11-27 02:33:49,807 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 60/314 commits processed
+2025-11-27 02:34:45,121 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 70/314 commits processed
+2025-11-27 02:35:39,075 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 80/314 commits processed
+2025-11-27 02:36:33,397 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 90/314 commits processed
+2025-11-27 02:37:29,218 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 100/314 commits processed
+2025-11-27 02:38:25,087 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 110/314 commits processed
+2025-11-27 02:39:20,109 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 120/314 commits processed
+2025-11-27 02:40:14,822 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 130/314 commits processed
+2025-11-27 02:41:09,371 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 140/314 commits processed
+2025-11-27 02:42:03,889 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 150/314 commits processed
+2025-11-27 02:42:56,774 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 160/314 commits processed
+2025-11-27 02:43:53,116 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 170/314 commits processed
+2025-11-27 02:44:49,447 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 180/314 commits processed
+2025-11-27 02:45:45,605 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 190/314 commits processed
+2025-11-27 02:46:43,088 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 200/314 commits processed
+2025-11-27 02:47:37,289 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 210/314 commits processed
+2025-11-27 02:48:34,069 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 220/314 commits processed
+2025-11-27 02:49:29,191 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 230/314 commits processed
+2025-11-27 02:50:23,940 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 240/314 commits processed
+2025-11-27 02:51:19,060 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 250/314 commits processed
+2025-11-27 02:52:14,419 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 260/314 commits processed
+2025-11-27 02:53:09,950 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 270/314 commits processed
+2025-11-27 02:54:04,473 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 280/314 commits processed
+2025-11-27 02:54:59,825 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 290/314 commits processed
+2025-11-27 02:55:54,505 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 300/314 commits processed
+2025-11-27 02:56:49,650 - job_llama_database_1764225093 - INFO - Task is_vulnerable_vuln_cve_cwe: 310/314 commits processed
+2025-11-27 02:57:11,127 - job_llama_database_1764225093 - INFO - Completed task: is_vulnerable_vuln_cve_cwe
+2025-11-27 02:57:11,130 - job_llama_database_1764225093 - INFO - Starting task: is_vulnerable_patch_cve_cwe
+2025-11-27 02:58:05,829 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 10/314 commits processed
+2025-11-27 02:59:01,271 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 20/314 commits processed
+2025-11-27 02:59:56,333 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 30/314 commits processed
+2025-11-27 03:00:51,639 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 40/314 commits processed
+2025-11-27 03:01:45,819 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 50/314 commits processed
+2025-11-27 03:02:42,365 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 60/314 commits processed
+2025-11-27 03:03:37,725 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 70/314 commits processed
+2025-11-27 03:04:31,731 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 80/314 commits processed
+2025-11-27 03:05:26,035 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 90/314 commits processed
+2025-11-27 03:06:21,785 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 100/314 commits processed
+2025-11-27 03:07:17,734 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 110/314 commits processed
+2025-11-27 03:08:12,857 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 120/314 commits processed
+2025-11-27 03:09:07,664 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 130/314 commits processed
+2025-11-27 03:10:02,273 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 140/314 commits processed
+2025-11-27 03:10:56,921 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 150/314 commits processed
+2025-11-27 03:11:53,218 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 160/314 commits processed
+2025-11-27 03:12:49,679 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 170/314 commits processed
+2025-11-27 03:13:46,137 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 180/314 commits processed
+2025-11-27 03:14:42,340 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 190/314 commits processed
+2025-11-27 03:15:39,022 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 200/314 commits processed
+2025-11-27 03:16:33,304 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 210/314 commits processed
+2025-11-27 03:17:30,868 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 220/314 commits processed
+2025-11-27 03:18:26,087 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 230/314 commits processed
+2025-11-27 03:19:20,890 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 240/314 commits processed
+2025-11-27 03:20:16,038 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 250/314 commits processed
+2025-11-27 03:21:11,510 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 260/314 commits processed
+2025-11-27 03:22:07,116 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 270/314 commits processed
+2025-11-27 03:23:01,588 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 280/314 commits processed
+2025-11-27 03:23:57,113 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 290/314 commits processed
+2025-11-27 03:24:51,929 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 300/314 commits processed
+2025-11-27 03:25:47,122 - job_llama_database_1764225093 - INFO - Task is_vulnerable_patch_cve_cwe: 310/314 commits processed
+2025-11-27 03:26:08,629 - job_llama_database_1764225093 - INFO - Completed task: is_vulnerable_patch_cve_cwe
+2025-11-27 03:26:08,632 - job_llama_database_1764225093 - INFO - Starting task: suggest_fix
+2025-11-27 03:27:02,782 - job_llama_database_1764225093 - INFO - Task suggest_fix: 10/314 commits processed
+2025-11-27 03:27:57,683 - job_llama_database_1764225093 - INFO - Task suggest_fix: 20/314 commits processed
+2025-11-27 03:28:52,259 - job_llama_database_1764225093 - INFO - Task suggest_fix: 30/314 commits processed
+2025-11-27 03:29:46,778 - job_llama_database_1764225093 - INFO - Task suggest_fix: 40/314 commits processed
+2025-11-27 03:30:40,398 - job_llama_database_1764225093 - INFO - Task suggest_fix: 50/314 commits processed
+2025-11-27 03:31:36,474 - job_llama_database_1764225093 - INFO - Task suggest_fix: 60/314 commits processed
+2025-11-27 03:32:31,331 - job_llama_database_1764225093 - INFO - Task suggest_fix: 70/314 commits processed
+2025-11-27 03:33:24,869 - job_llama_database_1764225093 - INFO - Task suggest_fix: 80/314 commits processed
+2025-11-27 03:34:18,694 - job_llama_database_1764225093 - INFO - Task suggest_fix: 90/314 commits processed
+2025-11-27 03:35:14,219 - job_llama_database_1764225093 - INFO - Task suggest_fix: 100/314 commits processed
+2025-11-27 03:36:09,686 - job_llama_database_1764225093 - INFO - Task suggest_fix: 110/314 commits processed
+2025-11-27 03:37:04,357 - job_llama_database_1764225093 - INFO - Task suggest_fix: 120/314 commits processed
+2025-11-27 03:37:58,689 - job_llama_database_1764225093 - INFO - Task suggest_fix: 130/314 commits processed
+2025-11-27 03:38:52,816 - job_llama_database_1764225093 - INFO - Task suggest_fix: 140/314 commits processed
+2025-11-27 03:39:46,910 - job_llama_database_1764225093 - INFO - Task suggest_fix: 150/314 commits processed
+2025-11-27 03:40:42,817 - job_llama_database_1764225093 - INFO - Task suggest_fix: 160/314 commits processed
+2025-11-27 03:41:38,755 - job_llama_database_1764225093 - INFO - Task suggest_fix: 170/314 commits processed
+2025-11-27 03:42:34,672 - job_llama_database_1764225093 - INFO - Task suggest_fix: 180/314 commits processed
+2025-11-27 03:43:30,281 - job_llama_database_1764225093 - INFO - Task suggest_fix: 190/314 commits processed
+2025-11-27 03:44:27,289 - job_llama_database_1764225093 - INFO - Task suggest_fix: 200/314 commits processed
+2025-11-27 03:45:21,016 - job_llama_database_1764225093 - INFO - Task suggest_fix: 210/314 commits processed
+2025-11-27 03:46:17,391 - job_llama_database_1764225093 - INFO - Task suggest_fix: 220/314 commits processed
+2025-11-27 03:47:12,011 - job_llama_database_1764225093 - INFO - Task suggest_fix: 230/314 commits processed
+2025-11-27 03:48:06,344 - job_llama_database_1764225093 - INFO - Task suggest_fix: 240/314 commits processed
+2025-11-27 03:49:01,015 - job_llama_database_1764225093 - INFO - Task suggest_fix: 250/314 commits processed
+2025-11-27 03:49:55,876 - job_llama_database_1764225093 - INFO - Task suggest_fix: 260/314 commits processed
+2025-11-27 03:50:50,964 - job_llama_database_1764225093 - INFO - Task suggest_fix: 270/314 commits processed
+2025-11-27 03:51:45,031 - job_llama_database_1764225093 - INFO - Task suggest_fix: 280/314 commits processed
+2025-11-27 03:52:39,939 - job_llama_database_1764225093 - INFO - Task suggest_fix: 290/314 commits processed
+2025-11-27 03:53:34,240 - job_llama_database_1764225093 - INFO - Task suggest_fix: 300/314 commits processed
+2025-11-27 03:54:28,973 - job_llama_database_1764225093 - INFO - Task suggest_fix: 310/314 commits processed
+2025-11-27 03:54:50,235 - job_llama_database_1764225093 - INFO - Completed task: suggest_fix
+2025-11-27 03:54:50,239 - job_llama_database_1764225093 - INFO - Starting task: suggest_fix_fewshot
+2025-11-27 03:55:45,084 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 10/314 commits processed
+2025-11-27 03:56:41,190 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 20/314 commits processed
+2025-11-27 03:57:37,041 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 30/314 commits processed
+2025-11-27 03:58:32,964 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 40/314 commits processed
+2025-11-27 03:59:27,518 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 50/314 commits processed
+2025-11-27 04:00:24,599 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 60/314 commits processed
+2025-11-27 04:01:20,914 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 70/314 commits processed
+2025-11-27 04:02:15,477 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 80/314 commits processed
+2025-11-27 04:03:11,656 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 90/314 commits processed
+2025-11-27 04:04:07,893 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 100/314 commits processed
+2025-11-27 04:05:04,760 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 110/314 commits processed
+2025-11-27 04:06:00,205 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 120/314 commits processed
+2025-11-27 04:06:54,945 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 130/314 commits processed
+2025-11-27 04:07:50,413 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 140/314 commits processed
+2025-11-27 04:08:45,621 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 150/314 commits processed
+2025-11-27 04:09:42,923 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 160/314 commits processed
+2025-11-27 04:10:39,967 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 170/314 commits processed
+2025-11-27 04:11:36,958 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 180/314 commits processed
+2025-11-27 04:12:33,274 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 190/314 commits processed
+2025-11-27 04:13:30,703 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 200/314 commits processed
+2025-11-27 04:14:25,209 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 210/314 commits processed
+2025-11-27 04:15:22,542 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 220/314 commits processed
+2025-11-27 04:16:15,217 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 230/314 commits processed
+2025-11-27 04:17:10,618 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 240/314 commits processed
+2025-11-27 04:18:06,455 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 250/314 commits processed
+2025-11-27 04:19:02,620 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 260/314 commits processed
+2025-11-27 04:19:58,315 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 270/314 commits processed
+2025-11-27 04:20:52,947 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 280/314 commits processed
+2025-11-27 04:21:47,320 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 290/314 commits processed
+2025-11-27 04:22:42,160 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 300/314 commits processed
+2025-11-27 04:23:34,629 - job_llama_database_1764225093 - INFO - Task suggest_fix_fewshot: 310/314 commits processed
+2025-11-27 04:23:56,177 - job_llama_database_1764225093 - INFO - Completed task: suggest_fix_fewshot
+2025-11-27 04:23:56,181 - job_llama_database_1764225093 - INFO - Starting task: rank_cwe
+2025-11-27 04:24:50,859 - job_llama_database_1764225093 - INFO - Task rank_cwe: 10/314 commits processed
+2025-11-27 04:25:46,267 - job_llama_database_1764225093 - INFO - Task rank_cwe: 20/314 commits processed
+2025-11-27 04:26:41,329 - job_llama_database_1764225093 - INFO - Task rank_cwe: 30/314 commits processed
+2025-11-27 04:27:36,411 - job_llama_database_1764225093 - INFO - Task rank_cwe: 40/314 commits processed
+2025-11-27 04:28:30,606 - job_llama_database_1764225093 - INFO - Task rank_cwe: 50/314 commits processed
+2025-11-27 04:29:27,182 - job_llama_database_1764225093 - INFO - Task rank_cwe: 60/314 commits processed
+2025-11-27 04:30:22,482 - job_llama_database_1764225093 - INFO - Task rank_cwe: 70/314 commits processed
+2025-11-27 04:31:16,458 - job_llama_database_1764225093 - INFO - Task rank_cwe: 80/314 commits processed
+2025-11-27 04:32:10,780 - job_llama_database_1764225093 - INFO - Task rank_cwe: 90/314 commits processed
+2025-11-27 04:33:06,683 - job_llama_database_1764225093 - INFO - Task rank_cwe: 100/314 commits processed
+2025-11-27 04:34:02,609 - job_llama_database_1764225093 - INFO - Task rank_cwe: 110/314 commits processed
+2025-11-27 04:34:57,666 - job_llama_database_1764225093 - INFO - Task rank_cwe: 120/314 commits processed
+2025-11-27 04:35:52,447 - job_llama_database_1764225093 - INFO - Task rank_cwe: 130/314 commits processed
+2025-11-27 04:36:47,084 - job_llama_database_1764225093 - INFO - Task rank_cwe: 140/314 commits processed
+2025-11-27 04:37:41,700 - job_llama_database_1764225093 - INFO - Task rank_cwe: 150/314 commits processed
+2025-11-27 04:38:38,043 - job_llama_database_1764225093 - INFO - Task rank_cwe: 160/314 commits processed
+2025-11-27 04:39:34,397 - job_llama_database_1764225093 - INFO - Task rank_cwe: 170/314 commits processed
+2025-11-27 04:40:30,798 - job_llama_database_1764225093 - INFO - Task rank_cwe: 180/314 commits processed
+2025-11-27 04:41:26,996 - job_llama_database_1764225093 - INFO - Task rank_cwe: 190/314 commits processed
+2025-11-27 04:42:24,459 - job_llama_database_1764225093 - INFO - Task rank_cwe: 200/314 commits processed
+2025-11-27 04:43:18,679 - job_llama_database_1764225093 - INFO - Task rank_cwe: 210/314 commits processed
+2025-11-27 04:44:13,202 - job_llama_database_1764225093 - INFO - Task rank_cwe: 220/314 commits processed
+2025-11-27 04:45:08,407 - job_llama_database_1764225093 - INFO - Task rank_cwe: 230/314 commits processed
+2025-11-27 04:46:03,185 - job_llama_database_1764225093 - INFO - Task rank_cwe: 240/314 commits processed
+2025-11-27 04:46:58,053 - job_llama_database_1764225093 - INFO - Task rank_cwe: 250/314 commits processed
+2025-11-27 04:47:53,479 - job_llama_database_1764225093 - INFO - Task rank_cwe: 260/314 commits processed
+2025-11-27 04:48:48,996 - job_llama_database_1764225093 - INFO - Task rank_cwe: 270/314 commits processed
+2025-11-27 04:49:43,564 - job_llama_database_1764225093 - INFO - Task rank_cwe: 280/314 commits processed
+2025-11-27 04:50:38,983 - job_llama_database_1764225093 - INFO - Task rank_cwe: 290/314 commits processed
+2025-11-27 04:51:33,728 - job_llama_database_1764225093 - INFO - Task rank_cwe: 300/314 commits processed
+2025-11-27 04:52:28,904 - job_llama_database_1764225093 - INFO - Task rank_cwe: 310/314 commits processed
+2025-11-27 04:52:48,703 - job_llama_database_1764225093 - INFO - Completed task: rank_cwe
+2025-11-27 04:52:48,707 - job_llama_database_1764225093 - INFO - Job completed successfully
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  3.46it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  3.20it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  3.16it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.94it/s]
+Device set to use cuda:0
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  3.44it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  3.19it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  3.14it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  3.92it/s]
+Device set to use cuda:0
+2025-11-27 04:52:52,193 - job_llama_database_leakagefree_1764237170 - INFO - Starting task: is_vulnerable_vuln
+2025-11-27 04:53:46,231 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_vuln: 10/103 commits processed
+2025-11-27 04:54:40,382 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_vuln: 20/103 commits processed
+2025-11-27 04:55:34,437 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_vuln: 30/103 commits processed
+2025-11-27 04:56:28,612 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_vuln: 40/103 commits processed
+2025-11-27 04:57:24,033 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_vuln: 50/103 commits processed
+2025-11-27 04:58:18,078 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_vuln: 60/103 commits processed
+2025-11-27 04:59:12,163 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_vuln: 70/103 commits processed
+2025-11-27 05:00:06,154 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_vuln: 80/103 commits processed
+2025-11-27 05:01:00,499 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_vuln: 90/103 commits processed
+2025-11-27 05:01:54,849 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_vuln: 100/103 commits processed
+2025-11-27 05:02:10,952 - job_llama_database_leakagefree_1764237170 - INFO - Completed task: is_vulnerable_vuln
+2025-11-27 05:02:10,954 - job_llama_database_leakagefree_1764237170 - INFO - Starting task: is_vulnerable_patch
+2025-11-27 05:03:05,069 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_patch: 10/103 commits processed
+2025-11-27 05:03:59,371 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_patch: 20/103 commits processed
+2025-11-27 05:04:53,452 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_patch: 30/103 commits processed
+2025-11-27 05:05:47,674 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_patch: 40/103 commits processed
+2025-11-27 05:06:43,190 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_patch: 50/103 commits processed
+2025-11-27 05:07:37,283 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_patch: 60/103 commits processed
+2025-11-27 05:08:31,390 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_patch: 70/103 commits processed
+2025-11-27 05:09:25,415 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_patch: 80/103 commits processed
+2025-11-27 05:10:19,786 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_patch: 90/103 commits processed
+2025-11-27 05:11:14,143 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_patch: 100/103 commits processed
+2025-11-27 05:11:30,233 - job_llama_database_leakagefree_1764237170 - INFO - Completed task: is_vulnerable_patch
+2025-11-27 05:11:30,236 - job_llama_database_leakagefree_1764237170 - INFO - Starting task: is_vulnerable_vuln_cve_cwe
+2025-11-27 05:12:24,330 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_vuln_cve_cwe: 10/103 commits processed
+2025-11-27 05:13:18,566 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_vuln_cve_cwe: 20/103 commits processed
+2025-11-27 05:14:12,656 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_vuln_cve_cwe: 30/103 commits processed
+2025-11-27 05:15:06,889 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_vuln_cve_cwe: 40/103 commits processed
+2025-11-27 05:16:02,347 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_vuln_cve_cwe: 50/103 commits processed
+2025-11-27 05:16:56,444 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_vuln_cve_cwe: 60/103 commits processed
+2025-11-27 05:17:50,547 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_vuln_cve_cwe: 70/103 commits processed
+2025-11-27 05:18:44,559 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_vuln_cve_cwe: 80/103 commits processed
+2025-11-27 05:19:38,941 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_vuln_cve_cwe: 90/103 commits processed
+2025-11-27 05:20:33,302 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_vuln_cve_cwe: 100/103 commits processed
+2025-11-27 05:20:49,394 - job_llama_database_leakagefree_1764237170 - INFO - Completed task: is_vulnerable_vuln_cve_cwe
+2025-11-27 05:20:49,397 - job_llama_database_leakagefree_1764237170 - INFO - Starting task: is_vulnerable_patch_cve_cwe
+2025-11-27 05:21:43,582 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_patch_cve_cwe: 10/103 commits processed
+2025-11-27 05:22:37,925 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_patch_cve_cwe: 20/103 commits processed
+2025-11-27 05:23:32,082 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_patch_cve_cwe: 30/103 commits processed
+2025-11-27 05:24:26,346 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_patch_cve_cwe: 40/103 commits processed
+2025-11-27 05:25:21,888 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_patch_cve_cwe: 50/103 commits processed
+2025-11-27 05:26:16,001 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_patch_cve_cwe: 60/103 commits processed
+2025-11-27 05:27:10,217 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_patch_cve_cwe: 70/103 commits processed
+2025-11-27 05:28:04,261 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_patch_cve_cwe: 80/103 commits processed
+2025-11-27 05:28:58,659 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_patch_cve_cwe: 90/103 commits processed
+2025-11-27 05:29:53,066 - job_llama_database_leakagefree_1764237170 - INFO - Task is_vulnerable_patch_cve_cwe: 100/103 commits processed
+2025-11-27 05:30:09,165 - job_llama_database_leakagefree_1764237170 - INFO - Completed task: is_vulnerable_patch_cve_cwe
+2025-11-27 05:30:09,168 - job_llama_database_leakagefree_1764237170 - INFO - Starting task: suggest_fix
+2025-11-27 05:31:02,765 - job_llama_database_leakagefree_1764237170 - INFO - Task suggest_fix: 10/103 commits processed
+2025-11-27 05:31:56,490 - job_llama_database_leakagefree_1764237170 - INFO - Task suggest_fix: 20/103 commits processed
+2025-11-27 05:32:50,088 - job_llama_database_leakagefree_1764237170 - INFO - Task suggest_fix: 30/103 commits processed
+2025-11-27 05:33:43,880 - job_llama_database_leakagefree_1764237170 - INFO - Task suggest_fix: 40/103 commits processed
+2025-11-27 05:34:38,870 - job_llama_database_leakagefree_1764237170 - INFO - Task suggest_fix: 50/103 commits processed
+2025-11-27 05:35:32,469 - job_llama_database_leakagefree_1764237170 - INFO - Task suggest_fix: 60/103 commits processed
+2025-11-27 05:36:26,110 - job_llama_database_leakagefree_1764237170 - INFO - Task suggest_fix: 70/103 commits processed
+2025-11-27 05:37:19,709 - job_llama_database_leakagefree_1764237170 - INFO - Task suggest_fix: 80/103 commits processed
+2025-11-27 05:38:13,636 - job_llama_database_leakagefree_1764237170 - INFO - Task suggest_fix: 90/103 commits processed
+2025-11-27 05:39:07,551 - job_llama_database_leakagefree_1764237170 - INFO - Task suggest_fix: 100/103 commits processed
+2025-11-27 05:39:23,498 - job_llama_database_leakagefree_1764237170 - INFO - Completed task: suggest_fix
+2025-11-27 05:39:23,500 - job_llama_database_leakagefree_1764237170 - INFO - Starting task: suggest_fix_fewshot
+2025-11-27 05:40:17,861 - job_llama_database_leakagefree_1764237170 - INFO - Task suggest_fix_fewshot: 10/103 commits processed
+2025-11-27 05:41:12,882 - job_llama_database_leakagefree_1764237170 - INFO - Task suggest_fix_fewshot: 20/103 commits processed
+2025-11-27 05:42:07,478 - job_llama_database_leakagefree_1764237170 - INFO - Task suggest_fix_fewshot: 30/103 commits processed
+2025-11-27 05:43:02,067 - job_llama_database_leakagefree_1764237170 - INFO - Task suggest_fix_fewshot: 40/103 commits processed
+2025-11-27 05:43:58,444 - job_llama_database_leakagefree_1764237170 - INFO - Task suggest_fix_fewshot: 50/103 commits processed
+2025-11-27 05:44:53,586 - job_llama_database_leakagefree_1764237170 - INFO - Task suggest_fix_fewshot: 60/103 commits processed
+2025-11-27 05:45:49,131 - job_llama_database_leakagefree_1764237170 - INFO - Task suggest_fix_fewshot: 70/103 commits processed
+2025-11-27 05:46:43,491 - job_llama_database_leakagefree_1764237170 - INFO - Task suggest_fix_fewshot: 80/103 commits processed
+2025-11-27 05:47:38,517 - job_llama_database_leakagefree_1764237170 - INFO - Task suggest_fix_fewshot: 90/103 commits processed
+2025-11-27 05:48:33,451 - job_llama_database_leakagefree_1764237170 - INFO - Task suggest_fix_fewshot: 100/103 commits processed
+2025-11-27 05:48:49,826 - job_llama_database_leakagefree_1764237170 - INFO - Completed task: suggest_fix_fewshot
+2025-11-27 05:48:49,829 - job_llama_database_leakagefree_1764237170 - INFO - Starting task: rank_cwe
+2025-11-27 05:49:44,016 - job_llama_database_leakagefree_1764237170 - INFO - Task rank_cwe: 10/103 commits processed
+2025-11-27 05:50:38,334 - job_llama_database_leakagefree_1764237170 - INFO - Task rank_cwe: 20/103 commits processed
+2025-11-27 05:51:31,695 - job_llama_database_leakagefree_1764237170 - INFO - Task rank_cwe: 30/103 commits processed
+2025-11-27 05:52:26,164 - job_llama_database_leakagefree_1764237170 - INFO - Task rank_cwe: 40/103 commits processed
+2025-11-27 05:53:21,626 - job_llama_database_leakagefree_1764237170 - INFO - Task rank_cwe: 50/103 commits processed
+2025-11-27 05:54:15,727 - job_llama_database_leakagefree_1764237170 - INFO - Task rank_cwe: 60/103 commits processed
+2025-11-27 05:55:09,888 - job_llama_database_leakagefree_1764237170 - INFO - Task rank_cwe: 70/103 commits processed
+2025-11-27 05:56:03,960 - job_llama_database_leakagefree_1764237170 - INFO - Task rank_cwe: 80/103 commits processed
+2025-11-27 05:56:58,351 - job_llama_database_leakagefree_1764237170 - INFO - Task rank_cwe: 90/103 commits processed
+2025-11-27 05:57:52,777 - job_llama_database_leakagefree_1764237170 - INFO - Task rank_cwe: 100/103 commits processed
+2025-11-27 05:58:08,869 - job_llama_database_leakagefree_1764237170 - INFO - Completed task: rank_cwe
+2025-11-27 05:58:08,871 - job_llama_database_leakagefree_1764237170 - INFO - Job completed successfully
+Evaluation completed on both databases:
+  database.sqlite: Job llama_database_1764225093 - Status: completed
+  database_leakagefree.sqlite: Job llama_database_leakagefree_1764237170 - Status: completed

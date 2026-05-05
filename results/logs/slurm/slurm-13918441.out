@@ -1,0 +1,543 @@
+Starting evaluation with model: deepseek
+Running evaluation on both databases...
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:25<00:25, 25.49s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:42<00:00, 20.62s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:42<00:00, 21.35s/it]
+Device set to use cuda:0
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.17s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.07s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.08s/it]
+Device set to use cuda:0
+2025-11-27 00:43:46,388 - job_deepseek_database_1764222223 - INFO - Starting task: is_vulnerable_vuln
+2025-11-27 00:46:02,867 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 10/314 commits processed
+2025-11-27 00:47:48,735 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 20/314 commits processed
+2025-11-27 00:49:46,618 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 30/314 commits processed
+2025-11-27 00:52:01,141 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 40/314 commits processed
+2025-11-27 00:54:18,257 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 50/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 6.01 GiB. GPU 1 has a total capacity of 44.40 GiB of which 5.79 GiB is free. Including non-PyTorch memory, this process has 38.61 GiB memory in use. Of the allocated memory 26.13 GiB is allocated by PyTorch, and 11.98 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to check vulnerability for commit_hash 4df153652cc46545722879415937582028c18af5: Empty response content
+Raw response: 
+Response probability: None
+Failed to check vulnerability for commit_hash 4df153652cc46545722879415937582028c18af5
+2025-11-27 00:55:52,493 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 60/314 commits processed
+2025-11-27 00:57:16,305 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 70/314 commits processed
+2025-11-27 00:59:26,617 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 80/314 commits processed
+2025-11-27 01:00:55,462 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 90/314 commits processed
+2025-11-27 01:02:59,745 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 100/314 commits processed
+2025-11-27 01:05:20,955 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 110/314 commits processed
+2025-11-27 01:07:35,668 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 120/314 commits processed
+2025-11-27 01:09:47,493 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 130/314 commits processed
+2025-11-27 01:11:47,994 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 140/314 commits processed
+2025-11-27 01:14:14,552 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 150/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 15.55 GiB. GPU 0 has a total capacity of 44.40 GiB of which 6.10 GiB is free. Including non-PyTorch memory, this process has 38.30 GiB memory in use. Of the allocated memory 37.39 GiB is allocated by PyTorch, and 419.41 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to check vulnerability for commit_hash f5e81d1117501546b7be050c5fbafa6efd2c722c: Empty response content
+Raw response: 
+Response probability: None
+Failed to check vulnerability for commit_hash f5e81d1117501546b7be050c5fbafa6efd2c722c
+2025-11-27 01:16:13,472 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 160/314 commits processed
+2025-11-27 01:18:21,401 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 170/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 13.06 GiB. GPU 0 has a total capacity of 44.40 GiB of which 8.58 GiB is free. Including non-PyTorch memory, this process has 35.81 GiB memory in use. Of the allocated memory 33.58 GiB is allocated by PyTorch, and 1.73 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to check vulnerability for commit_hash 82939d7999dfc1f1998c4b1c12e2f19edbdff272: Empty response content
+Raw response: 
+Response probability: None
+Failed to check vulnerability for commit_hash 82939d7999dfc1f1998c4b1c12e2f19edbdff272
+2025-11-27 01:20:06,589 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 180/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 10.59 GiB. GPU 0 has a total capacity of 44.40 GiB of which 903.31 MiB is free. Including non-PyTorch memory, this process has 43.51 GiB memory in use. Of the allocated memory 29.90 GiB is allocated by PyTorch, and 13.11 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to check vulnerability for commit_hash 8828003759391029fc45c15ac346622cdae19b6d: Empty response content
+Raw response: 
+Response probability: None
+Failed to check vulnerability for commit_hash 8828003759391029fc45c15ac346622cdae19b6d
+2025-11-27 01:22:05,488 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 190/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 7.19 GiB. GPU 0 has a total capacity of 44.40 GiB of which 4.29 GiB is free. Including non-PyTorch memory, this process has 40.11 GiB memory in use. Of the allocated memory 24.77 GiB is allocated by PyTorch, and 14.84 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to check vulnerability for commit_hash f9beb95e6a2669fa35e34a6ff52808b181efa20f: Empty response content
+Raw response: 
+Response probability: None
+Failed to check vulnerability for commit_hash f9beb95e6a2669fa35e34a6ff52808b181efa20f
+2025-11-27 01:23:41,922 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 200/314 commits processed
+2025-11-27 01:25:39,740 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 210/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 13.24 GiB. GPU 0 has a total capacity of 44.40 GiB of which 9.42 GiB is free. Including non-PyTorch memory, this process has 34.98 GiB memory in use. Of the allocated memory 33.85 GiB is allocated by PyTorch, and 644.17 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to check vulnerability for commit_hash 45f6fad84cc305103b28d73482b344d7f5b76f39: Empty response content
+Raw response: 
+Response probability: None
+Failed to check vulnerability for commit_hash 45f6fad84cc305103b28d73482b344d7f5b76f39
+2025-11-27 01:27:25,936 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 220/314 commits processed
+2025-11-27 01:29:40,471 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 230/314 commits processed
+2025-11-27 01:31:39,898 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 240/314 commits processed
+2025-11-27 01:34:09,547 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 250/314 commits processed
+2025-11-27 01:35:55,421 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 260/314 commits processed
+2025-11-27 01:38:26,819 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 270/314 commits processed
+2025-11-27 01:40:46,210 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 280/314 commits processed
+2025-11-27 01:43:17,066 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 290/314 commits processed
+2025-11-27 01:45:45,296 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 300/314 commits processed
+2025-11-27 01:47:55,843 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln: 310/314 commits processed
+2025-11-27 01:48:53,778 - job_deepseek_database_1764222223 - INFO - Completed task: is_vulnerable_vuln
+2025-11-27 01:48:53,781 - job_deepseek_database_1764222223 - INFO - Starting task: is_vulnerable_patch
+2025-11-27 01:50:51,938 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 10/314 commits processed
+2025-11-27 01:53:07,687 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 20/314 commits processed
+2025-11-27 01:55:21,130 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 30/314 commits processed
+2025-11-27 01:57:36,204 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 40/314 commits processed
+2025-11-27 01:59:41,577 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 50/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 6.02 GiB. GPU 1 has a total capacity of 44.40 GiB of which 5.47 GiB is free. Including non-PyTorch memory, this process has 38.93 GiB memory in use. Of the allocated memory 26.40 GiB is allocated by PyTorch, and 12.03 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to check vulnerability for commit_hash 4df153652cc46545722879415937582028c18af5: Empty response content
+Raw response: 
+Response probability: None
+Failed to check vulnerability for commit_hash 4df153652cc46545722879415937582028c18af5
+2025-11-27 02:01:28,385 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 60/314 commits processed
+2025-11-27 02:03:03,539 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 70/314 commits processed
+2025-11-27 02:05:15,437 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 80/314 commits processed
+2025-11-27 02:07:28,094 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 90/314 commits processed
+2025-11-27 02:09:46,592 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 100/314 commits processed
+2025-11-27 02:12:08,070 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 110/314 commits processed
+2025-11-27 02:14:40,225 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 120/314 commits processed
+2025-11-27 02:17:08,861 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 130/314 commits processed
+2025-11-27 02:19:24,579 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 140/314 commits processed
+2025-11-27 02:21:45,488 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 150/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 16.20 GiB. GPU 0 has a total capacity of 44.40 GiB of which 1.76 GiB is free. Including non-PyTorch memory, this process has 42.63 GiB memory in use. Of the allocated memory 38.38 GiB is allocated by PyTorch, and 3.75 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to check vulnerability for commit_hash f5e81d1117501546b7be050c5fbafa6efd2c722c: Empty response content
+Raw response: 
+Response probability: None
+Failed to check vulnerability for commit_hash f5e81d1117501546b7be050c5fbafa6efd2c722c
+2025-11-27 02:23:40,924 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 160/314 commits processed
+2025-11-27 02:25:49,151 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 170/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 13.30 GiB. GPU 0 has a total capacity of 44.40 GiB of which 4.66 GiB is free. Including non-PyTorch memory, this process has 39.74 GiB memory in use. Of the allocated memory 33.95 GiB is allocated by PyTorch, and 5.29 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to check vulnerability for commit_hash 82939d7999dfc1f1998c4b1c12e2f19edbdff272: Empty response content
+Raw response: 
+Response probability: None
+Failed to check vulnerability for commit_hash 82939d7999dfc1f1998c4b1c12e2f19edbdff272
+2025-11-27 02:27:49,928 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 180/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 10.45 GiB. GPU 0 has a total capacity of 44.40 GiB of which 853.31 MiB is free. Including non-PyTorch memory, this process has 43.56 GiB memory in use. Of the allocated memory 29.69 GiB is allocated by PyTorch, and 13.37 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to check vulnerability for commit_hash 8828003759391029fc45c15ac346622cdae19b6d: Empty response content
+Raw response: 
+Response probability: None
+Failed to check vulnerability for commit_hash 8828003759391029fc45c15ac346622cdae19b6d
+2025-11-27 02:29:48,832 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 190/314 commits processed
+2025-11-27 02:32:15,869 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 200/314 commits processed
+2025-11-27 02:34:13,172 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 210/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 14.27 GiB. GPU 0 has a total capacity of 44.40 GiB of which 10.20 GiB is free. Including non-PyTorch memory, this process has 34.19 GiB memory in use. Of the allocated memory 28.72 GiB is allocated by PyTorch, and 4.98 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to check vulnerability for commit_hash 45f6fad84cc305103b28d73482b344d7f5b76f39: Empty response content
+Raw response: 
+Response probability: None
+Failed to check vulnerability for commit_hash 45f6fad84cc305103b28d73482b344d7f5b76f39
+2025-11-27 02:36:10,524 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 220/314 commits processed
+2025-11-27 02:38:20,169 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 230/314 commits processed
+2025-11-27 02:40:14,525 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 240/314 commits processed
+2025-11-27 02:42:46,276 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 250/314 commits processed
+2025-11-27 02:45:17,015 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 260/314 commits processed
+2025-11-27 02:47:48,827 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 270/314 commits processed
+2025-11-27 02:50:13,749 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 280/314 commits processed
+2025-11-27 02:52:44,926 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 290/314 commits processed
+2025-11-27 02:55:12,536 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 300/314 commits processed
+2025-11-27 02:57:43,786 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch: 310/314 commits processed
+2025-11-27 02:58:42,099 - job_deepseek_database_1764222223 - INFO - Completed task: is_vulnerable_patch
+2025-11-27 02:58:42,101 - job_deepseek_database_1764222223 - INFO - Starting task: is_vulnerable_vuln_cve_cwe
+2025-11-27 02:59:49,611 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 10/314 commits processed
+2025-11-27 03:01:16,108 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 20/314 commits processed
+2025-11-27 03:02:17,484 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 30/314 commits processed
+2025-11-27 03:03:16,583 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 40/314 commits processed
+2025-11-27 03:04:51,321 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 50/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 6.05 GiB. GPU 1 has a total capacity of 44.40 GiB of which 5.60 GiB is free. Including non-PyTorch memory, this process has 38.79 GiB memory in use. Of the allocated memory 26.22 GiB is allocated by PyTorch, and 12.07 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to check specific CVE/CWE vulnerability for commit_hash 4df153652cc46545722879415937582028c18af5
+2025-11-27 03:05:36,939 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 60/314 commits processed
+2025-11-27 03:06:49,309 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 70/314 commits processed
+2025-11-27 03:09:00,874 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 80/314 commits processed
+2025-11-27 03:09:45,970 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 90/314 commits processed
+2025-11-27 03:11:45,557 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 100/314 commits processed
+2025-11-27 03:13:32,600 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 110/314 commits processed
+2025-11-27 03:15:10,008 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 120/314 commits processed
+2025-11-27 03:16:53,015 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 130/314 commits processed
+2025-11-27 03:18:22,437 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 140/314 commits processed
+2025-11-27 03:19:46,367 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 150/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 15.61 GiB. GPU 0 has a total capacity of 44.40 GiB of which 4.71 GiB is free. Including non-PyTorch memory, this process has 39.68 GiB memory in use. Of the allocated memory 37.48 GiB is allocated by PyTorch, and 1.70 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to check specific CVE/CWE vulnerability for commit_hash f5e81d1117501546b7be050c5fbafa6efd2c722c
+2025-11-27 03:20:57,652 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 160/314 commits processed
+2025-11-27 03:22:31,726 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 170/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 13.12 GiB. GPU 0 has a total capacity of 44.40 GiB of which 7.20 GiB is free. Including non-PyTorch memory, this process has 37.19 GiB memory in use. Of the allocated memory 33.67 GiB is allocated by PyTorch, and 3.03 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to check specific CVE/CWE vulnerability for commit_hash 82939d7999dfc1f1998c4b1c12e2f19edbdff272
+2025-11-27 03:23:56,008 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 180/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 10.64 GiB. GPU 0 has a total capacity of 44.40 GiB of which 797.31 MiB is free. Including non-PyTorch memory, this process has 43.62 GiB memory in use. Of the allocated memory 29.98 GiB is allocated by PyTorch, and 13.14 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to check specific CVE/CWE vulnerability for commit_hash 8828003759391029fc45c15ac346622cdae19b6d
+2025-11-27 03:24:42,827 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 190/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 7.23 GiB. GPU 0 has a total capacity of 44.40 GiB of which 4.19 GiB is free. Including non-PyTorch memory, this process has 40.20 GiB memory in use. Of the allocated memory 24.83 GiB is allocated by PyTorch, and 14.87 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to check specific CVE/CWE vulnerability for commit_hash f9beb95e6a2669fa35e34a6ff52808b181efa20f
+2025-11-27 03:25:48,634 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 200/314 commits processed
+2025-11-27 03:27:43,869 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 210/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 13.29 GiB. GPU 0 has a total capacity of 44.40 GiB of which 9.35 GiB is free. Including non-PyTorch memory, this process has 35.04 GiB memory in use. Of the allocated memory 33.93 GiB is allocated by PyTorch, and 626.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to check specific CVE/CWE vulnerability for commit_hash 45f6fad84cc305103b28d73482b344d7f5b76f39
+2025-11-27 03:28:58,147 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 220/314 commits processed
+2025-11-27 03:30:27,081 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 230/314 commits processed
+2025-11-27 03:32:24,625 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 240/314 commits processed
+2025-11-27 03:33:40,790 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 250/314 commits processed
+2025-11-27 03:35:11,425 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 260/314 commits processed
+2025-11-27 03:36:26,862 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 270/314 commits processed
+2025-11-27 03:37:49,297 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 280/314 commits processed
+2025-11-27 03:39:42,941 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 290/314 commits processed
+2025-11-27 03:41:26,784 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 300/314 commits processed
+2025-11-27 03:43:22,399 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_vuln_cve_cwe: 310/314 commits processed
+2025-11-27 03:44:20,711 - job_deepseek_database_1764222223 - INFO - Completed task: is_vulnerable_vuln_cve_cwe
+2025-11-27 03:44:20,714 - job_deepseek_database_1764222223 - INFO - Starting task: is_vulnerable_patch_cve_cwe
+2025-11-27 03:45:45,004 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 10/314 commits processed
+2025-11-27 03:47:14,730 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 20/314 commits processed
+2025-11-27 03:48:15,971 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 30/314 commits processed
+2025-11-27 03:48:43,648 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 40/314 commits processed
+2025-11-27 03:50:00,659 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 50/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 6.06 GiB. GPU 1 has a total capacity of 44.40 GiB of which 5.58 GiB is free. Including non-PyTorch memory, this process has 38.81 GiB memory in use. Of the allocated memory 26.24 GiB is allocated by PyTorch, and 12.07 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to check specific CVE/CWE vulnerability for commit_hash 4df153652cc46545722879415937582028c18af5
+2025-11-27 03:50:06,943 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 60/314 commits processed
+2025-11-27 03:51:50,732 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 70/314 commits processed
+2025-11-27 03:53:17,442 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 80/314 commits processed
+2025-11-27 03:54:16,813 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 90/314 commits processed
+2025-11-27 03:55:51,411 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 100/314 commits processed
+2025-11-27 03:57:43,045 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 110/314 commits processed
+2025-11-27 03:58:52,551 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 120/314 commits processed
+2025-11-27 04:00:08,263 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 130/314 commits processed
+2025-11-27 04:01:46,623 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 140/314 commits processed
+2025-11-27 04:03:16,705 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 150/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 16.26 GiB. GPU 0 has a total capacity of 44.40 GiB of which 1.67 GiB is free. Including non-PyTorch memory, this process has 42.72 GiB memory in use. Of the allocated memory 38.48 GiB is allocated by PyTorch, and 3.75 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to check specific CVE/CWE vulnerability for commit_hash f5e81d1117501546b7be050c5fbafa6efd2c722c
+2025-11-27 04:04:14,480 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 160/314 commits processed
+2025-11-27 04:05:05,722 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 170/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 13.36 GiB. GPU 0 has a total capacity of 44.40 GiB of which 4.57 GiB is free. Including non-PyTorch memory, this process has 39.82 GiB memory in use. Of the allocated memory 34.03 GiB is allocated by PyTorch, and 5.29 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to check specific CVE/CWE vulnerability for commit_hash 82939d7999dfc1f1998c4b1c12e2f19edbdff272
+2025-11-27 04:06:47,177 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 180/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 10.50 GiB. GPU 0 has a total capacity of 44.40 GiB of which 749.31 MiB is free. Including non-PyTorch memory, this process has 43.66 GiB memory in use. Of the allocated memory 29.76 GiB is allocated by PyTorch, and 13.40 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to check specific CVE/CWE vulnerability for commit_hash 8828003759391029fc45c15ac346622cdae19b6d
+2025-11-27 04:07:48,072 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 190/314 commits processed
+2025-11-27 04:08:31,581 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 200/314 commits processed
+2025-11-27 04:10:14,789 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 210/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 14.31 GiB. GPU 0 has a total capacity of 44.40 GiB of which 10.12 GiB is free. Including non-PyTorch memory, this process has 34.27 GiB memory in use. Of the allocated memory 28.76 GiB is allocated by PyTorch, and 5.01 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to check specific CVE/CWE vulnerability for commit_hash 45f6fad84cc305103b28d73482b344d7f5b76f39
+2025-11-27 04:11:01,670 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 220/314 commits processed
+2025-11-27 04:12:31,816 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 230/314 commits processed
+2025-11-27 04:13:45,535 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 240/314 commits processed
+2025-11-27 04:14:47,041 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 250/314 commits processed
+2025-11-27 04:16:32,492 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 260/314 commits processed
+2025-11-27 04:17:34,395 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 270/314 commits processed
+2025-11-27 04:19:29,250 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 280/314 commits processed
+2025-11-27 04:20:42,499 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 290/314 commits processed
+2025-11-27 04:22:21,577 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 300/314 commits processed
+2025-11-27 04:23:51,981 - job_deepseek_database_1764222223 - INFO - Task is_vulnerable_patch_cve_cwe: 310/314 commits processed
+2025-11-27 04:24:50,320 - job_deepseek_database_1764222223 - INFO - Completed task: is_vulnerable_patch_cve_cwe
+2025-11-27 04:24:50,324 - job_deepseek_database_1764222223 - INFO - Starting task: suggest_fix
+2025-11-27 04:27:18,635 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 10/314 commits processed
+2025-11-27 04:29:48,949 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 20/314 commits processed
+2025-11-27 04:32:18,332 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 30/314 commits processed
+2025-11-27 04:34:47,781 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 40/314 commits processed
+2025-11-27 04:37:14,764 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 50/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 6.11 GiB. GPU 1 has a total capacity of 44.40 GiB of which 5.44 GiB is free. Including non-PyTorch memory, this process has 38.96 GiB memory in use. Of the allocated memory 26.29 GiB is allocated by PyTorch, and 12.17 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to generate a fix for commit_hash 4df153652cc46545722879415937582028c18af5
+2025-11-27 04:39:35,104 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 60/314 commits processed
+2025-11-27 04:42:04,584 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 70/314 commits processed
+2025-11-27 04:44:31,088 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 80/314 commits processed
+2025-11-27 04:46:58,533 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 90/314 commits processed
+2025-11-27 04:49:33,657 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 100/314 commits processed
+2025-11-27 04:52:09,658 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 110/314 commits processed
+2025-11-27 04:54:41,248 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 120/314 commits processed
+2025-11-27 04:57:10,058 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 130/314 commits processed
+2025-11-27 04:59:39,660 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 140/314 commits processed
+2025-11-27 05:02:07,782 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 150/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 15.71 GiB. GPU 0 has a total capacity of 44.40 GiB of which 4.54 GiB is free. Including non-PyTorch memory, this process has 39.85 GiB memory in use. Of the allocated memory 37.63 GiB is allocated by PyTorch, and 1.72 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to generate a fix for commit_hash f5e81d1117501546b7be050c5fbafa6efd2c722c
+2025-11-27 05:04:21,991 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 160/314 commits processed
+2025-11-27 05:07:00,644 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 170/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 13.21 GiB. GPU 0 has a total capacity of 44.40 GiB of which 7.04 GiB is free. Including non-PyTorch memory, this process has 37.36 GiB memory in use. Of the allocated memory 33.81 GiB is allocated by PyTorch, and 3.05 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to generate a fix for commit_hash 82939d7999dfc1f1998c4b1c12e2f19edbdff272
+2025-11-27 05:09:13,610 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 180/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 10.72 GiB. GPU 0 has a total capacity of 44.40 GiB of which 583.31 MiB is free. Including non-PyTorch memory, this process has 43.82 GiB memory in use. Of the allocated memory 30.10 GiB is allocated by PyTorch, and 13.22 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to generate a fix for commit_hash 8828003759391029fc45c15ac346622cdae19b6d
+2025-11-27 05:11:27,884 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 190/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 7.29 GiB. GPU 0 has a total capacity of 44.40 GiB of which 4.00 GiB is free. Including non-PyTorch memory, this process has 40.39 GiB memory in use. Of the allocated memory 24.93 GiB is allocated by PyTorch, and 14.96 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to generate a fix for commit_hash f9beb95e6a2669fa35e34a6ff52808b181efa20f
+2025-11-27 05:13:49,191 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 200/314 commits processed
+2025-11-27 05:16:16,447 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 210/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 13.38 GiB. GPU 0 has a total capacity of 44.40 GiB of which 9.19 GiB is free. Including non-PyTorch memory, this process has 35.20 GiB memory in use. Of the allocated memory 34.07 GiB is allocated by PyTorch, and 645.61 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to generate a fix for commit_hash 45f6fad84cc305103b28d73482b344d7f5b76f39
+2025-11-27 05:18:32,029 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 220/314 commits processed
+2025-11-27 05:21:01,846 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 230/314 commits processed
+2025-11-27 05:23:30,418 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 240/314 commits processed
+2025-11-27 05:26:02,614 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 250/314 commits processed
+2025-11-27 05:28:33,403 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 260/314 commits processed
+2025-11-27 05:31:04,996 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 270/314 commits processed
+2025-11-27 05:33:33,513 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 280/314 commits processed
+2025-11-27 05:36:04,539 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 290/314 commits processed
+2025-11-27 05:38:33,034 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 300/314 commits processed
+2025-11-27 05:41:04,382 - job_deepseek_database_1764222223 - INFO - Task suggest_fix: 310/314 commits processed
+2025-11-27 05:42:02,636 - job_deepseek_database_1764222223 - INFO - Completed task: suggest_fix
+2025-11-27 05:42:02,639 - job_deepseek_database_1764222223 - INFO - Starting task: suggest_fix_fewshot
+2025-11-27 05:44:33,281 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 10/314 commits processed
+2025-11-27 05:46:59,786 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 20/314 commits processed
+2025-11-27 05:49:33,756 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 30/314 commits processed
+2025-11-27 05:52:07,243 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 40/314 commits processed
+2025-11-27 05:54:30,869 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 50/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 7.21 GiB. GPU 1 has a total capacity of 44.40 GiB of which 1.57 GiB is free. Including non-PyTorch memory, this process has 42.82 GiB memory in use. Of the allocated memory 27.94 GiB is allocated by PyTorch, and 14.38 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to generate a fix for commit_hash 4df153652cc46545722879415937582028c18af5
+2025-11-27 05:56:55,902 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 60/314 commits processed
+2025-11-27 05:59:34,894 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 70/314 commits processed
+2025-11-27 06:01:58,960 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 80/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 9.97 GiB. GPU 0 has a total capacity of 44.40 GiB of which 4.95 GiB is free. Including non-PyTorch memory, this process has 39.44 GiB memory in use. Of the allocated memory 28.94 GiB is allocated by PyTorch, and 10.01 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to generate a fix for commit_hash 71b547f561247897a0a14f3082730156c0533fed
+2025-11-27 06:04:09,989 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 90/314 commits processed
+2025-11-27 06:06:52,715 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 100/314 commits processed
+2025-11-27 06:09:34,518 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 110/314 commits processed
+2025-11-27 06:12:03,682 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 120/314 commits processed
+2025-11-27 06:14:33,942 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 130/314 commits processed
+2025-11-27 06:17:04,268 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 140/314 commits processed
+2025-11-27 06:19:27,874 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 150/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 16.81 GiB. GPU 0 has a total capacity of 44.40 GiB of which 14.92 GiB is free. Including non-PyTorch memory, this process has 29.48 GiB memory in use. Of the allocated memory 22.51 GiB is allocated by PyTorch, and 6.46 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to generate a fix for commit_hash f5e81d1117501546b7be050c5fbafa6efd2c722c
+2025-11-27 06:21:54,545 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 160/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 10.49 GiB. GPU 0 has a total capacity of 44.40 GiB of which 9.41 GiB is free. Including non-PyTorch memory, this process has 34.99 GiB memory in use. Of the allocated memory 29.64 GiB is allocated by PyTorch, and 4.85 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to generate a fix for commit_hash 979d63d50c0c0f7bc537bf821e056cc9fe5abd38
+2025-11-27 06:24:13,686 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 170/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 13.51 GiB. GPU 0 has a total capacity of 44.40 GiB of which 6.39 GiB is free. Including non-PyTorch memory, this process has 38.00 GiB memory in use. Of the allocated memory 34.27 GiB is allocated by PyTorch, and 3.23 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to generate a fix for commit_hash 82939d7999dfc1f1998c4b1c12e2f19edbdff272
+2025-11-27 06:26:25,334 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 180/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 11.41 GiB. GPU 0 has a total capacity of 44.40 GiB of which 8.50 GiB is free. Including non-PyTorch memory, this process has 35.90 GiB memory in use. Of the allocated memory 31.04 GiB is allocated by PyTorch, and 4.36 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to generate a fix for commit_hash 8828003759391029fc45c15ac346622cdae19b6d
+2025-11-27 06:28:41,529 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 190/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 7.52 GiB. GPU 0 has a total capacity of 44.40 GiB of which 4.85 GiB is free. Including non-PyTorch memory, this process has 39.54 GiB memory in use. Of the allocated memory 25.26 GiB is allocated by PyTorch, and 13.78 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to generate a fix for commit_hash f9beb95e6a2669fa35e34a6ff52808b181efa20f
+2025-11-27 06:31:01,259 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 200/314 commits processed
+2025-11-27 06:33:28,720 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 210/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 14.00 GiB. GPU 0 has a total capacity of 44.40 GiB of which 8.34 GiB is free. Including non-PyTorch memory, this process has 36.05 GiB memory in use. Of the allocated memory 35.02 GiB is allocated by PyTorch, and 543.46 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Failed to generate a fix for commit_hash 45f6fad84cc305103b28d73482b344d7f5b76f39
+2025-11-27 06:35:48,487 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 220/314 commits processed
+2025-11-27 06:38:19,930 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 230/314 commits processed
+2025-11-27 06:40:49,837 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 240/314 commits processed
+2025-11-27 06:43:26,103 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 250/314 commits processed
+2025-11-27 06:46:01,694 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 260/314 commits processed
+2025-11-27 06:48:23,020 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 270/314 commits processed
+2025-11-27 06:50:43,000 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 280/314 commits processed
+2025-11-27 06:53:16,182 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 290/314 commits processed
+2025-11-27 06:55:46,468 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 300/314 commits processed
+2025-11-27 06:58:19,690 - job_deepseek_database_1764222223 - INFO - Task suggest_fix_fewshot: 310/314 commits processed
+2025-11-27 06:59:12,539 - job_deepseek_database_1764222223 - INFO - Completed task: suggest_fix_fewshot
+2025-11-27 06:59:12,544 - job_deepseek_database_1764222223 - INFO - Starting task: rank_cwe
+2025-11-27 07:01:35,607 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 10/314 commits processed
+2025-11-27 07:04:05,868 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 20/314 commits processed
+2025-11-27 07:06:35,368 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 30/314 commits processed
+2025-11-27 07:09:04,777 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 40/314 commits processed
+2025-11-27 07:11:30,822 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 50/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 6.06 GiB. GPU 1 has a total capacity of 44.40 GiB of which 5.47 GiB is free. Including non-PyTorch memory, this process has 38.93 GiB memory in use. Of the allocated memory 26.30 GiB is allocated by PyTorch, and 12.13 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Could not extract any CWE identifiers from: 
+No CWEs extracted, storing empty list for commit 4df153652cc46545722879415937582028c18af5: 
+2025-11-27 07:13:51,246 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 60/314 commits processed
+2025-11-27 07:16:24,359 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 70/314 commits processed
+2025-11-27 07:18:47,230 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 80/314 commits processed
+2025-11-27 07:21:11,670 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 90/314 commits processed
+2025-11-27 07:23:44,399 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 100/314 commits processed
+2025-11-27 07:26:15,389 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 110/314 commits processed
+2025-11-27 07:28:42,511 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 120/314 commits processed
+2025-11-27 07:31:11,265 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 130/314 commits processed
+2025-11-27 07:33:40,768 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 140/314 commits processed
+2025-11-27 07:36:08,879 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 150/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 15.64 GiB. GPU 0 has a total capacity of 44.40 GiB of which 2.91 GiB is free. Including non-PyTorch memory, this process has 41.48 GiB memory in use. Of the allocated memory 37.53 GiB is allocated by PyTorch, and 3.46 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Could not extract any CWE identifiers from: 
+No CWEs extracted, storing empty list for commit f5e81d1117501546b7be050c5fbafa6efd2c722c: 
+2025-11-27 07:38:23,287 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 160/314 commits processed
+2025-11-27 07:41:01,781 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 170/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 13.15 GiB. GPU 0 has a total capacity of 44.40 GiB of which 5.40 GiB is free. Including non-PyTorch memory, this process has 38.99 GiB memory in use. Of the allocated memory 33.71 GiB is allocated by PyTorch, and 4.78 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Could not extract any CWE identifiers from: 
+No CWEs extracted, storing empty list for commit 82939d7999dfc1f1998c4b1c12e2f19edbdff272: 
+2025-11-27 07:43:11,749 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 180/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 10.67 GiB. GPU 0 has a total capacity of 44.40 GiB of which 733.31 MiB is free. Including non-PyTorch memory, this process has 43.68 GiB memory in use. Of the allocated memory 30.02 GiB is allocated by PyTorch, and 13.16 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Could not extract any CWE identifiers from: 
+No CWEs extracted, storing empty list for commit 8828003759391029fc45c15ac346622cdae19b6d: 
+2025-11-27 07:45:26,063 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 190/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 7.25 GiB. GPU 0 has a total capacity of 44.40 GiB of which 4.14 GiB is free. Including non-PyTorch memory, this process has 40.26 GiB memory in use. Of the allocated memory 24.86 GiB is allocated by PyTorch, and 14.90 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Could not extract any CWE identifiers from: 
+No CWEs extracted, storing empty list for commit f9beb95e6a2669fa35e34a6ff52808b181efa20f: 
+2025-11-27 07:47:42,230 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 200/314 commits processed
+2025-11-27 07:50:09,351 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 210/314 commits processed
+HuggingFace generation (manual) failed: CUDA out of memory. Tried to allocate 13.32 GiB. GPU 0 has a total capacity of 44.40 GiB of which 9.30 GiB is free. Including non-PyTorch memory, this process has 35.09 GiB memory in use. Of the allocated memory 33.98 GiB is allocated by PyTorch, and 632.60 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+CUDA assertion error detected for deepseek, switching to safe mode
+Safe mode generation also failed: name 'inputs' is not defined
+Could not extract any CWE identifiers from: 
+No CWEs extracted, storing empty list for commit 45f6fad84cc305103b28d73482b344d7f5b76f39: 
+2025-11-27 07:52:24,887 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 220/314 commits processed
+2025-11-27 07:54:54,473 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 230/314 commits processed
+2025-11-27 07:57:23,155 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 240/314 commits processed
+Could not extract any CWE identifiers from:  A JSON array with exactly five CWEs.
+
+Okay, I need to analyze the provided code snippet and identif
+No CWEs extracted, storing empty list for commit 4a491b1ab11ca0556d2fda1ff1301e862a2d44c4:  A JSON array with exactly five CWEs.
+
+Okay, I need to analyze the provided code snippet and identif
+2025-11-27 07:59:54,212 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 250/314 commits processed
+2025-11-27 08:02:24,977 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 260/314 commits processed
+2025-11-27 08:04:56,556 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 270/314 commits processed
+2025-11-27 08:07:25,048 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 280/314 commits processed
+2025-11-27 08:09:56,003 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 290/314 commits processed
+2025-11-27 08:12:24,515 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 300/314 commits processed
+2025-11-27 08:14:55,800 - job_deepseek_database_1764222223 - INFO - Task rank_cwe: 310/314 commits processed
+2025-11-27 08:15:53,996 - job_deepseek_database_1764222223 - INFO - Completed task: rank_cwe
+2025-11-27 08:15:54,000 - job_deepseek_database_1764222223 - INFO - Job completed successfully
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.17s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.07s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.09s/it]
+Device set to use cuda:0
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.14s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.04s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.05s/it]
+Device set to use cuda:0
+2025-11-27 08:16:00,428 - job_deepseek_database_leakagefree_1764249357 - INFO - Starting task: is_vulnerable_vuln
+2025-11-27 08:18:00,798 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_vuln: 10/103 commits processed
+2025-11-27 08:20:13,589 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_vuln: 20/103 commits processed
+2025-11-27 08:22:40,492 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_vuln: 30/103 commits processed
+2025-11-27 08:25:03,211 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_vuln: 40/103 commits processed
+2025-11-27 08:27:03,732 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_vuln: 50/103 commits processed
+2025-11-27 08:29:00,224 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_vuln: 60/103 commits processed
+2025-11-27 08:31:26,644 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_vuln: 70/103 commits processed
+2025-11-27 08:33:53,289 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_vuln: 80/103 commits processed
+2025-11-27 08:36:05,130 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_vuln: 90/103 commits processed
+2025-11-27 08:38:32,508 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_vuln: 100/103 commits processed
+2025-11-27 08:39:16,150 - job_deepseek_database_leakagefree_1764249357 - INFO - Completed task: is_vulnerable_vuln
+2025-11-27 08:39:16,152 - job_deepseek_database_leakagefree_1764249357 - INFO - Starting task: is_vulnerable_patch
+2025-11-27 08:41:39,571 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_patch: 10/103 commits processed
+2025-11-27 08:43:52,300 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_patch: 20/103 commits processed
+2025-11-27 08:45:50,184 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_patch: 30/103 commits processed
+2025-11-27 08:48:02,899 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_patch: 40/103 commits processed
+2025-11-27 08:50:01,397 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_patch: 50/103 commits processed
+2025-11-27 08:52:07,451 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_patch: 60/103 commits processed
+2025-11-27 08:54:34,485 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_patch: 70/103 commits processed
+2025-11-27 08:57:01,207 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_patch: 80/103 commits processed
+2025-11-27 08:58:44,374 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_patch: 90/103 commits processed
+2025-11-27 09:00:56,054 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_patch: 100/103 commits processed
+2025-11-27 09:01:39,864 - job_deepseek_database_leakagefree_1764249357 - INFO - Completed task: is_vulnerable_patch
+2025-11-27 09:01:39,867 - job_deepseek_database_leakagefree_1764249357 - INFO - Starting task: is_vulnerable_vuln_cve_cwe
+2025-11-27 09:03:33,272 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_vuln_cve_cwe: 10/103 commits processed
+2025-11-27 09:04:48,088 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_vuln_cve_cwe: 20/103 commits processed
+2025-11-27 09:06:28,074 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_vuln_cve_cwe: 30/103 commits processed
+2025-11-27 09:07:49,391 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_vuln_cve_cwe: 40/103 commits processed
+2025-11-27 09:09:32,887 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_vuln_cve_cwe: 50/103 commits processed
+2025-11-27 09:11:15,266 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_vuln_cve_cwe: 60/103 commits processed
+2025-11-27 09:12:36,939 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_vuln_cve_cwe: 70/103 commits processed
+2025-11-27 09:14:34,351 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_vuln_cve_cwe: 80/103 commits processed
+2025-11-27 09:15:34,207 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_vuln_cve_cwe: 90/103 commits processed
+2025-11-27 09:17:28,699 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_vuln_cve_cwe: 100/103 commits processed
+2025-11-27 09:17:57,141 - job_deepseek_database_leakagefree_1764249357 - INFO - Completed task: is_vulnerable_vuln_cve_cwe
+2025-11-27 09:17:57,149 - job_deepseek_database_leakagefree_1764249357 - INFO - Starting task: is_vulnerable_patch_cve_cwe
+2025-11-27 09:19:17,516 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_patch_cve_cwe: 10/103 commits processed
+2025-11-27 09:20:43,666 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_patch_cve_cwe: 20/103 commits processed
+2025-11-27 09:22:10,879 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_patch_cve_cwe: 30/103 commits processed
+2025-11-27 09:23:11,558 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_patch_cve_cwe: 40/103 commits processed
+2025-11-27 09:24:15,600 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_patch_cve_cwe: 50/103 commits processed
+2025-11-27 09:25:44,303 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_patch_cve_cwe: 60/103 commits processed
+2025-11-27 09:26:56,031 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_patch_cve_cwe: 70/103 commits processed
+2025-11-27 09:28:45,785 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_patch_cve_cwe: 80/103 commits processed
+2025-11-27 09:29:55,909 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_patch_cve_cwe: 90/103 commits processed
+2025-11-27 09:31:34,445 - job_deepseek_database_leakagefree_1764249357 - INFO - Task is_vulnerable_patch_cve_cwe: 100/103 commits processed
+2025-11-27 09:32:03,637 - job_deepseek_database_leakagefree_1764249357 - INFO - Completed task: is_vulnerable_patch_cve_cwe
+2025-11-27 09:32:03,639 - job_deepseek_database_leakagefree_1764249357 - INFO - Starting task: suggest_fix
+2025-11-27 09:34:30,770 - job_deepseek_database_leakagefree_1764249357 - INFO - Task suggest_fix: 10/103 commits processed
+2025-11-27 09:36:58,246 - job_deepseek_database_leakagefree_1764249357 - INFO - Task suggest_fix: 20/103 commits processed
+2025-11-27 09:39:20,931 - job_deepseek_database_leakagefree_1764249357 - INFO - Task suggest_fix: 30/103 commits processed
+2025-11-27 09:41:48,316 - job_deepseek_database_leakagefree_1764249357 - INFO - Task suggest_fix: 40/103 commits processed
+2025-11-27 09:44:22,808 - job_deepseek_database_leakagefree_1764249357 - INFO - Task suggest_fix: 50/103 commits processed
+2025-11-27 09:46:46,769 - job_deepseek_database_leakagefree_1764249357 - INFO - Task suggest_fix: 60/103 commits processed
+2025-11-27 09:49:15,060 - job_deepseek_database_leakagefree_1764249357 - INFO - Task suggest_fix: 70/103 commits processed
+2025-11-27 09:51:39,750 - job_deepseek_database_leakagefree_1764249357 - INFO - Task suggest_fix: 80/103 commits processed
+2025-11-27 09:54:07,817 - job_deepseek_database_leakagefree_1764249357 - INFO - Task suggest_fix: 90/103 commits processed
+2025-11-27 09:56:30,060 - job_deepseek_database_leakagefree_1764249357 - INFO - Task suggest_fix: 100/103 commits processed
+2025-11-27 09:57:13,899 - job_deepseek_database_leakagefree_1764249357 - INFO - Completed task: suggest_fix
+2025-11-27 09:57:13,902 - job_deepseek_database_leakagefree_1764249357 - INFO - Starting task: suggest_fix_fewshot
+2025-11-27 09:59:42,079 - job_deepseek_database_leakagefree_1764249357 - INFO - Task suggest_fix_fewshot: 10/103 commits processed
+2025-11-27 10:02:08,572 - job_deepseek_database_leakagefree_1764249357 - INFO - Task suggest_fix_fewshot: 20/103 commits processed
+2025-11-27 10:04:31,832 - job_deepseek_database_leakagefree_1764249357 - INFO - Task suggest_fix_fewshot: 30/103 commits processed
+2025-11-27 10:06:58,746 - job_deepseek_database_leakagefree_1764249357 - INFO - Task suggest_fix_fewshot: 40/103 commits processed
+2025-11-27 10:09:37,693 - job_deepseek_database_leakagefree_1764249357 - INFO - Task suggest_fix_fewshot: 50/103 commits processed
+2025-11-27 10:12:03,287 - job_deepseek_database_leakagefree_1764249357 - INFO - Task suggest_fix_fewshot: 60/103 commits processed
+2025-11-27 10:14:34,786 - job_deepseek_database_leakagefree_1764249357 - INFO - Task suggest_fix_fewshot: 70/103 commits processed
+2025-11-27 10:16:49,952 - job_deepseek_database_leakagefree_1764249357 - INFO - Task suggest_fix_fewshot: 80/103 commits processed
+2025-11-27 10:19:15,785 - job_deepseek_database_leakagefree_1764249357 - INFO - Task suggest_fix_fewshot: 90/103 commits processed
+2025-11-27 10:21:46,162 - job_deepseek_database_leakagefree_1764249357 - INFO - Task suggest_fix_fewshot: 100/103 commits processed
+2025-11-27 10:22:25,454 - job_deepseek_database_leakagefree_1764249357 - INFO - Completed task: suggest_fix_fewshot
+2025-11-27 10:22:25,457 - job_deepseek_database_leakagefree_1764249357 - INFO - Starting task: rank_cwe
+2025-11-27 10:24:52,556 - job_deepseek_database_leakagefree_1764249357 - INFO - Task rank_cwe: 10/103 commits processed
+2025-11-27 10:27:19,973 - job_deepseek_database_leakagefree_1764249357 - INFO - Task rank_cwe: 20/103 commits processed
+2025-11-27 10:29:47,080 - job_deepseek_database_leakagefree_1764249357 - INFO - Task rank_cwe: 30/103 commits processed
+2025-11-27 10:32:15,269 - job_deepseek_database_leakagefree_1764249357 - INFO - Task rank_cwe: 40/103 commits processed
+2025-11-27 10:34:42,102 - job_deepseek_database_leakagefree_1764249357 - INFO - Task rank_cwe: 50/103 commits processed
+2025-11-27 10:37:09,242 - job_deepseek_database_leakagefree_1764249357 - INFO - Task rank_cwe: 60/103 commits processed
+2025-11-27 10:39:36,449 - job_deepseek_database_leakagefree_1764249357 - INFO - Task rank_cwe: 70/103 commits processed
+2025-11-27 10:41:57,277 - job_deepseek_database_leakagefree_1764249357 - INFO - Task rank_cwe: 80/103 commits processed
+2025-11-27 10:44:24,046 - job_deepseek_database_leakagefree_1764249357 - INFO - Task rank_cwe: 90/103 commits processed
+2025-11-27 10:46:51,929 - job_deepseek_database_leakagefree_1764249357 - INFO - Task rank_cwe: 100/103 commits processed
+2025-11-27 10:47:35,775 - job_deepseek_database_leakagefree_1764249357 - INFO - Completed task: rank_cwe
+2025-11-27 10:47:35,777 - job_deepseek_database_leakagefree_1764249357 - INFO - Job completed successfully
+Evaluation completed on both databases:
+  database.sqlite: Job deepseek_database_1764222223 - Status: completed
+  database_leakagefree.sqlite: Job deepseek_database_leakagefree_1764249357 - Status: completed

@@ -1,0 +1,52 @@
+Starting evaluation with model: qwen3_coder
+Running evaluation on both databases...
+Loading checkpoint shards:   0%|          | 0/16 [00:00<?, ?it/s]Loading checkpoint shards:   6%|▋         | 1/16 [00:00<00:04,  3.17it/s]Loading checkpoint shards:  12%|█▎        | 2/16 [00:00<00:05,  2.61it/s]Loading checkpoint shards:  19%|█▉        | 3/16 [00:01<00:05,  2.48it/s]Loading checkpoint shards:  25%|██▌       | 4/16 [00:01<00:04,  2.40it/s]Loading checkpoint shards:  31%|███▏      | 5/16 [00:02<00:04,  2.37it/s]Loading checkpoint shards:  38%|███▊      | 6/16 [00:02<00:04,  2.34it/s]Loading checkpoint shards:  44%|████▍     | 7/16 [00:02<00:03,  2.33it/s]Loading checkpoint shards:  50%|█████     | 8/16 [00:03<00:03,  2.32it/s]Loading checkpoint shards:  56%|█████▋    | 9/16 [00:03<00:03,  2.32it/s]Loading checkpoint shards:  62%|██████▎   | 10/16 [00:04<00:02,  2.32it/s]Loading checkpoint shards:  69%|██████▉   | 11/16 [00:04<00:02,  2.31it/s]Loading checkpoint shards:  75%|███████▌  | 12/16 [00:05<00:01,  2.31it/s]Loading checkpoint shards:  81%|████████▏ | 13/16 [00:05<00:01,  2.31it/s]Loading checkpoint shards:  88%|████████▊ | 14/16 [00:05<00:00,  2.31it/s]Loading checkpoint shards:  94%|█████████▍| 15/16 [00:06<00:00,  2.31it/s]Loading checkpoint shards: 100%|██████████| 16/16 [00:06<00:00,  2.50it/s]
+Device set to use cuda:0
+2025-11-27 00:27:21,215 - main - ERROR - Error executing command: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 44.40 GiB of which 11.31 MiB is free. Including non-PyTorch memory, this process has 44.38 GiB memory in use. Of the allocated memory 39.87 GiB is allocated by PyTorch, and 4.10 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/main.py", line 162, in main
+    handle_evaluate_command(args)
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/main.py", line 199, in handle_evaluate_command
+    results = run_evaluation_on_both_databases(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/evaluation/advanced_evaluator.py", line 621, in run_evaluation_on_both_databases
+    evaluator = AdvancedEvaluator(
+                ^^^^^^^^^^^^^^^^^^
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/evaluation/advanced_evaluator.py", line 86, in __init__
+    self.manager = LLMManager(
+                   ^^^^^^^^^^^
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 483, in __init__
+    self._initialize_model()
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 565, in _initialize_model
+    self._initialize_huggingface_model()
+  File "/users/azibaeir/Research/VulnLLMEval-SANER/models/llm_manager.py", line 716, in _initialize_huggingface_model
+    self.pipeline = pipeline(**pipeline_kwargs)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/transformers/pipelines/__init__.py", line 1229, in pipeline
+    return pipeline_class(model=model, framework=framework, task=task, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/transformers/pipelines/text_generation.py", line 121, in __init__
+    super().__init__(*args, **kwargs)
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/transformers/pipelines/base.py", line 1044, in __init__
+    self.model.to(self.device)
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/transformers/modeling_utils.py", line 4343, in to
+    return super().to(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1371, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    module._apply(fn)
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    module._apply(fn)
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    module._apply(fn)
+  [Previous line repeated 4 more times]
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/torch/nn/modules/module.py", line 957, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1357, in convert
+    return t.to(
+           ^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 44.40 GiB of which 11.31 MiB is free. Including non-PyTorch memory, this process has 44.38 GiB memory in use. Of the allocated memory 39.87 GiB is allocated by PyTorch, and 4.10 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Error: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 44.40 GiB of which 11.31 MiB is free. Including non-PyTorch memory, this process has 44.38 GiB memory in use. Of the allocated memory 39.87 GiB is allocated by PyTorch, and 4.10 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

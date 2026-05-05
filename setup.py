@@ -17,7 +17,8 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/yourusername/vulnllmeval",
-    packages=find_packages(exclude=["tests*", "linux*"]),
+    packages=find_packages('src'),
+    package_dir={'': 'src'},
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
@@ -45,7 +46,7 @@ setup(
     },
     entry_points={
         "console_scripts": [
-            "vulnllmeval=main:main",
+            "vulnllmeval=main:main",  # src/main.py:main
         ],
     },
     include_package_data=True,

@@ -1,0 +1,64 @@
+Starting evaluation with model: llama
+Running evaluation on both databases...
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:06<00:20,  6.74s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:14<00:14,  7.15s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:21<00:07,  7.05s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:22<00:00,  4.89s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:22<00:00,  5.67s/it]
+Device set to use cuda:0
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:08,  2.84s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:05<00:05,  2.83s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:08<00:02,  2.81s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  1.97s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.28s/it]
+Device set to use cuda:0
+2025-11-27 00:41:01,858 - job_llama_database_1764222051 - INFO - Starting task: is_vulnerable_vuln
+2025-11-27 00:41:02,241 - job_llama_database_1764222051 - INFO - No incomplete commits for task is_vulnerable_vuln
+2025-11-27 00:41:02,242 - job_llama_database_1764222051 - INFO - Starting task: is_vulnerable_patch
+2025-11-27 00:41:02,303 - job_llama_database_1764222051 - INFO - No incomplete commits for task is_vulnerable_patch
+2025-11-27 00:41:02,305 - job_llama_database_1764222051 - INFO - Starting task: is_vulnerable_vuln_cve_cwe
+2025-11-27 00:41:02,359 - job_llama_database_1764222051 - INFO - No incomplete commits for task is_vulnerable_vuln_cve_cwe
+2025-11-27 00:41:02,360 - job_llama_database_1764222051 - INFO - Starting task: is_vulnerable_patch_cve_cwe
+2025-11-27 00:41:02,415 - job_llama_database_1764222051 - INFO - No incomplete commits for task is_vulnerable_patch_cve_cwe
+2025-11-27 00:41:02,417 - job_llama_database_1764222051 - INFO - Starting task: suggest_fix
+2025-11-27 00:41:02,493 - job_llama_database_1764222051 - INFO - No incomplete commits for task suggest_fix
+2025-11-27 00:41:02,495 - job_llama_database_1764222051 - INFO - Starting task: suggest_fix_fewshot
+2025-11-27 00:41:02,568 - job_llama_database_1764222051 - INFO - No incomplete commits for task suggest_fix_fewshot
+2025-11-27 00:41:02,570 - job_llama_database_1764222051 - INFO - Starting task: rank_cwe
+HuggingFace generation (manual) failed: Asking to pad but the tokenizer does not have a padding token. Please select a token to use as `pad_token` `(tokenizer.pad_token = tokenizer.eos_token e.g.)` or add a new pad token via `tokenizer.add_special_tokens({'pad_token': '[PAD]'})`.
+Could not extract any CWE identifiers from: 
+No CWEs extracted, storing empty list for commit 0ad4b4a2f6357c45fbe444ead1a929a0b4017d03: 
+HuggingFace generation (manual) failed: Asking to pad but the tokenizer does not have a padding token. Please select a token to use as `pad_token` `(tokenizer.pad_token = tokenizer.eos_token e.g.)` or add a new pad token via `tokenizer.add_special_tokens({'pad_token': '[PAD]'})`.
+Could not extract any CWE identifiers from: 
+No CWEs extracted, storing empty list for commit 22f6b4d34fcf039c63a94e7670e0da24f8575a5a: 
+HuggingFace generation (manual) failed: Asking to pad but the tokenizer does not have a padding token. Please select a token to use as `pad_token` `(tokenizer.pad_token = tokenizer.eos_token e.g.)` or add a new pad token via `tokenizer.add_special_tokens({'pad_token': '[PAD]'})`.
+Could not extract any CWE identifiers from: 
+No CWEs extracted, storing empty list for commit 36ae3c0a36b7456432fedce38ae2f7bd3e01a563: 
+HuggingFace generation (manual) failed: Asking to pad but the tokenizer does not have a padding token. Please select a token to use as `pad_token` `(tokenizer.pad_token = tokenizer.eos_token e.g.)` or add a new pad token via `tokenizer.add_special_tokens({'pad_token': '[PAD]'})`.
+Could not extract any CWE identifiers from: 
+No CWEs extracted, storing empty list for commit 4b2b64d5a6ebc84214755ebccd599baef7c1b798: 
+2025-11-27 00:41:02,698 - job_llama_database_1764222051 - INFO - Completed task: rank_cwe
+2025-11-27 00:41:02,700 - job_llama_database_1764222051 - INFO - Job completed successfully
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:08,  2.84s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:05<00:05,  2.83s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:08<00:02,  2.81s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  1.97s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.28s/it]
+Device set to use cuda:0
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:07,  2.47s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:04<00:04,  2.40s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:07<00:02,  2.36s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:07<00:00,  1.69s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:07<00:00,  1.95s/it]
+Device set to use cuda:0
+2025-11-27 00:41:21,356 - job_llama_database_leakagefree_1764222072 - INFO - Starting task: is_vulnerable_vuln
+2025-11-27 00:41:21,380 - job_llama_database_leakagefree_1764222072 - INFO - No incomplete commits for task is_vulnerable_vuln
+2025-11-27 00:41:21,382 - job_llama_database_leakagefree_1764222072 - INFO - Starting task: is_vulnerable_patch
+2025-11-27 00:41:21,404 - job_llama_database_leakagefree_1764222072 - INFO - No incomplete commits for task is_vulnerable_patch
+2025-11-27 00:41:21,405 - job_llama_database_leakagefree_1764222072 - INFO - Starting task: is_vulnerable_vuln_cve_cwe
+2025-11-27 00:41:21,425 - job_llama_database_leakagefree_1764222072 - INFO - No incomplete commits for task is_vulnerable_vuln_cve_cwe
+2025-11-27 00:41:21,427 - job_llama_database_leakagefree_1764222072 - INFO - Starting task: is_vulnerable_patch_cve_cwe
+2025-11-27 00:41:21,452 - job_llama_database_leakagefree_1764222072 - INFO - No incomplete commits for task is_vulnerable_patch_cve_cwe
+2025-11-27 00:41:21,454 - job_llama_database_leakagefree_1764222072 - INFO - Starting task: suggest_fix
+2025-11-27 00:41:21,472 - job_llama_database_leakagefree_1764222072 - INFO - No incomplete commits for task suggest_fix
+2025-11-27 00:41:21,473 - job_llama_database_leakagefree_1764222072 - INFO - Starting task: suggest_fix_fewshot
+2025-11-27 00:41:21,496 - job_llama_database_leakagefree_1764222072 - INFO - No incomplete commits for task suggest_fix_fewshot
+2025-11-27 00:41:21,497 - job_llama_database_leakagefree_1764222072 - INFO - Starting task: rank_cwe
+HuggingFace generation (manual) failed: Asking to pad but the tokenizer does not have a padding token. Please select a token to use as `pad_token` `(tokenizer.pad_token = tokenizer.eos_token e.g.)` or add a new pad token via `tokenizer.add_special_tokens({'pad_token': '[PAD]'})`.
+Could not extract any CWE identifiers from: 
+No CWEs extracted, storing empty list for commit 6d0ce46a93135d96b7fa075a94a88fe0da8e8773: 
+HuggingFace generation (manual) failed: Asking to pad but the tokenizer does not have a padding token. Please select a token to use as `pad_token` `(tokenizer.pad_token = tokenizer.eos_token e.g.)` or add a new pad token via `tokenizer.add_special_tokens({'pad_token': '[PAD]'})`.
+Could not extract any CWE identifiers from: 
+No CWEs extracted, storing empty list for commit a121798ae669351ec0697c94f71c3a692b2a755b: 
+HuggingFace generation (manual) failed: Asking to pad but the tokenizer does not have a padding token. Please select a token to use as `pad_token` `(tokenizer.pad_token = tokenizer.eos_token e.g.)` or add a new pad token via `tokenizer.add_special_tokens({'pad_token': '[PAD]'})`.
+Could not extract any CWE identifiers from: 
+No CWEs extracted, storing empty list for commit efdde3d73ab25cef4ff2d06783b0aad8b093c0e4: 
+2025-11-27 00:41:21,531 - job_llama_database_leakagefree_1764222072 - INFO - Completed task: rank_cwe
+2025-11-27 00:41:21,533 - job_llama_database_leakagefree_1764222072 - INFO - Job completed successfully
+Evaluation completed on both databases:
+  database.sqlite: Job llama_database_1764222051 - Status: completed
+  database_leakagefree.sqlite: Job llama_database_leakagefree_1764222072 - Status: completed

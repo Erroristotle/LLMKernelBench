@@ -1,0 +1,9 @@
+==================================================
+VulnLLMEval Smart Job Submission
+==================================================
+Models to run: qwen3_4b
+Extra SLURM args: 
+Project directory: /var/spool/slurm/slurmd/job13512077
+==================================================
+Step 1: Cleaning up existing processes...
+/var/spool/slurm/slurmd/job13512077/slurm_script: line 30: ./cleanup_processes.sh: No such file or directory
