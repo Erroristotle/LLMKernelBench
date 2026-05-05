@@ -25,7 +25,6 @@ LLMKernelBench/
 ├── experiments/
 │   ├── scripts/                # SLURM and cluster scripts
 │   ├── analysis/               # Analysis and diagnostic scripts
-│   ├── finetuning/             # LoRA fine-tuning pipeline
 │   └── notebooks/              # Jupyter notebooks
 ├── results/                    # Evaluation outputs and databases
 │   └── logs/slurm/
@@ -74,8 +73,6 @@ python src/main.py resume <job_id>
 
 **Baselines:** CodeBERT, VulBERTa, UnixCoder, GraphCodeBERT
 
-**Fine-tuned (LoRA):** Qwen3-4B adapters trained on Devign, VDisc, PrimeVul, MegaVul
-
 ## Cluster (SLURM)
 
 ```bash
@@ -88,11 +85,6 @@ tail -f results/logs/slurm/slurm-<JOB_ID>.out
 ```
 
 See `experiments/scripts/` for ready-made submission scripts.
-
-## Fine-tuning
-
-See `experiments/finetuning/` for the LoRA training pipeline.  
-To use a local adapter, set `"adapter_path": "experiments/finetuning/megavul_adapter"` in `models_config.json`.
 
 ## License
 
