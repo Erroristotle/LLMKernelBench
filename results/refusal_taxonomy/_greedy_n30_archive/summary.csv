@@ -1,0 +1,6 @@
+model,n,label_0,label_1,label_neg1,abstention_pct,safety_refusal,epistemic_unsure,degenerate_loop,off_task_code,balanced_signals,other_unparseable,generation_error
+codellama,30,9,21,0,0.0,0,0,0,0,0,0,0
+deepseek,30,0,30,0,0.0,0,0,0,0,0,0,0
+llama,30,21,9,0,0.0,0,0,0,0,0,0,0
+mistral,30,11,19,0,0.0,0,0,0,0,0,0,0
+starcoder,30,0,13,17,56.7,0,0,0,17,0,0,0

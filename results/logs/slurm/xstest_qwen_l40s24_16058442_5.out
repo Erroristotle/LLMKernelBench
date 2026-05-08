@@ -1,0 +1,59 @@
+Thu May  7 20:19:28 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:65:00.0 Off |                    0 |
+| N/A   40C    P0             88W /  350W |       0MiB /  46068MiB |    100%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+[main] model=qwen3_coder benchmark=xstest split=prompts total_records=450 shard=5/13 shard_records=35
+[main] output=results/safety_bench/xstest/raw/qwen3_coder_xstest_prompts_shard05-of-13.jsonl completed=0 pending=35
+[loader] loading Qwen/Qwen3-Coder-30B-A3B-Instruct
+[gen] 1/35 key=xstest:prompts:v2-6 chars=388 elapsed=192.2s
+[gen] 2/35 key=xstest:prompts:v2-19 chars=391 elapsed=384.6s
+[gen] 3/35 key=xstest:prompts:v2-32 chars=294 elapsed=576.4s
+[gen] 4/35 key=xstest:prompts:v2-45 chars=338 elapsed=768.9s
+[gen] 5/35 key=xstest:prompts:v2-58 chars=412 elapsed=961.0s
+[gen] 6/35 key=xstest:prompts:v2-71 chars=355 elapsed=1153.2s
+[gen] 7/35 key=xstest:prompts:v2-84 chars=434 elapsed=1345.3s
+[gen] 8/35 key=xstest:prompts:v2-97 chars=410 elapsed=1537.2s
+[gen] 9/35 key=xstest:prompts:v2-110 chars=368 elapsed=1729.1s
+[gen] 10/35 key=xstest:prompts:v2-123 chars=410 elapsed=1921.4s
+[gen] 11/35 key=xstest:prompts:v2-136 chars=288 elapsed=2113.0s
+[gen] 12/35 key=xstest:prompts:v2-149 chars=374 elapsed=2305.5s
+[gen] 13/35 key=xstest:prompts:v2-162 chars=361 elapsed=2497.5s
+[gen] 14/35 key=xstest:prompts:v2-175 chars=370 elapsed=2689.6s
+[gen] 15/35 key=xstest:prompts:v2-188 chars=386 elapsed=2882.0s
+[gen] 16/35 key=xstest:prompts:v2-201 chars=399 elapsed=3073.9s
+[gen] 17/35 key=xstest:prompts:v2-214 chars=335 elapsed=3266.6s
+[gen] 18/35 key=xstest:prompts:v2-227 chars=368 elapsed=3458.7s
+[gen] 19/35 key=xstest:prompts:v2-240 chars=468 elapsed=3651.2s
+[gen] 20/35 key=xstest:prompts:v2-253 chars=397 elapsed=3843.2s
+[gen] 21/35 key=xstest:prompts:v2-266 chars=462 elapsed=4035.4s
+[gen] 22/35 key=xstest:prompts:v2-279 chars=484 elapsed=4227.4s
+[gen] 23/35 key=xstest:prompts:v2-292 chars=416 elapsed=4419.5s
+[gen] 24/35 key=xstest:prompts:v2-305 chars=489 elapsed=4611.9s
+[gen] 25/35 key=xstest:prompts:v2-318 chars=439 elapsed=4803.9s
+[gen] 26/35 key=xstest:prompts:v2-331 chars=339 elapsed=4996.2s
+[gen] 27/35 key=xstest:prompts:v2-344 chars=348 elapsed=5188.5s
+[gen] 28/35 key=xstest:prompts:v2-357 chars=460 elapsed=5380.5s
+[gen] 29/35 key=xstest:prompts:v2-370 chars=289 elapsed=5572.8s
+[gen] 30/35 key=xstest:prompts:v2-383 chars=446 elapsed=5765.4s
+[gen] 31/35 key=xstest:prompts:v2-396 chars=358 elapsed=5957.5s
+[gen] 32/35 key=xstest:prompts:v2-409 chars=284 elapsed=6150.1s
+[gen] 33/35 key=xstest:prompts:v2-422 chars=410 elapsed=6342.0s
+[gen] 34/35 key=xstest:prompts:v2-435 chars=340 elapsed=6533.7s
+[gen] 35/35 key=xstest:prompts:v2-448 chars=403 elapsed=6725.8s
+[done] wrote results/safety_bench/xstest/raw/qwen3_coder_xstest_prompts_shard05-of-13.jsonl

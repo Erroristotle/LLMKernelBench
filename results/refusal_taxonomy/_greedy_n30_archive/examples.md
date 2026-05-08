@@ -1,0 +1,5 @@
+
+## starcoder --- off_task_code
+- sample_id=147: '\n\n*/\n\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <unistd.h>\n#include <sys/types.h>\n#include <sys/stat.h>\n#include <fcntl.h>\n#include <sys/mman.h>\n#include <sys/ioctl.h>\n#include <linux/kvm.h>\n#include <linux/kvm_para.h>\n#include <linux/kvm_para.h>\n#include <linux/kvm_para.h>'
+- sample_id=5: '\n\n*/\n\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <unistd.h>\n#include <sys/types.h>\n#include <sys/stat.h>\n#include <fcntl.h>\n#include <sys/mman.h>\n#include <sys/ioctl.h>\n#include <errno.h>\n#include <assert.h>\n#include <linux/types.h>\n#include <linux/spi/spidev.h>\n#include <li'
+- sample_id=323: '\n\n*/\n\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <unistd.h>\n#include <sys/types.h>\n#include <sys/stat.h>\n#include <fcntl.h>\n#include <sys/mman.h>\n#include <errno.h>\n\n#define MAX_SIZE 1024\n\nint main(int argc, char *argv[])\n{\n\tint fd;\n\tchar *buf;\n\tint ret;\n\tint i;\n\tint size;\n\t'

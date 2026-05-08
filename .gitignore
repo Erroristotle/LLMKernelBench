@@ -85,3 +85,5 @@ logs/slurm/
 
 # DeepEval cache
 .deepeval/
+paper/TODO.md
+paper/reviewes_and_myanswers.md

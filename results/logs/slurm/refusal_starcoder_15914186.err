@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/LLMKernelBench/experiments/scripts/refusal_taxonomy_rerun.py", line 223, in <module>
+    main()
+  File "/users/azibaeir/Research/LLMKernelBench/experiments/scripts/refusal_taxonomy_rerun.py", line 187, in main
+    tokenizer, model = load_model(hf_name)
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/users/azibaeir/Research/LLMKernelBench/experiments/scripts/refusal_taxonomy_rerun.py", line 138, in load_model
+    model = AutoModelForCausalLM.from_pretrained(model_name, **mdl_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 387, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/transformers/modeling_utils.py", line 4057, in from_pretrained
+    checkpoint_files, sharded_metadata = _get_resolved_checkpoint_files(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/transformers/modeling_utils.py", line 687, in _get_resolved_checkpoint_files
+    raise OSError(
+OSError: bigcode/starcoder2-7b does not appear to have a file named pytorch_model.bin or model.safetensors.

@@ -110,6 +110,15 @@ G.~Bhandari, A.~Naseer, and L.~Moonen, ``Cvefixes: automated collection of vulne
 \bibitem{lu2021codexglue}
 S.~Lu, D.~Guo, S.~Ren, J.~Huang, A.~Svyatkovskiy, A.~Blanco, C.~Clement, D.~Drain, D.~Jiang, D.~Tang \emph{et~al.}, ``Codexglue: A machine learning benchmark dataset for code understanding and generation,'' \emph{arXiv preprint arXiv:2102.04664}, 2021.
 
+\bibitem{ferrag2025securefalcon}
+M.~A. Ferrag, A.~Battah, N.~Tihanyi, R.~Jain, D.~Maimu{\c{t}}, F.~Alwahedi, T.~Lestable, N.~S. Thandi, A.~Mechri, M.~Debbah \emph{et~al.}, ``Securefalcon: Are we there yet in automated software vulnerability detection with llms?'' \emph{IEEE Transactions on Software Engineering}, 2025.
+
+\bibitem{sheng2025llms}
+Z.~Sheng, Z.~Chen, S.~Gu, H.~Huang, G.~Gu, and J.~Huang, ``Llms in software security: A survey of vulnerability detection techniques and insights,'' \emph{ACM Computing Surveys}, vol.~58, no.~5, pp. 1--35, 2025.
+
+\bibitem{alam2024detection}
+M.~T. Alam, R.~Halder, and A.~Maiti, ``Detection made easy: Potentials of large language models for solidity vulnerabilities,'' \emph{arXiv preprint arXiv:2409.10574}, 2024.
+
 \bibitem{nvd2025}
 N.~I. of~Standards and T.~(NIST), ``National vulnerability database (nvd) dashboard,'' \url{https://nvd.nist.gov/general/nvd-dashboard}, 2025, accessed: 2025-04-24.
 

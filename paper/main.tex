@@ -252,9 +252,9 @@ Early datasets adopted \emph{file-level} labeling, marking entire files touched 
 \emph{Unlike} prior work extracting isolated functions, LLMKernelBench adopts a \emph{context-aware} approach, pairing line-modified functions with surrounding non-functional elements (macros, type definitions, globals) that influence vulnerability semantics. By evaluating at three abstraction levels (single function, multiple functions, multiple files), we assess whether \glspl{LLM} can leverage broader context, essential for deployment but unexplored in existing benchmarks.
 
 \paragraph*{LLM Benchmarks -- From Scale to Quality and Leakage Control}
-Early benchmarks prioritized \emph{scale}, collecting tens of thousands of samples but lacking vulnerability-specific metadata~\cite{lu2021codexglue, zhou2019devign}. The field evolved toward richer annotations~\cite{siddiq2022securityeval, liu2024vuldetectbench, sun2024llm4vuln} and CWE-wise analysis~\cite{khare2025understanding, ullah2024llms}, yet a critical gap remains: \emph{training data contamination}. Most benchmarks rely on historical data that likely overlaps with model training corpora, artificially inflating metrics. Only limited efforts~\cite{ullah2024llms} have considered post-cutoff validation, yet none have used systematic temporal splits.
+Early benchmarks prioritized \emph{scale}, collecting tens of thousands of samples but lacking vulnerability-specific metadata~\cite{lu2021codexglue, zhou2019devign}. The field evolved toward richer annotations~\cite{siddiq2022securityeval, liu2024vuldetectbench, sun2024llm4vuln} and CWE-wise analysis~\cite{khare2025understanding, ullah2024llms}, yet a critical gap remains: \emph{training data contamination}. Most benchmarks rely on historical data that likely overlaps with model training corpora, artificially inflating metrics. Only limited efforts~\cite{ullah2024llms} have considered post-cutoff validation, yet none have used systematic temporal splits. Recent supervised detectors report substantially higher aggregate accuracy under different assumptions. For example, SecureFalcon fine-tunes a Falcon-derived classifier on FormAI/FalconVulnDB and reports 94\% binary and 92\% multiclass accuracy for C/C++ vulnerability classification~\cite{ferrag2025securefalcon}, while Sheng et al.'s survey~\cite{sheng2025llms} notes that Alam et al.~\cite{alam2024detection} fine-tuned GPT-4 and achieved 99\% accuracy for Solidity vulnerability detection. These results demonstrate the value of task-specific fine-tuning and large in-distribution training sets, but they are not directly comparable to our zero-shot evaluation of off-the-shelf LLMs on temporally separated Linux kernel CVEs.
 
-LLMKernelBench addresses these limitations by prioritizing \emph{quality over scale} and \emph{leakage-aware} evaluation (Table~\ref{tab:bench-compare}). We provide 314+103 curated CVE-linked samples across 74 \gls{CWE} types with strict vulnerable-patched pairing. Critically, we introduce a temporal split: \gls{PBD} (covering CVEs through 2024) versus \gls{LFD} (covering 2025 post-training-cutoff CVEs), enabling direct measurement of generalization versus memorization. Our hierarchy-aware evaluation and context-aware abstraction levels position LLMKernelBench as a \emph{stress-test benchmark} for security reasoning, complementing broader training corpora while addressing systematic limitations in rigor and contamination control.
+LLMKernelBench addresses these limitations by prioritizing \emph{quality over scale} and \emph{leakage-aware} evaluation (Table~\ref{tab:bench-compare}). We provide 314+103 curated CVE-linked samples across 74 \gls{CWE} types with strict vulnerable-patched pairing. Critically, we introduce a temporal split: \gls{PBD} (covering CVEs through 2024) versus \gls{LFD} (covering 2025 post-training-cutoff CVEs), enabling direct measurement of generalization versus memorization. Thus, LLMKernelBench is complementary to high-accuracy supervised classifiers: it stress-tests generalization, leakage sensitivity, vulnerable-patched consistency, and multi-file context handling rather than optimizing an in-distribution trained detector. Our hierarchy-aware evaluation and context-aware abstraction levels position LLMKernelBench as a \emph{stress-test benchmark} for security reasoning, complementing broader training corpora while addressing systematic limitations in rigor and contamination control.
 
 \begin{table}[!t]
 \centering
@@ -282,13 +282,13 @@ LLMKernelBench & 417 & 74 & \ding{51} & \ding{51} & Func.+context \\
 
 \begin{figure*}[htbp]
 	\centerline{\includegraphics[width=1\textwidth]{figures/LLMKernelBench.png}}
-	\caption{LLMKernelBench Framework. Metadata (commit messages, diffs, function/file names) and vulnerable-patched code pairs are extracted from Linux CVE commits. Prompts are designed for \gls{SVD} and CWE-label classification tasks in zero-shot settings. \glspl{LLM} performs detection and classification. Outputs are filtered via regex. Detection is evaluated using binary and ranking metrics.}
+	\caption{LLMKernelBench Framework. Metadata (commit messages, diffs, function/file names) and vulnerable-patched code pairs are extracted from Linux CVE commits. Prompts are designed for \gls{SVD} and CWE-label classification tasks in zero-shot settings. \glspl{LLM} perform detection and classification, and raw model outputs are parsed into structured 0/1/-1 labels via a LangChain \texttt{VulnerabilityOutputParser}. Detection is evaluated using binary and ranking metrics.}
 	\label{figure:framework}
 \end{figure*}
 \section{Benchmarking Approach}
 \label{section:approach}
 
-LLMKernelBench is designed to assess pre-trained \glspl{LLM} (see Table~\ref{table:llm-specs} for the models evaluated) on \gls{SVD} and CWE-label classification tasks, focusing on C code from the Linux kernel while being extensible to other programming languages. As illustrated in Figure \ref{figure:framework}, the framework is based on vulnerability metadata and code pairs extracted from Linux CVE commits, and includes prompts designed for \gls{SVD} and CWE-label classification tasks. LLMKernelBench evaluates the models in a zero-shot setting with temperature set to 0 to ensure deterministic and reproducible outputs, using binary classification metrics (precision, recall, accuracy, F1) for \gls{SVD} and ranking metrics for CWE-label classification. This approach ensures benchmark reliability through representativeness (diverse real-world vulnerabilities), adaptability (an extendable methodology), portability (applicability across various \glspl{LLM}), and fairness (standardized evaluation procedures). 
+LLMKernelBench is designed to assess pre-trained \glspl{LLM} (see Table~\ref{table:llm-specs} for the models evaluated) on \gls{SVD} and CWE-label classification tasks, focusing on C code from the Linux kernel while being extensible to other programming languages. As illustrated in Figure \ref{figure:framework}, the framework is based on vulnerability metadata and code pairs extracted from Linux CVE commits, and includes prompts designed for \gls{SVD} and CWE-label classification tasks; raw model outputs are post-processed into structured 0/1/-1 verdicts using a LangChain output parser (\texttt{VulnerabilityOutputParser}). LLMKernelBench evaluates the models in a zero-shot setting with temperature set to 0 to ensure deterministic and reproducible outputs, using binary classification metrics (precision, recall, accuracy, F1) for \gls{SVD} and ranking metrics for CWE-label classification. This approach ensures benchmark reliability through representativeness (diverse real-world vulnerabilities), adaptability (an extendable methodology), portability (applicability across various \glspl{LLM}), and fairness (standardized evaluation procedures). 
 
 Section \ref{section:dataset} details our dataset construction process. Section \ref{section:metrics} defines metrics for measuring effectiveness in \gls{SVD} and CWE-label classification tasks. Finally, Section \ref{section:prompts} presents our standardized prompt templates.
 
@@ -1124,7 +1124,7 @@ We evaluate models using the \gls{CWE} ranking task (SVD2), where models rank th
 
 \textbf{Models show Semantic Understanding of Vulnerability Families Despite Low Exact Accuracy.} Table~\ref{tab:rank_model_performance} reveals that precise \gls{CWE} identification is far harder than binary vulnerability detection. Even the best model, GPT-4.1-mini, achieves only 2.92\% Top-1 accuracy in PBD and 14.71\% in LFD. Most models perform dismally: CodeLlama and DeepSeek manage less than 1\% Top-1 accuracy in both datasets. However, Top-5 performance tells a more nuanced story: GPT-4.1-mini reaches 50.98\% in LFD, suggesting models can narrow down possibilities even when they miss the exact CWE. Interestingly, \gls{CWE} ranking exhibits mixed patterns: GPT-4.1-mini and Qwen2.5-Coder actually improve in LFD (5$\times$ and 4$\times$ better Top-1 accuracy, respectively), while code-specialized models like DeepSeek and StarCoder2 collapse to near-zero performance. The gap between \gls{HPS} and Top-1 accuracy (17.32\% vs. 2.92\% for GPT-4.1-mini in PBD, see Table~\ref{tab:rank_model_performance}) indicates that models frequently predict CWEs within the correct taxonomy branch even when the exact classification is wrong.
 While only 13.8\% of incorrect predictions are hierarchically close (distance $\leq$3, Table~\ref{tab:hps_validation_stats}), this \textit{taxonomy-aware prediction} has practical value for security triage, as it narrows the vulnerability family (e.g., correctly identifying buffer-related issues vs access control issues).
-However, the large HPS-to-Top-1 ratios (5.9× to 15.7×, Table~\ref{tab:hps_gap_analysis}) and systematic CWE-119 bias (45.1\% appearance rate, Table~\ref{tab:cwe119_bias}) suggest this may reflect taxonomy pattern-matching rather than genuine semantic understanding.
+However, the large HPS-to-Top-1 ratios (5.9$\times$ to 15.7$\times$, Table~\ref{tab:hps_gap_analysis}) and systematic CWE-119 bias (45.1\% appearance rate, Table~\ref{tab:cwe119_bias}) suggest this may reflect taxonomy pattern-matching rather than genuine semantic understanding.
 
 
 
@@ -1201,7 +1201,7 @@ For example, when the true CWE is CWE-119 (Buffer Errors), StarCoder2 may predic
 However, we observed systematic bias toward predicting CWE-119: this general category appears in 45.1\% of all top-5 predictions, with Llama reaching 98.1\% (Table~\ref{tab:cwe119_bias}).
 This bias inflates \gls{HPS} scores without demonstrating specific vulnerability knowledge: models hedge by predicting high-abstraction parent categories that match many children.
 Additionally, the CWE hierarchy does not always reflect semantic similarity: CWE-129 (Array Index) and CWE-119 (Buffer Errors) are both bounds violations but have distance 7 (Table~\ref{tab:hps_examples}), meaning semantically reasonable confusions receive low \gls{HPS} credit.
-The large gap between \gls{HPS} and Top-1 accuracy across models (Table~\ref{tab:hps_gap_analysis}), ranging from 5.9× (GPT-4.1-mini) to 15.7× (Llama) in PBD, suggests pattern-matching on taxonomy structure rather than genuine semantic understanding.
+The large gap between \gls{HPS} and Top-1 accuracy across models (Table~\ref{tab:hps_gap_analysis}), ranging from 5.9$\times$ (GPT-4.1-mini) to 15.7$\times$ (Llama) in PBD, suggests pattern-matching on taxonomy structure rather than genuine semantic understanding.
 We interpret \gls{HPS} as measuring \textit{taxonomy-aware prediction} rather than deep semantic comprehension, and recommend future validation through human similarity ratings correlating hierarchy distance with expert judgments.
 
 %\subsection{Research Directions}
@@ -1212,6 +1212,8 @@ We interpret \gls{HPS} as measuring \textit{taxonomy-aware prediction} rather th
 The conclusions in this section apply specifically to off-the-shelf, pre-trained LLMs evaluated in a zero-shot setting using standardized prompts. We do not assess the effects of task-specific fine-tuning, few-shot prompting, chain-of-thought reasoning, external tools, or hybrid analysis pipelines. Accordingly, our findings should not be interpreted as fundamental limitations of large language models as a class, but rather as evidence that current baseline LLM usage is insufficient for reliable software vulnerability detection in high-assurance settings. Note that model behavior is described using observational terminology grounded in empirical outputs. References to tendencies, biases, or memorization are intended to characterize consistent prediction patterns rather than to imply internal model intent or underlying mechanisms.
 
 \textbf{Key Findings.} Our benchmark exposes fundamental limitations in \glspl{LLM}' security reasoning. The low \gls{CWE} detection accuracy (best: 11.4\% Top-5) and systematic bias toward memory-safety vulnerabilities reveal surface-level pattern recognition rather than deep security understanding. The reverse bias, where models detect patched code 13.5\% better than vulnerable code, contradicts assumptions about security-conscious defaults. Performance degradation with explicit CVE/\gls{CWE} context suggests additional information overwhelms rather than guides reasoning. These findings indicate that \glspl{LLM} should serve as assistive tools under expert supervision, not as autonomous analyzers, and that significant architectural improvements are required for reliable vulnerability identification.
+
+\textbf{Deployment cost at multi-file context.} Median Level~3 prompts are $\approx 2.7\times$ longer than Level~1 across all seven models, raising GPT-4.1-mini's vendor-quoted p50 latency from 0.55\,s to 2.10\,s and a self-hosted Llama3.1-8B on L40S from 2.5\,s to 6.8\,s. At current public pricing\footnote{OpenAI API pricing: \url{https://openai.com/api/pricing}, retrieved 2026-05-06.}\textsuperscript{,}\footnote{RunPod community-cloud GPU pricing: \url{https://www.runpod.io/pricing}, retrieved 2026-05-06.} this corresponds to \$1.34 per 1{,}000 Level~3 predictions with GPT-4.1-mini (using the production \texttt{max\_tokens}=512 cap, since the model's full response is billed and only the parsed verdict is read) and \$1.61 with Llama3.1-8B on a single L40S, so CI/CD operators should reserve multi-file context for diff-triggered review batches rather than per-commit scanning.
 
 \textbf{Future Directions.} Future work should validate \gls{HPS} through human expert studies.
 Specifically, security practitioners should rate the semantic similarity of CWE pairs on a 1-5 scale, enabling the calculation of the correlation between hierarchy distance and perceived similarity (Spearman's $\rho$).
@@ -1292,5 +1294,154 @@ This paper presents LLMKernelBench, a benchmark for evaluating \gls{LLM} capabil
 
 %\begin{IEEEbiographynophoto}{Rodrigo Pato Nogueira} is a PhD student in Computing and Information Systems at the University of North Carolina at Charlotte. He obtained his Bachelor’s and Master’s degrees in Data Science and Engineering in 2023 and 2025, respectively, both from the University of Coimbra. His research focuses on the intersection of Artificial Intelligence with dependability and software engineering. Contact him at rpatodec@charlotte.edu.
 %\end{IEEEbiographynophoto}
+
+\appendix
+
+\section{HPS Validation Supporting Data}
+\label{appendix:hps-validation}
+
+% -----------------------------------------------------------------------
+% TABLE: HPS VALIDATION STATISTICS BY MODEL
+% -----------------------------------------------------------------------
+\begin{table}[!t]
+\centering
+\caption{Hierarchy distance analysis for incorrect CWE predictions across models.
+``Close$\leq$3’’ indicates predictions within hierarchy distance 3 of the true CWE.
+Statistics computed over $N$ predictions per model.}
+\label{tab:hps_validation_stats}
+\small
+\renewcommand{\arraystretch}{1.1}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+\textbf{Model} & \textbf{N} & \textbf{Wrong} & \textbf{Close$\leq$3} & \textbf{Close (\%)} & \textbf{Avg Dist} \\
+\midrule
+Llama        & 310  & 308  &  53 & 17.2 & 4.65 \\
+GPT-4.1-mini & 308  & 299  &  55 & 18.4 & 4.67 \\
+Starcoder    & 310  & 306  &  59 & 19.3 & 4.60 \\
+Mistral      & 310  & 307  &  32 & 10.4 & 4.87 \\
+Deepseek     & 311  & 309  &  38 & 12.3 & 5.22 \\
+Qwen2.5-Coder & 300 & 295 &  27 &  9.2 & 6.03 \\
+Codellama    & 310  & 308  &  30 &  9.7 & 5.96 \\
+\midrule
+\textbf{Overall} & 2159 & 2132 & 294 & 13.8\% & 5.14 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+% -----------------------------------------------------------------------
+% TABLE: CWE-119 PREDICTION BIAS
+% -----------------------------------------------------------------------
+\begin{table}[!t]
+\centering
+\caption{Frequency of CWE-119 appearing in top-5 predictions across models,
+indicating systematic bias toward this general Buffer Errors category.}
+\label{tab:cwe119_bias}
+\small
+\renewcommand{\arraystretch}{1.1}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\textbf{Model} & \textbf{CWE-119 in Top-5} & \textbf{Total Pred.} & \textbf{Rate (\%)} \\
+\midrule
+Llama         & 304 & 310 & 98.1 \\
+Starcoder     & 259 & 310 & 83.5 \\
+GPT-4.1-mini  & 223 & 308 & 72.4 \\
+Qwen2.5-Coder & 102 & 300 & 34.0 \\
+Deepseek      &  60 & 311 & 19.3 \\
+Mistral       &  21 & 310 &  6.8 \\
+Codellama     &   5 & 310 &  1.6 \\
+\midrule
+\textbf{Overall} & 974 & 2159 & 45.1 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+% -----------------------------------------------------------------------
+% TABLE: HPS VS TOP-1 ACCURACY GAP ANALYSIS
+% -----------------------------------------------------------------------
+\begin{table}[!t]
+\centering
+\caption{Gap between HPS and Top-1 accuracy showing potential taxonomy pattern-matching.
+Ratio indicates how many times larger HPS is compared to Top-1. Data from Table~\ref{tab:rank_model_performance}.}
+\label{tab:hps_gap_analysis}
+\small
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+\multirow{2}{*}{\textbf{Model}} & \multicolumn{3}{c}{\textbf{PBD}} & \multicolumn{3}{c}{\textbf{LFD}} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7}
+& \textbf{Top-1 (\%)} & \textbf{HPS (\%)} & \textbf{Ratio ($\times$)} & \textbf{Top-1 (\%)} & \textbf{HPS (\%)} & \textbf{Ratio ($\times$)} \\
+\midrule
+Llama         & 0.7 & 10.2 & 15.7 & 2.0 & 14.9 &  7.5 \\
+Starcoder     & 1.3 & 18.0 & 13.9 & 0.0 & 25.4 & $\infty$ \\
+Qwen2.5-Coder & 1.6 & 14.7 &  9.0 & 7.1 & 20.9 &  2.9 \\
+Codellama     & 0.6 &  5.8 &  9.1 & 2.0 &  7.1 &  3.6 \\
+Mistral       & 1.0 &  8.3 &  8.5 & 5.0 &  9.0 &  1.8 \\
+Deepseek      & 0.6 &  5.2 &  8.1 & 0.0 &  9.6 & $\infty$ \\
+GPT-4.1-mini  & 2.9 & 17.3 &  5.9 & 14.7 & 25.9 & 1.8 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+% -----------------------------------------------------------------------
+% TABLE: HIERARCHY DISTANCE DISTRIBUTION
+% -----------------------------------------------------------------------
+\begin{table}[!t]
+\centering
+\caption{Distribution of hierarchy distances for incorrect CWE predictions with
+measurable distances ($N=1836$ of 2132 total incorrect predictions).
+16.0\% of these errors fall within proximity $\leq 3$ (13.8\% of all 2132 incorrect predictions).}
+\label{tab:hierarchy_distance_dist}
+\footnotesize
+\renewcommand{\arraystretch}{1.0}
+\setlength{\tabcolsep}{8pt}
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Distance} & \textbf{Count} & \textbf{Prop. (\%)} & \textbf{Cumul. (\%)} \\
+\midrule
+1 &  52 &  2.8 &  2.8 \\
+2 & 131 &  7.1 & 10.0 \\
+3 & 111 &  6.0 & 16.0 \\
+4 & 305 & 16.6 & 32.6 \\
+5 & 427 & 23.3 & 55.9 \\
+6 & 401 & 21.8 & 77.7 \\
+7 & 275 & 15.0 & 92.7 \\
+8 &  99 &  5.4 & 98.1 \\
+9 &  35 &  1.9 & 100.0 \\
+\midrule
+\textbf{Total $\leq 3$} & \textbf{294} & \textbf{16.0} & \textbf{--} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% -----------------------------------------------------------------------
+% TABLE: EXAMPLE PREDICTIONS SHOWING HPS PATTERNS
+% -----------------------------------------------------------------------
+\begin{table}[!t]
+\centering
+\caption{Illustrative CWE prediction patterns and HPS credit assignments based on CWE-1000 taxonomy distance.}
+\label{tab:hps_examples}
+\footnotesize
+\renewcommand{\arraystretch}{1.0}
+\setlength{\tabcolsep}{4pt}
+\begin{minipage}{\columnwidth}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}llcl@{}}
+\toprule
+\textbf{Ground Truth} & \textbf{Prediction} & \textbf{Dist.} & \textbf{Relationship} \\
+\midrule
+CWE-119 & CWE-121 & 2 & Child $\rightarrow$ Parent \\
+CWE-119 & CWE-787 & 3 & Sibling (same parent) \\
+CWE-119 & CWE-284 & 7 & Unrelated pillar \\
+CWE-129 & CWE-119 & 7 & Bounds viol.\ (taxonom.\ distant) \\
+CWE-120 & CWE-122 & 2 & Sibling (same parent) \\
+\bottomrule
+\end{tabular*}
+\end{minipage}
+\end{table}
+
 
 \end{document}

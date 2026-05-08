@@ -1,0 +1,60 @@
+Job ID:        15914226
+Node:          str-gpu28
+CUDA devices:  0
+Started:       Tue May  5 11:04:03 PM EDT 2026
+Tue May  5 23:04:03 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:61:00.0 Off |                    0 |
+| N/A   27C    P8             32W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+[main] loaded 30 samples from /users/azibaeir/Research/LLMKernelBench/results/output/database_llama_database.sqlite
+[loader] loading meta-llama/Llama-3.1-8B-Instruct
+[gen] 1/30 sample=147 label=unparseable chars=256 elapsed=6.9s
+[gen] 2/30 sample=392 label=unparseable chars=1223 elapsed=13.3s
+[gen] 3/30 sample=134 label=unparseable chars=1103 elapsed=19.7s
+[gen] 4/30 sample=247 label=unparseable chars=626 elapsed=26.1s
+[gen] 5/30 sample=5 label=unparseable chars=1142 elapsed=32.5s
+[gen] 6/30 sample=323 label=1 chars=1110 elapsed=38.9s
+[gen] 7/30 sample=366 label=unparseable chars=1130 elapsed=45.4s
+[gen] 8/30 sample=280 label=unparseable chars=512 elapsed=51.8s
+[gen] 9/30 sample=9 label=unparseable chars=889 elapsed=58.3s
+[gen] 10/30 sample=161 label=unparseable chars=928 elapsed=64.7s
+[gen] 11/30 sample=294 label=unparseable chars=874 elapsed=71.2s
+[gen] 12/30 sample=64 label=unparseable chars=263 elapsed=77.7s
+[gen] 13/30 sample=403 label=unparseable chars=786 elapsed=84.2s
+[gen] 14/30 sample=316 label=unparseable chars=863 elapsed=90.6s
+[gen] 15/30 sample=260 label=unparseable chars=1466 elapsed=97.7s
+[gen] 16/30 sample=325 label=unparseable chars=1233 elapsed=104.2s
+[gen] 17/30 sample=110 label=unparseable chars=1390 elapsed=111.0s
+[gen] 18/30 sample=159 label=unparseable chars=1275 elapsed=117.4s
+[gen] 19/30 sample=282 label=unparseable chars=790 elapsed=124.2s
+[gen] 20/30 sample=369 label=unparseable chars=482 elapsed=131.2s
+[gen] 21/30 sample=285 label=unparseable chars=1148 elapsed=137.8s
+[gen] 22/30 sample=290 label=unparseable chars=868 elapsed=144.3s
+[gen] 23/30 sample=354 label=unparseable chars=262 elapsed=151.1s
+[gen] 24/30 sample=95 label=unparseable chars=1103 elapsed=157.5s
+[gen] 25/30 sample=84 label=unparseable chars=762 elapsed=163.9s
+[gen] 26/30 sample=35 label=unparseable chars=1000 elapsed=170.5s
+[gen] 27/30 sample=158 label=1 chars=681 elapsed=176.9s
+[gen] 28/30 sample=82 label=unparseable chars=487 elapsed=183.4s
+[gen] 29/30 sample=202 label=unparseable chars=637 elapsed=189.9s
+[gen] 30/30 sample=102 label=unparseable chars=1318 elapsed=196.5s
+[done] wrote /users/azibaeir/Research/LLMKernelBench/results/refusal_taxonomy/llama.jsonl
+
+Finished:      Tue May  5 11:08:28 PM EDT 2026

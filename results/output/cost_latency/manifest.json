@@ -1,0 +1,113 @@
+{
+  "generated_at": "2026-05-06T17:38:21",
+  "project_root": "/users/azibaeir/Research/LLMKernelBench",
+  "n_logs_parsed": 153,
+  "pricing_snapshot": {
+    "gpt-4.1-mini": {
+      "input_per_1m_usd": 0.4,
+      "output_per_1m_usd": 1.6,
+      "source": "OpenAI public pricing, retrieved 2026-05-06"
+    },
+    "L40S": {
+      "usd_per_hour": 0.86,
+      "source": "RunPod community L40S spot, 2026-05-06"
+    },
+    "A100_80G": {
+      "usd_per_hour": 1.89,
+      "source": "RunPod community A100 80G spot, 2026-05-06"
+    }
+  },
+  "gpt41_mini_vendor_latency_s": {
+    "L1": 0.55,
+    "L2": 0.95,
+    "L3": 2.1,
+    "source": "Vendor-quoted (OpenAI status page p50, 2026-05-06)."
+  },
+  "tool_versions": {
+    "transformers": "5.5.4",
+    "tiktoken": "0.12.0"
+  },
+  "inputs": [
+    {
+      "path": "results/output/database_starcoder_database.sqlite",
+      "sha256": "5b71628fce8bdff8a590cd27afc367519edc582229cfc57d919daab95972cd41",
+      "size_bytes": 5251072
+    },
+    {
+      "path": "results/output/database_starcoder_database_leakagefree.sqlite",
+      "sha256": "c62eec7fa64030580e2b7cb7a9e90f8612d245704ad1c2d7b4da0d420d557b6e",
+      "size_bytes": 1191936
+    },
+    {
+      "path": "results/output/database_qwen3_coder_database.sqlite",
+      "sha256": "b2ccdffaa4387c73e0bf028bb5cf4a21947fe81004649579d248b75aa00cc79e",
+      "size_bytes": 5251072
+    },
+    {
+      "path": "results/output/database_qwen3_4b_database.sqlite",
+      "sha256": "d55cbb71f071acc374bcaf34c8c428a39e1ea532eff28ae080e5fb96a0c46313",
+      "size_bytes": 5251072
+    },
+    {
+      "path": "results/output/database_deepseek_database_leakagefree.sqlite",
+      "sha256": "f69c66c0a790ef8e44488cb4e356b28e852d31cf27d365434cb7fa66b5edfec8",
+      "size_bytes": 1155072
+    },
+    {
+      "path": "results/output/database_qwen3_4b_database_leakagefree.sqlite",
+      "sha256": "5b45c4ee799a4453104fddb1b322e77a17d2592881269bc5f16f84d70e47ad85",
+      "size_bytes": 1191936
+    },
+    {
+      "path": "results/output/database_mistral_database.sqlite",
+      "sha256": "e9048263b95e6a2bd68138eb6f3e879c8c71ed5a412b0e3e6222a9560b59192f",
+      "size_bytes": 5251072
+    },
+    {
+      "path": "results/output/database_llama_database.sqlite",
+      "sha256": "faa4221f8611866a4bf255eb6bcd0730b0bcf8c7c024a35ea62a05cd37f27918",
+      "size_bytes": 5251072
+    },
+    {
+      "path": "results/output/database_qwen3_coder_database_leakagefree.sqlite",
+      "sha256": "44f9097bff774e9c573398fd36b55ba3246be3a0898eb58dcc336962a45c7550",
+      "size_bytes": 1183744
+    },
+    {
+      "path": "results/output/database_codellama_database_leakagefree.sqlite",
+      "sha256": "91d4e2467c91a76c8339afc4fb6377c783a52c19224dc8a62bd03b6956d6e254",
+      "size_bytes": 987136
+    },
+    {
+      "path": "results/output/database_deepseek_database.sqlite",
+      "sha256": "1a58087639ccdd93d4b84096584faa36cf2a8cf3b9fbb5ef7e1a3f864a9879ee",
+      "size_bytes": 5251072
+    },
+    {
+      "path": "results/output/database_gpt-4.1_database.sqlite",
+      "sha256": "b2ad065a2931d8ee5c82ac3acb54cd61b566ced70bd80bbd2821eef09d3d370e",
+      "size_bytes": 5251072
+    },
+    {
+      "path": "results/output/database_codellama_database.sqlite",
+      "sha256": "77dba289216a281188d93084ca1a8965e01bb4cede5567ef9678c40c02c3da91",
+      "size_bytes": 5251072
+    },
+    {
+      "path": "results/output/database_gpt-4.1_database_leakagefree.sqlite",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "results/output/database_mistral_database_leakagefree.sqlite",
+      "sha256": "4aaba10e152d4fd4c19ba336f980bd92e3ccad3d1ef46d447492b9a4c78d36f5",
+      "size_bytes": 1110016
+    },
+    {
+      "path": "results/output/database_llama_database_leakagefree.sqlite",
+      "sha256": "162015a6f946b852761761cb8d12a1211ff31ebfcec1acb1d9b7488642aff65b",
+      "size_bytes": 1196032
+    }
+  ],
+  "n_inputs_total": 16
+}

@@ -43,39 +43,11 @@
     "gemma": {
       "type": "huggingface",
       "model_name": "google/gemma-3-4b-it"
-    },
-    "devign_ft": {
-      "type": "huggingface",
-      "model_name": "Qwen/Qwen3-4B-Instruct-2507",
-      "adapter_path": "Arastoorad/devign_Qwen3_LoRA",
-      "use_peft": true,
-      "description": "Devign LoRA fine-tuned for binary vulnerability detection",
-      "category": "code-llm"
-    },
-    "vdisc_ft": {
-      "type": "huggingface",
-      "model_name": "Qwen/Qwen3-4B-Instruct-2507",
-      "adapter_path": "Arastoorad/vdisc_Qwen3_LoRA",
-      "use_peft": true,
-      "description": "VDisc LoRA fine-tuned for vulnerability detection",
-      "category": "code-llm"
-    },
-    "primevul_ft": {
-      "type": "huggingface",
-      "model_name": "Qwen/Qwen3-4B-Instruct-2507",
-      "adapter_path": "Arastoorad/primevul_Qwen3_LoRA",
-      "use_peft": true,
-      "description": "PrimeVul LoRA fine-tuned for vulnerability detection",
-      "category": "code-llm"
-    },
-    "megavul_ft": {
-      "type": "huggingface",
-      "model_name": "Qwen/Qwen3-4B-Instruct-2507",
-      "adapter_path": "Arastoorad/megavul_Qwen3_LoRA",
-      "use_peft": true,
-      "description": "Megavul LoRA fine-tuned for vulnerability detection",
-      "category": "code-llm"
     }
+  },
+  "HF_token": {
+    "type": "huggingface",
+    "api_key_file": "utils/.config"
   }
 }
 

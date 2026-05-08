@@ -1,0 +1,31 @@
+Thu May  7 01:42:07 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:65:00.0 Off |                    0 |
+| N/A   26C    P8             33W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+[main] model=llama framing=neutral scope=all_vulnerable total_records=1 shard=0/1 shard_records=1
+[main] output=results/refusal_taxonomy/smoke/llama_neutral_all_vulnerable.jsonl completed=0 pending=1
+[main] decoding=sample temperature=0.1 max_new_tokens=512
+[loader] loading meta-llama/Llama-3.1-8B-Instruct
+[gen] 1/1 key=pbd:0 chars=2659 elapsed=19.7s
+[done] wrote results/refusal_taxonomy/smoke/llama_neutral_all_vulnerable.jsonl
+[main] model=llama benchmark=xstest split=prompts total_records=1 shard=0/1 shard_records=1
+[main] output=results/safety_bench/xstest/smoke/llama_xstest_prompts.jsonl completed=0 pending=1
+[loader] loading meta-llama/Llama-3.1-8B-Instruct
+[gen] 1/1 key=xstest:prompts:v2-1 chars=2138 elapsed=16.7s
+[done] wrote results/safety_bench/xstest/smoke/llama_xstest_prompts.jsonl

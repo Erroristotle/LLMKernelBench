@@ -1,0 +1,4 @@
+model,frames_present,parser_abstention_min,parser_abstention_max,parser_abstention_range,safety_refusal_min,safety_refusal_max,safety_refusal_range,accuracy_parseable_min,accuracy_parseable_max,accuracy_parseable_range
+deepseek,"adversarial,defensive,neutral",0.00,0.72,0.72,0.00,0.00,0.00,93.05,95.20,2.16
+llama,"adversarial,defensive,neutral",1.20,1.44,0.24,0.00,0.00,0.00,27.91,38.69,10.77
+qwen3_coder,"adversarial,defensive,neutral",3.36,4.56,1.20,0.00,0.00,0.00,77.67,84.67,7.01

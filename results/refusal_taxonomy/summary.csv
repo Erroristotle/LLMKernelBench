@@ -1,0 +1,10 @@
+model,framing,dataset_scope,n,label_0,label_1,label_neg1,parseable_n,parser_abstention_pct,accuracy_on_parseable_pct,safety_refusal,safety_refusal_pct,epistemic_unsure,format_violation,degenerate_loop,off_task_code,balanced_signals,generation_error,other_unparseable
+deepseek,adversarial,all_vulnerable,417,20,397,0,417,0.00,95.20,0,0.00,0,0,0,0,0,0,0
+deepseek,defensive,all_vulnerable,417,29,388,0,417,0.00,93.05,0,0.00,0,0,0,0,0,0,0
+deepseek,neutral,all_vulnerable,417,22,392,3,414,0.72,94.69,0,0.00,0,3,0,0,0,0,0
+llama,adversarial,all_vulnerable,417,260,151,6,411,1.44,36.74,0,0.00,0,6,0,0,0,0,0
+llama,defensive,all_vulnerable,417,297,115,5,412,1.20,27.91,0,0.00,0,5,0,0,0,0,0
+llama,neutral,all_vulnerable,417,252,159,6,411,1.44,38.69,0,0.00,0,6,0,0,0,0,0
+qwen3_coder,adversarial,all_vulnerable,417,90,313,14,403,3.36,77.67,0,0.00,0,2,0,0,0,12,0
+qwen3_coder,defensive,all_vulnerable,417,76,324,17,400,4.08,81.00,0,0.00,0,1,0,0,0,16,0
+qwen3_coder,neutral,all_vulnerable,417,61,337,19,398,4.56,84.67,0,0.00,0,0,0,0,0,19,0

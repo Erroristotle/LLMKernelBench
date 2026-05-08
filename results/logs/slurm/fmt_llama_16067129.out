@@ -1,0 +1,10 @@
+[main] model=llama framing=neutral prior_parser_invalid=6 output=/users/azibaeir/Research/LLMKernelBench/results/format_compliance_control/llama_neutral_parser_invalid_forced_choice.jsonl
+[loader] loading meta-llama/Llama-3.1-8B-Instruct
+[score] 1/6 pbd:68 forced=uncertain avg_logprob=-10.8858
+[score] 2/6 pbd:78 forced=0 avg_logprob=-8.7038
+[score] 3/6 pbd:198 forced=uncertain avg_logprob=-6.9097
+[score] 4/6 pbd:228 forced=uncertain avg_logprob=-10.2707
+[score] 5/6 pbd:377 forced=uncertain avg_logprob=-10.1342
+[score] 6/6 lfd:50 forced=1 avg_logprob=-0.0020
+[ok] wrote /users/azibaeir/Research/LLMKernelBench/results/format_compliance_control/llama_neutral_parser_invalid_forced_choice.jsonl
+[ok] wrote /users/azibaeir/Research/LLMKernelBench/results/format_compliance_control/llama_neutral_parser_invalid_forced_choice_summary.csv

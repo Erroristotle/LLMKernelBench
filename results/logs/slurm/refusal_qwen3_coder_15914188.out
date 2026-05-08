@@ -1,0 +1,27 @@
+Job ID:        15914188
+Node:          str-gpu11
+CUDA devices:  0
+Started:       Tue May  5 10:47:02 PM EDT 2026
+Tue May  5 22:47:02 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-PCIE-40GB          On  |   00000000:01:00.0 Off |                    0 |
+| N/A   30C    P0             35W /  250W |       0MiB /  40960MiB |     14%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+[main] loaded 30 samples from /users/azibaeir/Research/LLMKernelBench/results/output/database_llama_database.sqlite
+[loader] loading Qwen/Qwen3-Coder-30B-A3B-Instruct

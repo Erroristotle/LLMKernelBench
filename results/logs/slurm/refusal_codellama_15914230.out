@@ -1,0 +1,60 @@
+Job ID:        15914230
+Node:          str-gpu27
+CUDA devices:  0
+Started:       Tue May  5 11:07:49 PM EDT 2026
+Tue May  5 23:07:49 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:E3:00.0 Off |                    0 |
+| N/A   61C    P0            150W /  350W |       0MiB /  46068MiB |     96%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+[main] loaded 30 samples from /users/azibaeir/Research/LLMKernelBench/results/output/database_llama_database.sqlite
+[loader] loading codellama/CodeLlama-7b-hf
+[gen] 1/30 sample=147 label=0 chars=256 elapsed=6.5s
+[gen] 2/30 sample=392 label=0 chars=256 elapsed=12.6s
+[gen] 3/30 sample=134 label=0 chars=256 elapsed=18.5s
+[gen] 4/30 sample=247 label=1 chars=256 elapsed=24.4s
+[gen] 5/30 sample=5 label=1 chars=256 elapsed=30.4s
+[gen] 6/30 sample=323 label=1 chars=256 elapsed=36.5s
+[gen] 7/30 sample=366 label=1 chars=256 elapsed=42.7s
+[gen] 8/30 sample=280 label=0 chars=256 elapsed=48.8s
+[gen] 9/30 sample=9 label=0 chars=256 elapsed=54.9s
+[gen] 10/30 sample=161 label=1 chars=744 elapsed=61.0s
+[gen] 11/30 sample=294 label=1 chars=256 elapsed=67.1s
+[gen] 12/30 sample=64 label=1 chars=256 elapsed=73.3s
+[gen] 13/30 sample=403 label=1 chars=256 elapsed=79.4s
+[gen] 14/30 sample=316 label=1 chars=256 elapsed=85.4s
+[gen] 15/30 sample=260 label=1 chars=256 elapsed=93.3s
+[gen] 16/30 sample=325 label=0 chars=256 elapsed=99.4s
+[gen] 17/30 sample=110 label=1 chars=256 elapsed=106.4s
+[gen] 18/30 sample=159 label=1 chars=256 elapsed=112.4s
+[gen] 19/30 sample=282 label=1 chars=256 elapsed=119.5s
+[gen] 20/30 sample=369 label=1 chars=256 elapsed=127.0s
+[gen] 21/30 sample=285 label=0 chars=256 elapsed=133.6s
+[gen] 22/30 sample=290 label=1 chars=256 elapsed=139.9s
+[gen] 23/30 sample=354 label=1 chars=256 elapsed=146.9s
+[gen] 24/30 sample=95 label=1 chars=256 elapsed=153.0s
+[gen] 25/30 sample=84 label=1 chars=256 elapsed=159.0s
+[gen] 26/30 sample=35 label=1 chars=256 elapsed=165.5s
+[gen] 27/30 sample=158 label=0 chars=256 elapsed=171.6s
+[gen] 28/30 sample=82 label=1 chars=256 elapsed=177.8s
+[gen] 29/30 sample=202 label=0 chars=256 elapsed=183.9s
+[gen] 30/30 sample=102 label=1 chars=256 elapsed=190.6s
+[done] wrote /users/azibaeir/Research/LLMKernelBench/results/refusal_taxonomy/codellama.jsonl
+
+Finished:      Tue May  5 11:11:47 PM EDT 2026

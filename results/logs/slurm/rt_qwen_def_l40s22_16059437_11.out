@@ -1,0 +1,59 @@
+Fri May  8 03:28:34 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:65:00.0 Off |                    0 |
+| N/A   32C    P0             83W /  350W |       0MiB /  46068MiB |     96%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+[main] model=qwen3_coder framing=defensive scope=all_vulnerable total_records=417 shard=11/12 shard_records=34
+[main] output=results/refusal_taxonomy/raw/qwen3_coder_defensive_all_vulnerable_shard11-of-12.jsonl completed=0 pending=34
+[main] decoding=sample temperature=0.1 max_new_tokens=80
+[loader] loading Qwen/Qwen3-Coder-30B-A3B-Instruct
+[gen] 1/34 key=pbd:11 chars=399 elapsed=208.4s
+[gen] 2/34 key=pbd:28 chars=427 elapsed=415.6s
+[gen] 3/34 key=pbd:42 chars=338 elapsed=622.7s
+[gen] 4/34 key=pbd:57 chars=289 elapsed=829.5s
+[gen] 5/34 key=pbd:70 chars=468 elapsed=1035.1s
+[gen] 6/34 key=pbd:84 chars=460 elapsed=1241.2s
+[gen] 7/34 key=pbd:101 chars=293 elapsed=1446.6s
+[gen] 8/34 key=pbd:114 chars=379 elapsed=1652.3s
+[gen] 9/34 key=pbd:127 chars=450 elapsed=1857.9s
+[gen] 10/34 key=pbd:140 chars=360 elapsed=2065.2s
+[gen] 11/34 key=pbd:153 chars=384 elapsed=2269.6s
+[gen] 12/34 key=pbd:166 chars=380 elapsed=2474.7s
+[gen] 13/34 key=pbd:181 chars=414 elapsed=2681.0s
+[gen] 14/34 key=pbd:194 chars=381 elapsed=2885.5s
+[gen] 15/34 key=pbd:212 chars=434 elapsed=3091.7s
+[gen] 16/34 key=pbd:226 chars=403 elapsed=3299.0s
+[gen] 17/34 key=pbd:239 chars=330 elapsed=3505.1s
+[gen] 18/34 key=pbd:259 chars=368 elapsed=3710.7s
+[gen] 19/34 key=pbd:272 chars=458 elapsed=3916.2s
+[gen] 20/34 key=pbd:288 chars=455 elapsed=4122.8s
+[gen] 21/34 key=pbd:301 chars=418 elapsed=4328.9s
+[gen] 22/34 key=pbd:321 chars=416 elapsed=4534.7s
+[gen] 23/34 key=pbd:339 chars=385 elapsed=4739.6s
+[gen] 24/34 key=pbd:357 chars=447 elapsed=4945.9s
+[gen] 25/34 key=pbd:375 chars=435 elapsed=5144.2s
+[gen] 26/34 key=pbd:401 chars=404 elapsed=5342.0s
+[gen] 27/34 key=lfd:10 chars=439 elapsed=5536.3s
+[gen] 28/34 key=lfd:23 chars=462 elapsed=5731.4s
+[gen] 29/34 key=lfd:36 chars=360 elapsed=5926.9s
+[gen] 30/34 key=lfd:51 chars=403 elapsed=6120.7s
+[gen] 31/34 key=lfd:65 chars=405 elapsed=6314.8s
+[gen] 32/34 key=lfd:77 chars=501 elapsed=6509.4s
+[gen] 33/34 key=lfd:89 chars=403 elapsed=6702.6s
+[gen] 34/34 key=lfd:101 chars=447 elapsed=6895.5s
+[done] wrote results/refusal_taxonomy/raw/qwen3_coder_defensive_all_vulnerable_shard11-of-12.jsonl

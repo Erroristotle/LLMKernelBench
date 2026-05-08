@@ -1,0 +1,52 @@
+Traceback (most recent call last):
+  File "/users/azibaeir/Research/LLMKernelBench/experiments/scripts/refusal_taxonomy_rerun.py", line 214, in <module>
+    main()
+  File "/users/azibaeir/Research/LLMKernelBench/experiments/scripts/refusal_taxonomy_rerun.py", line 178, in main
+    tokenizer, model = load_model(hf_name)
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/users/azibaeir/Research/LLMKernelBench/experiments/scripts/refusal_taxonomy_rerun.py", line 129, in load_model
+    model = AutoModelForCausalLM.from_pretrained(model_name, **mdl_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 348, in from_pretrained
+    explicit_local_code = has_local_code and not _get_model_class(
+                                                 ^^^^^^^^^^^^^^^^^
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 180, in _get_model_class
+    supported_models = model_mapping[type(config)]
+                       ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 587, in __getitem__
+    return self._load_attr_from_module(model_type, model_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 601, in _load_attr_from_module
+    return getattribute_from_module(self._modules[module_name], attr)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 513, in getattribute_from_module
+    if hasattr(module, attr):
+       ^^^^^^^^^^^^^^^^^^^^^
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 2207, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 2441, in _get_module
+    raise e
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 2439, in _get_module
+    return importlib.import_module("." + module_name, self.__name__)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/transformers/models/llama/modeling_llama.py", line 30, in <module>
+    from ...modeling_layers import (
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/transformers/modeling_layers.py", line 27, in <module>
+    from .processing_utils import Unpack
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/transformers/processing_utils.py", line 79, in <module>
+    from .modeling_utils import PreTrainedAudioTokenizerBase
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/transformers/modeling_utils.py", line 70, in <module>
+    from .integrations.flex_attention import flex_attention_forward
+  File "/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/transformers/integrations/flex_attention.py", line 51, in <module>
+    from torch.nn.attention.flex_attention import AuxRequest
+ImportError: cannot import name 'AuxRequest' from 'torch.nn.attention.flex_attention' (/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/torch/nn/attention/flex_attention.py)
