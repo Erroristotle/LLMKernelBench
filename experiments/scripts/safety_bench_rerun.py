@@ -137,7 +137,7 @@ def main() -> None:
     parser.add_argument("--shard-index", type=int, default=0)
     parser.add_argument("--num-shards", type=int, default=1)
     parser.add_argument("--max-new-tokens", type=int, default=512)
-    parser.add_argument("--temperature", type=float, default=0.1)
+    parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument("--greedy", action="store_true")
     parser.add_argument("--output-dir", default=str(DEFAULT_SAFETY_OUTPUT_DIR))
     parser.add_argument("--overwrite", action="store_true")

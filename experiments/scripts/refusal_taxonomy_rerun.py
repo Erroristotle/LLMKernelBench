@@ -251,7 +251,7 @@ def generate(
     prompt: str,
     max_new_tokens: int = 512,
     do_sample: bool = True,
-    temperature: float = 0.1,
+    temperature: float = 0.0,
 ) -> str:
     """Match production generation_kwargs at llm_manager.py's sampling branch."""
     import torch
@@ -332,9 +332,9 @@ def main() -> None:
     p.add_argument(
         "--greedy",
         action="store_true",
-        help="Use greedy decoding. Default uses production sampling (T=0.1).",
+        help="Use greedy decoding. Default uses production sampling (T=0.0).",
     )
-    p.add_argument("--temperature", type=float, default=0.1)
+    p.add_argument("--temperature", type=float, default=0.0)
     p.add_argument("--output-dir", default=str(DEFAULT_OUTPUT_DIR))
     p.add_argument("--overwrite", action="store_true")
     p.add_argument("--dry-run", action="store_true")

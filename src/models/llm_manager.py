@@ -914,7 +914,7 @@ class LLMManager:
         try:
             # Configure generation parameters for more reliable responses
             generation_config = genai.types.GenerationConfig(
-                temperature=0.1,  # Lower temperature for more consistent responses
+                temperature=0,
                 top_p=0.8,
                 top_k=40,
                 max_output_tokens=512,
@@ -1049,8 +1049,8 @@ class LLMManager:
                         gemma_prompt,
                         max_new_tokens=50,  # Shorter for simple responses
                         min_new_tokens=1,   # Ensure at least some output
-                        do_sample=True,     # Enable sampling for more reliable output
-                        temperature=0.3,    # Low temperature for consistency
+                        do_sample=False,
+                        temperature=0,
                         return_full_text=False,
                         eos_token_id=self.pipeline.tokenizer.eos_token_id,
                         pad_token_id=self.pipeline.tokenizer.pad_token_id
@@ -1072,8 +1072,8 @@ class LLMManager:
                             simple_result = self.pipeline(
                                 prompt.strip(),
                                 max_new_tokens=50,
-                                do_sample=True,
-                                temperature=0.7,  # Higher temperature for more output
+                                do_sample=False,
+                                temperature=0,
                                 return_full_text=False
                             )
                             if simple_result and len(simple_result) > 0:
@@ -1186,8 +1186,8 @@ class LLMManager:
                     else:
                         gen_kwargs = {
                             "max_new_tokens": 512,
-                            "do_sample": True,
-                            "temperature": 0.1,
+                            "do_sample": False,
+                            "temperature": 0,
                             "pad_token_id": pad_token_id,
                             "eos_token_id": eos_token_id,
                             "attention_mask": attention_mask,
@@ -1260,7 +1260,7 @@ class LLMManager:
                         safe_gen_kwargs = {
                             "max_new_tokens": 512,
                             "do_sample": False,  # Use greedy decoding for stability
-                            "temperature": 0.1,
+                            "temperature": 0,
                             "pad_token_id": (local_tokenizer.eos_token_id if getattr(local_tokenizer, 'eos_token_id', None) is not None else getattr(local_tokenizer, 'pad_token_id', None)),
                             "attention_mask": torch.ones_like(inputs),
                             "return_dict_in_generate": True,
@@ -1288,8 +1288,8 @@ class LLMManager:
                     result = self.pipeline(
                         prompt,
                         max_new_tokens=512,
-                        do_sample=True,
-                        temperature=0.1,
+                        do_sample=False,
+                        temperature=0,
                         return_full_text=False,
                         pad_token_id=self.pipeline.tokenizer.eos_token_id if self.pipeline.tokenizer.eos_token_id else self.pipeline.tokenizer.pad_token_id
                     )
@@ -1322,7 +1322,7 @@ class LLMManager:
         data = {
             'model': self.model_config['model_name'],
             'messages': [{'role': 'user', 'content': prompt}],
-            'temperature': 0.1,
+            'temperature': 0,
             'max_tokens': 512
         }
         
@@ -1366,7 +1366,7 @@ class LLMManager:
             'stream': False,
             'options': {
                 'num_ctx': self.context_length,
-                'temperature': 0.1,
+                'temperature': 0,
                 'num_predict': 512
             }
         }

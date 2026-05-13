@@ -1,0 +1,12 @@
+{
+  "session_id": "22a696a3-c110-4e9a-8cca-6ac5de0dfc98",
+  "transcript_path": "/users/azibaeir/.claude/projects/-users-azibaeir-Research-LLMKernelBench/22a696a3-c110-4e9a-8cca-6ac5de0dfc98.jsonl",
+  "hook_event_name": "PreToolUse",
+  "tool_name": "Edit",
+  "tool_input": {
+    "file_path": "/users/azibaeir/Research/LLMKernelBench/src/models/llm_manager.py",
+    "old_string": "            generation_config = genai.types.GenerationConfig(\n                temperature=0.1,  # Lower temperature for more consistent responses\n                top_p=0.8,\n                top_k=40,\n                max_output_tokens=512,\n            )",
+    "new_string": "            generation_config = genai.types.GenerationConfig(\n                temperature=0,\n                top_p=0.8,\n                top_k=40,\n                max_output_tokens=512,\n            )",
+    "replace_all": false
+  }
+}
