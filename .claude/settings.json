@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -)",
+      "Bash(python3 -c \"import ast; ast.parse\\(open\\('src/models/llm_manager.py'\\).read\\(\\)\\); print\\('syntax OK'\\)\")",
+      "Bash(PYTHONPATH=/users/azibaeir/Research/LLMKernelBench/src LLMKB_OUTPUT_DIR=/tmp/llmkb_smoke /users/azibaeir/miniconda/envs/llmserver/bin/python -c ' *)",
+      "Bash(python3 -c \"import sys, json; r = json.loads\\(sys.stdin.read\\(\\)\\); print\\(json.dumps\\({k: \\(v[:200] + '...' if isinstance\\(v, str\\) and len\\(v\\)>200 else v\\) for k,v in r.items\\(\\)}, indent=2\\)\\)\")",
+      "Bash(python3 -c \"import ast; ast.parse\\(open\\('src/utils/database.py'\\).read\\(\\)\\); print\\('syntax OK'\\)\")"
+    ]
+  }
+}

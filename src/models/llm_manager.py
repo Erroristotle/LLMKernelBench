@@ -470,6 +470,13 @@ class LLMManager:
         self.model_name = model_name
         self.db = Database(self.db_file)
         
+        # Per-(model, source-db) JSONL log of every LLM response.
+        stem = self.db_file.stem
+        if stem.startswith("database_"):
+            stem = stem[len("database_"):]
+        self._response_log_path = self.db_file.parent / "raw_responses" / f"{stem}.jsonl"
+        self._response_log_path.parent.mkdir(parents=True, exist_ok=True)
+        
         # Initialize the model based on type
         self.model_type = model_config.get('type', 'unknown')
         self.model = None
@@ -510,6 +517,21 @@ class LLMManager:
         """Force a final commit for any pending updates."""
         self.db.commit()
     
+    def _log_response(self, task: str, commit_hash: str, prompt: str, response) -> None:
+        """Append the raw LLM response for one sample as JSONL."""
+        rec = {
+            "ts": time.time(),
+            "task": task,
+            "model": self.model_name,
+            "commit_hash": commit_hash,
+            "prompt_chars": len(prompt) if prompt else 0,
+            "content": getattr(response, "content", None),
+            "probability": getattr(response, "probability", None),
+            "raw_response": getattr(response, "raw_response", None),
+        }
+        with self._response_log_path.open("a", encoding="utf-8") as fh:
+            fh.write(json.dumps(rec, ensure_ascii=False) + "\n")
+    
     def create_columns(self) -> None:
         """Create necessary columns in the database if they do not exist."""
         # Ensure base table exists with required core columns
@@ -526,9 +548,7 @@ class LLMManager:
                 "IS_VULNERABLE_Vuln INT",
                 "IS_VULNERABLE_Patch INT",
                 "IS_VULNERABLE_Vuln_CVE_CWE INT",
-                "IS_VULNERABLE_Patch_CVE_CWE INT",
-                "Patched_Block_LLM TEXT",
-                "Patched_Block_LLM_F TEXT"
+                "IS_VULNERABLE_Patch_CVE_CWE INT"
             ]
             self.db.create_table("vulnerabilities", base_columns)
             logger.info("Created base 'vulnerabilities' table as it was missing in the database")
@@ -538,15 +558,11 @@ class LLMManager:
             "IS_VULNERABLE_Patch INT", 
             "IS_VULNERABLE_Vuln_CVE_CWE INT",
             "IS_VULNERABLE_Patch_CVE_CWE INT",
-            "Patched_Block_LLM TEXT",
-            "Patched_Block_LLM_F TEXT",
             # Probability columns
             "IS_VULNERABLE_Vuln_PROB REAL",
             "IS_VULNERABLE_Patch_PROB REAL", 
             "IS_VULNERABLE_Vuln_CVE_CWE_PROB REAL",
-            "IS_VULNERABLE_Patch_CVE_CWE_PROB REAL",
-            "NUM_LINES_IN_PATCHED_BLOCK_LLM INT",
-            "NUM_LINES_IN_PATCHED_BLOCK_LLM_F INT"
+            "IS_VULNERABLE_Patch_CVE_CWE_PROB REAL"
         ]
         
         for column_def in columns:
@@ -1200,6 +1216,10 @@ class LLMManager:
 
                     outputs = local_model.generate(input_ids, **gen_kwargs)
 
+                # Free intermediate activations between samples
+                if torch.cuda.is_available():
+                    torch.cuda.empty_cache()
+
                 # Decode only the new tokens
                 sequences = outputs.sequences
                 new_tokens = sequences[0, input_ids.shape[1]:]
@@ -1262,14 +1282,14 @@ class LLMManager:
                             "do_sample": False,  # Use greedy decoding for stability
                             "temperature": 0,
                             "pad_token_id": (local_tokenizer.eos_token_id if getattr(local_tokenizer, 'eos_token_id', None) is not None else getattr(local_tokenizer, 'pad_token_id', None)),
-                            "attention_mask": torch.ones_like(inputs),
+                            "attention_mask": torch.ones_like(input_ids),
                             "return_dict_in_generate": True,
                             # Explicitly disable any probability-related outputs
                         }
-                        outputs = local_model.generate(inputs, **safe_gen_kwargs)
+                        outputs = local_model.generate(input_ids, **safe_gen_kwargs)
                         
                         sequences = outputs.sequences
-                        new_tokens = sequences[0, inputs.shape[1]:]
+                        new_tokens = sequences[0, input_ids.shape[1]:]
                         content = local_tokenizer.decode(new_tokens, skip_special_tokens=True)
                         probability = None
                         
@@ -1452,6 +1472,11 @@ Response:"""
             # For other models, use normal probability calculation
             response = self.query_model(prompt, return_probabilities=True)
         
+        self._log_response(
+            'is_vulnerable_vuln' if is_vulnerable else 'is_vulnerable_patch',
+            commit_hash, prompt, response,
+        )
+        
         if response.content:
             try:
                 # For reasoning models, first extract the final answer, then parse vulnerability
@@ -1587,6 +1612,11 @@ Response:"""
             # For other models, use normal probability calculation
             response = self.query_model(prompt, return_probabilities=True)
         
+        self._log_response(
+            'is_vulnerable_vuln_cve_cwe' if is_vulnerable else 'is_vulnerable_patch_cve_cwe',
+            commit_hash, prompt, response,
+        )
+        
         if response.content:
             try:
                 # For reasoning models, first extract the final answer, then parse vulnerability
@@ -1641,168 +1671,6 @@ Response:"""
         else:
             logger.error(f"Failed to check specific CVE/CWE vulnerability for commit_hash {commit_hash}")
     
-    def suggest_a_fix(
-        self,
-        commit_hash: str,
-        vulnerable_code_block: str,
-        cve: str,
-        cwe,
-        description: Optional[str] = None,
-        few_shot: bool = False
-    ) -> None:
-        """Generate a fix for the vulnerable code block.
-        
-        Args:
-            commit_hash: Git commit hash
-            vulnerable_code_block: Vulnerable code block text
-            cve: CVE identifier
-            cwe: CWE identifier
-            description: Description of the vulnerability (for few-shot learning)
-            few_shot: Whether to use few-shot learning
-        """
-        # Normalize CWE(s) that may be JSON array strings
-        def _normalize_cwes(cwe_value) -> List[str]:
-            try:
-                if isinstance(cwe_value, list):
-                    return [str(x).strip() for x in cwe_value if str(x).strip()]
-                s = str(cwe_value).strip()
-                if not s:
-                    return []
-                import json as _json
-                parsed = _json.loads(s)
-                if isinstance(parsed, list):
-                    return [str(x).strip() for x in parsed if str(x).strip()]
-                return [str(parsed).strip()]
-            except Exception:
-                s = str(cwe_value).strip().strip("[]")
-                return [p.strip() for p in s.replace(";", ",").split(",") if p.strip()]
-
-        cwe_list = _normalize_cwes(cwe)
-        cwe_for_prompt = ", ".join(cwe_list) if cwe_list else "CWE"
-
-        if few_shot:
-            prompt_template = PromptTemplate(
-                input_variables=["vulnerable_code_block", "cve", "cwe_list", "description"],
-                template="""Fix the following vulnerable C code. Provide ONLY the corrected code without any explanations, comments about the fix, or additional text.
-
-Description of changes: {description}
-
-This C code block is a vulnerability identified as {cve} and has the weaknesses of {cwe_list}.
-
-Format the output exactly like this:
-// File path: path/to/file1
-Updated non-function element 1
-
-// File path: path/to/file2  
-Updated Function 1(int param1, char *param2, ...)
-{{
-    // Updated function body
-}}
-
-// File path: path/to/file3
-Updated non-function element 2
-
-// File path: path/to/file4
-Updated Function 2(double param1, int param2, ...)
-{{
-    // Updated function body
-}}
-
-Vulnerable code:
-{vulnerable_code_block}"""
-            )
-            prompt = prompt_template.format(
-                vulnerable_code_block=vulnerable_code_block,
-                cve=cve,
-                cwe_list=cwe_for_prompt,
-                description=description
-            )
-            column_name = 'Patched_Block_LLM_F'
-        else:
-            prompt_template = PromptTemplate(
-                input_variables=["vulnerable_code_block"],
-                template="""Fix the following vulnerable C code. Provide ONLY the corrected code without any explanations, comments about the fix, or additional text.
-
-Format the output exactly like this:
-// File path: path/to/file1
-Updated non-function element 1
-
-// File path: path/to/file2
-Updated Function 1(int param1, char *param2, ...)
-{{
-    // Updated function body
-}}
-
-// File path: path/to/file3
-Updated non-function element 2
-
-// File path: path/to/file4
-Updated Function 2(double param1, int param2, ...)
-{{
-    // Updated function body
-}}
-
-Vulnerable code:
-{vulnerable_code_block}"""
-            )
-            prompt = prompt_template.format(vulnerable_code_block=vulnerable_code_block)
-            column_name = 'Patched_Block_LLM'
-        
-        response = self.query_model(prompt, return_probabilities=False)
-        
-        if response.content:
-            try:
-                # Use LangChain parser to extract only code
-                parsed_code = self.code_parser.parse(response.content)
-                
-                self.db.execute(f"""
-                    UPDATE vulnerabilities
-                    SET {column_name} = ?
-                    WHERE COMMIT_HASH = ?
-                """, (parsed_code, commit_hash))
-                self._maybe_commit()
-                
-                logger.info(f"✓ Patch code SAVED to database for commit {commit_hash[:8]}")
-                
-            except OutputParserException as e:
-                logger.warning(f"Failed to parse code patch for commit_hash {commit_hash}: {e}")
-                # Store raw response if parsing fails
-                self.db.execute(f"""
-                    UPDATE vulnerabilities
-                    SET {column_name} = ?
-                    WHERE COMMIT_HASH = ?
-                """, (response.content, commit_hash))
-                self._maybe_commit()
-        else:
-            logger.error(f"Failed to generate a fix for commit_hash {commit_hash}")
-    
-    def update_line_counts(self) -> None:
-        """Update the number of lines in the LLM-generated code blocks."""
-        try:
-            # Add the columns if they don't exist
-            for column in ['NUM_LINES_IN_PATCHED_BLOCK_LLM', 'NUM_LINES_IN_PATCHED_BLOCK_LLM_F']:
-                self.db.add_column("vulnerabilities", f"{column} INTEGER")
-            
-            # Update regular patched blocks
-            self.db.execute("""
-            UPDATE vulnerabilities 
-            SET NUM_LINES_IN_PATCHED_BLOCK_LLM = (LENGTH(Patched_Block_LLM) - LENGTH(REPLACE(Patched_Block_LLM, '\n', '')) + 1)
-            WHERE Patched_Block_LLM IS NOT NULL
-            """)
-            
-            # Update few-shot patched blocks
-            self.db.execute("""
-            UPDATE vulnerabilities 
-            SET NUM_LINES_IN_PATCHED_BLOCK_LLM_F = (LENGTH(Patched_Block_LLM_F) - LENGTH(REPLACE(Patched_Block_LLM_F, '\n', '')) + 1)
-            WHERE Patched_Block_LLM_F IS NOT NULL
-            """)
-            
-            self.db.commit()
-            logger.info("Updated line counts for LLM-generated code blocks")
-        except Exception as e:
-            logger.error(f"Error updating line counts: {e}")
-            raise
-
     def rank_cwe(self, commit_hash: str, vulnerable_code: str) -> None:
         """Rank CWEs for given vulnerable code - accepting all CWE responses without validation.
         
@@ -1830,6 +1698,8 @@ Response:"""
             
             # Query the model
             response = self.query_model(formatted_prompt)
+            
+            self._log_response('rank_cwe', commit_hash, formatted_prompt, response)
             
             # Extract CWEs without strict validation - accept any format
             extracted_cwes = self._extract_cwe_ranking_without_validation(response.content)
@@ -1936,7 +1806,7 @@ Response:"""
         """Run a single task on the database to fill gaps.
         
         Args:
-            task_name: Name of the task to run ('vuln', 'patch', 'vuln_cve_cwe', 'patch_cve_cwe', 'fix', 'fix_few_shot', 'rank_cwe', 'all')
+            task_name: Name of the task to run ('vuln', 'patch', 'vuln_cve_cwe', 'patch_cve_cwe', 'rank_cwe', 'all')
             database_path: Optional database path (uses current if not specified)
         """
         if database_path and database_path != str(self.db_file):
@@ -1946,7 +1816,7 @@ Response:"""
             self.db_file = Path(database_path)
             self.create_columns()
         
-        valid_tasks = ['vuln', 'patch', 'vuln_cve_cwe', 'patch_cve_cwe', 'fix', 'fix_few_shot', 'rank_cwe', 'all']
+        valid_tasks = ['vuln', 'patch', 'vuln_cve_cwe', 'patch_cve_cwe', 'rank_cwe', 'all']
         
         if task_name not in valid_tasks:
             logger.error(f"Invalid task: {task_name}. Valid tasks: {valid_tasks}")
@@ -1961,7 +1831,7 @@ Response:"""
                        VULNERABILITY_CVE, VULNERABILITY_CWE, DESCRIPTION_IN_PATCH,
                        IS_VULNERABLE_Vuln, IS_VULNERABLE_Patch, 
                        IS_VULNERABLE_Vuln_CVE_CWE, IS_VULNERABLE_Patch_CVE_CWE,
-                       Patched_Block_LLM, Patched_Block_LLM_F, LLM_Ranked_CWE
+                       LLM_Ranked_CWE
                 FROM vulnerabilities
                 WHERE VULNERABLE_CODE_BLOCK IS NOT NULL AND VULNERABLE_CODE_BLOCK != ''
             """).fetchall()
@@ -2007,17 +1877,7 @@ Response:"""
                     self.is_vulnerable_to_CVE_CWE(commit_hash, patched_code, cve, cwe, is_vulnerable=False)
                     should_process = True
                 
-                elif task_name == 'fix' and not record[10]:
-                    logger.info(f"[{i}/{total_records}] Generating patch suggestion: {commit_hash[:8]}")
-                    self.suggest_a_fix(commit_hash, vulnerable_code, cve or "Unknown", cwe or "Unknown", few_shot=False)
-                    should_process = True
-                
-                elif task_name == 'fix_few_shot' and not record[11] and description:
-                    logger.info(f"[{i}/{total_records}] Generating few-shot patch suggestion: {commit_hash[:8]}")
-                    self.suggest_a_fix(commit_hash, vulnerable_code, cve or "Unknown", cwe or "Unknown", description, few_shot=True)
-                    should_process = True
-                
-                elif task_name == 'rank_cwe' and not record[12]:
+                elif task_name == 'rank_cwe' and not record[10]:
                     logger.info(f"[{i}/{total_records}] Ranking CWEs: {commit_hash[:8]}")
                     self.rank_cwe(commit_hash, vulnerable_code)
                     should_process = True
@@ -2029,10 +1889,8 @@ Response:"""
                 if i % 50 == 0:
                     logger.info(f"Progress: {i}/{total_records} records processed")
             
-            # Final commit and update line counts if needed
+            # Final commit
             self.flush_commits()
-            if task_name in ['fix', 'fix_few_shot']:
-                self.update_line_counts()
             
             logger.info(f"Task '{task_name}' completed! Filled {filled_count} records.")
     

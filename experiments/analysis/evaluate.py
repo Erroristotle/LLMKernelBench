@@ -2277,8 +2277,6 @@ def find_interesting_examples():
             VULNERABILITY_CWE,
             VULNERABLE_CODE_BLOCK,
             PATCHED_CODE_BLOCK,
-            Patched_Block_LLM,
-            Patched_Block_LLM_F,
             IS_VULNERABLE_Vuln,
             IS_VULNERABLE_Patch,
             IS_VULNERABLE_Vuln_CVE_CWE,
@@ -2325,8 +2323,6 @@ def find_interesting_examples():
                     'commit': row['COMMIT_HASH'],
                     'vuln_code': row['VULNERABLE_CODE_BLOCK'],
                     'patch_code': row['PATCHED_CODE_BLOCK'],
-                    'llm_patch': row['Patched_Block_LLM'],
-                    'llm_patch_f': row['Patched_Block_LLM_F'],
                     'svd3': row['IS_VULNERABLE_Vuln'],
                     'svd4': row['IS_VULNERABLE_Patch'],
                     'svd5': row['IS_VULNERABLE_Vuln_CVE_CWE'],
@@ -2992,8 +2988,6 @@ def find_interesting_examples():
             VULNERABILITY_CWE,
             VULNERABLE_CODE_BLOCK,
             PATCHED_CODE_BLOCK,
-            Patched_Block_LLM,
-            Patched_Block_LLM_F,
             IS_VULNERABLE_Vuln,
             IS_VULNERABLE_Patch,
             IS_VULNERABLE_Vuln_CVE_CWE,
@@ -3040,8 +3034,6 @@ def find_interesting_examples():
                     'commit': row['COMMIT_HASH'],
                     'vuln_code': row['VULNERABLE_CODE_BLOCK'],
                     'patch_code': row['PATCHED_CODE_BLOCK'],
-                    'llm_patch': row['Patched_Block_LLM'],
-                    'llm_patch_f': row['Patched_Block_LLM_F'],
                     'svd3': row['IS_VULNERABLE_Vuln'],
                     'svd4': row['IS_VULNERABLE_Patch'],
                     'svd5': row['IS_VULNERABLE_Vuln_CVE_CWE'],
@@ -5559,7 +5551,7 @@ for idx, (model_name, db_file) in enumerate(model_files.items()):
     query = """
     SELECT IS_VULNERABLE_Vuln, IS_VULNERABLE_Patch, IS_VULNERABLE_Vuln_CVE_CWE, 
            IS_VULNERABLE_Patch_CVE_CWE, NUM_LINES_IN_VULNERABLE_CODE_BLOCK,
-           NUM_LINES_IN_PATCHED_CODE_BLOCK, NUM_LINES_IN_PATCHED_BLOCK_LLM, NUM_LINES_IN_PATCHED_BLOCK_LLM_F
+           NUM_LINES_IN_PATCHED_CODE_BLOCK
     FROM vulnerabilities
     """
     data = pd.read_sql_query(query, conn)
@@ -7020,10 +7012,9 @@ def fetch_data(db_file):
     conn = sqlite3.connect(db_file)
     query = """
         SELECT 
-            VULNERABLE_CODE_BLOCK, PATCHED_CODE_BLOCK, Patched_Block_LLM, Patched_Block_LLM_F, COMMIT_HASH
+            VULNERABLE_CODE_BLOCK, PATCHED_CODE_BLOCK, COMMIT_HASH
         FROM vulnerabilities
         WHERE VULNERABLE_CODE_BLOCK IS NOT NULL AND PATCHED_CODE_BLOCK IS NOT NULL
-            AND Patched_Block_LLM IS NOT NULL AND Patched_Block_LLM_F IS NOT NULL
     """
     df = pd.read_sql_query(query, conn)
     conn.close()
@@ -7032,19 +7023,13 @@ def fetch_data(db_file):
 def process_row(row):
     results = {
         'cyclomatic_complexity_vuln': None,
-        'cyclomatic_complexity_patched': None,
-        'cyclomatic_complexity_llm': None,
-        'cyclomatic_complexity_llm_fewshot': None
+        'cyclomatic_complexity_patched': None
     }
 
     if row['VULNERABLE_CODE_BLOCK']:
         results['cyclomatic_complexity_vuln'] = calculate_cyclomatic_complexity(row['VULNERABLE_CODE_BLOCK'])
     if row['PATCHED_CODE_BLOCK']:
         results['cyclomatic_complexity_patched'] = calculate_cyclomatic_complexity(row['PATCHED_CODE_BLOCK'])
-    if row['Patched_Block_LLM']:
-        results['cyclomatic_complexity_llm'] = calculate_cyclomatic_complexity(row['Patched_Block_LLM'])
-    if row['Patched_Block_LLM_F']:
-        results['cyclomatic_complexity_llm_fewshot'] = calculate_cyclomatic_complexity(row['Patched_Block_LLM_F'])
 
     return results
 

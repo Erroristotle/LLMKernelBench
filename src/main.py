@@ -18,6 +18,11 @@ import logging
 from pathlib import Path
 from typing import List, Optional
 
+# Workaround for transformers 5.5 + torch 2.6 flex_attention import bug.
+import torch.nn.attention.flex_attention as _fa
+if not hasattr(_fa, "AuxRequest"):
+    _fa.AuxRequest = None  # type: ignore[attr-defined]
+
 from utils.logger import setup_logger
 from utils.config import MODELS_CONFIG
 from evaluation.advanced_evaluator import (

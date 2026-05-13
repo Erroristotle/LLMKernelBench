@@ -34,3 +34,4 @@ Started run 1: Tue May 12 09:45:07 PM EDT 2026
 [main] output=results/refusal_taxonomy/temp0_consistency/run1/qwen3_coder_neutral_pbd_vulnerable_greedy.jsonl completed=0 pending=10
 [main] decoding=greedy temperature=0.0 max_new_tokens=256
 [loader] loading Qwen/Qwen3-Coder-30B-A3B-Instruct
+[gen] 1/10 key=pbd:294 chars=1385 elapsed=1275.2s

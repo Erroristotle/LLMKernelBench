@@ -1,0 +1,41 @@
+Job ID:        16714286
+Node:          str-gpu31
+CUDA devices:  0
+Started:       Wed May 13 01:19:53 AM EDT 2026
+Wed May 13 01:19:53 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H200 NVL                On  |   00000000:8C:00.0 Off |                    0 |
+| N/A   29C    P0             70W /  600W |       0MiB / 143771MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+
+=================== qwen3_coder  /  database ===================
+Started: Wed May 13 01:19:53 AM EDT 2026
+Starting evaluation with model: qwen3_coder
+Running evaluation on database.sqlite...
+Evaluation completed (direct execution)
+Finished database: Wed May 13 01:36:17 AM EDT 2026
+
+=================== qwen3_coder  /  database_leakagefree ===================
+Started: Wed May 13 01:36:17 AM EDT 2026
+Starting evaluation with model: qwen3_coder
+Running evaluation on database_leakagefree.sqlite...
+Evaluation completed (direct execution)
+Finished database_leakagefree: Wed May 13 02:03:39 AM EDT 2026
+
+All databases done: Wed May 13 02:03:39 AM EDT 2026

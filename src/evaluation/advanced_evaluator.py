@@ -163,8 +163,6 @@ class AdvancedEvaluator:
                     "is_vulnerable_patch", 
                     "is_vulnerable_vuln_cve_cwe",
                     "is_vulnerable_patch_cve_cwe",
-                    "suggest_fix",
-                    "suggest_fix_fewshot",
                     "rank_cwe"
                 ]
         
@@ -275,10 +273,6 @@ class AdvancedEvaluator:
                 self._run_task_is_vulnerable_vuln_cve_cwe(data)
             elif task_name == "is_vulnerable_patch_cve_cwe":
                 self._run_task_is_vulnerable_patch_cve_cwe(data)
-            elif task_name == "suggest_fix":
-                self._run_task_suggest_fix(data)
-            elif task_name == "suggest_fix_fewshot":
-                self._run_task_suggest_fix_fewshot(data)
             elif task_name == "rank_cwe":
                 self._run_task_rank_cwe(data)
             else:
@@ -313,8 +307,6 @@ class AdvancedEvaluator:
             IS_VULNERABLE_Patch,
             IS_VULNERABLE_Vuln_CVE_CWE,
             IS_VULNERABLE_Patch_CVE_CWE,
-            Patched_Block_LLM,
-            Patched_Block_LLM_F,
             LLM_Ranked_CWE
         FROM vulnerabilities
         """
@@ -322,8 +314,7 @@ class AdvancedEvaluator:
         columns = [
             'commit_hash', 'vulnerable_code_block', 'patched_code_block', 'vulnerability_year',
             'description', 'cve', 'cwe', 'is_vulnerable_vuln', 'is_vulnerable_patch',
-            'is_vulnerable_vuln_cve_cwe', 'is_vulnerable_patch_cve_cwe', 'patched_block_llm', 
-            'patched_block_llm_f', 'llm_ranked_cwe'
+            'is_vulnerable_vuln_cve_cwe', 'is_vulnerable_patch_cve_cwe', 'llm_ranked_cwe'
         ]
         
         results = db.fetch_all(query)
@@ -339,8 +330,6 @@ class AdvancedEvaluator:
             'is_vulnerable_patch': 'is_vulnerable_patch', 
             'is_vulnerable_vuln_cve_cwe': 'is_vulnerable_vuln_cve_cwe',
             'is_vulnerable_patch_cve_cwe': 'is_vulnerable_patch_cve_cwe',
-            'suggest_fix': 'patched_block_llm',
-            'suggest_fix_fewshot': 'patched_block_llm_f',
             'rank_cwe': 'llm_ranked_cwe'
         }
         
@@ -479,64 +468,6 @@ class AdvancedEvaluator:
                     future.result()
                 except Exception as e:
                     logger.error(f"Error checking patched CVE/CWE: {e}")
-    
-    def _run_task_suggest_fix(self, data: List[Dict[str, Any]]) -> None:
-        """Run the task for suggesting code fixes (zero-shot)."""
-        logger.info("Starting suggest_fix task")
-        with concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers) as executor:
-            futures = []
-            
-            for item in data:
-                if (item['patched_block_llm'] is None or item['patched_block_llm'] == '') and item['vulnerable_code_block'] and item['cve'] and item['cwe']:
-                    futures.append(
-                        executor.submit(
-                            self._worker_function,
-                            self.manager.suggest_a_fix,
-                            item['commit_hash'],
-                            item['vulnerable_code_block'],
-                            item['cve'],
-                            item['cwe'],
-                            None,
-                            False
-                        )
-                    )
-            
-            logger.info(f"Submitting {len(futures)} code fix suggestion tasks")
-            
-            for future in concurrent.futures.as_completed(futures):
-                try:
-                    future.result()
-                except Exception as e:
-                    logger.error(f"Error suggesting fix: {e}")
-    
-    def _run_task_suggest_fix_fewshot(self, data: List[Dict[str, Any]]) -> None:
-        """Run the task for suggesting code fixes (few-shot)."""
-        logger.info("Starting suggest_fix_fewshot task")
-        with concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers) as executor:
-            futures = []
-            
-            for item in data:
-                if (item['patched_block_llm_f'] is None or item['patched_block_llm_f'] == '') and item['vulnerable_code_block'] and item['cve'] and item['cwe'] and item['description']:
-                    futures.append(
-                        executor.submit(
-                            self._worker_function,
-                            self.manager.suggest_a_fix,
-                            item['commit_hash'],
-                            item['vulnerable_code_block'],
-                            item['cve'],
-                            item['cwe'],
-                            item['description'],
-                            True
-                        )
-                    )
-            
-            logger.info(f"Submitting {len(futures)} few-shot fix suggestion tasks")
-            
-            for future in concurrent.futures.as_completed(futures):
-                try:
-                    future.result()
-                except Exception as e:
-                    logger.error(f"Error suggesting few-shot fix: {e}")
     
     def _run_task_rank_cwe(self, data: List[Dict[str, Any]]) -> None:
         """Run the task for ranking CWEs (Common Weakness Enumeration)."""

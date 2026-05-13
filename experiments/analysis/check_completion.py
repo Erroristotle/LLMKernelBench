@@ -25,8 +25,6 @@ def check_database_completion(db_path):
             'IS_VULNERABLE_Patch': 'Patched code check', 
             'IS_VULNERABLE_Vuln_CVE_CWE': 'Vulnerable CVE/CWE check',
             'IS_VULNERABLE_Patch_CVE_CWE': 'Patched CVE/CWE check',
-            'Patched_Block_LLM': 'Code fix generation (zero-shot)',
-            'Patched_Block_LLM_F': 'Code fix generation (few-shot)',
             'LLM_Ranked_CWE': 'CWE ranking'
         }
         

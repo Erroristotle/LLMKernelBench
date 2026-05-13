@@ -32,8 +32,6 @@ def reset_null_and_empty_values(db_path: str, columns: List[str] = None, dry_run
             'IS_VULNERABLE_Patch', 
             'IS_VULNERABLE_Vuln_CVE_CWE',
             'IS_VULNERABLE_Patch_CVE_CWE',
-            'Patched_Block_LLM',
-            'Patched_Block_LLM_F',
             'LLM_Ranked_CWE',
             'IS_VULNERABLE_Vuln_PROB',
             'IS_VULNERABLE_Patch_PROB',

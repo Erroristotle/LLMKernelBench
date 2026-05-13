@@ -10,7 +10,7 @@ SRC_DIR = Path(__file__).parent.parent.resolve()   # src/utils/ -> src/
 PROJECT_ROOT = SRC_DIR.parent                       # src/ -> root
 DATA_DIR = SRC_DIR / "data"                         # data/ now lives inside src/
 MODELS_CONFIG = SRC_DIR / "configs" / "models_config.json"
-OUTPUT_DIR = PROJECT_ROOT / "results"
+OUTPUT_DIR = Path(os.environ["LLMKB_OUTPUT_DIR"]) if os.environ.get("LLMKB_OUTPUT_DIR") else PROJECT_ROOT / "results"
 REPO_PATH = os.environ.get("LINUX_KERNEL_PATH", "")
 
 # Database settings

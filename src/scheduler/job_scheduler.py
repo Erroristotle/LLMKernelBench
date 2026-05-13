@@ -239,8 +239,6 @@ class JobScheduler:
             "is_vulnerable_patch": "IS_VULNERABLE_Patch", 
             "is_vulnerable_vuln_cve_cwe": "IS_VULNERABLE_Vuln_CVE_CWE",
             "is_vulnerable_patch_cve_cwe": "IS_VULNERABLE_Patch_CVE_CWE",
-            "suggest_fix": "Patched_Block_LLM",
-            "suggest_fix_fewshot": "Patched_Block_LLM_F",
             "rank_cwe": "LLM_Ranked_CWE"
         }
         
@@ -436,10 +434,6 @@ class JobScheduler:
                 evaluator.is_vulnerable_to_CVE_CWE(commit_hash, vuln_code, cve, cwe, True)
             elif task == "is_vulnerable_patch_cve_cwe" and patch_code and cve and cwe:
                 evaluator.is_vulnerable_to_CVE_CWE(commit_hash, patch_code, cve, cwe, False)
-            elif task == "suggest_fix" and vuln_code and cve and cwe:
-                evaluator.suggest_a_fix(commit_hash, vuln_code, cve, cwe, None, False)
-            elif task == "suggest_fix_fewshot" and vuln_code and cve and cwe and description:
-                evaluator.suggest_a_fix(commit_hash, vuln_code, cve, cwe, description, True)
             elif task == "rank_cwe" and vuln_code:
                 evaluator.rank_cwe(commit_hash, vuln_code)
             else:
@@ -525,7 +519,7 @@ class JobScheduler:
             
             # Check each task for incomplete work
             for task in ["is_vulnerable_vuln", "is_vulnerable_patch", "is_vulnerable_vuln_cve_cwe", 
-                        "is_vulnerable_patch_cve_cwe", "suggest_fix", "suggest_fix_fewshot", "rank_cwe"]:
+                        "is_vulnerable_patch_cve_cwe", "rank_cwe"]:
                 incomplete_commits = self._get_incomplete_commits(job, task, db_file)
                 if incomplete_commits:
                     logger.debug(f"Job {job.job_id} has {len(incomplete_commits)} incomplete commits for task {task}")

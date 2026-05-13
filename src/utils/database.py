@@ -53,7 +53,7 @@ class Database:
     def connect(self) -> None:
         """Establish connection to the database with simple approach."""
         # Simple connection without file locking complications
-        self.conn = sqlite3.connect(str(self.db_path), timeout=60.0)
+        self.conn = sqlite3.connect(str(self.db_path), timeout=60.0, check_same_thread=False)
         self.cursor = self.conn.cursor()
         
         # Only set essential optimizations to avoid lock issues

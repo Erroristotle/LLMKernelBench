@@ -79,3 +79,6 @@ Started run 3: Tue May 12 09:47:01 PM EDT 2026
 [gen] 9/10 key=pbd:396 chars=3 elapsed=2.2s
 [gen] 10/10 key=pbd:220 chars=3 elapsed=2.3s
 [done] wrote results/refusal_taxonomy/temp0_consistency/run3/mistral_neutral_pbd_vulnerable_greedy.jsonl
+Finished run 3: Tue May 12 09:47:14 PM EDT 2026
+
+All runs finished: Tue May 12 09:47:14 PM EDT 2026
