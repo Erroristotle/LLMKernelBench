@@ -47,6 +47,21 @@ class LLMResponse:
     probability: Optional[float] = None
     raw_response: Optional[str] = None
     
+
+def _llm_temperature() -> float:
+    """Sampling temperature for LLM generation. Set via LLMKB_TEMPERATURE env (default 0)."""
+    try:
+        return float(os.environ.get("LLMKB_TEMPERATURE", "0"))
+    except (TypeError, ValueError):
+        return 0.0
+
+
+def _sampling_kwargs(temp: float) -> dict:
+    """Return HF generate/pipeline sampling kwargs. T<=0 -> greedy; T>0 -> sampling."""
+    if temp <= 0:
+        return {"do_sample": False}
+    return {"do_sample": True, "temperature": temp}
+
 class VulnerabilityOutputParser(BaseOutputParser[int]):
     """LangChain output parser for vulnerability detection responses."""
     
@@ -930,7 +945,7 @@ class LLMManager:
         try:
             # Configure generation parameters for more reliable responses
             generation_config = genai.types.GenerationConfig(
-                temperature=0,
+                temperature=_llm_temperature(),
                 top_p=0.8,
                 top_k=40,
                 max_output_tokens=512,
@@ -1065,8 +1080,7 @@ class LLMManager:
                         gemma_prompt,
                         max_new_tokens=50,  # Shorter for simple responses
                         min_new_tokens=1,   # Ensure at least some output
-                        do_sample=False,
-                        temperature=0,
+                        **_sampling_kwargs(_llm_temperature()),
                         return_full_text=False,
                         eos_token_id=self.pipeline.tokenizer.eos_token_id,
                         pad_token_id=self.pipeline.tokenizer.pad_token_id
@@ -1088,8 +1102,7 @@ class LLMManager:
                             simple_result = self.pipeline(
                                 prompt.strip(),
                                 max_new_tokens=50,
-                                do_sample=False,
-                                temperature=0,
+                                **_sampling_kwargs(_llm_temperature()),
                                 return_full_text=False
                             )
                             if simple_result and len(simple_result) > 0:
@@ -1202,12 +1215,11 @@ class LLMManager:
                     else:
                         gen_kwargs = {
                             "max_new_tokens": 512,
-                            "do_sample": False,
-                            "temperature": 0,
                             "pad_token_id": pad_token_id,
                             "eos_token_id": eos_token_id,
                             "attention_mask": attention_mask,
                             "return_dict_in_generate": True,
+                            **_sampling_kwargs(_llm_temperature()),
                         }
                     
                     # Enable output_scores for safe models only
@@ -1308,8 +1320,7 @@ class LLMManager:
                     result = self.pipeline(
                         prompt,
                         max_new_tokens=512,
-                        do_sample=False,
-                        temperature=0,
+                        **_sampling_kwargs(_llm_temperature()),
                         return_full_text=False,
                         pad_token_id=self.pipeline.tokenizer.eos_token_id if self.pipeline.tokenizer.eos_token_id else self.pipeline.tokenizer.pad_token_id
                     )
@@ -1342,7 +1353,7 @@ class LLMManager:
         data = {
             'model': self.model_config['model_name'],
             'messages': [{'role': 'user', 'content': prompt}],
-            'temperature': 0,
+            'temperature': _llm_temperature(),
             'max_tokens': 512
         }
         
@@ -1386,7 +1397,7 @@ class LLMManager:
             'stream': False,
             'options': {
                 'num_ctx': self.context_length,
-                'temperature': 0,
+                'temperature': _llm_temperature(),
                 'num_predict': 512
             }
         }
