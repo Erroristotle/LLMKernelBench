@@ -1,0 +1,110 @@
+slurmstepd: error: Unable to create TMPDIR [/tmp/codex-azibaeir-4432/tmp]: No such file or directory
+slurmstepd: error: Setting TMPDIR to /tmp
+/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:54<00:54, 54.24s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:13<00:00, 33.43s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:13<00:00, 36.55s/it]
+Device set to use cuda:0
+Could not extract any CWE identifiers from: 	sch->stats.drops++;
+		kfree_skb(skb);
+		return NET_XMIT_DROP;
+	}
+
+	if (unlikely(skb_is_gso(skb))) {
+No CWEs extracted, storing empty list for commit 55667441c84fa5e0911a0aac44fb059c15ba6da2: 	sch->stats.drops++;
+		kfree_skb(skb);
+		return NET_XMIT_DROP;
+	}
+
+	if (unlikely(skb_is_gso(skb))) {
+Could not extract any CWE identifiers from: out;
+		}
+	}
+
+	if (req->DialectCount > SMB2_MAX_DIALECTS) {
+		rsp->hdr.Status = STATUS_INVALID_PARAME
+No CWEs extracted, storing empty list for commit 8828003759391029fc45c15ac346622cdae19b6d: out;
+		}
+	}
+
+	if (req->DialectCount > SMB2_MAX_DIALECTS) {
+		rsp->hdr.Status = STATUS_INVALID_PARAME
+Could not extract any CWE identifiers from:        struct l2cap_conf_rfc *rfc = rsp;
+
+        rfc->mode = chan->mode;
+        rfc->retrans_timeo
+No CWEs extracted, storing empty list for commit af3d5d1c87664a4f150fcf3534c6567cb19909b0:        struct l2cap_conf_rfc *rfc = rsp;
+
+        rfc->mode = chan->mode;
+        rfc->retrans_timeo
+Could not extract any CWE identifiers from: _CALL(ops->map_update_elem) -
+					    __bpf_call_base;
+				continue;
+			case BPF_FUNC_map_delete_el
+No CWEs extracted, storing empty list for commit 9b00f1b78809309163dda2d044d9e94a3c0248a3: _CALL(ops->map_update_elem) -
+					    __bpf_call_base;
+				continue;
+			case BPF_FUNC_map_delete_el
+Could not extract any CWE identifiers from: _fragment(curr_skb, num_skb_frags, len,
+					      offset);
+		} else {
+			skb_add_rx_frag(curr_skb, 
+No CWEs extracted, storing empty list for commit ad993a95c508417acdeb15244109e009e50d8758: _fragment(curr_skb, num_skb_frags, len,
+					      offset);
+		} else {
+			skb_add_rx_frag(curr_skb, 
+Could not extract any CWE identifiers from: _readdir_uncached(file, ctx);
+
+	mutex_unlock(&ff->readdir.lock);
+
+	return err;
+}
+// File path: fs/fu
+No CWEs extracted, storing empty list for commit 5d069dbe8aaf2a197142558b6fb2978189ba3454: _readdir_uncached(file, ctx);
+
+	mutex_unlock(&ff->readdir.lock);
+
+	return err;
+}
+// File path: fs/fu
+/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.51s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.07it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.02s/it]
+Device set to use cuda:0
+/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.54s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.05it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.04s/it]
+Device set to use cuda:0
+Could not extract any CWE identifiers from: ator_os != cpu_to_le32(EXT4_OS_LINUX)) {
+		ext4_msg(sb, KERN_WARNING, "not an ext4 filesystem");
+		g
+No CWEs extracted, storing empty list for commit 82939d7999dfc1f1998c4b1c12e2f19edbdff272: ator_os != cpu_to_le32(EXT4_OS_LINUX)) {
+		ext4_msg(sb, KERN_WARNING, "not an ext4 filesystem");
+		g
+Could not extract any CWE identifiers from:        struct l2cap_conf_rfc *rfc = rsp;
+
+        rfc->mode = chan->mode;
+        rfc->retrans_timeo
+No CWEs extracted, storing empty list for commit af3d5d1c87664a4f150fcf3534c6567cb19909b0:        struct l2cap_conf_rfc *rfc = rsp;
+
+        rfc->mode = chan->mode;
+        rfc->retrans_timeo
+Could not extract any CWE identifiers from: _CALL(ops->map_update_elem) -
+					    __bpf_call_base;
+				continue;
+			case BPF_FUNC_map_delete_el
+No CWEs extracted, storing empty list for commit 9b00f1b78809309163dda2d044d9e94a3c0248a3: _CALL(ops->map_update_elem) -
+					    __bpf_call_base;
+				continue;
+			case BPF_FUNC_map_delete_el
+Could not extract any CWE identifiers from: _rx_frag(curr_skb, num_skb_frags, len,
+					     offset);
+		} else {
+			skb_add_rx_frag(curr_skb, nu
+No CWEs extracted, storing empty list for commit ad993a95c508417acdeb15244109e009e50d8758: _rx_frag(curr_skb, num_skb_frags, len,
+					     offset);
+		} else {
+			skb_add_rx_frag(curr_skb, nu
+/users/azibaeir/miniconda/envs/llmserver/lib/python3.11/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.48s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.09it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.00s/it]
+Device set to use cuda:0

@@ -1,0 +1,55 @@
+Job ID:        19674506
+Node:          str-gpu22
+CUDA devices:  0
+Started:       Mon May 25 06:04:49 PM EDT 2026
+Mon May 25 18:04:49 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:E3:00.0 Off |                    0 |
+| N/A   29C    P8             32W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+
+=================== llama  T=0.1  database  (rank_cwe only) ===================
+Started: Mon May 25 06:04:50 PM EDT 2026
+Starting evaluation with model: llama
+Running evaluation on database.sqlite...
+Evaluation completed (direct execution)
+Finished: Mon May 25 07:18:59 PM EDT 2026
+
+=================== llama  T=0.1  database_leakagefree  (rank_cwe only) ===================
+Started: Mon May 25 07:18:59 PM EDT 2026
+Starting evaluation with model: llama
+Running evaluation on database_leakagefree.sqlite...
+Evaluation completed (direct execution)
+Finished: Mon May 25 07:42:51 PM EDT 2026
+
+=================== llama  T=0.1  database  (rank_cwe only) ===================
+Started: Mon May 25 07:42:51 PM EDT 2026
+Starting evaluation with model: llama
+Running evaluation on database.sqlite...
+Evaluation completed (direct execution)
+Finished: Mon May 25 08:55:19 PM EDT 2026
+
+=================== llama  T=0.1  database_leakagefree  (rank_cwe only) ===================
+Started: Mon May 25 08:55:19 PM EDT 2026
+Starting evaluation with model: llama
+Running evaluation on database_leakagefree.sqlite...
+Evaluation completed (direct execution)
+Finished: Mon May 25 09:18:52 PM EDT 2026
+
+All CWE runs done: Mon May 25 09:18:52 PM EDT 2026

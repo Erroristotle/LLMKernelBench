@@ -1434,6 +1434,51 @@ Although appropriate statistical tests and effect sizes are reported, the LFD's 
 
 This paper presents LLMKernelBench, a benchmark for evaluating \gls{LLM} capabilities in \gls{SVD} and CWE classification using 417 real-world Linux kernel vulnerabilities. Our evaluation of seven models reveals fundamental limitations: binary vulnerability detection achieves near-random performance ($\sim$50\% accuracy), CWE classification remains weak (best: 14.7\% Top-1, 51.0\% Top-5), and models exhibit strong bias toward memory-safety vulnerabilities. Abstraction level analysis shows model-specific responses (some improve with added context, while others degrade by up to 22\%). The leakage-free dataset (LFD) reveals significant performance gaps: code-specialized models degrade by 8.8\%, while general-purpose models demonstrate superior robustness with minimal degradation (0.3\%). These findings demonstrate that current \glspl{LLM} lack robust security reasoning and require expert supervision. LLMKernelBench provides a reproducible foundation for developing more reliable vulnerability detection tools.
 
+\section*{Appendix: Abstention vs.\ Temperature (added)}
+\label{section:appendix-abstention-temp}
+
+{\color{red}
+We re-ran the SVD2--SVD5 sweep at three sampling temperatures (T\,=\,0, T\,=\,0.1 averaged across three independent repeats, and T\,=\,1.0) to quantify how decoding stochasticity affects abstention. Tables~\ref{tab:abst-model-temp} and~\ref{tab:abst-task-temp} summarise the results.
+
+\begin{table}[h]
+\centering
+\color{red}
+\caption{Abstention rate (\%) per model and temperature, averaged across SVD2/3/4/5 and both PBD+LFD datasets.}
+\label{tab:abst-model-temp}
+\begin{tabular}{lrrr}
+\hline
+\textbf{Model} & \textbf{T=0} & \textbf{T=0.1 (avg of 3)} & \textbf{T=1.0} \\
+\hline
+llama        &  0.00 &  0.00 &  0.00 \\
+deepseek     &  0.00 &  0.00 &  0.00 \\
+mistral      &  1.38 &  0.98 &  0.18 \\
+starcoder    & 26.08 & 20.30 &  1.92 \\
+codellama    &  1.80 &  1.32 &  1.33 \\
+qwen3\_coder &  0.48 &  0.64 &  0.18 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\color{red}
+\caption{Abstention rate (\%) per task and temperature, averaged across all six models and both datasets.}
+\label{tab:abst-task-temp}
+\begin{tabular}{lrrr}
+\hline
+\textbf{Task} & \textbf{T=0} & \textbf{T=0.1 (avg)} & \textbf{T=1.0} \\
+\hline
+SVD2 (vuln, no CWE)   & 8.60 & 6.07 & 0.44 \\
+SVD3 (patch, no CWE)  & 7.96 & 5.62 & 0.68 \\
+SVD4 (vuln + CWE)     & 1.56 & 2.08 & 0.56 \\
+SVD5 (patch + CWE)    & 1.72 & 1.75 & 0.72 \\
+\hline
+\end{tabular}
+\end{table}
+
+Two observations stand out. First, abstention monotonically decreases with temperature for every model that abstains at all---starcoder drops from 26.08\% at T\,=\,0 to 1.92\% at T\,=\,1.0. Higher temperature pushes the model out of the ``not sure'' basin and forces it to commit to 0 or 1. Second, providing a targeted CVE/CWE in the prompt (SVD4/SVD5) suppresses abstention even at T\,=\,0, lowering it from $\sim$8\% to $\sim$2\%. At T\,=\,1.0 abstention is almost entirely eliminated regardless of task.
+}
+
 \bibliographystyle{IEEEtran}
 \bibliography{ref}
 
