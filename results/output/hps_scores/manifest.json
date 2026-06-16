@@ -1,0 +1,18 @@
+{
+  "runs": [
+    1,
+    2,
+    3
+  ],
+  "hierarchy": "data/cwe_hierarchy.json",
+  "relationship_definition": {
+    "exact": 1.0,
+    "immediate_parent": 0.8,
+    "immediate_child": 0.7,
+    "shares_any_immediate_parent": 0.6,
+    "shares_any_root_pillar": 0.4,
+    "unrelated": 0.0
+  },
+  "multi_parent_cwes": 138,
+  "multi_root_cwes": 205
+}

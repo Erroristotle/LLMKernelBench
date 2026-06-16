@@ -7,7 +7,10 @@
       "Bash(python3 -c \"import sys, json; r = json.loads\\(sys.stdin.read\\(\\)\\); print\\(json.dumps\\({k: \\(v[:200] + '...' if isinstance\\(v, str\\) and len\\(v\\)>200 else v\\) for k,v in r.items\\(\\)}, indent=2\\)\\)\")",
       "Bash(python3 -c \"import ast; ast.parse\\(open\\('src/utils/database.py'\\).read\\(\\)\\); print\\('syntax OK'\\)\")",
       "Bash(pdflatex -interaction=nonstopmode -halt-on-error main.tex)",
-      "Bash(sacct -j 19674504,19674505,19674506,19674507,19674508,19674509 --format=JobID,JobName,State,ExitCode,Elapsed --noheader)"
+      "Bash(sacct -j 19674504,19674505,19674506,19674507,19674508,19674509 --format=JobID,JobName,State,ExitCode,Elapsed --noheader)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 -c \"import json; d=json.load\\(open\\('src/configs/models_config.json'\\)\\); [print\\(json.dumps\\(m, indent=2\\)\\) for m in d if 'gpt' in str\\(m\\).lower\\(\\)]\")",
+      "Bash(python3 -c \"import json; d=json.load\\(open\\('src/configs/models_config.json'\\)\\); print\\(type\\(d\\)\\); print\\(list\\(d.keys\\(\\)\\)[:5] if isinstance\\(d, dict\\) else d[:2]\\)\")"
     ]
   }
 }

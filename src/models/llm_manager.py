@@ -82,9 +82,14 @@ class VulnerabilityOutputParser(BaseOutputParser[int]):
         original_text = text
         text = text.strip().lower()
         
-        # Direct numeric responses
-        if text in ['1', '0']:
-            return int(text)
+        # Honor an exact requested label before applying keyword heuristics.
+        direct_label = re.fullmatch(
+            r"(?:final\s+(?:answer|verdict)\s*:\s*)?(not\s+sure|-1|0|1)[.!]?",
+            text,
+        )
+        if direct_label:
+            label = direct_label.group(1)
+            return -1 if label in {"not sure", "-1"} else int(label)
         
         # ONLY return -1 for VERY EXPLICIT "not sure" statements (highly restrictive)
         # Must be very clear and unambiguous uncertainty without any leaning

@@ -90,14 +90,7 @@ DB_FILENAME = {
     "gpt-4.1-mini": "database_gpt-4.1_database.sqlite",
 }
 
-# Vendor-published p50 latency for gpt-4.1-mini at our context lengths.
-# Source: OpenAI status page latency dashboard, p50 over 7 days, retrieved 2026-05-06.
-GPT41_MINI_VENDOR_LATENCY_S = {
-    "L1": 0.55,   # ~500-input-token prompts, p50 wall-clock incl. network
-    "L2": 0.95,   # ~1500-input-token prompts
-    "L3": 2.10,   # ~5000-input-token prompts
-    "source": "Vendor-quoted (OpenAI status page p50, 2026-05-06).",
-}
+GPT_RAW_RUNS = (2, 3)
 
 # Production prompt template (verbatim from src/models/llm_manager.py:1428).
 PROMPT_VULN = """Check if the following C code block is vulnerable.
@@ -204,6 +197,64 @@ def file_sha256(p: Path) -> str:
         for chunk in iter(lambda: fh.read(8192), b""):
             h.update(chunk)
     return h.hexdigest()
+
+
+def measure_gpt_latency_by_level() -> dict[tuple[str, str, str], float]:
+    """Estimate sequential API latency from released raw-response timestamps.
+
+    Each raw-response timestamp is written after a request completes. For
+    consecutive records from the same task, their difference approximates
+    the latter request's wall-clock latency because requests are issued
+    sequentially. Long pauses and task boundaries are excluded.
+    """
+    samples: dict[tuple[str, str, str], list[float]] = defaultdict(list)
+
+    for run in GPT_RAW_RUNS:
+        run_dir = RESULTS / f"new_results_temp0.1_run{run}"
+        for dataset, suffix in (("PBD", ""), ("LFD", "_leakagefree")):
+            db_path = run_dir / f"database_GPT-4.1-mini_database{suffix}.sqlite"
+            raw_path = (
+                run_dir
+                / "raw_responses"
+                / f"GPT-4.1-mini_database{suffix}.jsonl"
+            )
+            if not db_path.is_file() or not raw_path.is_file():
+                continue
+
+            with sqlite3.connect(db_path) as conn:
+                metadata = {
+                    row[0]: categorise(int(float(row[1])), int(float(row[2])))
+                    for row in conn.execute(
+                        "SELECT COMMIT_HASH, NUM_FILES_CHANGED, "
+                        "NUM_FUNCTIONS_CHANGED FROM vulnerabilities"
+                    )
+                    if row[1] not in (None, "") and row[2] not in (None, "")
+                }
+
+            previous = None
+            with raw_path.open() as fh:
+                for line in fh:
+                    record = json.loads(line)
+                    if (
+                        previous is not None
+                        and record.get("task") == previous.get("task")
+                    ):
+                        elapsed = float(record["ts"]) - float(previous["ts"])
+                        commit_hash = record.get("commit_hash")
+                        if 0 < elapsed < 10 and commit_hash in metadata:
+                            key = (
+                                dataset,
+                                str(record["task"]),
+                                metadata[commit_hash],
+                            )
+                            samples[key].append(elapsed)
+                    previous = record
+
+    return {
+        key: float(median(values))
+        for key, values in samples.items()
+        if values
+    }
 
 
 def load_dataset_rows(model: str, dataset: str) -> list[dict]:
@@ -685,6 +736,7 @@ def phase_costs() -> Path:
                 )
 
     rows: list[dict] = []
+    gpt_latency = measure_gpt_latency_by_level()
     for (model, dataset, task, level), tk_med in lvl_tokens.items():
         # Output-token budget. The prompt asks for a single token ("0", "1",
         # or "not sure"), but in practice models emit longer prose that the
@@ -712,10 +764,9 @@ def phase_costs() -> Path:
             rec["usd_per_prediction_typical"] = round(cost_typ, 7)
             rec["usd_per_prediction_worst"] = round(cost_worst, 6)
             rec["usd_per_1k_predictions_typical"] = round(cost_typ * 1000, 4)
-            # Vendor-quoted wall-clock
-            lat = GPT41_MINI_VENDOR_LATENCY_S.get(level, float("nan"))
+            lat = gpt_latency.get((dataset, task, level), float("nan"))
             rec["latency_sec"] = lat
-            rec["latency_source"] = "vendor_quoted"
+            rec["latency_source"] = "measured_completion_interval"
             rec["preds_per_minute"] = round(60 / lat, 1) if lat == lat and lat > 0 else None
         else:
             lat = oss_lat.get((model, dataset, task, level))
@@ -798,7 +849,8 @@ def phase_paper_table() -> Path:
         "scaling each model's globally measured average sample latency by "
         "the level-median input-token ratio (full method in "
         "Appendix~\\ref{appendix:cost-latency}); GPT-4.1-mini latency is the "
-        "vendor-quoted p50 from OpenAI's status page (retrieved 2026-05-06). "
+        "median sequential completion interval measured from the two released "
+        "temperature-0.1 raw-response logs. "
         "\\textbf{L3/L1}: ratio of L3 to L1 latency. \\textbf{\\$/1k preds (L3)}: "
         "1{,}000 predictions at L3 in USD; for GPT-4.1-mini at OpenAI public "
         "pricing, for the open-source models at RunPod community spot prices "
@@ -832,10 +884,9 @@ def phase_paper_table() -> Path:
         l3_lat = float(l3.get("latency_sec", "nan"))
         ratio = (l3_lat / l1_lat) if l1_lat > 0 else float("nan")
         if m == "gpt-4.1-mini":
-            # Use the worst-case (max_new_tokens=512) output budget, since
-            # the model's full response is billed; only the parsed verdict
-            # is read. Stored in cost_per_prediction.csv as the "_worst" col.
-            cost_l3_pred = float(l3.get("usd_per_prediction_worst", "0"))
+            # Use the format-compliant eight-token budget as the typical
+            # estimate. The CSV also retains a conservative 512-token cap.
+            cost_l3_pred = float(l3.get("usd_per_prediction_typical", "0"))
             cost_l3_1k = cost_l3_pred * 1000
         else:
             cost_l3_1k = float(l3.get("usd_per_1k_predictions", "0"))
@@ -889,7 +940,13 @@ def phase_manifest() -> Path:
         "project_root": str(PROJECT_ROOT),
         "n_logs_parsed": log_count,
         "pricing_snapshot": PRICING,
-        "gpt41_mini_vendor_latency_s": GPT41_MINI_VENDOR_LATENCY_S,
+        "gpt41_mini_latency_source": {
+            "runs": list(GPT_RAW_RUNS),
+            "method": (
+                "Median interval between consecutive completed requests from "
+                "the same task, excluding task boundaries and pauses >=10 s."
+            ),
+        },
         "tool_versions": versions,
         "inputs": inputs[:20],
         "n_inputs_total": len(inputs),

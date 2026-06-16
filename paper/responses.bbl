@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}
+
+\bibitem{ferrag2025securefalcon}
+{\sc Ferrag, M.~A., Battah, A., Tihanyi, N., Jain, R., Maimu{\c{t}}, D., Alwahedi, F., Lestable, T., Thandi, N.~S., Mechri, A., Debbah, M., et~al.}
+\newblock Securefalcon: Are we there yet in automated software vulnerability detection with llms?
+\newblock {\em IEEE Transactions on Software Engineering\/} (2025).
+
+\bibitem{sheng2025llms}
+{\sc Sheng, Z., Chen, Z., Gu, S., Huang, H., Gu, G., and Huang, J.}
+\newblock Llms in software security: A survey of vulnerability detection techniques and insights.
+\newblock {\em ACM Computing Surveys 58}, 5 (2025), 1--35.
+
+\end{thebibliography}

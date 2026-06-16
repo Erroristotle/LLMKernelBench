@@ -579,9 +579,9 @@ def build_cwe_relationships():
         return {}, {}, {}
     
     # Maps to store relationships
-    parent_map = {}  # cwe_id -> parent_id
-    children_map = {}  # cwe_id -> [child_ids]
-    root_map = {}  # cwe_id -> root_pillar_id
+    parent_map = {}  # cwe_id -> set(parent_ids)
+    children_map = {}  # cwe_id -> set(child_ids)
+    root_map = {}  # cwe_id -> set(root_pillar_ids)
     
     def traverse(node, parent_id=None, root_id=None):
         if 'id' in node:
@@ -589,15 +589,13 @@ def build_cwe_relationships():
             
             # Set parent relationship
             if parent_id:
-                parent_map[cwe_id] = parent_id
-                if parent_id not in children_map:
-                    children_map[parent_id] = []
-                children_map[parent_id].append(cwe_id)
+                parent_map.setdefault(cwe_id, set()).add(parent_id)
+                children_map.setdefault(parent_id, set()).add(cwe_id)
             
             # Set root pillar (top-level categories)
             if parent_id is None:  # This is a root pillar
                 root_id = cwe_id
-            root_map[cwe_id] = root_id
+            root_map.setdefault(cwe_id, set()).add(root_id)
             
             # Recurse through children
             for child in node.get('children', []):
@@ -625,13 +623,13 @@ def get_cwe_relationship_score(pred_cwe, true_cwe, parent_map, children_map, roo
         return 0.7
     
     # Check sibling relationship (same direct parent)
-    if (pred_cwe in parent_map and true_cwe in parent_map and 
-        parent_map[pred_cwe] == parent_map[true_cwe]):
+    if (pred_cwe in parent_map and true_cwe in parent_map and
+        parent_map[pred_cwe] & parent_map[true_cwe]):
         return 0.6
     
     # Check same root category (same pillar)
-    if (pred_cwe in root_map and true_cwe in root_map and 
-        root_map[pred_cwe] == root_map[true_cwe]):
+    if (pred_cwe in root_map and true_cwe in root_map and
+        root_map[pred_cwe] & root_map[true_cwe]):
         return 0.4
     
     return 0.0  # No relationship
@@ -924,9 +922,9 @@ def build_cwe_relationships():
         return {}, {}, {}
     
     # Maps to store relationships
-    parent_map = {}  # cwe_id -> parent_id
-    children_map = {}  # cwe_id -> [child_ids]
-    root_map = {}  # cwe_id -> root_pillar_id
+    parent_map = {}  # cwe_id -> set(parent_ids)
+    children_map = {}  # cwe_id -> set(child_ids)
+    root_map = {}  # cwe_id -> set(root_pillar_ids)
     
     def traverse(node, parent_id=None, root_id=None):
         if 'id' in node:
@@ -934,15 +932,13 @@ def build_cwe_relationships():
             
             # Set parent relationship
             if parent_id:
-                parent_map[cwe_id] = parent_id
-                if parent_id not in children_map:
-                    children_map[parent_id] = []
-                children_map[parent_id].append(cwe_id)
+                parent_map.setdefault(cwe_id, set()).add(parent_id)
+                children_map.setdefault(parent_id, set()).add(cwe_id)
             
             # Set root pillar (top-level categories)
             if parent_id is None:  # This is a root pillar
                 root_id = cwe_id
-            root_map[cwe_id] = root_id
+            root_map.setdefault(cwe_id, set()).add(root_id)
             
             # Recurse through children
             for child in node.get('children', []):
@@ -970,13 +966,13 @@ def get_cwe_relationship_score(pred_cwe, true_cwe, parent_map, children_map, roo
         return 0.7
     
     # Check sibling relationship (same direct parent)
-    if (pred_cwe in parent_map and true_cwe in parent_map and 
-        parent_map[pred_cwe] == parent_map[true_cwe]):
+    if (pred_cwe in parent_map and true_cwe in parent_map and
+        parent_map[pred_cwe] & parent_map[true_cwe]):
         return 0.6
     
     # Check same root category (same pillar)
-    if (pred_cwe in root_map and true_cwe in root_map and 
-        root_map[pred_cwe] == root_map[true_cwe]):
+    if (pred_cwe in root_map and true_cwe in root_map and
+        root_map[pred_cwe] & root_map[true_cwe]):
         return 0.4
     
     return 0.0  # No relationship
@@ -7219,4 +7215,3 @@ for idx, task in enumerate(svd_tasks.values()):
 
 plt.tight_layout()
 plt.show()
-

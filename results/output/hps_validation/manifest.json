@@ -1,0 +1,19 @@
+{
+  "runs": [
+    1,
+    2,
+    3
+  ],
+  "hierarchy": "data/cwe_hierarchy.json",
+  "distance_definition": "Shortest path in the undirected CWE parent-child graph, with a virtual root connecting all top-level pillars.",
+  "overall": {
+    "mean_predictions": 2107.3333333333335,
+    "mean_wrong": 2076.6666666666665,
+    "mean_close_le_3": 288.6666666666667,
+    "close_pct_of_wrong": 13.900481540930981,
+    "mean_measurable": 1707.6666666666667,
+    "avg_distance": 5.00390396252196,
+    "mean_cwe119_top5": 932.0,
+    "cwe119_rate_pct": 44.22651059791205
+  }
+}

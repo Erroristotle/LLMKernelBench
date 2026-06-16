@@ -113,9 +113,6 @@ S.~Lu, D.~Guo, S.~Ren, J.~Huang, A.~Svyatkovskiy, A.~Blanco, C.~Clement, D.~Drai
 \bibitem{ferrag2025securefalcon}
 M.~A. Ferrag, A.~Battah, N.~Tihanyi, R.~Jain, D.~Maimu{\c{t}}, F.~Alwahedi, T.~Lestable, N.~S. Thandi, A.~Mechri, M.~Debbah \emph{et~al.}, ``Securefalcon: Are we there yet in automated software vulnerability detection with llms?'' \emph{IEEE Transactions on Software Engineering}, 2025.
 
-\bibitem{sheng2025llms}
-Z.~Sheng, Z.~Chen, S.~Gu, H.~Huang, G.~Gu, and J.~Huang, ``Llms in software security: A survey of vulnerability detection techniques and insights,'' \emph{ACM Computing Surveys}, vol.~58, no.~5, pp. 1--35, 2025.
-
 \bibitem{alam2024detection}
 M.~T. Alam, R.~Halder, and A.~Maiti, ``Detection made easy: Potentials of large language models for solidity vulnerabilities,'' \emph{arXiv preprint arXiv:2409.10574}, 2024.
 

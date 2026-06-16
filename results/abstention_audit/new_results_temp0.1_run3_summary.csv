@@ -1,0 +1,9 @@
+model,clean_abstention,verbose_abstention,genuine_abstention,invalid_or_indeterminate,candidate_total,genuine_pct,invalid_pct,response_total,genuine_all_responses_pct,invalid_all_responses_pct
+CodeLlama,0,0,0,33,33,0.0,100.0,1668,0.0,1.98
+DeepSeek-R1,0,0,0,0,0,,,1668,0.0,0.0
+GPT-4.1-mini,39,0,39,0,39,100.0,0.0,1668,2.34,0.0
+Llama3.1,0,0,0,0,0,,,1668,0.0,0.0
+Mistral,0,0,0,27,27,0.0,100.0,1668,0.0,1.62
+Qwen3-Coder,0,2,2,11,13,15.38,84.62,1668,0.12,0.66
+StarCoder2,0,1,1,379,380,0.26,99.74,1668,0.06,22.72
+TOTAL,39,3,42,450,492,8.54,91.46,11676,0.36,3.85
