@@ -1,80 +1,0 @@
-Starting evaluation with model: qwen3_coder
-Running evaluation on both databases...
-Loading checkpoint shards:   0%|          | 0/16 [00:00<?, ?it/s]Loading checkpoint shards:   6%|▋         | 1/16 [00:01<00:15,  1.02s/it]Loading checkpoint shards:  12%|█▎        | 2/16 [00:02<00:15,  1.10s/it]Loading checkpoint shards:  19%|█▉        | 3/16 [00:03<00:14,  1.13s/it]Loading checkpoint shards:  25%|██▌       | 4/16 [00:04<00:13,  1.14s/it]Loading checkpoint shards:  31%|███▏      | 5/16 [00:05<00:12,  1.15s/it]Loading checkpoint shards:  38%|███▊      | 6/16 [00:06<00:11,  1.16s/it]Loading checkpoint shards:  44%|████▍     | 7/16 [00:08<00:10,  1.16s/it]Loading checkpoint shards:  50%|█████     | 8/16 [00:09<00:09,  1.17s/it]Loading checkpoint shards:  56%|█████▋    | 9/16 [00:10<00:08,  1.17s/it]Loading checkpoint shards:  62%|██████▎   | 10/16 [00:11<00:06,  1.17s/it]Loading checkpoint shards:  69%|██████▉   | 11/16 [00:14<00:07,  1.57s/it]Loading checkpoint shards:  75%|███████▌  | 12/16 [00:19<00:11,  2.77s/it]Loading checkpoint shards:  81%|████████▏ | 13/16 [00:23<00:09,  3.21s/it]Loading checkpoint shards:  88%|████████▊ | 14/16 [00:28<00:07,  3.59s/it]Loading checkpoint shards:  94%|█████████▍| 15/16 [00:33<00:04,  4.13s/it]Loading checkpoint shards: 100%|██████████| 16/16 [00:35<00:00,  3.45s/it]Loading checkpoint shards: 100%|██████████| 16/16 [00:35<00:00,  2.22s/it]
-Device set to use cuda:0
-Loading checkpoint shards:   0%|          | 0/16 [00:00<?, ?it/s]Loading checkpoint shards:   6%|▋         | 1/16 [00:01<00:15,  1.03s/it]Loading checkpoint shards:  12%|█▎        | 2/16 [00:02<00:15,  1.11s/it]Loading checkpoint shards:  19%|█▉        | 3/16 [00:03<00:14,  1.14s/it]Loading checkpoint shards:  25%|██▌       | 4/16 [00:04<00:13,  1.15s/it]Loading checkpoint shards:  31%|███▏      | 5/16 [00:05<00:12,  1.16s/it]Loading checkpoint shards:  38%|███▊      | 6/16 [00:06<00:11,  1.16s/it]Loading checkpoint shards:  44%|████▍     | 7/16 [00:08<00:10,  1.17s/it]Loading checkpoint shards:  50%|█████     | 8/16 [00:09<00:09,  1.17s/it]Loading checkpoint shards:  56%|█████▋    | 9/16 [00:10<00:08,  1.17s/it]Loading checkpoint shards:  62%|██████▎   | 10/16 [00:11<00:07,  1.17s/it]Loading checkpoint shards:  69%|██████▉   | 11/16 [00:12<00:05,  1.17s/it]Loading checkpoint shards:  75%|███████▌  | 12/16 [00:13<00:04,  1.17s/it]Loading checkpoint shards:  81%|████████▏ | 13/16 [00:15<00:03,  1.17s/it]Loading checkpoint shards:  88%|████████▊ | 14/16 [00:16<00:02,  1.18s/it]Loading checkpoint shards:  94%|█████████▍| 15/16 [00:17<00:01,  1.18s/it]Loading checkpoint shards: 100%|██████████| 16/16 [00:17<00:00,  1.14it/s]Loading checkpoint shards: 100%|██████████| 16/16 [00:17<00:00,  1.10s/it]
-Device set to use cuda:0
-2025-11-27 00:30:30,982 - job_qwen3_coder_database_1764221406 - INFO - Starting task: is_vulnerable_vuln
-2025-11-27 00:42:03,948 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 10/314 commits processed
-2025-11-27 00:54:44,510 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 20/314 commits processed
-2025-11-27 01:06:52,080 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 30/314 commits processed
-2025-11-27 01:19:08,695 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 40/314 commits processed
-2025-11-27 01:32:23,843 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 50/314 commits processed
-2025-11-27 01:46:46,486 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 60/314 commits processed
-2025-11-27 01:58:25,020 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 70/314 commits processed
-2025-11-27 02:11:34,886 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 80/314 commits processed
-2025-11-27 02:23:32,310 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 90/314 commits processed
-2025-11-27 02:35:01,531 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 100/314 commits processed
-2025-11-27 02:48:16,639 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 110/314 commits processed
-2025-11-27 03:01:20,214 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 120/314 commits processed
-2025-11-27 03:12:24,878 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 130/314 commits processed
-2025-11-27 03:25:01,021 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 140/314 commits processed
-2025-11-27 03:37:07,082 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 150/314 commits processed
-2025-11-27 03:48:21,143 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 160/314 commits processed
-2025-11-27 03:59:48,968 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 170/314 commits processed
-2025-11-27 04:11:27,747 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 180/314 commits processed
-2025-11-27 04:22:11,200 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 190/314 commits processed
-2025-11-27 04:32:55,323 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 200/314 commits processed
-2025-11-27 04:46:33,262 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 210/314 commits processed
-2025-11-27 04:56:58,485 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 220/314 commits processed
-2025-11-27 05:11:04,849 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 230/314 commits processed
-2025-11-27 05:19:37,131 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 240/314 commits processed
-2025-11-27 05:32:46,325 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 250/314 commits processed
-2025-11-27 05:44:40,498 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 260/314 commits processed
-2025-11-27 05:56:48,773 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 270/314 commits processed
-2025-11-27 06:08:02,738 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 280/314 commits processed
-2025-11-27 06:21:14,231 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 290/314 commits processed
-2025-11-27 06:34:03,049 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 300/314 commits processed
-2025-11-27 06:47:08,150 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln: 310/314 commits processed
-2025-11-27 06:52:45,760 - job_qwen3_coder_database_1764221406 - INFO - Completed task: is_vulnerable_vuln
-2025-11-27 06:52:45,764 - job_qwen3_coder_database_1764221406 - INFO - Starting task: is_vulnerable_patch
-2025-11-27 07:05:05,720 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 10/314 commits processed
-2025-11-27 07:16:01,454 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 20/314 commits processed
-2025-11-27 07:28:56,921 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 30/314 commits processed
-2025-11-27 07:40:18,817 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 40/314 commits processed
-2025-11-27 07:53:28,987 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 50/314 commits processed
-2025-11-27 08:05:09,425 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 60/314 commits processed
-2025-11-27 08:17:46,747 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 70/314 commits processed
-2025-11-27 08:29:35,209 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 80/314 commits processed
-2025-11-27 08:41:30,555 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 90/314 commits processed
-2025-11-27 08:53:00,136 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 100/314 commits processed
-2025-11-27 09:05:18,119 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 110/314 commits processed
-2025-11-27 09:19:18,716 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 120/314 commits processed
-2025-11-27 09:31:24,778 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 130/314 commits processed
-2025-11-27 09:44:27,911 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 140/314 commits processed
-2025-11-27 09:55:44,398 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 150/314 commits processed
-2025-11-27 10:09:45,163 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 160/314 commits processed
-2025-11-27 10:20:46,940 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 170/314 commits processed
-2025-11-27 10:32:09,978 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 180/314 commits processed
-2025-11-27 10:42:30,738 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 190/314 commits processed
-2025-11-27 10:53:26,919 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 200/314 commits processed
-2025-11-27 11:04:42,131 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 210/314 commits processed
-2025-11-27 11:18:22,048 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 220/314 commits processed
-2025-11-27 11:31:54,128 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 230/314 commits processed
-2025-11-27 11:42:57,427 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 240/314 commits processed
-2025-11-27 11:54:08,742 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 250/314 commits processed
-2025-11-27 12:03:14,205 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 260/314 commits processed
-2025-11-27 12:14:20,791 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 270/314 commits processed
-2025-11-27 12:25:36,797 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 280/314 commits processed
-2025-11-27 12:37:04,076 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 290/314 commits processed
-2025-11-27 12:47:20,786 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 300/314 commits processed
-2025-11-27 12:59:31,852 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_patch: 310/314 commits processed
-2025-11-27 13:05:06,952 - job_qwen3_coder_database_1764221406 - INFO - Completed task: is_vulnerable_patch
-2025-11-27 13:05:06,956 - job_qwen3_coder_database_1764221406 - INFO - Starting task: is_vulnerable_vuln_cve_cwe
-2025-11-27 13:17:14,731 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln_cve_cwe: 10/314 commits processed
-2025-11-27 13:27:56,958 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln_cve_cwe: 20/314 commits processed
-2025-11-27 13:41:57,514 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln_cve_cwe: 30/314 commits processed
-2025-11-27 13:54:16,691 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln_cve_cwe: 40/314 commits processed
-2025-11-27 14:07:43,442 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln_cve_cwe: 50/314 commits processed
-2025-11-27 14:20:46,504 - job_qwen3_coder_database_1764221406 - INFO - Task is_vulnerable_vuln_cve_cwe: 60/314 commits processed
-slurmstepd: error: *** JOB 13917890 ON str-gpu24 CANCELLED AT 2025-11-27T14:32:13 ***

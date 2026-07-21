@@ -1,60 +1,0 @@
-Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-Loading weights:   0%|          | 0/515 [00:00<?, ?it/s]Loading weights:   0%|          | 1/515 [00:00<01:25,  6.02it/s]Loading weights:   7%|▋         | 37/515 [00:00<00:03, 151.94it/s]Loading weights:  13%|█▎        | 69/515 [00:00<00:02, 195.31it/s]Loading weights:  17%|█▋        | 90/515 [00:00<00:02, 189.01it/s]Loading weights:  23%|██▎       | 119/515 [00:00<00:02, 181.68it/s]Loading weights:  29%|██▉       | 149/515 [00:00<00:01, 195.00it/s]Loading weights:  35%|███▌      | 181/515 [00:00<00:01, 214.80it/s]Loading weights:  39%|███▉      | 203/515 [00:01<00:01, 215.86it/s]Loading weights:  44%|████▍     | 229/515 [00:01<00:01, 209.29it/s]Loading weights:  50%|█████     | 260/515 [00:01<00:01, 233.39it/s]Loading weights:  55%|█████▌    | 284/515 [00:01<00:01, 209.54it/s]Loading weights:  60%|██████    | 309/515 [00:01<00:01, 205.46it/s]Loading weights:  64%|██████▍   | 331/515 [00:01<00:00, 208.06it/s]Loading weights:  69%|██████▊   | 353/515 [00:01<00:00, 209.67it/s]Loading weights:  73%|███████▎  | 375/515 [00:01<00:00, 192.99it/s]Loading weights:  79%|███████▉  | 407/515 [00:02<00:00, 224.81it/s]Loading weights:  85%|████████▍ | 437/515 [00:02<00:00, 227.54it/s]Loading weights:  90%|████████▉ | 461/515 [00:02<00:00, 214.78it/s]Loading weights:  94%|█████████▍| 485/515 [00:02<00:00, 214.94it/s]Loading weights: 100%|██████████| 515/515 [00:02<00:00, 209.71it/s]
-The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-Could not extract any CWE identifiers from: 
-			binder_txn_error("%d:%d failed to copy security context\n",
-				thread->pid, proc->pid);
-			retu
-No CWEs extracted, storing empty list for commit 4df153652cc46545722879415937582028c18af5: 
-			binder_txn_error("%d:%d failed to copy security context\n",
-				thread->pid, proc->pid);
-			retu
-Could not extract any CWE identifiers from: _trans_chain_bound(trans)) {
-				pr_warn_once("nftables ruleset with unbound chain\n");
-				return -
-No CWEs extracted, storing empty list for commit 005e528c242b19b8131f300dcd4e730e89992acb: _trans_chain_bound(trans)) {
-				pr_warn_once("nftables ruleset with unbound chain\n");
-				return -
-Could not extract any CWE identifiers from: 
-
-	inode->i_mode = mode;
-	ntfs_get_wsl_perm(inode);
-	mode = inode->i_mode;
-
-	if (is_dir) {
-		ni->ni_
-No CWEs extracted, storing empty list for commit 98bea253aa28ad8be2ce565a9ca21beb4a9419e5: 
-
-	inode->i_mode = mode;
-	ntfs_get_wsl_perm(inode);
-	mode = inode->i_mode;
-
-	if (is_dir) {
-		ni->ni_
-Could not extract any CWE identifiers from: _JOURNAL_CHECKSUM) {
-		if (!ext4_has_feature_metadata_csum(sb)) {
-			ext4_msg(sb, KERN_ERR, "Can't m
-No CWEs extracted, storing empty list for commit 82939d7999dfc1f1998c4b1c12e2f19edbdff272: _JOURNAL_CHECKSUM) {
-		if (!ext4_has_feature_metadata_csum(sb)) {
-			ext4_msg(sb, KERN_ERR, "Can't m
-Could not extract any CWE identifiers from: 	rsp->DialectRevision = cpu_to_le16(conn->dialect_rev);
-	rsp->SecurityMode = cpu_to_le16(conn->sec_m
-No CWEs extracted, storing empty list for commit 8828003759391029fc45c15ac346622cdae19b6d: 	rsp->DialectRevision = cpu_to_le16(conn->dialect_rev);
-	rsp->SecurityMode = cpu_to_le16(conn->sec_m
-Could not extract any CWE identifiers from: gfs2_set_dops(inode);
-		break;
-	case S_IFLNK:
-		gfs2_set_sops(inode);
-		break;
-	default:
-		gfs2_set_
-No CWEs extracted, storing empty list for commit 34816d20f173a90389c8a7e641166d8ea9dce70a: gfs2_set_dops(inode);
-		break;
-	case S_IFLNK:
-		gfs2_set_sops(inode);
-		break;
-	default:
-		gfs2_set_
-Loading weights:   0%|          | 0/515 [00:00<?, ?it/s]Loading weights:   0%|          | 1/515 [00:01<08:54,  1.04s/it]Loading weights:   6%|▌         | 31/515 [00:01<00:14, 33.55it/s]Loading weights:   8%|▊         | 41/515 [00:01<00:20, 23.08it/s]Loading weights:  10%|█         | 53/515 [00:02<00:17, 26.12it/s]Loading weights:  11%|█▏        | 58/515 [00:02<00:19, 23.96it/s]Loading weights:  13%|█▎        | 69/515 [00:03<00:20, 21.68it/s]Loading weights:  17%|█▋        | 85/515 [00:03<00:14, 29.17it/s]Loading weights:  17%|█▋        | 89/515 [00:03<00:15, 27.31it/s]Loading weights:  20%|█▉        | 101/515 [00:04<00:16, 24.65it/s]Loading weights:  23%|██▎       | 117/515 [00:04<00:13, 29.84it/s]Loading weights:  24%|██▍       | 125/515 [00:04<00:13, 28.17it/s]Loading weights:  26%|██▌       | 133/515 [00:05<00:14, 26.11it/s]Loading weights:  26%|██▋       | 136/515 [00:05<00:15, 24.86it/s]Loading weights:  29%|██▉       | 149/515 [00:05<00:13, 26.22it/s]Loading weights:  32%|███▏      | 165/515 [00:06<00:12, 28.92it/s]Loading weights:  35%|███▌      | 181/515 [00:06<00:11, 29.37it/s]Loading weights:  36%|███▌      | 184/515 [00:07<00:13, 24.58it/s]Loading weights:  38%|███▊      | 197/515 [00:07<00:12, 26.43it/s]Loading weights:  41%|████▏     | 213/515 [00:08<00:10, 28.84it/s]Loading weights:  42%|████▏     | 216/515 [00:08<00:12, 23.14it/s]Loading weights:  44%|████▍     | 229/515 [00:09<00:11, 24.90it/s]Loading weights:  45%|████▌     | 232/515 [00:09<00:13, 20.85it/s]Loading weights:  48%|████▊     | 245/515 [00:09<00:11, 23.16it/s]Loading weights:  48%|████▊     | 248/515 [00:10<00:14, 18.45it/s]Loading weights:  51%|█████     | 261/515 [00:10<00:09, 26.55it/s]Loading weights:  51%|█████▏    | 265/515 [00:10<00:10, 24.20it/s]Loading weights:  54%|█████▍    | 277/515 [00:11<00:12, 18.84it/s]Loading weights:  57%|█████▋    | 295/515 [00:12<00:09, 22.83it/s]Loading weights:  60%|██████    | 309/515 [00:12<00:08, 24.34it/s]Loading weights:  63%|██████▎   | 325/515 [00:13<00:06, 27.17it/s]Loading weights:  64%|██████▎   | 328/515 [00:13<00:07, 24.81it/s]Loading weights:  65%|██████▌   | 335/515 [00:13<00:06, 27.15it/s]Loading weights:  66%|██████▌   | 341/515 [00:13<00:07, 24.20it/s]Loading weights:  69%|██████▉   | 357/515 [00:14<00:06, 26.01it/s]Loading weights:  70%|██████▉   | 360/515 [00:14<00:05, 26.09it/s]Loading weights:  72%|███████▏  | 373/515 [00:14<00:04, 34.30it/s]Loading weights:  73%|███████▎  | 377/515 [00:14<00:04, 33.82it/s]Loading weights:  76%|███████▌  | 389/515 [00:15<00:04, 27.99it/s]Loading weights:  79%|███████▊  | 405/515 [00:15<00:03, 28.37it/s]Loading weights:  79%|███████▉  | 409/515 [00:16<00:04, 24.57it/s]Loading weights:  82%|████████▏ | 421/515 [00:16<00:03, 30.24it/s]Loading weights:  83%|████████▎ | 425/515 [00:16<00:03, 22.66it/s]Loading weights:  85%|████████▍ | 437/515 [00:17<00:02, 30.81it/s]Loading weights:  86%|████████▌ | 441/515 [00:17<00:03, 22.26it/s]Loading weights:  88%|████████▊ | 453/515 [00:18<00:03, 19.04it/s]Loading weights:  91%|█████████ | 469/515 [00:18<00:01, 27.93it/s]Loading weights:  92%|█████████▏| 473/515 [00:18<00:01, 23.43it/s]Loading weights:  94%|█████████▍| 485/515 [00:19<00:01, 24.25it/s]Loading weights:  97%|█████████▋| 501/515 [00:19<00:00, 28.02it/s]Loading weights: 100%|██████████| 515/515 [00:19<00:00, 25.99it/s]
-Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.

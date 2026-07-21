@@ -85,7 +85,17 @@ logs/slurm/
 
 # DeepEval cache
 .deepeval/
-paper/TODO.md
-paper/reviewes_and_myanswers.md
 
+# Paper source (not part of the artifact)
+paper/
+
+# Claude Code local state
 .claude/
+
+# Raw SLURM job logs and scheduler resume-state (not results)
+results/logs/
+results/output/scheduler/
+results/*_output.txt
+
+# Intermediate per-run SQLite databases (duplicate the jsonl/json/csv results)
+results/**/*.sqlite
